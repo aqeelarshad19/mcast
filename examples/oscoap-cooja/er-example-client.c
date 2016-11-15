@@ -94,9 +94,11 @@ client_chunk_handler(void *response)
   printf("payload addr %p\n", ((coap_packet_t*)response)->payload);
   int len = coap_get_payload(response, &chunk);
   printf("payload len %d\n", len);
+  oscoap_printf_hex(((coap_packet_t*)response)->payload, len);
   printf("buffer\n");
   oscoap_printf_hex(((coap_packet_t*)response)->buffer, 50);
   printf("|%.*s", len, (char *)chunk);
+  printf("\n");
 }
 
 PROCESS_THREAD(er_example_client, ev, data)

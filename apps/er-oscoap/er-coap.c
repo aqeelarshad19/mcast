@@ -735,7 +735,7 @@ coap_status_t coap_parse_message(void *packet, uint8_t *data,
     current_option += option_length;
   }                             /* for */
     if(OSCOAP){
-            oscoap_decode_packet(coap_pkt);
+        return oscoap_decode_packet(coap_pkt);
 
     }
 

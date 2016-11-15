@@ -93,6 +93,7 @@ coap_receive(void)
       coap_parse_message(message, uip_appdata, uip_datalen());
     
     if(erbium_status_code == NO_ERROR) {
+      printf("buffer addr %p\n", uip_appdata);
       /*TODO duplicates suppression, if required by application */
       PRINTF("  Parsed: v %u, t %u, tkl %u, c %u, mid %u\n", message->version,
              message->type, message->token_len, message->code, message->mid);

@@ -364,7 +364,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 
 //TODO This function must be able to fail and integrate a fail-auth 
 // for example with the er-coap stuff
-void oscoap_decode_packet(coap_packet_t* coap_pkt){
+coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
        
   opt_cose_encrypt_t cose;
   OPT_COSE_Init(&cose);
@@ -437,7 +437,9 @@ void oscoap_decode_packet(coap_packet_t* coap_pkt){
     cose.plaintext = plaintext_buffer;
     cose.plaintext_len = cose.ciphertext_len - 8;
 
-    _OPT_COSE_Decrypt(&cose, ctx->RECEIVER_WRITE_KEY, CONTEXT_KEY_LEN);
+    if(_OPT_COSE_Decrypt(&cose, ctx->RECEIVER_WRITE_KEY, CONTEXT_KEY_LEN)){
+      return CRYPTO_ERROR;
+    }
 
     PRINTF("PLAINTEXT DECRYPTED len %d\n", cose.plaintext_len);
     PRINTF_HEX(cose.plaintext, cose.plaintext_len);
@@ -467,6 +469,8 @@ void oscoap_decode_packet(coap_packet_t* coap_pkt){
     oscoap_restore_packet(coap_pkt);
     PRINTF("buffer after restore pkt\n");
     PRINTF_HEX(coap_pkt->buffer, 50);
+
+    return NO_ERROR;
     
 }
 

@@ -45,16 +45,16 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 typedef struct OSCOAP_CONTEXT
 {
-	uint16_t	CONTEXT_ID; //16 bits should be enough of context for now
-  uint8_t  	ALG;
-  struct OSCOAP_CONTEXT *next;
+	uint16_t	 CONTEXT_ID; //16 bits should be enough of context for now
+  uint8_t  	 ALG;
+  struct     OSCOAP_CONTEXT *next;
 	
-  uint8_t	SENDER_WRITE_KEY[CONTEXT_KEY_LEN];
-	uint8_t 	SENDER_WRITE_IV[CONTEXT_INIT_VECT_LEN];
+  uint8_t	   SENDER_WRITE_KEY[CONTEXT_KEY_LEN];
+	uint8_t 	 SENDER_WRITE_IV[CONTEXT_INIT_VECT_LEN];
   uint32_t   SENDER_WRITE_SEQ;
 	
-  uint8_t	RECEIVER_WRITE_KEY[CONTEXT_KEY_LEN];
-	uint8_t	RECEIVER_WRITE_IV[CONTEXT_INIT_VECT_LEN];
+  uint8_t	   RECEIVER_WRITE_KEY[CONTEXT_KEY_LEN];
+	uint8_t	   RECEIVER_WRITE_IV[CONTEXT_INIT_VECT_LEN];
   uint32_t   RECEIVER_WRITE_SEQ;
 
 	//unsigned long REPLAY_WINDOW; //TODO add replay window support

@@ -57,7 +57,7 @@ int oscoap_ctx_free(OSCOAP_CONTEXT *ctx);
 
 void clear_options(coap_packet_t* coap_pkt);
 size_t oscoap_prepare_message(void* packet, uint8_t* buffer);
-void oscoap_decode_packet(coap_packet_t* coap_pkt);
+coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt);
 void oscoap_restore_packet(void* packet);
 size_t oscoap_prepare_plaintext(void* packet, uint8_t* plaintext_buffer);
 
