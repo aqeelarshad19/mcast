@@ -113,7 +113,8 @@ typedef enum {
   /* Erbium errors */
   MEMORY_ALLOCATION_ERROR = 192,
   PACKET_SERIALIZATION_ERROR,
-  CRYPTO_ERROR,
+  OSCOAP_CRYPTO_ERROR,
+  OSCOAP_SEQ_ERROR,
 
   /* Erbium hooks */
   MANUAL_RESPONSE,

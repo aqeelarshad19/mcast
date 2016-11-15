@@ -39,6 +39,7 @@ typedef struct opt_cose_encrypt_t{
 	//some field is request maybe?
 	uint8_t alg;
 	
+	//SEquence number is stored as partial_iv
 	uint8_t *partial_iv; //protected
 	size_t partial_iv_len;
 	
@@ -49,8 +50,8 @@ typedef struct opt_cose_encrypt_t{
 	size_t tid_len;
 	/* Unprotected shall be empty */
 	
-	uint8_t *seq;
-	size_t seq_len;
+//	uint8_t *seq;
+//	size_t seq_len;
 
 	uint8_t *nonce;
 	size_t nonce_len;

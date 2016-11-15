@@ -37,6 +37,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "er-coap.h"
 #include <sys/types.h>
 
+#define CLEAR_OPTION(packet, opt) ((packet)->options[opt / OPTION_MAP_SIZE] &= ~(1 << (opt % OPTION_MAP_SIZE))) //clear one bit
 
 
 //debug methods
@@ -46,6 +47,7 @@ void oscoap_printf_bin(unsigned char *data, unsigned int len);
 
 /* The number of Security Contexts available on this device */
 #define CONTEXT_NUM 3
+
 /* Functions for handling the security contexts */
 void oscoap_ctx_store_init();
 OSCOAP_CONTEXT* oscoap_ctx_new( uint16_t cid, uint8_t* sw_k, uint8_t* sw_iv, uint8_t* rw_k, uint8_t* rw_iv);
@@ -53,7 +55,6 @@ OSCOAP_CONTEXT* oscoap_ctx_find_by_cid(uint16_t cid);
 int oscoap_ctx_free(OSCOAP_CONTEXT *ctx);
 
 
-#define CLEAR_OPTION(packet, opt) ((packet)->options[opt / OPTION_MAP_SIZE] &= ~(1 << (opt % OPTION_MAP_SIZE))) //clear one bit
 
 void clear_options(coap_packet_t* coap_pkt);
 size_t oscoap_prepare_message(void* packet, uint8_t* buffer);

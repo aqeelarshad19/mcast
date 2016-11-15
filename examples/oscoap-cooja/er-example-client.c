@@ -90,13 +90,13 @@ void
 client_chunk_handler(void *response)
 {
   const uint8_t *chunk;
-  printf("message id  %d\n", ((coap_packet_t*)response)->mid);
-  printf("payload addr %p\n", ((coap_packet_t*)response)->payload);
+ // printf("message id  %d\n", ((coap_packet_t*)response)->mid);
+ // printf("payload addr %p\n", ((coap_packet_t*)response)->payload);
   int len = coap_get_payload(response, &chunk);
-  printf("payload len %d\n", len);
-  oscoap_printf_hex(((coap_packet_t*)response)->payload, len);
-  printf("buffer\n");
-  oscoap_printf_hex(((coap_packet_t*)response)->buffer, 50);
+ // printf("payload len %d\n", len);
+ // oscoap_printf_hex(((coap_packet_t*)response)->payload, len);
+ // printf("buffer\n");
+ // oscoap_printf_hex(((coap_packet_t*)response)->buffer, 50);
   printf("|%.*s", len, (char *)chunk);
   printf("\n");
 }

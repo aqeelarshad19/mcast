@@ -39,7 +39,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "opt-cose.h"
 #include "lib/memb.h"
 
-#define DEBUG 1
+#define DEBUG 0
 
 #if DEBUG
 #include <stdio.h>
@@ -109,10 +109,8 @@ int oscoap_ctx_free(OSCOAP_CONTEXT *ctx){
     }else{
 
       OSCOAP_CONTEXT *ctx_ptr = context_store;
-     // OSCOAP_CONTEXT *prev_ptr;
 
       while(ctx_ptr->next != ctx){
-      //  prev_ptr = ctx_ptr;
         ctx_ptr = ctx_ptr->next;
       }
 
@@ -200,29 +198,25 @@ uint8_t oscoap_write_aad_seq(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t* 
 	return tid_len;
 }
 
-size_t  oscoap_prepare_send_response_aad(coap_packet_t* coap_pkt, uint8_t* buffer){
+size_t  oscoap_prepare_response_aad(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t sender){
 
   uint8_t seq_buffer[CONTEXT_SEQ_LEN];
-	uint8_t seq_len = to_bytes(coap_pkt->context->SENDER_WRITE_SEQ, seq_buffer);
-	
+  uint8_t seq_len;
+ 
+  if(sender){
+    seq_len = to_bytes(coap_pkt->context->SENDER_WRITE_SEQ, seq_buffer);
+  }else{
+    seq_len = to_bytes(coap_pkt->context->RECEIVER_WRITE_SEQ, seq_buffer);
+  }
 
   uint8_t cid_buffer[CONTEXT_CID_LEN];
-	uint8_t cid_len = to_bytes(coap_pkt->context->CONTEXT_ID, cid_buffer);
+  uint8_t cid_len = to_bytes(coap_pkt->context->CONTEXT_ID, cid_buffer);
 
-	oscoap_write_aad_header(coap_pkt, buffer);
-	oscoap_write_aad_cid(coap_pkt, buffer, cid_buffer, cid_len);
-	oscoap_write_aad_seq(coap_pkt, buffer, seq_buffer, seq_len, cid_len);
+  oscoap_write_aad_header(coap_pkt, buffer);
+  oscoap_write_aad_cid(coap_pkt, buffer, cid_buffer, cid_len);
+  oscoap_write_aad_seq(coap_pkt, buffer, seq_buffer, seq_len, cid_len);
 
-	return seq_len + 3 + cid_len;
-}
-
-size_t  oscoap_prepare_receive_response_aad(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t* seq, uint8_t seq_len){
-
-	oscoap_write_aad_header(coap_pkt, buffer);
-	oscoap_write_aad_cid(coap_pkt, buffer, seq, seq_len); //PLACEHOLDER
-	oscoap_write_aad_seq(coap_pkt, buffer, seq, seq_len, 0); // TODO, fix entire method
-
-	return seq_len + 3 + CONTEXT_CID_LEN;	
+  return seq_len + 3 + cid_len;
 }
 
 
@@ -241,11 +235,13 @@ void oscoap_increment_sender_seq(OSCOAP_CONTEXT* ctx){
    //TODO CHECKS FOR LIMITS
 }
 
-bool oscoap_validate_receiver_seq(OSCOAP_CONTEXT* ctx, unsigned int incoming_seq){
-	if(incoming_seq > ctx->RECEIVER_WRITE_SEQ){
-		ctx->RECEIVER_WRITE_SEQ = incoming_seq;
+//TODO only works for one byte seq ATM
+uint8_t oscoap_validate_receiver_seq(OSCOAP_CONTEXT* ctx, opt_cose_encrypt_t *cose){
+	if(cose->partial_iv[0] > ctx->RECEIVER_WRITE_SEQ){
+		ctx->RECEIVER_WRITE_SEQ = cose->partial_iv[0];
 		return true;
 	} else {
+    PRINTF("ctx->RECEIVER_WRITE_SEQ %d, cose->seq[0] %d\n", ctx->RECEIVER_WRITE_SEQ, cose->partial_iv[0]);
 		return false;
 	}
 }
@@ -289,7 +285,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
     
   //Serialize options and payload
   size_t plaintext_size =  oscoap_prepare_plaintext( packet, plaintext_buffer);
-  //printf("PLAINTEXT SIZE = %d\n", plaintext_size); 
+ 
   OPT_COSE_SetContent(&cose, plaintext_buffer, plaintext_size);
   
   OPT_COSE_SetAlg(&cose, COSE_Algorithm_AES_CCM_64_64_128);
@@ -322,10 +318,11 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
       uint8_t kid[1] = {2};
       OPT_COSE_SetKeyID(&cose, kid, 1);
       
-      external_aad_size = oscoap_prepare_send_response_aad(coap_pkt, external_aad_buffer);
+      external_aad_size = oscoap_prepare_response_aad(coap_pkt, external_aad_buffer, 1);//oscoap_prepare_send_response_aad(coap_pkt, external_aad_buffer);
 
   }
   PRINTF("KID set to %d\n", cose.kid[0]);
+  PRINTF("SEQ set to %d\n", cose.partial_iv[0]);
    
   OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
 
@@ -407,6 +404,11 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     		OPT_COSE_SetNonce(&cose, nonce, CONTEXT_INIT_VECT_LEN); 
   	}
 
+    if(!oscoap_validate_receiver_seq(ctx, &cose)){
+      return OSCOAP_SEQ_ERROR; 
+    }
+ 
+
     OPT_COSE_SetAlg(&cose, COSE_Algorithm_AES_CCM_64_64_128);
   
 
@@ -419,7 +421,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     
     } else {
         PRINTF("we have a incomming response!\n");
-        external_aad_size = oscoap_prepare_send_response_aad(coap_pkt, external_aad);
+        external_aad_size = oscoap_prepare_response_aad(coap_pkt, external_aad, 0);
             
     }
 
@@ -438,17 +440,13 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     cose.plaintext_len = cose.ciphertext_len - 8;
 
     if(_OPT_COSE_Decrypt(&cose, ctx->RECEIVER_WRITE_KEY, CONTEXT_KEY_LEN)){
-      return CRYPTO_ERROR;
+      return OSCOAP_CRYPTO_ERROR;
     }
 
     PRINTF("PLAINTEXT DECRYPTED len %d\n", cose.plaintext_len);
     PRINTF_HEX(cose.plaintext, cose.plaintext_len);
     
     if(coap_pkt->object_security_len == 0){
-      
-      PRINTF("B\n");
-      PRINTF("payload addr %p\n", coap_pkt->payload);
-      PRINTF("OS addr %p\n", coap_pkt->object_security);
 
       memcpy(coap_pkt->object_security, cose.plaintext, cose.plaintext_len);     
       coap_pkt->object_security_len = cose.plaintext_len;
@@ -458,7 +456,6 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 
     } else {
 
-      PRINTF("A\n");
       memcpy(coap_pkt->object_security, cose.plaintext, cose.plaintext_len);     
       coap_pkt->object_security_len = cose.plaintext_len;
     
