@@ -99,23 +99,7 @@
       <motetype_identifier>z12</motetype_identifier>
     </mote>
     <mote>
-      <breakpoints>
-        <breakpoint>
-          <stops>false</stops>
-          <codefile>[CONTIKI_DIR]/apps/er-oscoap/er-coap-engine.c</codefile>
-          <line>272</line>
-          <contikicode>printf("message-&gt;buffer addr %p\n",  message-&gt;buffer);</contikicode>
-          <color>-16777216</color>
-        </breakpoint>
-        <breakpoint>
-          <stops>true</stops>
-          <codefile>[CONTIKI_DIR]/apps/er-oscoap/er-coap-engine.c</codefile>
-          <line>390</line>
-          <contikicode>printf("WTH??\n");</contikicode>
-          <msg>packetbuffer blir galen här</msg>
-          <color>-16777216</color>
-        </breakpoint>
-      </breakpoints>
+      <breakpoints />
       <interface_config>
         org.contikios.cooja.interfaces.Position
         <x>94.00014607803888</x>
@@ -153,11 +137,11 @@
   </simulation>
   <plugin>
     org.contikios.cooja.plugins.SimControl
-    <width>280</width>
-    <z>3</z>
+    <width>400</width>
+    <z>1</z>
     <height>160</height>
-    <location_x>70</location_x>
-    <location_y>931</location_y>
+    <location_x>1</location_x>
+    <location_y>404</location_y>
   </plugin>
   <plugin>
     org.contikios.cooja.plugins.Visualizer
@@ -171,24 +155,10 @@
       <viewport>6.911450358303923 0.0 0.0 6.911450358303923 -333.0914847058243 -451.4960057596647</viewport>
     </plugin_config>
     <width>400</width>
-    <z>6</z>
+    <z>4</z>
     <height>400</height>
     <location_x>1</location_x>
     <location_y>1</location_y>
-  </plugin>
-  <plugin>
-    org.contikios.cooja.plugins.LogListener
-    <plugin_config>
-      <filter />
-      <formatted_time />
-      <coloring />
-    </plugin_config>
-    <width>1895</width>
-    <z>-1</z>
-    <height>956</height>
-    <location_x>402</location_x>
-    <location_y>2</location_y>
-    <minimized>true</minimized>
   </plugin>
   <plugin>
     org.contikios.cooja.plugins.TimeLine
@@ -202,10 +172,10 @@
       <zoomfactor>500.0</zoomfactor>
     </plugin_config>
     <width>2295</width>
-    <z>8</z>
+    <z>3</z>
     <height>166</height>
-    <location_x>0</location_x>
-    <location_y>1227</location_y>
+    <location_x>4</location_x>
+    <location_y>1098</location_y>
   </plugin>
   <plugin>
     org.contikios.cooja.serialsocket.SerialSocketServer
@@ -215,62 +185,10 @@
       <bound>true</bound>
     </plugin_config>
     <width>362</width>
-    <z>7</z>
-    <height>116</height>
-    <location_x>25</location_x>
-    <location_y>464</location_y>
-  </plugin>
-  <plugin>
-    org.contikios.cooja.mspmote.plugins.MspStackWatcher
-    <mote_arg>1</mote_arg>
-    <plugin_config>
-      <monitoring>true</monitoring>
-    </plugin_config>
-    <width>400</width>
-    <z>5</z>
-    <height>300</height>
-    <location_x>-5</location_x>
-    <location_y>625</location_y>
-  </plugin>
-  <plugin>
-    org.contikios.cooja.plugins.VariableWatcher
-    <mote_arg>1</mote_arg>
-    <plugin_config>
-      <varname />
-      <vartype>0</vartype>
-      <varformat>2</varformat>
-    </plugin_config>
-    <width>445</width>
-    <z>0</z>
-    <height>239</height>
-    <location_x>363</location_x>
-    <location_y>946</location_y>
-  </plugin>
-  <plugin>
-    org.contikios.cooja.mspmote.plugins.MspCodeWatcher
-    <mote_arg>1</mote_arg>
-    <plugin_config>
-      <tab>0</tab>
-      <rule from="/cygdrive/c/" to="c:/" />
-    </plugin_config>
-    <width>750</width>
-    <z>4</z>
-    <height>500</height>
-    <location_x>1528</location_x>
-    <location_y>726</location_y>
-  </plugin>
-  <plugin>
-    org.contikios.cooja.mspmote.plugins.MspCodeWatcher
-    <mote_arg>1</mote_arg>
-    <plugin_config>
-      <tab>0</tab>
-      <rule from="/cygdrive/c/" to="c:/" />
-    </plugin_config>
-    <width>715</width>
     <z>2</z>
-    <height>500</height>
-    <location_x>811</location_x>
-    <location_y>727</location_y>
+    <height>116</height>
+    <location_x>10</location_x>
+    <location_y>981</location_y>
   </plugin>
   <plugin>
     org.contikios.cooja.plugins.LogListener
@@ -280,8 +198,8 @@
       <coloring />
     </plugin_config>
     <width>1880</width>
-    <z>1</z>
-    <height>722</height>
+    <z>0</z>
+    <height>1091</height>
     <location_x>403</location_x>
     <location_y>4</location_y>
   </plugin>
