@@ -47,11 +47,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 size_t  OPT_COSE_Encode(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	size_t ret = 0;
-	ret += OPT_COSE_put_cbor_array(&buffer, 3);
+	ret += OPT_CBOR_put_array(&buffer, 3);
 	ret += OPT_COSE_Encode_Protected(cose, &buffer);
-	ret += OPT_COSE_put_cbor_map(&buffer, 0);
+	ret += OPT_CBOR_put_map(&buffer, 0);
 	PRINTF("ciphertext len dec: %d hex: %02x\n", cose->ciphertext_len, cose->ciphertext_len);
-	ret += OPT_COSE_put_cbor_bytes(&buffer, cose->ciphertext_len, cose->ciphertext);
+	ret += OPT_CBOR_put_bytes(&buffer, cose->ciphertext_len, cose->ciphertext);
 
 	return ret;
 }
@@ -136,25 +136,25 @@ uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 	if(cose->kid_len != 0){
 		**buffer = (0x40 | (cose->partial_iv_len + 3 + cose->kid_len + 2));
 		(*buffer)++;
-		OPT_COSE_put_cbor_map(buffer, 2);
-		OPT_COSE_put_cbor_unsigned(buffer, 2);
-		OPT_COSE_put_cbor_bytes(buffer, cose->kid_len, cose->kid);
+		OPT_CBOR_put_map(buffer, 2);
+		OPT_CBOR_put_unsigned(buffer, 2);
+		OPT_CBOR_put_bytes(buffer, cose->kid_len, cose->kid);
 	}else{
 		**buffer = (0x40 | (cose->partial_iv_len + 3 + cose->kid_len));
 		(*buffer)++;
-		OPT_COSE_put_cbor_map(buffer, 1);
+		OPT_CBOR_put_map(buffer, 1);
 	}
-	OPT_COSE_put_cbor_unsigned(buffer, 6);
-	OPT_COSE_put_cbor_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
+	OPT_CBOR_put_unsigned(buffer, 6);
+	OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
 	return 1;
 }
 
 uint8_t _OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){
-	OPT_COSE_put_cbor_array(&buffer, 3);
+	OPT_CBOR_put_array(&buffer, 3);
 	char* encrypted = "Encrypted";
-	OPT_COSE_put_cbor_text(&buffer, encrypted , strlen(encrypted));
+	OPT_CBOR_put_text(&buffer, encrypted , strlen(encrypted));
 	OPT_COSE_Encode_Protected(cose, &buffer);
-	OPT_COSE_put_cbor_bytes(&buffer, cose->external_aad_len, cose->external_aad);
+	OPT_CBOR_put_bytes(&buffer, cose->external_aad_len, cose->external_aad);
 	return 1;
 }
 
@@ -172,71 +172,6 @@ size_t  _OPT_COSE_AAD_length(opt_cose_encrypt_t *cose){
 	return ret;
 }
 
-uint8_t OPT_COSE_put_cbor_text(uint8_t **buffer, char *text, size_t text_len){
-	uint8_t ret = 0;
-	if(text_len > 15){
-		PRINTF("put text error\n");
-		return 0;
-	}
-
-	**buffer = (0x60 | text_len);
-	(*buffer)++;
-	ret += 1;
-	memcpy(*buffer, text, text_len);
-	(*buffer)+= text_len;
-	ret += text_len;
-	return ret;
-}
-
-uint8_t OPT_COSE_put_cbor_array(uint8_t **buffer,uint8_t elements){
-	if(elements > 15){
-		PRINTF("put array error\n");
-		return 0;
-	}
-
-	**buffer = (0x80 | elements);
-	(*buffer)++;
-	return 1;
-}
-
-uint8_t OPT_COSE_put_cbor_bytes(uint8_t **buffer, uint8_t bytes_len, uint8_t *bytes){
-	uint8_t ret = 0;
-	if(bytes_len > 15){
-		**buffer = 0x58;
-		(*buffer)++;
-		**buffer = bytes_len;
-		(*buffer)++;
-		ret += 2;
-	}else{
-		**buffer = (0x40 | bytes_len);
-		(*buffer)++;
-		ret += 1;
-	}
-	memcpy(*buffer, bytes, bytes_len);
-	(*buffer) += bytes_len;
-	ret += bytes_len;
-	return ret;
-}
-uint8_t OPT_COSE_put_cbor_map(uint8_t **buffer, uint8_t elements){
-	if(elements > 15){
-		PRINTF("error in map\n");
-		return 0;
-	}
-	**buffer = (0xa0 | elements);
-	(*buffer)++;
-
-	return 1;
-}
-
-uint8_t OPT_COSE_put_cbor_unsigned(uint8_t **buffer, uint8_t value){
-	if(value > 15){
-		PRINTF("error in unsigned\n");
-		return 0;
-	}
-	(**buffer) = (value);
-	(*buffer)++;
-	return 1;
-}
 uint8_t OPT_COSE_SetNonce(opt_cose_encrypt_t *cose, uint8_t *nonce_buffer, size_t nonce_len){
 	cose->nonce = nonce_buffer;
 	cose->nonce_len = nonce_len;
