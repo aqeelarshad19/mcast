@@ -56,43 +56,66 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif /* OSCOAP_DEBUG */
 
 
-OSCOAP_CONTEXT *context_store = NULL;
+//OSCOAP_CONTEXT *context_store = NULL;
 
-MEMB(security_contexts, OSCOAP_CONTEXT, CONTEXT_NUM);
+//MEMB(security_contexts, OSCOAP_CONTEXT, CONTEXT_NUM);
+
+OSCOAP_COMMON_CONTEXT *common_context_store = NULL;
+
+MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
+MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
+MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
 
 void oscoap_ctx_store_init(){
- 
-  memb_init(&security_contexts);
+  //OLD
+  //memb_init(&security_contexts);
+  //NEW
+  memb_init(&common_contexts);
+  memb_init(&sender_contexts);
+  memb_init(&recipient_contexts);
+
 }
 
-OSCOAP_CONTEXT* oscoap_ctx_new( uint16_t cid, uint8_t* sw_k, uint8_t* sw_iv, uint8_t* rw_k, uint8_t* rw_iv){
-    OSCOAP_CONTEXT* ctx = memb_alloc(&security_contexts);
-    if(ctx == NULL) return 0;
-      
-    ctx->ALG = COSE_Algorithm_AES_CCM_64_64_128;
-    ctx->CONTEXT_ID = cid;
-    memcpy(ctx->SENDER_WRITE_KEY, sw_k, CONTEXT_KEY_LEN);
-    memcpy(ctx->SENDER_WRITE_IV, sw_iv, CONTEXT_INIT_VECT_LEN);
-    memcpy(ctx->RECEIVER_WRITE_KEY, rw_k, CONTEXT_KEY_LEN);
-    memcpy(ctx->RECEIVER_WRITE_IV, rw_iv, CONTEXT_INIT_VECT_LEN);
-    ctx->SENDER_WRITE_SEQ = 0;
-    ctx->RECEIVER_WRITE_SEQ = 0;
+//TODO add support for key generation using a base key and HKDF, this will come at a later stage
+OSCOAP_COMMON_CONTEXT* oscoap_new_ctx( uint64_t cid, uint8_t* sw_k, uint8_t* sw_iv, uint8_t* rw_k, uint8_t* rw_iv){
+    OSCOAP_COMMON_CONTEXT* common_ctx = memb_alloc(&common_contexts);
+    if(common_ctx == NULL) return 0;
    
-    ctx->next = context_store;
-    context_store = ctx;
+    OSCOAP_RECIPIENT_CONTEXT* recipient_ctx = memb_alloc(&recipient_contexts);
+    if(recipient_ctx == NULL) return 0;
    
-    return ctx;
+    OSCOAP_SENDER_CONTEXT* sender_ctx = memb_alloc(&sender_contexts);
+    if(sender_ctx == NULL) return 0;
+
+    common_ctx->ALG = COSE_Algorithm_AES_CCM_64_64_128;
+    common_ctx->CONTEXT_ID = cid;
+    common_ctx->RECIPIENT_CONTEXT = recipient_ctx;
+    common_ctx->SENDER_CONTEXT = sender_ctx;
+
+    memcpy(sender_ctx->SENDER_KEY, sw_k, CONTEXT_KEY_LEN);
+    memcpy(sender_ctx->SENDER_IV, sw_iv, CONTEXT_INIT_VECT_LEN);
+    sender_ctx->SENDER_SEQ = 0;
+
+    memcpy(recipient_ctx->RECIPIENT_KEY, rw_k, CONTEXT_KEY_LEN);
+    memcpy(recipient_ctx->RECIPIENT_IV, rw_iv, CONTEXT_INIT_VECT_LEN);
+    recipient_ctx->RECIPIENT_SEQ = 0;
+    recipient_ctx->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
+   
+    common_ctx->NEXT_CONTEXT = common_context_store;
+    common_context_store = common_ctx;
+   
+    return common_ctx;
 }
 
-OSCOAP_CONTEXT* oscoap_ctx_find_by_cid(uint16_t cid){
-    if(context_store == NULL){
+OSCOAP_COMMON_CONTEXT* oscoap_find_ctx_by_cid(uint64_t cid){
+    if(common_context_store == NULL){
       return NULL;
     }
 
-    OSCOAP_CONTEXT *ctx_ptr = context_store;
+    OSCOAP_COMMON_CONTEXT *ctx_ptr = common_context_store;
 
     while(ctx_ptr->CONTEXT_ID != cid){
-      ctx_ptr = ctx_ptr->next;
+      ctx_ptr = ctx_ptr->NEXT_CONTEXT;
     
       if(ctx_ptr == NULL){
         return NULL;
@@ -101,33 +124,38 @@ OSCOAP_CONTEXT* oscoap_ctx_find_by_cid(uint16_t cid){
     return ctx_ptr;
 }
 
-int oscoap_ctx_free(OSCOAP_CONTEXT *ctx){
+int oscoap_free_ctx(OSCOAP_COMMON_CONTEXT *ctx){
 
-    if(context_store == ctx){
-      context_store = ctx->next;
+    if(common_context_store == ctx){
+      common_context_store = ctx->NEXT_CONTEXT;
 
     }else{
 
-      OSCOAP_CONTEXT *ctx_ptr = context_store;
+      OSCOAP_COMMON_CONTEXT *ctx_ptr = common_context_store;
 
-      while(ctx_ptr->next != ctx){
-        ctx_ptr = ctx_ptr->next;
+      while(ctx_ptr->NEXT_CONTEXT != ctx){
+        ctx_ptr = ctx_ptr->NEXT_CONTEXT;
       }
 
-      if(ctx_ptr->next->next != NULL){
-        ctx_ptr->next = ctx_ptr->next->next;
+      if(ctx_ptr->NEXT_CONTEXT->NEXT_CONTEXT != NULL){
+        ctx_ptr->NEXT_CONTEXT = ctx_ptr->NEXT_CONTEXT->NEXT_CONTEXT;
       }else{
-        ctx_ptr->next = NULL;
+        ctx_ptr->NEXT_CONTEXT = NULL;
       }
     }
-    memset(ctx->SENDER_WRITE_KEY, 0x00, CONTEXT_KEY_LEN);
-    memset(ctx->SENDER_WRITE_IV, 0x00, CONTEXT_INIT_VECT_LEN);
-    memset(ctx->RECEIVER_WRITE_KEY, 0x00, CONTEXT_KEY_LEN);
-    memset(ctx->RECEIVER_WRITE_IV, 0x00, CONTEXT_INIT_VECT_LEN);
+    memset(ctx->BASE_KEY, 0x00, BASE_KEY_LEN);
+    memset(ctx->SENDER_CONTEXT->SENDER_KEY, 0x00, CONTEXT_KEY_LEN);
+    memset(ctx->SENDER_CONTEXT->SENDER_IV, 0x00, CONTEXT_INIT_VECT_LEN);
+    memset(ctx->RECIPIENT_CONTEXT->RECIPIENT_KEY, 0x00, CONTEXT_KEY_LEN);
+    memset(ctx->RECIPIENT_CONTEXT->RECIPIENT_IV, 0x00, CONTEXT_INIT_VECT_LEN);
 
-    return memb_free(&security_contexts, ctx);
+    int ret = 0;
+    ret += memb_free(&sender_contexts, ctx->SENDER_CONTEXT);
+    ret += memb_free(&recipient_contexts, ctx->RECIPIENT_CONTEXT);
+    ret += memb_free(&common_contexts, ctx);
+  
+    return ret;
 }
-
 
 uint32_t
 log_2(uint32_t value)
@@ -204,9 +232,9 @@ size_t  oscoap_prepare_response_aad(coap_packet_t* coap_pkt, uint8_t* buffer, ui
   uint8_t seq_len;
  
   if(sender){
-    seq_len = to_bytes(coap_pkt->context->SENDER_WRITE_SEQ, seq_buffer);
+    seq_len = to_bytes(coap_pkt->context->SENDER_CONTEXT->SENDER_SEQ, seq_buffer);
   }else{
-    seq_len = to_bytes(coap_pkt->context->RECEIVER_WRITE_SEQ, seq_buffer);
+    seq_len = to_bytes(coap_pkt->context->RECIPIENT_CONTEXT->RECIPIENT_SEQ, seq_buffer);
   }
 
   uint8_t cid_buffer[CONTEXT_CID_LEN];
@@ -230,18 +258,27 @@ size_t  oscoap_prepare_request_aad(coap_packet_t* coap_pkt, uint8_t* buffer){
 	return 3; // + uri_len;
 }
 
-void oscoap_increment_sender_seq(OSCOAP_CONTEXT* ctx){
-    ctx->SENDER_WRITE_SEQ++; 
+size_t _oscoap_get_response_aad_len(coap_packet_t* coap){
+  size_t ret = 1; //for array
+  ret += 4; //for 4 elements (5) if block option is used
+  ret += 3; // for version, code and alg
+  //ret += TID_LEN;
+
+  return ret;
+}
+
+void oscoap_increment_sender_seq(OSCOAP_COMMON_CONTEXT* ctx){
+    ctx->SENDER_CONTEXT->SENDER_SEQ++; 
    //TODO CHECKS FOR LIMITS
 }
 
 //TODO only works for one byte seq ATM
-uint8_t oscoap_validate_receiver_seq(OSCOAP_CONTEXT* ctx, opt_cose_encrypt_t *cose){
-	if(cose->partial_iv[0] > ctx->RECEIVER_WRITE_SEQ){
-		ctx->RECEIVER_WRITE_SEQ = cose->partial_iv[0];
+uint8_t oscoap_validate_receiver_seq(OSCOAP_COMMON_CONTEXT* ctx, opt_cose_encrypt_t *cose){
+	if(cose->partial_iv[0] > ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ){
+		ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ = cose->partial_iv[0];
 		return true;
 	} else {
-    PRINTF("ctx->RECEIVER_WRITE_SEQ %d, cose->seq[0] %d\n", ctx->RECEIVER_WRITE_SEQ, cose->partial_iv[0]);
+    PRINTF("ctx->RECEIVER_WRITE_SEQ %d, cose->seq[0] %d\n", ctx->RECIPIENT_CONTEXT->RCIPIENT_SEQ, cose->partial_iv[0]);
 		return false;
 	}
 }
@@ -295,9 +332,9 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   uint8_t seq_buffer[CONTEXT_SEQ_LEN];
   uint8_t nonce_buffer[CONTEXT_INIT_VECT_LEN];
 
-  uint8_t seq_bytes_len = to_bytes((uint32_t)(coap_pkt->context->SENDER_WRITE_SEQ), seq_buffer);
+  uint8_t seq_bytes_len = to_bytes((uint32_t)(coap_pkt->context->SENDER_CONTEXT->SENDER_SEQ), seq_buffer);
 
-  create_iv((uint8_t*)coap_pkt->context->SENDER_WRITE_IV, nonce_buffer, seq_buffer, seq_bytes_len);
+  create_iv((uint8_t*)coap_pkt->context->SENDER_CONTEXT->SENDER_IV, nonce_buffer, seq_buffer, seq_bytes_len);
 
   OPT_COSE_SetPartialIV(&cose, seq_buffer, seq_bytes_len);
   OPT_COSE_SetNonce(&cose, nonce_buffer, CONTEXT_INIT_VECT_LEN);
@@ -336,7 +373,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   uint8_t ciphertext_buffer[ciphertext_len]; 
   OPT_COSE_SetCiphertextBuffer(&cose, ciphertext_buffer, ciphertext_len);
 
-  _OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_WRITE_KEY, CONTEXT_KEY_LEN);
+  _OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
   
   size_t serialized_len = OPT_COSE_Encoded_length(&cose);
 
@@ -391,15 +428,15 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 
     int cid_int = (int)(cose.kid[0]);
   	uint8_t nonce[CONTEXT_INIT_VECT_LEN];
-    OSCOAP_CONTEXT* ctx;
-  	ctx = oscoap_ctx_find_by_cid(cid_int);
+    OSCOAP_COMMON_CONTEXT* ctx;
+  	ctx = oscoap_find_ctx_by_cid(cid_int);
   	if(ctx == NULL){	
   		  PRINTF("context is not fetched form DB cid: %d \n", cid_int);
   	}else{
         size_t seq_len;
         uint8_t *seq = OPT_COSE_GetPartialIV(&cose, &seq_len);
 
-    	  create_iv((uint8_t*)ctx->RECEIVER_WRITE_IV, nonce,seq, seq_len);
+    	  create_iv((uint8_t*)ctx->RECIPIENT_CONTEXT->RECIPIENT_IV, nonce,seq, seq_len);
     		coap_pkt->context = ctx;
     		OPT_COSE_SetNonce(&cose, nonce, CONTEXT_INIT_VECT_LEN); 
   	}
@@ -439,7 +476,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     cose.plaintext = plaintext_buffer;
     cose.plaintext_len = cose.ciphertext_len - 8;
 
-    if(_OPT_COSE_Decrypt(&cose, ctx->RECEIVER_WRITE_KEY, CONTEXT_KEY_LEN)){
+    if(_OPT_COSE_Decrypt(&cose, ctx->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN)){
       return OSCOAP_CRYPTO_ERROR;
     }
 

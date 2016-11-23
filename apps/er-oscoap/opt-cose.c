@@ -44,7 +44,6 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define PRINTF_HEX(data, len)
 #endif
 
-
 size_t  OPT_COSE_Encode(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	size_t ret = 0;
 	ret += OPT_CBOR_put_array(&buffer, 3);

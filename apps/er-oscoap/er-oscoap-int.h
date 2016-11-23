@@ -35,48 +35,45 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "er-coap.h"
 #include <sys/types.h>
 
-//#include "uthash.h"
 
 #define CONTEXT_CID_LEN 2 
 #define CONTEXT_KEY_LEN 16 
 #define CONTEXT_INIT_VECT_LEN 7
 #define CONTEXT_SEQ_LEN 4 
+#define ID_LEN 8
+#define CONTEXT_ID_LEN 8
+#define BASE_KEY_LEN 1 //TEMP, we do not generate keys yet
 
+typedef struct OSCOAP_SENDER_CONTEXT OSCOAP_SENDER_CONTEXT;
+typedef struct OSCOAP_RECIPIENT_CONTEXT OSCOAP_RECIPIENT_CONTEXT;
+typedef struct OSCOAP_COMMON_CONTEXT OSCOAP_COMMON_CONTEXT;
 
-typedef struct OSCOAP_CONTEXT
+struct OSCOAP_SENDER_CONTEXT
 {
-	uint16_t	 CONTEXT_ID; //16 bits should be enough of context for now
-  uint8_t  	 ALG;
-  struct     OSCOAP_CONTEXT *next;
-	
-  uint8_t	   SENDER_WRITE_KEY[CONTEXT_KEY_LEN];
-	uint8_t 	 SENDER_WRITE_IV[CONTEXT_INIT_VECT_LEN];
-  uint32_t   SENDER_WRITE_SEQ;
-	
-  uint8_t	   RECEIVER_WRITE_KEY[CONTEXT_KEY_LEN];
-	uint8_t	   RECEIVER_WRITE_IV[CONTEXT_INIT_VECT_LEN];
-  uint32_t   RECEIVER_WRITE_SEQ;
+  uint8_t   SENDER_KEY[CONTEXT_KEY_LEN];
+  uint8_t   SENDER_IV[CONTEXT_INIT_VECT_LEN];
+  uint8_t   SENDER_ID[ID_LEN]; 
+  uint32_t  SENDER_SEQ;
+};
 
-	//unsigned long REPLAY_WINDOW; //TODO add replay window support
-}OSCOAP_CONTEXT;
-/*
-typedef struct OS_URI_CID
+struct OSCOAP_RECIPIENT_CONTEXT
 {
-    char* uri;
-    short uri_len;
-    int cid;
-    UT_hash_handle hh;
-} OS_URI_CID;
+  OSCOAP_RECIPIENT_CONTEXT* RECIPIENT_CONTEXT; //This field facilitates easy integration of OSCOAP multicast
+  uint8_t   RECIPIENT_KEY[CONTEXT_KEY_LEN];
+  uint8_t   RECIPIENT_IV[CONTEXT_INIT_VECT_LEN];
+  uint8_t   RECIPIENT_ID[ID_LEN];
+  uint32_t  RECIPIENT_SEQ;
+  uint8_t   REPLAY_WINDOW;
+};
 
-typedef struct OS_TOKEN_CID
-{
-    char* token;
-    int cid;
-    UT_hash_handle hh;
-} OS_TOKEN_CID;
-*/
-
-#define CONTEXT_SIZE sizeof(OSCOAP_CONTEXT)
+struct OSCOAP_COMMON_CONTEXT{
+  uint64_t CONTEXT_ID;
+  uint8_t BASE_KEY[BASE_KEY_LEN]; 
+  OSCOAP_SENDER_CONTEXT* SENDER_CONTEXT;
+  OSCOAP_RECIPIENT_CONTEXT* RECIPIENT_CONTEXT;
+  OSCOAP_COMMON_CONTEXT* NEXT_CONTEXT;
+  uint8_t ALG;
+};
 
 
 #endif

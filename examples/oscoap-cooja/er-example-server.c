@@ -90,7 +90,7 @@ extern resource_t res_battery;
 extern resource_t res_temperature;
 #endif
 
-OSCOAP_CONTEXT *cid_map;
+
 
 /*
 extern resource_t res_battery;
@@ -164,19 +164,21 @@ PROCESS_THREAD(er_example_server, ev, data)
 
 oscoap_ctx_store_init();
 
-int cid = 2;
+uint64_t cid = 2;
 char receiver_key[] =   {0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41};
 char sender_key[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02};
 char receiver_iv[] = {0x47, 0x47, 0x47, 0x47, 0x47, 0x47, 0x47 };
 char sender_iv[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02 };
 
-oscoap_ctx_new( cid, sender_key, sender_iv, receiver_key, receiver_iv);
+if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){
+  printf("Error: Could not create new Context!\n");
+}
 
 //oscoap_ctx_init(cid, sender_key, sender_iv, receiver_key, receiver_iv);
 //cid_map_put(context);
-OSCOAP_CONTEXT* c = NULL;
-int cid2 = 2;
-c = oscoap_ctx_find_by_cid(cid2);
+OSCOAP_COMMON_CONTEXT* c = NULL;
+uint64_t cid2 = 2;
+c = oscoap_find_ctx_by_cid(cid2);
 PRINTF("COAP max size %d\n", COAP_MAX_PACKET_SIZE);
 if(c == NULL){
 	PRINTF("could not fetch cid\n");

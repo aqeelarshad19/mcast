@@ -90,13 +90,8 @@ void
 client_chunk_handler(void *response)
 {
   const uint8_t *chunk;
- // printf("message id  %d\n", ((coap_packet_t*)response)->mid);
- // printf("payload addr %p\n", ((coap_packet_t*)response)->payload);
+
   int len = coap_get_payload(response, &chunk);
- // printf("payload len %d\n", len);
- // oscoap_printf_hex(((coap_packet_t*)response)->payload, len);
- // printf("buffer\n");
- // oscoap_printf_hex(((coap_packet_t*)response)->buffer, 50);
   printf("|%.*s", len, (char *)chunk);
   printf("\n");
 }
@@ -120,18 +115,20 @@ PROCESS_THREAD(er_example_client, ev, data)
     
   oscoap_ctx_store_init();
 
-  int cid = 2;
+  uint64_t cid = 2;
   char sender_key[] =   {0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41};
   char receiver_key[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02};
   char sender_iv[] = {0x47, 0x47, 0x47, 0x47, 0x47, 0x47, 0x47 };
   char receiver_iv[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02 };
    
-  oscoap_ctx_new( cid, sender_key, sender_iv, receiver_key, receiver_iv);
+  if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){
+    printf("Error creating context!\n");
+  }
 
 
-  OSCOAP_CONTEXT* c = NULL;
-  int cid2 = 2;
-  c = oscoap_ctx_find_by_cid(cid2);
+  OSCOAP_COMMON_CONTEXT* c = NULL;
+  uint64_t cid2 = 2;
+  c = oscoap_find_ctx_by_cid(cid2);
   PRINTF("COAP max size %d\n", COAP_MAX_PACKET_SIZE);
   if(c == NULL){
     printf("could not fetch cid\n");
@@ -176,7 +173,7 @@ PROCESS_THREAD(er_example_client, ev, data)
  
      //TODO, this should be implemented using the uri -> cid map, not like this.
      request->os_ctx_id = 2;
-     request->context = oscoap_ctx_find_by_cid(cid2);
+     request->context = oscoap_find_ctx_by_cid(cid2);
    
 
      coap_set_header_uri_path(request, service_urls[4]);
