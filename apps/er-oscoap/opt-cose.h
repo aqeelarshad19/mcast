@@ -39,20 +39,15 @@ typedef struct opt_cose_encrypt_t{
 	//some field is request maybe?
 	uint8_t alg;
 	
-	//SEquence number is stored as partial_iv
+	//Sequence number is stored as partial_iv
 	uint8_t *partial_iv; //protected
 	size_t partial_iv_len;
 	
 	uint8_t* kid; //protected - only if message is request
 	size_t kid_len;
 
-	uint8_t* tid; //10 is a placeholder length
-	size_t tid_len;
 	/* Unprotected shall be empty */
 	
-//	uint8_t *seq;
-//	size_t seq_len;
-
 	uint8_t *nonce;
 	size_t nonce_len;
 
@@ -73,6 +68,9 @@ typedef struct opt_cose_encrypt_t{
 
 
 #define COSE_Algorithm_AES_CCM_64_64_128 12 
+#define COSE_Header_KID 				  2 //Is 4 is the new version
+#define COSE_Header_Partial_IV 			  6
+#define COSE_Header_Sender_ID 			  8 //This is defined in the OSCOAP draft
 
 void OPT_COSE_Init(opt_cose_encrypt_t *cose);
 
@@ -90,7 +88,6 @@ uint8_t* OPT_COSE_GetKeyID(opt_cose_encrypt_t *cose, size_t *kid_len);
 
 uint8_t OPT_COSE_SetExternalAAD(opt_cose_encrypt_t *cose, uint8_t *external_aad_buffer, size_t external_aad_len);
 
-//uint8_t OPT_COSE_SetSEQ(opt_cose_encrypt_t *cose, uint8_t *seq, size_t seq_len);
 uint8_t OPT_COSE_SetAAD(opt_cose_encrypt_t *cose, uint8_t *aad_buffer, size_t aad_len);
 
 uint8_t OPT_COSE_SetNonce(opt_cose_encrypt_t *cose, uint8_t *nonce_buffer, size_t nonce_len);
@@ -104,11 +101,6 @@ size_t OPT_COSE_Encode(opt_cose_encrypt_t *cose, uint8_t *buffer);
 uint8_t _OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer);
 size_t  _OPT_COSE_AAD_length(opt_cose_encrypt_t *cose);
 
-uint8_t OPT_COSE_put_cbor_array(uint8_t **buffer, uint8_t elements);
-uint8_t OPT_COSE_put_cbor_bytes(uint8_t **buffer, uint8_t bytes_len, uint8_t *bytes);
-uint8_t OPT_COSE_put_cbor_map(uint8_t **buffer, uint8_t elements);
-uint8_t OPT_COSE_put_cbor_unsigned(uint8_t **buffer, uint8_t value);
-uint8_t OPT_COSE_put_cbor_text(uint8_t **buffer, char *text, size_t text_len);
 uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer);
 
 uint8_t _OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len);

@@ -136,14 +136,14 @@ uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 		**buffer = (0x40 | (cose->partial_iv_len + 3 + cose->kid_len + 2));
 		(*buffer)++;
 		OPT_CBOR_put_map(buffer, 2);
-		OPT_CBOR_put_unsigned(buffer, 2);
+		OPT_CBOR_put_unsigned(buffer, COSE_Header_KID);
 		OPT_CBOR_put_bytes(buffer, cose->kid_len, cose->kid);
 	}else{
 		**buffer = (0x40 | (cose->partial_iv_len + 3 + cose->kid_len));
 		(*buffer)++;
 		OPT_CBOR_put_map(buffer, 1);
 	}
-	OPT_CBOR_put_unsigned(buffer, 6);
+	OPT_CBOR_put_unsigned(buffer, COSE_Header_Partial_IV);
 	OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
 	return 1;
 }
@@ -187,14 +187,14 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 	uint8_t *end_ptr = (uint8_t*)(buffer + len);
 	buffer++; //step by map tag
 	while(buffer < end_ptr ){
-		if(*buffer == 0x02){//COSE_Header_KID = 2,
+		if(*buffer == COSE_Header_KID){//COSE_Header_KID = 2,
 			buffer++; //step by key
 			byte_len = (*buffer & 0x0F);
 			buffer++; //step by tag
 			cose->kid = buffer;
 			cose->kid_len = byte_len;
 			buffer += byte_len; //step by bytefield
-		}else if(*buffer == 0x06){ //COSE_Header_Partial_IV = 6,
+		}else if(*buffer == COSE_Header_Partial_IV){ //COSE_Header_Partial_IV = 6,
 			buffer++; //step by key
 			byte_len = (*buffer & 0x0F);
 			buffer++;// step by tag
