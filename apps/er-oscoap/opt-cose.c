@@ -148,7 +148,7 @@ uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 	return 1;
 }
 
-uint8_t _OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){
+uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	OPT_CBOR_put_array(&buffer, 3);
 	char* encrypted = "Encrypted";
 	OPT_CBOR_put_text(&buffer, encrypted , strlen(encrypted));
@@ -157,7 +157,7 @@ uint8_t _OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	return 1;
 }
 
-size_t  _OPT_COSE_AAD_length(opt_cose_encrypt_t *cose){
+size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose){
 	//TODO this only works for responses
 	PRINTF("cose->partial_iv_len %d\n", cose->partial_iv_len);
 	PRINTF("cose->external_aad_len %d\n", cose->external_aad_len);
@@ -288,7 +288,7 @@ size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_
 }
 
 
-uint8_t _OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){
+uint8_t OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){
 
 	PRINTF("encrypt OPT_COSE\n");
 
@@ -338,7 +338,7 @@ uint8_t _OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len
 	return 1;
 }
 
-uint8_t _OPT_COSE_Decrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){
+uint8_t OPT_COSE_Decrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){
 
 	PRINTF("Decrypt OPT_COSE\n");
 

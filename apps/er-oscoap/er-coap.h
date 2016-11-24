@@ -139,7 +139,7 @@
   size_t object_security_len;
   uint8_t *object_security;
   OSCOAP_COMMON_CONTEXT *context;
-  uint32_t os_ctx_id;
+ // uint32_t os_ctx_id;
 
   uint16_t payload_len;
   uint8_t *payload;

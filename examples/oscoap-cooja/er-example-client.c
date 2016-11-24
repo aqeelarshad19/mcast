@@ -115,7 +115,7 @@ PROCESS_THREAD(er_example_client, ev, data)
     
   oscoap_ctx_store_init();
 
-  uint64_t cid = 2;
+  uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};
   char sender_key[] =   {0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41};
   char receiver_key[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02};
   char sender_iv[] = {0x47, 0x47, 0x47, 0x47, 0x47, 0x47, 0x47 };
@@ -127,7 +127,7 @@ PROCESS_THREAD(er_example_client, ev, data)
 
 
   OSCOAP_COMMON_CONTEXT* c = NULL;
-  uint64_t cid2 = 2;
+  uint8_t cid2[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};
   c = oscoap_find_ctx_by_cid(cid2);
   PRINTF("COAP max size %d\n", COAP_MAX_PACKET_SIZE);
   if(c == NULL){
@@ -135,7 +135,8 @@ PROCESS_THREAD(er_example_client, ev, data)
   }else{
     printf("Context sucessfully added to DB!\n");
   }
-
+  printf("first context ptr %p\n", c);
+  oscoap_printf_hex(cid2, 8);
 
   etimer_set(&et, TOGGLE_INTERVAL * CLOCK_SECOND);
 
@@ -172,10 +173,9 @@ PROCESS_THREAD(er_example_client, ev, data)
       coap_init_message(request, COAP_TYPE_CON, COAP_GET, 0);
  
      //TODO, this should be implemented using the uri -> cid map, not like this.
-     request->os_ctx_id = 2;
-     request->context = oscoap_find_ctx_by_cid(cid2);
-   
-
+    uint8_t cid3[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};
+     request->context = oscoap_find_ctx_by_cid(cid3);
+     
      coap_set_header_uri_path(request, service_urls[4]);
 
       char* u_buffer;

@@ -36,7 +36,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <inttypes.h>
 
 typedef struct opt_cose_encrypt_t{
-	//some field is request maybe?
+
 	uint8_t alg;
 	
 	//Sequence number is stored as partial_iv
@@ -45,6 +45,9 @@ typedef struct opt_cose_encrypt_t{
 	
 	uint8_t* kid; //protected - only if message is request
 	size_t kid_len;
+
+	uint8_t* sid;
+	size_t 	 sid_len;
 
 	/* Unprotected shall be empty */
 	
@@ -98,12 +101,12 @@ size_t OPT_COSE_Encoded_length(opt_cose_encrypt_t *cose);
 size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_len);
 
 size_t OPT_COSE_Encode(opt_cose_encrypt_t *cose, uint8_t *buffer);
-uint8_t _OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer);
-size_t  _OPT_COSE_AAD_length(opt_cose_encrypt_t *cose);
+uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer);
+size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose);
 
 uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer);
 
-uint8_t _OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len);
-uint8_t _OPT_COSE_Decrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len);
+uint8_t OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len);
+uint8_t OPT_COSE_Decrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len);
 
 #endif /* _OPT_COSE_H */
