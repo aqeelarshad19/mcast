@@ -57,10 +57,6 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif /* OSCOAP_DEBUG */
 
 
-//OSCOAP_CONTEXT *context_store = NULL;
-
-//MEMB(security_contexts, OSCOAP_CONTEXT, CONTEXT_NUM);
-
 OSCOAP_COMMON_CONTEXT *common_context_store = NULL;
 
 MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
@@ -68,9 +64,7 @@ MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
 MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
 
 void oscoap_ctx_store_init(){
-  //OLD
-  //memb_init(&security_contexts);
-  //NEW
+
   memb_init(&common_contexts);
   memb_init(&sender_contexts);
   memb_init(&recipient_contexts);
@@ -186,10 +180,7 @@ void parse_int(uint32_t in, uint8_t* bytes, int out_len){
 int to_bytes(uint32_t in, uint8_t* buffer){
 	int outlen = log_2(in)/8 + ((in)%8 > 0) ? 1 : 0;
 	parse_int(in, buffer, outlen);
-	//PRINTF("to_bytes outlen %d, in %d\n", outlen, in);
-	//PRINTF_HEX(buffer, outlen);
 	return outlen;
-
 }
 
 uint8_t coap_is_request(coap_packet_t* coap_pkt){
@@ -256,7 +247,7 @@ size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buf
   ret += OPT_CBOR_put_text(&buffer, uri, uri_len); //unencrypted uri
 	return ret;
 }
-
+/*
 size_t _oscoap_get_response_aad_len(coap_packet_t* coap){
   size_t ret = 1; //for array
   ret += 4; //for 4 elements (5) if block option is used
@@ -265,7 +256,7 @@ size_t _oscoap_get_response_aad_len(coap_packet_t* coap){
 
   return ret;
 }
-
+*/
 void oscoap_increment_sender_seq(OSCOAP_COMMON_CONTEXT* ctx){
     ctx->SENDER_CONTEXT->SENDER_SEQ++; 
    //TODO CHECKS FOR LIMITS
@@ -364,7 +355,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
       OPT_COSE_SetKeyID(&cose, kid, 1);
       
       external_aad_size = oscoap_prepare_response_external_aad(coap_pkt, external_aad_buffer, 1);//oscoap_prepare_send_response_aad(coap_pkt, external_aad_buffer);
-          printf("external aad \n");
+      printf("external aad \n");
       oscoap_printf_hex(external_aad_buffer, external_aad_size);
   }
 
