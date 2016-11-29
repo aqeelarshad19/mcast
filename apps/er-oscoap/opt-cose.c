@@ -319,7 +319,7 @@ uint8_t OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len)
 
 
   //aead work on one buffer for plaintext and ciphertext
-  memcpy(cose->ciphertext, cose->plaintext, cose->plaintext_len);
+ // memcpy(cose->ciphertext, cose->plaintext, cose->plaintext_len);
 
 
   COSE_AES_CCM.set_key(key);

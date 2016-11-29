@@ -46,7 +46,7 @@ typedef struct opt_cose_encrypt_t{
 	uint8_t* kid; //protected - only if message is request
 	size_t kid_len;
 
-	uint8_t* sid;
+	uint8_t* sid; //protected optional
 	size_t 	 sid_len;
 
 	/* Unprotected shall be empty */

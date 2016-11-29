@@ -300,8 +300,8 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
     PRINTF("ERROR: NO CONTEXT IN PREPARE MESSAGE!\n");
     return 0;
   }
-  uint8_t plaintext_buffer[100]; //TODO, workaround this to decrease memory footprint
-  memset(plaintext_buffer, 0, 100);
+  uint8_t plaintext_buffer[50]; //TODO, workaround this to decrease memory footprint
+  memset(plaintext_buffer, 0, 50);
     
   //Serialize options and payload
   size_t plaintext_size =  oscoap_prepare_plaintext( packet, plaintext_buffer);
@@ -323,7 +323,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_SetKeyID(&cose, coap_pkt->context->CONTEXT_ID, CONTEXT_ID_LEN);
 
   //TODO fix a better way to calculate e_aad len
-  uint8_t external_aad_buffer[CONTEXT_SEQ_LEN + CONTEXT_ID_LEN + 10]; 
+  uint8_t external_aad_buffer[CONTEXT_SEQ_LEN + CONTEXT_ID_LEN + 20]; 
   size_t external_aad_size;
 
   if(coap_is_request(coap_pkt)){
@@ -349,8 +349,8 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_SetAAD(&cose, aad_buffer, aad_s);
    
   size_t ciphertext_len = cose.plaintext_len + 8; 
-  uint8_t ciphertext_buffer[ciphertext_len]; 
-  OPT_COSE_SetCiphertextBuffer(&cose, ciphertext_buffer, ciphertext_len);
+  //uint8_t ciphertext_buffer[ciphertext_len]; 
+  OPT_COSE_SetCiphertextBuffer(&cose, plaintext_buffer, ciphertext_len);
 
   OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
   
@@ -423,7 +423,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
  
     OPT_COSE_SetAlg(&cose, COSE_Algorithm_AES_CCM_64_64_128);
 
-    uint8_t external_aad_buffer[CONTEXT_SEQ_LEN + CONTEXT_ID_LEN + 3];
+    uint8_t external_aad_buffer[CONTEXT_SEQ_LEN + CONTEXT_ID_LEN + 3 + 25];
     size_t external_aad_size;
     if(coap_is_request(coap_pkt)){//this should match reqests
         PRINTF("we have a incomming request!\n");
