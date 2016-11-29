@@ -330,8 +330,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   uint8_t nonce_buffer[CONTEXT_INIT_VECT_LEN];
 
   uint8_t seq_bytes_len = to_bytes((uint32_t)(coap_pkt->context->SENDER_CONTEXT->SENDER_SEQ), seq_buffer);
-  PRINTF("SEQ BYTES: len %d\n", seq_bytes_len);
-  PRINTF_HEX(seq_buffer, seq_bytes_len);
+
   create_iv((uint8_t*)coap_pkt->context->SENDER_CONTEXT->SENDER_IV, nonce_buffer, seq_buffer, seq_bytes_len);
 
   OPT_COSE_SetPartialIV(&cose, seq_buffer, seq_bytes_len);
@@ -358,11 +357,11 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 
   OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
 
-  size_t aad_s = OPT_COSE_AAD_length(&cose);
-  uint8_t aad_buffer[aad_s];
+  size_t aad_length = OPT_COSE_AAD_length(&cose);
+  uint8_t aad_buffer[aad_length];
   uint8_t *tmp_buffer = aad_buffer;
   OPT_COSE_Build_AAD(&cose, tmp_buffer);
-  OPT_COSE_SetAAD(&cose, aad_buffer, aad_s);
+  OPT_COSE_SetAAD(&cose, aad_buffer, aad_length);
    
   size_t ciphertext_len = cose.plaintext_len + 8; 
   //uint8_t ciphertext_buffer[ciphertext_len]; 
@@ -443,15 +442,15 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     uint8_t external_aad_buffer[external_aad_size]; 
   
     if(coap_is_request(coap_pkt)){//this should match reqests
-        PRINTF("we have a incomming request!\n");
+      //  PRINTF("we have a incomming request!\n");
         external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer);
-        printf("external aad \n");
-        oscoap_printf_hex(external_aad_buffer, external_aad_size);
+      //  printf("external aad \n");
+      //  oscoap_printf_hex(external_aad_buffer, external_aad_size);
     } else {
-        PRINTF("we have a incomming response!\n");
+      //  PRINTF("we have a incomming response!\n");
         external_aad_size = oscoap_prepare_response_external_aad(coap_pkt, external_aad_buffer, 0);
-        printf("external aad \n");
-        oscoap_printf_hex(external_aad_buffer, external_aad_size); 
+      //  printf("external aad \n");
+      //  oscoap_printf_hex(external_aad_buffer, external_aad_size); 
     }
 
     OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
@@ -524,12 +523,7 @@ int coap_get_header_object_security(void* packet, const uint8_t** os_opt){
     }
     return 0;
 }
-#define DEBUG 1
-#if DEBUG
-#define PRINTF(...) printf(__VA_ARGS__)
-#else
-#define PRINTF(...)
-#endif
+
 size_t oscoap_prepare_plaintext(void* packet, uint8_t* plaintext_buffer){
  PRINTF("prepare plaintext\n");  
   coap_packet_t *const coap_pkt = (coap_packet_t *)packet;

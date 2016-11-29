@@ -24,7 +24,7 @@ PROJECT_SOURCEFILES += $(REST_RESOURCES_FILES)
 # linker optimizations
 SMALL=1
 
-#CFLAGS += -w
+#CFLAGS += -Werror
 # REST Engine shall use Erbium CoAP implementation
 APPS += er-oscoap
 APPS += rest-engine

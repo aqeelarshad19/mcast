@@ -735,7 +735,11 @@ coap_status_t coap_parse_message(void *packet, uint8_t *data,
     current_option += option_length;
   }                             /* for */
     if(OSCOAP){
+      if(coap_pkt->object_security_len == 0 && coap_pkt->payload_len == 0){
+        return OSCOAP_MALFORMED_PACKET;
+      } else {
         return oscoap_decode_packet(coap_pkt);
+      }
 
     }
 
