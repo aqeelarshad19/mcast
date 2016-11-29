@@ -69,7 +69,10 @@ size_t OPT_COSE_Encoded_length(opt_cose_encrypt_t *cose){
 	ret += 4; // seq encoding
 	ret += cose->partial_iv_len;
 	if(cose->kid_len != 0){
-		ret += cose->kid_len + 2;
+		ret += cose->kid_len + 2; // 1 for key 1 for value
+	}
+	if(cose->sid_len != 0){
+		ret += cose->sid_len + 2;
 	}
 	ret += 1; // Map[0]
 	if(cose->ciphertext_len > 15){ //bytes[ciphertext_len]
@@ -201,6 +204,13 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 			cose->partial_iv = buffer;
 			cose->partial_iv_len = byte_len;
 			buffer += byte_len; //step by bytefield
+		}else if(*buffer == COSE_Header_Sender_ID ){ // COSE_Header_Sender_ID  = 8
+			buffer++; //step by key
+			byte_len = (*buffer & 0x0F);
+			buffer++;// step by tag
+			cose->sid = buffer;
+			cose->sid_len = byte_len;
+			buffer += byte_len; //step by bytefield
 		}else{
 			PRINTF("ERROR unknown map tag\n");
 			buffer++;
@@ -210,6 +220,8 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 	PRINTF_HEX(cose->kid, cose->kid_len);
 	PRINTF("Header Partial IV: len = %d\n", cose->partial_iv_len);
 	PRINTF_HEX(cose->partial_iv, cose->partial_iv_len);
+	PRINTF("Sender ID, len = %d\n", cose->sid_len);
+	PRINTF_HEX(cose->sid, cose->sid_len);
 	return 1;
 }
 uint8_t _OPT_COSE_cbor_content(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t len){
