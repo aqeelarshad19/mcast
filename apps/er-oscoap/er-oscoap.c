@@ -211,7 +211,7 @@ uint8_t oscoap_prepare_tid(uint8_t* buffer, OSCOAP_COMMON_CONTEXT* ctx, uint8_t 
     offset += ID_LEN;
     seq_len = to_bytes(ctx->SENDER_CONTEXT->SENDER_SEQ, seq_buffer);
    } else {
-    memcpy(&buffer[offset], ctx->RECIPIENT_CONTEXT->RECIPIENT_IV, ID_LEN); //Recipient ID
+    memcpy(&buffer[offset], ctx->RECIPIENT_CONTEXT->RECIPIENT_ID, ID_LEN); //Recipient ID
     offset += ID_LEN;
     seq_len = to_bytes(ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ, seq_buffer);
   }
@@ -226,7 +226,7 @@ size_t  oscoap_prepare_response_external_aad(coap_packet_t* coap_pkt, uint8_t* b
   tid_len = oscoap_prepare_tid(tid_buffer, coap_pkt->context, sender);
   uint8_t ret = 0;
   ret += OPT_CBOR_put_array(&buffer, 4); //TODO make check for mac-previous-block
-  ret += OPT_CBOR_put_unsigned(&buffer, coap_pkt->version);
+  ret += OPT_CBOR_put_unsigned(&buffer, 1); //this approach does not alway work ==> coap_pkt->version);
   ret += OPT_CBOR_put_bytes(&buffer, 1, coap_pkt->code); //COAP code is one byte
   ret += OPT_CBOR_put_bytes(&buffer, 1, coap_pkt->context->ALG);
   ret += OPT_CBOR_put_bytes(&buffer, tid_len, tid_buffer); 
@@ -236,8 +236,8 @@ size_t  oscoap_prepare_response_external_aad(coap_packet_t* coap_pkt, uint8_t* b
 
 
 size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buffer){
-  char* uri;
-	size_t uri_len = coap_get_header_uri_path(coap_pkt, &uri);
+//  char* uri;
+//	size_t uri_len = coap_get_header_uri_path(coap_pkt, &uri);
   uint8_t ret = 0;
 
   ret += OPT_CBOR_put_array(&buffer, 4); //TODO make check for mac-previous-block
@@ -285,6 +285,19 @@ void create_iv(uint8_t* iv, uint8_t* out, uint8_t* seq, int seq_len ){
 
 }
 
+size_t oscoap_external_aad_size(coap_packet_t* coap_pkt){
+  size_t ret = 0;
+  if(coap_is_request(coap_pkt)){
+      ret += 7;
+      ret += coap_get_header_uri_path(coap_pkt, NULL);
+  } else { // Response
+      ret += 8+ID_LEN+CONTEXT_SEQ_LEN; // TID
+      ret += 7;
+  }
+
+  return ret;
+}
+
 
 size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
     
@@ -322,10 +335,10 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_SetNonce(&cose, nonce_buffer, CONTEXT_INIT_VECT_LEN);
   OPT_COSE_SetKeyID(&cose, coap_pkt->context->CONTEXT_ID, CONTEXT_ID_LEN);
 
-  //TODO fix a better way to calculate e_aad len
-  uint8_t external_aad_buffer[CONTEXT_SEQ_LEN + CONTEXT_ID_LEN + 20]; 
-  size_t external_aad_size;
 
+  size_t external_aad_size = oscoap_external_aad_size(coap_pkt); // this is a upper bound of the size
+  uint8_t external_aad_buffer[external_aad_size]; 
+  
   if(coap_is_request(coap_pkt)){
       PRINTF("we have a request!\n");
 
@@ -423,8 +436,9 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
  
     OPT_COSE_SetAlg(&cose, COSE_Algorithm_AES_CCM_64_64_128);
 
-    uint8_t external_aad_buffer[CONTEXT_SEQ_LEN + CONTEXT_ID_LEN + 3 + 25];
-    size_t external_aad_size;
+    size_t external_aad_size = oscoap_external_aad_size(coap_pkt); // this is a upper bound of the size
+    uint8_t external_aad_buffer[external_aad_size]; 
+  
     if(coap_is_request(coap_pkt)){//this should match reqests
         PRINTF("we have a incomming request!\n");
         external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer);
