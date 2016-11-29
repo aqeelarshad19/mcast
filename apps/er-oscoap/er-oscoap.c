@@ -227,8 +227,8 @@ size_t  oscoap_prepare_response_external_aad(coap_packet_t* coap_pkt, uint8_t* b
   uint8_t ret = 0;
   ret += OPT_CBOR_put_array(&buffer, 4); //TODO make check for mac-previous-block
   ret += OPT_CBOR_put_unsigned(&buffer, 1); //this approach does not alway work ==> coap_pkt->version);
-  ret += OPT_CBOR_put_bytes(&buffer, 1, coap_pkt->code); //COAP code is one byte
-  ret += OPT_CBOR_put_bytes(&buffer, 1, coap_pkt->context->ALG);
+  ret += OPT_CBOR_put_bytes(&buffer, 1, &(coap_pkt->code)); //COAP code is one byte
+  ret += OPT_CBOR_put_bytes(&buffer, 1, &(coap_pkt->context->ALG));
   ret += OPT_CBOR_put_bytes(&buffer, tid_len, tid_buffer); 
 
   return ret;
