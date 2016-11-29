@@ -34,7 +34,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include "er-oscoap.h"
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -206,9 +206,9 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 			buffer++;
 		}
 	}
-	PRINTF("KID:\n");
+	PRINTF("KID: len = %d\n", cose->kid_len);
 	PRINTF_HEX(cose->kid, cose->kid_len);
-	PRINTF("Header Partial IV:\n");
+	PRINTF("Header Partial IV: len = %d\n", cose->partial_iv_len);
 	PRINTF_HEX(cose->partial_iv, cose->partial_iv_len);
 	return 1;
 }

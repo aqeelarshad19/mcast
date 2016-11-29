@@ -156,18 +156,7 @@ int oscoap_free_ctx(OSCOAP_COMMON_CONTEXT *ctx){
     return ret;
 }
 
-uint32_t
-log_2(uint32_t value)
-{
-  uint32_t result = 0;
 
-  do {
-    value = value >> 1;
-    result++;
-  } while(value);
-
-  return result ? result - 1 : result;
-}
 
 void parse_int(uint32_t in, uint8_t* bytes, int out_len){ 
 	int x = out_len - 1;
@@ -177,9 +166,13 @@ void parse_int(uint32_t in, uint8_t* bytes, int out_len){
 	}
 }
 
-int to_bytes(uint32_t in, uint8_t* buffer){
-	int outlen = log_2(in)/8 + ((in)%8 > 0) ? 1 : 0;
-	parse_int(in, buffer, outlen);
+uint8_t to_bytes(uint32_t in, uint8_t* buffer){
+//	int outlen = log_2(in)/8 + ((in)%8 > 0) ? 1 : 0; //altough neat this does not work for in%8 == 0
+	uint8_t outlen = 1;
+  if(in > 255){
+    in = 2;
+  }
+  parse_int(in, buffer, outlen);
 	return outlen;
 }
 
@@ -250,16 +243,25 @@ size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buf
 
 void oscoap_increment_sender_seq(OSCOAP_COMMON_CONTEXT* ctx){
     ctx->SENDER_CONTEXT->SENDER_SEQ++; 
+    PRINTF("NEW SENDER SEQ %d\n", ctx->SENDER_CONTEXT->SENDER_SEQ);
    //TODO CHECKS FOR LIMITS
 }
 
 //TODO only works for one byte seq ATM
 uint8_t oscoap_validate_receiver_seq(OSCOAP_COMMON_CONTEXT* ctx, opt_cose_encrypt_t *cose){
-	if(cose->partial_iv[0] > ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ){
+  if(cose->partial_iv_len == 0) {
+    PRINTF("NO SEQ FOUND IN COSE\n");
+    return false;
+  }
+
+	if(cose->partial_iv[0] >= ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ){ //TODO fix this, we want to handle multibyte seq too
+    PRINTF("ctx->RECEIVER_WRITE_SEQ %d, cose->seq ", ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ); 
+    PRINTF_HEX(cose->partial_iv, cose->partial_iv_len);
 		ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ = cose->partial_iv[0];
 		return true;
 	} else {
-    PRINTF("ctx->RECEIVER_WRITE_SEQ %d, cose->seq[0] %d\n", ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ, cose->partial_iv[0]);
+    PRINTF("ctx->RECEIVER_WRITE_SEQ %d, cose->seq ", ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ); 
+    PRINTF_HEX(cose->partial_iv, cose->partial_iv_len);
 		return false;
 	}
 }
@@ -328,7 +330,8 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   uint8_t nonce_buffer[CONTEXT_INIT_VECT_LEN];
 
   uint8_t seq_bytes_len = to_bytes((uint32_t)(coap_pkt->context->SENDER_CONTEXT->SENDER_SEQ), seq_buffer);
-
+  PRINTF("SEQ BYTES: len %d\n", seq_bytes_len);
+  PRINTF_HEX(seq_buffer, seq_bytes_len);
   create_iv((uint8_t*)coap_pkt->context->SENDER_CONTEXT->SENDER_IV, nonce_buffer, seq_buffer, seq_bytes_len);
 
   OPT_COSE_SetPartialIV(&cose, seq_buffer, seq_bytes_len);
