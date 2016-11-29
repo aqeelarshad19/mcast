@@ -226,7 +226,7 @@ size_t  oscoap_prepare_response_external_aad(coap_packet_t* coap_pkt, uint8_t* b
   tid_len = oscoap_prepare_tid(tid_buffer, coap_pkt->context, sender);
   uint8_t ret = 0;
   ret += OPT_CBOR_put_array(&buffer, 4); //TODO make check for mac-previous-block
-  ret += OPT_CBOR_put_unsigned(&buffer, 1); //this approach does not alway work ==> coap_pkt->version);
+  ret += OPT_CBOR_put_unsigned(&buffer, 1); //version is always 1
   ret += OPT_CBOR_put_bytes(&buffer, 1, &(coap_pkt->code)); //COAP code is one byte
   ret += OPT_CBOR_put_bytes(&buffer, 1, &(coap_pkt->context->ALG));
   ret += OPT_CBOR_put_bytes(&buffer, tid_len, tid_buffer); 
@@ -241,7 +241,7 @@ size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buf
   uint8_t ret = 0;
 
   ret += OPT_CBOR_put_array(&buffer, 4); //TODO make check for mac-previous-block
-  ret += OPT_CBOR_put_unsigned(&buffer, &(coap_pkt->version));
+  ret += OPT_CBOR_put_unsigned(&buffer, 1); //version is always 1
   ret += OPT_CBOR_put_bytes(&buffer, 1, &(coap_pkt->code)); //COAP code is one byte
   ret += OPT_CBOR_put_bytes(&buffer, 1, &(coap_pkt->context->ALG));
  // ret += OPT_CBOR_put_text(&buffer, uri, uri_len); //unencrypted uri
@@ -348,7 +348,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   } else {
       PRINTF("we have a response!\n");
       
-      external_aad_size = oscoap_prepare_response_external_aad(coap_pkt, external_aad_buffer, 1);//oscoap_prepare_send_response_aad(coap_pkt, external_aad_buffer);
+      external_aad_size = oscoap_prepare_response_external_aad(coap_pkt, external_aad_buffer, 1);
       printf("external aad \n");
       oscoap_printf_hex(external_aad_buffer, external_aad_size);
   }
@@ -404,7 +404,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 
   }else{
 
-   PRINTF("DECODE COSE IN OPTION\n");
+    PRINTF("DECODE COSE IN OPTION\n");
 
     PRINTF("serialized incomming COSE\n");
     PRINTF_HEX(coap_pkt->object_security, coap_pkt->object_security_len);
@@ -460,9 +460,9 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     OPT_COSE_SetAAD(&cose, aad_buffer, aad_len);
     OPT_COSE_Build_AAD(&cose, aad_buffer);
 
-    uint8_t plaintext_buffer[cose.ciphertext_len -8];
-    cose.plaintext = plaintext_buffer;
-    cose.plaintext_len = cose.ciphertext_len - 8;
+    size_t plaintext_len = cose.ciphertext_len - 8;
+    uint8_t plaintext_buffer[plaintext_len];
+    OPT_COSE_SetContent(&cose, plaintext_buffer, plaintext_len);
 
     if(OPT_COSE_Decrypt(&cose, ctx->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN)){
       return OSCOAP_CRYPTO_ERROR;
@@ -471,15 +471,10 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     PRINTF("PLAINTEXT DECRYPTED len %d\n", cose.plaintext_len);
     PRINTF_HEX(cose.plaintext, cose.plaintext_len);
     
-    if(coap_pkt->object_security_len == 0){
-      memcpy(coap_pkt->object_security, cose.plaintext, cose.plaintext_len);     
-      coap_pkt->object_security_len = cose.plaintext_len;
+    memcpy(coap_pkt->object_security, cose.plaintext, cose.plaintext_len);     
+    coap_pkt->object_security_len = cose.plaintext_len;
 
-    } else {
-      memcpy(coap_pkt->object_security, cose.plaintext, cose.plaintext_len);     
-      coap_pkt->object_security_len = cose.plaintext_len;
-    
-    } 
+
     //TODO, rädda PROXY URI; MAX AGE osv. från memset i restore_packet
     PRINTF("buffer before restore pkt\n");
     PRINTF_HEX(coap_pkt->buffer, 50);
