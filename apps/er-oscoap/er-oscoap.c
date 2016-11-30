@@ -248,6 +248,7 @@ void oscoap_increment_sender_seq(OSCOAP_COMMON_CONTEXT* ctx){
 }
 
 //TODO only works for one byte seq ATM
+//TODO updating the SEQ should be done when the message is verified
 uint8_t oscoap_validate_receiver_seq(OSCOAP_COMMON_CONTEXT* ctx, opt_cose_encrypt_t *cose){
   if(cose->partial_iv_len == 0) {
     PRINTF("NO SEQ FOUND IN COSE\n");
@@ -364,7 +365,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_SetAAD(&cose, aad_buffer, aad_length);
    
   size_t ciphertext_len = cose.plaintext_len + 8; 
-  //uint8_t ciphertext_buffer[ciphertext_len]; 
+
   OPT_COSE_SetCiphertextBuffer(&cose, plaintext_buffer, ciphertext_len);
 
   OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
@@ -380,6 +381,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
         coap_set_header_object_security_content(packet, opt_buffer, serialized_len);     
   }
   
+  coap_set_header_max_age(packet, 0);
   clear_options(coap_pkt);
   size_t serialized_size =  coap_serialize_message_coap(packet, buffer);
    
@@ -490,16 +492,22 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 
 void clear_options(coap_packet_t* coap_pkt){
     coap_pkt->options[COAP_OPTION_IF_MATCH / OPTION_MAP_SIZE] &= ~(1 << (COAP_OPTION_IF_MATCH % OPTION_MAP_SIZE));
+    /* URI-Host should be unprotected */
     coap_pkt->options[COAP_OPTION_ETAG / OPTION_MAP_SIZE] &= ~(1 << (COAP_OPTION_ETAG % OPTION_MAP_SIZE));
     coap_pkt->options[COAP_OPTION_IF_NONE_MATCH / OPTION_MAP_SIZE] &= ~(1 << (COAP_OPTION_IF_NONE_MATCH % OPTION_MAP_SIZE));
+    /* Observe should be duplicated */
     coap_pkt->options[COAP_OPTION_LOCATION_PATH / OPTION_MAP_SIZE] &= ~(1 << (COAP_OPTION_LOCATION_PATH % OPTION_MAP_SIZE));
     coap_pkt->options[COAP_OPTION_URI_PATH / OPTION_MAP_SIZE] &= ~(1 << (COAP_OPTION_URI_PATH % OPTION_MAP_SIZE));
     coap_pkt->options[COAP_OPTION_CONTENT_FORMAT / OPTION_MAP_SIZE] &= ~(1 << (COAP_OPTION_CONTENT_FORMAT % OPTION_MAP_SIZE));
     coap_pkt->options[COAP_OPTION_URI_QUERY / OPTION_MAP_SIZE] &=  ~(1 << (COAP_OPTION_URI_QUERY % OPTION_MAP_SIZE));
     coap_pkt->options[COAP_OPTION_ACCEPT / OPTION_MAP_SIZE] &= ~(1 << (COAP_OPTION_ACCEPT % OPTION_MAP_SIZE));
     coap_pkt->options[COAP_OPTION_LOCATION_QUERY / OPTION_MAP_SIZE] &= ~(1 << (COAP_OPTION_LOCATION_QUERY % OPTION_MAP_SIZE));
-    coap_pkt->options[COAP_OPTION_SIZE1 / OPTION_MAP_SIZE] &= ~(1 << (COAP_OPTION_SIZE1 % OPTION_MAP_SIZE));
-    
+    /* Block2 should be duplicated */
+    /* Block1 should be duplicated */
+    /* Size2 should be duplicated */
+    /* Proxy-URI should be unprotected */
+    /* Proxy-Scheme should be unprotected */
+    /* Size1 should be duplicated */
 }
 
 int
@@ -563,8 +571,8 @@ size_t oscoap_prepare_plaintext(void* packet, uint8_t* plaintext_buffer){
 
   /* The options must be serialized in the order of their number */
   COAP_SERIALIZE_BYTE_OPTION(COAP_OPTION_IF_MATCH, if_match, "If-Match");
-  COAP_SERIALIZE_STRING_OPTION(COAP_OPTION_URI_HOST, uri_host, '\0',
-                               "Uri-Host");
+  //COAP_SERIALIZE_STRING_OPTION(COAP_OPTION_URI_HOST, uri_host, '\0', 
+  //                             "Uri-Host"); //Should be omitted
   COAP_SERIALIZE_BYTE_OPTION(COAP_OPTION_ETAG, etag, "ETag");
   COAP_SERIALIZE_INT_OPTION(COAP_OPTION_IF_NONE_MATCH,
                             content_format -
@@ -572,7 +580,7 @@ size_t oscoap_prepare_plaintext(void* packet, uint8_t* plaintext_buffer){
                             content_format /* hack to get a zero field */,
                             "If-None-Match");
   COAP_SERIALIZE_INT_OPTION(COAP_OPTION_OBSERVE, observe, "Observe");
-  COAP_SERIALIZE_INT_OPTION(COAP_OPTION_URI_PORT, uri_port, "Uri-Port");
+ // COAP_SERIALIZE_INT_OPTION(COAP_OPTION_URI_PORT, uri_port, "Uri-Port");
   COAP_SERIALIZE_STRING_OPTION(COAP_OPTION_LOCATION_PATH, location_path, '/',
                                "Location-Path");
   COAP_SERIALIZE_STRING_OPTION(COAP_OPTION_URI_PATH, uri_path, '/',
