@@ -135,8 +135,8 @@ PROCESS_THREAD(er_example_client, ev, data)
   }else{
     printf("Context sucessfully added to DB!\n");
   }
-  printf("first context ptr %p\n", c);
-  oscoap_printf_hex(cid2, 8);
+  
+  printf("server ip poither %p\n", &server_ipaddr);
 
   etimer_set(&et, TOGGLE_INTERVAL * CLOCK_SECOND);
 
@@ -183,6 +183,7 @@ PROCESS_THREAD(er_example_client, ev, data)
       printf("ubuf: %s\n",u_buffer);
 
       coap_set_header_object_security(request);
+      //request->ipaddr = &server_ipaddr;
       char token[] = { 0x05, 0x05};
       coap_set_token(request, token, 2);
       printf("--Requesting %s--\n", service_urls[4]);

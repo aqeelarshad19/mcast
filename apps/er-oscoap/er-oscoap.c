@@ -228,17 +228,61 @@ size_t  oscoap_prepare_response_external_aad(coap_packet_t* coap_pkt, uint8_t* b
 }
 
 
-size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buffer){
-//  char* uri;
-//	size_t uri_len = coap_get_header_uri_path(coap_pkt, &uri);
-  uint8_t ret = 0;
+#define PRINT6ADDR(addr) PRINTF("[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x]", ((uint8_t *)addr)[0], ((uint8_t *)addr)[1], ((uint8_t *)addr)[2], ((uint8_t *)addr)[3], ((uint8_t *)addr)[4], ((uint8_t *)addr)[5], ((uint8_t *)addr)[6], ((uint8_t *)addr)[7], ((uint8_t *)addr)[8], ((uint8_t *)addr)[9], ((uint8_t *)addr)[10], ((uint8_t *)addr)[11], ((uint8_t *)addr)[12], ((uint8_t *)addr)[13], ((uint8_t *)addr)[14], ((uint8_t *)addr)[15])
 
+
+size_t oscoap_prepare_unencrypted_uri(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t sender){
+  size_t ret = strlen("coap://");
+  sprintf((char*)buffer, "coap://");
+
+  if(IS_OPTION(coap_pkt, COAP_OPTION_URI_HOST)){
+    //coap_get_header_uri_host
+    //build string and concatinate7
+    printf("THIS IS UNECSPECTED\n");
+  }else{
+    char ip[41];
+    if(sender){
+      uint8_t* addr = coap_pkt->ipaddr;
+      sprintf(ip, "[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x]", ((uint8_t *)addr)[0], ((uint8_t *)addr)[1], ((uint8_t *)addr)[2], ((uint8_t *)addr)[3], ((uint8_t *)addr)[4], ((uint8_t *)addr)[5], ((uint8_t *)addr)[6], ((uint8_t *)addr)[7], ((uint8_t *)addr)[8], ((uint8_t *)addr)[9], ((uint8_t *)addr)[10], ((uint8_t *)addr)[11], ((uint8_t *)addr)[12], ((uint8_t *)addr)[13], ((uint8_t *)addr)[14], ((uint8_t *)addr)[15]);
+      strcat((char*)buffer, ip);
+      ret += strlen(ip);
+    } else {
+      uip_ds6_addr_t *lladdr;
+      lladdr = uip_ds6_get_link_local(-1);
+      uint8_t* addr = &(lladdr->ipaddr);
+      sprintf(ip, "[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x]", ((uint8_t *)addr)[0], ((uint8_t *)addr)[1], ((uint8_t *)addr)[2], ((uint8_t *)addr)[3], ((uint8_t *)addr)[4], ((uint8_t *)addr)[5], ((uint8_t *)addr)[6], ((uint8_t *)addr)[7], ((uint8_t *)addr)[8], ((uint8_t *)addr)[9], ((uint8_t *)addr)[10], ((uint8_t *)addr)[11], ((uint8_t *)addr)[12], ((uint8_t *)addr)[13], ((uint8_t *)addr)[14], ((uint8_t *)addr)[15]);
+      strcat((char*)buffer, ip);
+      ret += strlen(ip);
+    }
+  }
+
+  if(IS_OPTION(coap_pkt, COAP_OPTION_URI_PORT)){
+    if(coap_pkt->uri_port != UIP_HTONS(COAP_DEFAULT_PORT)){
+      //printf port
+    }
+  }
+  strcat((char*)buffer,"/");
+  ret += 1 ;
+  return ret;
+
+}
+
+size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t sender){
+  uint8_t uri[60];
+	int uri_len = oscoap_prepare_unencrypted_uri(coap_pkt, uri, sender);
+
+ // PRINTF("URI: len = %d\n");
+ // PRINTF_HEX(uri, uri_len);
+ // PRINTF("%.*s\n", uri_len, (char*)uri);
+
+  uint8_t ret = 0;
   ret += OPT_CBOR_put_array(&buffer, 4); //TODO make check for mac-previous-block
   ret += OPT_CBOR_put_unsigned(&buffer, 1); //version is always 1
   ret += OPT_CBOR_put_bytes(&buffer, 1, &(coap_pkt->code)); //COAP code is one byte
   ret += OPT_CBOR_put_bytes(&buffer, 1, &(coap_pkt->context->ALG));
- // ret += OPT_CBOR_put_text(&buffer, uri, uri_len); //unencrypted uri
-	return ret;
+  ret += OPT_CBOR_put_text(&buffer, uri, uri_len); //unencrypted uri
+	
+  return ret;
 }
 
 void oscoap_increment_sender_seq(OSCOAP_COMMON_CONTEXT* ctx){
@@ -292,7 +336,8 @@ size_t oscoap_external_aad_size(coap_packet_t* coap_pkt){
   size_t ret = 0;
   if(coap_is_request(coap_pkt)){
       ret += 7;
-      ret += coap_get_header_uri_path(coap_pkt, NULL);
+   //   ret += coap_get_header_uri_path(coap_pkt, NULL);
+      ret += 55; //upper bound ish for IP ADDR
   } else { // Response
       ret += 8+ID_LEN+CONTEXT_SEQ_LEN; // TID
       ret += 7;
@@ -345,7 +390,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   if(coap_is_request(coap_pkt)){
       PRINTF("we have a request!\n");
 
-      external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer); 
+      external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer, 1); 
       printf("external aad \n");
       oscoap_printf_hex(external_aad_buffer, external_aad_size);
   } else {
@@ -445,7 +490,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
   
     if(coap_is_request(coap_pkt)){//this should match reqests
       //  PRINTF("we have a incomming request!\n");
-        external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer);
+        external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer, 0);
       //  printf("external aad \n");
       //  oscoap_printf_hex(external_aad_buffer, external_aad_size);
     } else {

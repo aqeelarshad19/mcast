@@ -2,7 +2,7 @@
 #include "opt-cbor.h"
 #include <string.h>
 
-#define DEBUG 1
+#define DEBUG 0
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -16,14 +16,19 @@
 
 uint8_t OPT_CBOR_put_text(uint8_t **buffer, char *text, size_t text_len){
 	uint8_t ret = 0;
+
 	if(text_len > 15){
-		PRINTF("put text error\n");
-		return 0;
+		**buffer = 0x78;
+		(*buffer)++;
+		**buffer = text_len;
+		(*buffer)++;
+		ret += 2;
+	}else{
+		**buffer = (0x60 | text_len);
+		(*buffer)++;
+		ret += 1;
 	}
 
-	**buffer = (0x60 | text_len);
-	(*buffer)++;
-	ret += 1;
 	memcpy(*buffer, text, text_len);
 	(*buffer)+= text_len;
 	ret += text_len;

@@ -403,6 +403,7 @@ PT_THREAD(coap_blocking_request
   block_error = 0;
 
   do {
+    request->ipaddr = remote_ipaddr;
     request->mid = coap_get_mid();
     if((state->transaction = coap_new_transaction(request->mid, remote_ipaddr,
                                                   remote_port))) {

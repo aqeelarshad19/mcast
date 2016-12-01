@@ -327,8 +327,8 @@ coap_serialize_message(void *packet, uint8_t *buffer){
      	PRINTF("sending OSCOAP\n");
 	    return oscoap_prepare_message(packet, buffer);
     }else{
-	 PRINTF("sending COAP\n");
-	return coap_serialize_message_coap(packet, buffer); 
+	     PRINTF("sending COAP\n");
+	     return coap_serialize_message_coap(packet, buffer); 
     }
 }
 
