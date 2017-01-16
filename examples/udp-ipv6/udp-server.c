@@ -53,13 +53,13 @@ tcpip_handler(void)
 
   if(uip_newdata()) {
     ((char *)uip_appdata)[uip_datalen()] = 0;
-    PRINTF("Server received: '%s' from ", (char *)uip_appdata);
+    PRINTF("***JIYE*** : Server received: '%s' from ", (char *)uip_appdata);
     PRINT6ADDR(&UIP_IP_BUF->srcipaddr);
     PRINTF("\n");
 
     uip_ipaddr_copy(&server_conn->ripaddr, &UIP_IP_BUF->srcipaddr);
-    PRINTF("Responding with message: ");
-    sprintf(buf, "Hello from the server! (%d)", ++seq_id);
+    PRINTF("***JIYE*** : Responding with message: ");
+    sprintf(buf, "***JIYE*** : Hello from the server! (%d)", ++seq_id);
     PRINTF("%s\n", buf);
 
     uip_udp_packet_send(server_conn, buf, strlen(buf));

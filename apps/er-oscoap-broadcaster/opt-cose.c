@@ -120,6 +120,18 @@ uint8_t* OPT_COSE_GetKeyID(opt_cose_encrypt_t *cose, size_t *kid_len){
 	return cose->kid;
 }
 
+// Mutlicasting GetSenderID
+//uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t sid_len){
+//  *sid_len =  cose->sid_len;
+//    return cose->sid;
+//}
+
+// Multicasting SetSenderID
+uint8_t* OPT_COSE_SetSenderID(opt_cose_encrypt_t *cose, uint8_t *sid_buffer, size_t sid_len){
+  cose->sid = sid_buffer;
+  cose->sid_len = sid_len;
+  return 1;
+}
 
 uint8_t OPT_COSE_SetExternalAAD(opt_cose_encrypt_t *cose, uint8_t *external_aad_buffer, size_t external_aad_len){
 	cose->external_aad = external_aad_buffer;

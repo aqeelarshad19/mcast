@@ -50,4 +50,4 @@ connect-router:	$(CONTIKI)/tools/tunslip6
 	sudo $(CONTIKI)/tools/tunslip6 $(PREFIX)
 
 connect-router-cooja:	$(CONTIKI)/tools/tunslip6
-	sudo $(CONTIKI)/tools/tunslip6 -a 127.0.0.1 $(PREFIX)
+	sudo $(CONTIKI)/tools/tunslip6 -d 300 -a 127.0.0.1 $(PREFIX)

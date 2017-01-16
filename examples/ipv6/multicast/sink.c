@@ -48,7 +48,13 @@
 #include <string.h>
 
 #define DEBUG DEBUG_PRINT
+#define PRINTF(...) printf(__VA_ARGS__) 
 #include "net/ip/uip-debug.h"
+
+#define PRINT6ADDR(addr) PRINTF("[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x]", ((uint8_t *)addr)[0], ((uint8_t *)addr)[1], ((uint8_t *)addr)[2], ((uint8_t *)addr)[3], ((uint8_t *)addr)[4], ((uint8_t *)addr)[5], ((uint8_t *)addr)[6], ((uint8_t *)addr)[7], ((uint8_t *)addr)[8], ((uint8_t *)addr)[9], ((uint8_t *)addr)[10], ((uint8_t *)addr)[11], ((uint8_t *)addr)[12], ((uint8_t *)addr)[13], ((uint8_t *)addr)[14], ((uint8_t *)addr)[15])
+
+#define UIP_UDP_BUF  ((struct uip_udp_hdr *)&uip_buf[uip_l2_l3_hdr_len])
+
 
 #define MCAST_SINK_UDP_PORT 3001 /* Host byte order */
 
@@ -73,6 +79,8 @@ tcpip_handler(void)
     PRINTF("In: [0x%08lx], TTL %u, total %u\n",
         uip_ntohl((unsigned long) *((uint32_t *)(uip_appdata))),
         UIP_IP_BUF->ttl, count);
+    PRINTF("   +++ from ");
+    PRINT6ADDR(&UIP_IP_BUF->srcipaddr);
   }
   return;
 }

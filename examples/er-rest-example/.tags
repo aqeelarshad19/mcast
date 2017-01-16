@@ -1,0 +1,212 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CHANGE	resources/res-temperature.c	57;"	d	file:
+CHUNKS_TOTAL	er-plugtest.h	64;"	d
+CHUNKS_TOTAL	resources/res-chunks.c	58;"	d	file:
+COAP_LINK_FORMAT_FILTERING	project-conf.h	94;"	d
+COAP_LINK_FORMAT_FILTERING	project-conf.h	95;"	d
+COAP_MAX_OPEN_SEPARATE	resources/res-separate.c	65;"	d	file:
+COAP_MAX_OPEN_TRANSACTIONS	project-conf.h	84;"	d
+COAP_MAX_OPEN_TRANSACTIONS	project-conf.h	85;"	d
+COAP_OBSERVE_CLIENT	project-conf.h	107;"	d
+COAP_PROXY_OPTION_PROCESSING	project-conf.h	96;"	d
+COAP_PROXY_OPTION_PROCESSING	project-conf.h	97;"	d
+CONTIKI	Makefile	/^CONTIKI=..\/..$/;"	m
+CONTIKI_WITH_IPV6	Makefile	/^CONTIKI_WITH_IPV6 = 1$/;"	m
+CONTIKI_WITH_RPL	Makefile	/^CONTIKI_WITH_RPL=0$/;"	m
+DEBUG	er-example-client.c	47;"	d	file:
+DEBUG	er-example-observe-client.c	48;"	d	file:
+DEBUG	er-example-server.c	50;"	d	file:
+DEBUG	er-plugtest.h	46;"	d
+DEBUG	resources/res-event.c	43;"	d	file:
+DEBUG	resources/res-leds.c	47;"	d	file:
+DEBUG	resources/res-mirror.c	43;"	d	file:
+INTERVAL_MAX	resources/res-temperature.c	56;"	d	file:
+INTERVAL_MIN	resources/res-temperature.c	55;"	d	file:
+LOCAL_PORT	er-example-client.c	63;"	d	file:
+MAX_AGE	resources/res-temperature.c	54;"	d	file:
+MAX_DATA_LEN	resources/res-b1-sep-b2.c	48;"	d	file:
+MAX_PLUGFEST_BODY	er-plugtest.h	63;"	d
+MAX_PLUGFEST_PAYLOAD	er-plugtest.h	62;"	d
+NETSTACK_CONF_MAC	project-conf.h	70;"	d
+NETSTACK_CONF_MAC	project-conf.h	71;"	d
+NETSTACK_CONF_RDC	project-conf.h	60;"	d
+NETSTACK_CONF_RDC	project-conf.h	61;"	d
+NUMBER_OF_URLS	er-example-client.c	75;"	d	file:
+OBS_RESOURCE_URI	er-example-observe-client.c	76;"	d	file:
+PRINT6ADDR	er-example-client.c	51;"	d	file:
+PRINT6ADDR	er-example-client.c	55;"	d	file:
+PRINT6ADDR	er-example-observe-client.c	52;"	d	file:
+PRINT6ADDR	er-example-observe-client.c	64;"	d	file:
+PRINT6ADDR	er-example-server.c	54;"	d	file:
+PRINT6ADDR	er-example-server.c	58;"	d	file:
+PRINT6ADDR	er-plugtest.h	50;"	d
+PRINT6ADDR	er-plugtest.h	54;"	d
+PRINT6ADDR	resources/res-event.c	47;"	d	file:
+PRINT6ADDR	resources/res-event.c	51;"	d	file:
+PRINT6ADDR	resources/res-leds.c	51;"	d	file:
+PRINT6ADDR	resources/res-leds.c	55;"	d	file:
+PRINT6ADDR	resources/res-mirror.c	47;"	d	file:
+PRINT6ADDR	resources/res-mirror.c	51;"	d	file:
+PRINTF	er-example-client.c	50;"	d	file:
+PRINTF	er-example-client.c	54;"	d	file:
+PRINTF	er-example-observe-client.c	50;"	d	file:
+PRINTF	er-example-observe-client.c	63;"	d	file:
+PRINTF	er-example-server.c	53;"	d	file:
+PRINTF	er-example-server.c	57;"	d	file:
+PRINTF	er-plugtest.h	49;"	d
+PRINTF	er-plugtest.h	53;"	d
+PRINTF	resources/res-event.c	46;"	d	file:
+PRINTF	resources/res-event.c	50;"	d	file:
+PRINTF	resources/res-leds.c	50;"	d	file:
+PRINTF	resources/res-leds.c	54;"	d	file:
+PRINTF	resources/res-mirror.c	46;"	d	file:
+PRINTF	resources/res-mirror.c	50;"	d	file:
+PRINTFLN	er-example-observe-client.c	51;"	d	file:
+PRINTFLN	er-example-observe-client.c	65;"	d	file:
+PRINTLLADDR	er-example-client.c	52;"	d	file:
+PRINTLLADDR	er-example-client.c	56;"	d	file:
+PRINTLLADDR	er-example-server.c	55;"	d	file:
+PRINTLLADDR	er-example-server.c	59;"	d	file:
+PRINTLLADDR	er-plugtest.h	51;"	d
+PRINTLLADDR	er-plugtest.h	55;"	d
+PRINTLLADDR	resources/res-event.c	48;"	d	file:
+PRINTLLADDR	resources/res-event.c	52;"	d	file:
+PRINTLLADDR	resources/res-leds.c	52;"	d	file:
+PRINTLLADDR	resources/res-leds.c	56;"	d	file:
+PRINTLLADDR	resources/res-mirror.c	48;"	d	file:
+PRINTLLADDR	resources/res-mirror.c	52;"	d	file:
+PROCESS_THREAD	er-example-client.c	/^PROCESS_THREAD(er_example_client, ev, data)$/;"	f
+PROCESS_THREAD	er-example-observe-client.c	/^PROCESS_THREAD(er_example_observe_client, ev, data)$/;"	f
+PROCESS_THREAD	er-example-server.c	/^PROCESS_THREAD(er_example_server, ev, data)$/;"	f
+PROCESS_THREAD	er-plugtest-server.c	/^PROCESS_THREAD(plugtest_server, ev, data)$/;"	f
+REMOTE_PORT	er-example-client.c	64;"	d	file:
+REMOTE_PORT	er-example-observe-client.c	72;"	d	file:
+REST_MAX_CHUNK_SIZE	project-conf.h	74;"	d
+REST_MAX_CHUNK_SIZE	project-conf.h	75;"	d
+REST_RESOURCES_DIR	Makefile	/^REST_RESOURCES_DIR = .\/resources$/;"	m
+REST_RESOURCES_FILES	Makefile	/^REST_RESOURCES_FILES = $(notdir $(shell find $(REST_RESOURCES_DIR) -name '*.c' ! -name 'res-plugtest*'))$/;"	m
+REST_RESOURCES_FILES	Makefile	/^REST_RESOURCES_FILES = $(notdir $(shell find $(REST_RESOURCES_DIR) -name '*.c'))$/;"	m
+RPL_CONF_MAX_DAG_PER_INSTANCE	project-conf.h	63;"	d
+RPL_CONF_MAX_DAG_PER_INSTANCE	project-conf.h	64;"	d
+RPL_CONF_OF	project-conf.h	103;"	d
+RPL_CONF_OF	project-conf.h	104;"	d
+RPL_CONF_WITH_DAO_ACK	project-conf.h	100;"	d
+RPL_CONF_WITH_DAO_ACK	project-conf.h	101;"	d
+SERVER_NODE	er-example-client.c	60;"	d	file:
+SERVER_NODE	er-example-observe-client.c	70;"	d	file:
+SMALL	Makefile	/^SMALL=1$/;"	m
+TOGGLE_INTERVAL	er-example-client.c	66;"	d	file:
+TOGGLE_INTERVAL	er-example-observe-client.c	74;"	d	file:
+TO_STRING	er-plugtest.h	60;"	d
+TO_STRING2	er-plugtest.h	59;"	d
+UIP_CONF_TCP	project-conf.h	67;"	d
+UIP_CONF_TCP	project-conf.h	68;"	d
+__ER_PLUGTEST_H__	er-plugtest.h	40;"	d
+__PROJECT_ERBIUM_CONF_H__	project-conf.h	40;"	d
+application_separate_store	resources/res-plugtest-separate.c	/^typedef struct application_separate_store {$/;"	s	file:
+application_separate_store	resources/res-separate.c	/^typedef struct application_separate_store {$/;"	s	file:
+application_separate_store_t	resources/res-plugtest-separate.c	/^} application_separate_store_t;$/;"	t	typeref:struct:application_separate_store	file:
+application_separate_store_t	resources/res-separate.c	/^} application_separate_store_t;$/;"	t	typeref:struct:application_separate_store	file:
+big_msg	resources/res-b1-sep-b2.c	/^static uint8_t big_msg[MAX_DATA_LEN];$/;"	v	file:
+big_msg_len	resources/res-b1-sep-b2.c	/^static size_t big_msg_len = 0;$/;"	v	file:
+buffer	resources/res-plugtest-separate.c	/^  char buffer[MAX_PLUGFEST_PAYLOAD];$/;"	m	struct:application_separate_store	file:
+buffer	resources/res-separate.c	/^  char buffer[16];$/;"	m	struct:application_separate_store	file:
+bytes	resources/res-plugtest-test.c	/^static const uint8_t *bytes = NULL;$/;"	v	file:
+bytes	resources/res-plugtest-validate.c	/^static const uint8_t *bytes = NULL;$/;"	v	file:
+client_chunk_handler	er-example-client.c	/^client_chunk_handler(void *response)$/;"	f
+create1_exists	resources/res-plugtest-create1.c	/^static uint8_t create1_exists = 0;$/;"	v	file:
+create3_exists	resources/res-plugtest-create3.c	/^static uint8_t create3_exists = 0;$/;"	v	file:
+er_example_client	er-example-client.c	/^AUTOSTART_PROCESSES(&er_example_client);$/;"	v
+er_example_observe_client	er-example-observe-client.c	/^AUTOSTART_PROCESSES(&er_example_observe_client);$/;"	v
+er_example_server	er-example-server.c	/^AUTOSTART_PROCESSES(&er_example_server);$/;"	v
+et	er-example-client.c	/^static struct etimer et;$/;"	v	typeref:struct:etimer	file:
+event_counter	resources/res-event.c	/^static int32_t event_counter = 0;$/;"	v	file:
+event_counter	resources/res-push.c	/^static int32_t event_counter = 0;$/;"	v	file:
+interval_counter	resources/res-temperature.c	/^static int32_t interval_counter = INTERVAL_MIN;$/;"	v	file:
+large_update_ct	resources/res-plugtest-large-update.c	/^static unsigned int large_update_ct = APPLICATION_OCTET_STREAM;$/;"	v	file:
+large_update_size	resources/res-plugtest-large-update.c	/^static int32_t large_update_size = 0;$/;"	v	file:
+large_update_store	resources/res-plugtest-large-update.c	/^static uint8_t large_update_store[MAX_PLUGFEST_BODY] = { 0 };$/;"	v	file:
+len	resources/res-plugtest-test.c	/^static size_t len = 0;$/;"	v	file:
+len	resources/res-plugtest-validate.c	/^static size_t len = 0;$/;"	v	file:
+notification_callback	er-example-observe-client.c	/^notification_callback(coap_observee_t *obs, void *notification,$/;"	f	file:
+obs	er-example-observe-client.c	/^static coap_observee_t *obs;$/;"	v	file:
+obs_content	resources/res-plugtest-obs.c	/^static char obs_content[MAX_PLUGFEST_BODY];$/;"	v	file:
+obs_content_len	resources/res-plugtest-obs.c	/^static size_t obs_content_len = 0;$/;"	v	file:
+obs_counter	resources/res-plugtest-obs.c	/^static int32_t obs_counter = 0;$/;"	v	file:
+obs_format	resources/res-plugtest-obs.c	/^static unsigned int obs_format = 0;$/;"	v	file:
+obs_purge_list	resources/res-plugtest-obs.c	/^obs_purge_list()$/;"	f	file:
+obs_status	resources/res-plugtest-obs.c	/^static char obs_status = 0;$/;"	v	file:
+plugtest_server	er-plugtest-server.c	/^AUTOSTART_PROCESSES(&plugtest_server);$/;"	v
+request_metadata	resources/res-b1-sep-b2.c	/^static coap_separate_t request_metadata;$/;"	v	file:
+request_metadata	resources/res-plugtest-separate.c	/^  coap_separate_t request_metadata;$/;"	m	struct:application_separate_store	file:
+request_metadata	resources/res-separate.c	/^  coap_separate_t request_metadata;$/;"	m	struct:application_separate_store	file:
+res_any_handler	resources/res-mirror.c	/^res_any_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_delete_handler	resources/res-plugtest-create1.c	/^res_delete_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_delete_handler	resources/res-plugtest-create3.c	/^res_delete_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_delete_handler	resources/res-plugtest-obs.c	/^res_delete_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_delete_handler	resources/res-plugtest-test.c	/^res_delete_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_event_handler	resources/res-event.c	/^res_event_handler(void)$/;"	f	file:
+res_get_handler	resources/res-battery.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-chunks.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-event.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-hello.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-light.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-plugtest-large-update.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-plugtest-large.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-plugtest-links.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-plugtest-longpath.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-plugtest-multi.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-plugtest-obs.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-plugtest-path.c	/^res_get_handler(void *request, void *response, uint8_t *buffer,$/;"	f	file:
+res_get_handler	resources/res-plugtest-query.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-plugtest-separate.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f
+res_get_handler	resources/res-plugtest-test.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-plugtest-validate.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-push.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-radio.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-separate.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-sht11.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-sub.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	resources/res-temperature.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_periodic_handler	resources/res-plugtest-obs.c	/^res_periodic_handler()$/;"	f	file:
+res_periodic_handler	resources/res-push.c	/^res_periodic_handler()$/;"	f	file:
+res_periodic_handler	resources/res-temperature.c	/^res_periodic_handler()$/;"	f	file:
+res_post_handler	resources/res-b1-sep-b2.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_handler	resources/res-plugtest-create2.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_handler	resources/res-plugtest-large-create.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_handler	resources/res-plugtest-locquery.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_handler	resources/res-plugtest-test.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_handler	resources/res-toggle.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_put_handler	resources/res-leds.c	/^res_post_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	resources/res-plugtest-create1.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	resources/res-plugtest-create3.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	resources/res-plugtest-large-update.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	resources/res-plugtest-obs.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	resources/res-plugtest-test.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	resources/res-plugtest-validate.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_resume_handler	resources/res-plugtest-separate.c	/^res_resume_handler()$/;"	f	file:
+res_resume_handler	resources/res-separate.c	/^res_resume_handler()$/;"	f	file:
+separate_active	resources/res-plugtest-separate.c	/^static uint8_t separate_active = 0;$/;"	v	file:
+separate_active	resources/res-separate.c	/^static uint8_t separate_active = 0;$/;"	v	file:
+separate_store	resources/res-plugtest-separate.c	/^static application_separate_store_t separate_store[1];$/;"	v	file:
+separate_store	resources/res-separate.c	/^static application_separate_store_t separate_store[COAP_MAX_OPEN_SEPARATE];$/;"	v	file:
+server_ipaddr	er-example-client.c	/^uip_ipaddr_t server_ipaddr;$/;"	v
+server_ipaddr	er-example-observe-client.c	/^static uip_ipaddr_t server_ipaddr[1]; \/* holds the server ip address *\/$/;"	v	file:
+service_urls	er-example-client.c	/^char *service_urls[NUMBER_OF_URLS] =$/;"	v
+temperature_old	resources/res-temperature.c	/^static int temperature_old = INT_MIN;$/;"	v	file:
+test_change	resources/res-plugtest-test.c	/^static uint8_t test_change = 1;$/;"	v	file:
+test_etag	resources/res-plugtest-test.c	/^static uint8_t test_etag[8] = { 0 };$/;"	v	file:
+test_etag_len	resources/res-plugtest-test.c	/^static uint8_t test_etag_len = 1;$/;"	v	file:
+test_none_match_okay	resources/res-plugtest-test.c	/^static uint8_t test_none_match_okay = 1;$/;"	v	file:
+test_update_etag	resources/res-plugtest-test.c	/^test_update_etag()$/;"	f	file:
+toggle_observation	er-example-observe-client.c	/^toggle_observation(void)$/;"	f
+uri_switch	er-example-client.c	/^static int uri_switch = 0;$/;"	v	file:
+validate_change	resources/res-plugtest-validate.c	/^static uint8_t validate_change = 1;$/;"	v	file:
+validate_etag	resources/res-plugtest-validate.c	/^static uint8_t validate_etag[8] = { 0 };$/;"	v	file:
+validate_etag_len	resources/res-plugtest-validate.c	/^static uint8_t validate_etag_len = 1;$/;"	v	file:
+validate_update_etag	resources/res-plugtest-validate.c	/^validate_update_etag()$/;"	f	file:

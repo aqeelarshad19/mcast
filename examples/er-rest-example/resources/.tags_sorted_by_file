@@ -1,0 +1,123 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+MAX_DATA_LEN	res-b1-sep-b2.c	48;"	d	file:
+big_msg	res-b1-sep-b2.c	/^static uint8_t big_msg[MAX_DATA_LEN];$/;"	v	file:
+big_msg_len	res-b1-sep-b2.c	/^static size_t big_msg_len = 0;$/;"	v	file:
+request_metadata	res-b1-sep-b2.c	/^static coap_separate_t request_metadata;$/;"	v	file:
+res_post_handler	res-b1-sep-b2.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-battery.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+CHUNKS_TOTAL	res-chunks.c	58;"	d	file:
+res_get_handler	res-chunks.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+DEBUG	res-event.c	43;"	d	file:
+PRINT6ADDR	res-event.c	47;"	d	file:
+PRINT6ADDR	res-event.c	51;"	d	file:
+PRINTF	res-event.c	46;"	d	file:
+PRINTF	res-event.c	50;"	d	file:
+PRINTLLADDR	res-event.c	48;"	d	file:
+PRINTLLADDR	res-event.c	52;"	d	file:
+event_counter	res-event.c	/^static int32_t event_counter = 0;$/;"	v	file:
+res_event_handler	res-event.c	/^res_event_handler(void)$/;"	f	file:
+res_get_handler	res-event.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-hello.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+DEBUG	res-leds.c	47;"	d	file:
+PRINT6ADDR	res-leds.c	51;"	d	file:
+PRINT6ADDR	res-leds.c	55;"	d	file:
+PRINTF	res-leds.c	50;"	d	file:
+PRINTF	res-leds.c	54;"	d	file:
+PRINTLLADDR	res-leds.c	52;"	d	file:
+PRINTLLADDR	res-leds.c	56;"	d	file:
+res_post_put_handler	res-leds.c	/^res_post_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-light.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+DEBUG	res-mirror.c	43;"	d	file:
+PRINT6ADDR	res-mirror.c	47;"	d	file:
+PRINT6ADDR	res-mirror.c	51;"	d	file:
+PRINTF	res-mirror.c	46;"	d	file:
+PRINTF	res-mirror.c	50;"	d	file:
+PRINTLLADDR	res-mirror.c	48;"	d	file:
+PRINTLLADDR	res-mirror.c	52;"	d	file:
+res_any_handler	res-mirror.c	/^res_any_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+create1_exists	res-plugtest-create1.c	/^static uint8_t create1_exists = 0;$/;"	v	file:
+res_delete_handler	res-plugtest-create1.c	/^res_delete_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	res-plugtest-create1.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_handler	res-plugtest-create2.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+create3_exists	res-plugtest-create3.c	/^static uint8_t create3_exists = 0;$/;"	v	file:
+res_delete_handler	res-plugtest-create3.c	/^res_delete_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	res-plugtest-create3.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_handler	res-plugtest-large-create.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+large_update_ct	res-plugtest-large-update.c	/^static unsigned int large_update_ct = APPLICATION_OCTET_STREAM;$/;"	v	file:
+large_update_size	res-plugtest-large-update.c	/^static int32_t large_update_size = 0;$/;"	v	file:
+large_update_store	res-plugtest-large-update.c	/^static uint8_t large_update_store[MAX_PLUGFEST_BODY] = { 0 };$/;"	v	file:
+res_get_handler	res-plugtest-large-update.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	res-plugtest-large-update.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-plugtest-large.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-plugtest-links.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_handler	res-plugtest-locquery.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-plugtest-longpath.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-plugtest-multi.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+obs_content	res-plugtest-obs.c	/^static char obs_content[MAX_PLUGFEST_BODY];$/;"	v	file:
+obs_content_len	res-plugtest-obs.c	/^static size_t obs_content_len = 0;$/;"	v	file:
+obs_counter	res-plugtest-obs.c	/^static int32_t obs_counter = 0;$/;"	v	file:
+obs_format	res-plugtest-obs.c	/^static unsigned int obs_format = 0;$/;"	v	file:
+obs_purge_list	res-plugtest-obs.c	/^obs_purge_list()$/;"	f	file:
+obs_status	res-plugtest-obs.c	/^static char obs_status = 0;$/;"	v	file:
+res_delete_handler	res-plugtest-obs.c	/^res_delete_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-plugtest-obs.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_periodic_handler	res-plugtest-obs.c	/^res_periodic_handler()$/;"	f	file:
+res_put_handler	res-plugtest-obs.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-plugtest-path.c	/^res_get_handler(void *request, void *response, uint8_t *buffer,$/;"	f	file:
+res_get_handler	res-plugtest-query.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+application_separate_store	res-plugtest-separate.c	/^typedef struct application_separate_store {$/;"	s	file:
+application_separate_store_t	res-plugtest-separate.c	/^} application_separate_store_t;$/;"	t	typeref:struct:application_separate_store	file:
+buffer	res-plugtest-separate.c	/^  char buffer[MAX_PLUGFEST_PAYLOAD];$/;"	m	struct:application_separate_store	file:
+request_metadata	res-plugtest-separate.c	/^  coap_separate_t request_metadata;$/;"	m	struct:application_separate_store	file:
+res_get_handler	res-plugtest-separate.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f
+res_resume_handler	res-plugtest-separate.c	/^res_resume_handler()$/;"	f	file:
+separate_active	res-plugtest-separate.c	/^static uint8_t separate_active = 0;$/;"	v	file:
+separate_store	res-plugtest-separate.c	/^static application_separate_store_t separate_store[1];$/;"	v	file:
+bytes	res-plugtest-test.c	/^static const uint8_t *bytes = NULL;$/;"	v	file:
+len	res-plugtest-test.c	/^static size_t len = 0;$/;"	v	file:
+res_delete_handler	res-plugtest-test.c	/^res_delete_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-plugtest-test.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_post_handler	res-plugtest-test.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	res-plugtest-test.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+test_change	res-plugtest-test.c	/^static uint8_t test_change = 1;$/;"	v	file:
+test_etag	res-plugtest-test.c	/^static uint8_t test_etag[8] = { 0 };$/;"	v	file:
+test_etag_len	res-plugtest-test.c	/^static uint8_t test_etag_len = 1;$/;"	v	file:
+test_none_match_okay	res-plugtest-test.c	/^static uint8_t test_none_match_okay = 1;$/;"	v	file:
+test_update_etag	res-plugtest-test.c	/^test_update_etag()$/;"	f	file:
+bytes	res-plugtest-validate.c	/^static const uint8_t *bytes = NULL;$/;"	v	file:
+len	res-plugtest-validate.c	/^static size_t len = 0;$/;"	v	file:
+res_get_handler	res-plugtest-validate.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_put_handler	res-plugtest-validate.c	/^res_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+validate_change	res-plugtest-validate.c	/^static uint8_t validate_change = 1;$/;"	v	file:
+validate_etag	res-plugtest-validate.c	/^static uint8_t validate_etag[8] = { 0 };$/;"	v	file:
+validate_etag_len	res-plugtest-validate.c	/^static uint8_t validate_etag_len = 1;$/;"	v	file:
+validate_update_etag	res-plugtest-validate.c	/^validate_update_etag()$/;"	f	file:
+event_counter	res-push.c	/^static int32_t event_counter = 0;$/;"	v	file:
+res_get_handler	res-push.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_periodic_handler	res-push.c	/^res_periodic_handler()$/;"	f	file:
+res_get_handler	res-radio.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+COAP_MAX_OPEN_SEPARATE	res-separate.c	65;"	d	file:
+application_separate_store	res-separate.c	/^typedef struct application_separate_store {$/;"	s	file:
+application_separate_store_t	res-separate.c	/^} application_separate_store_t;$/;"	t	typeref:struct:application_separate_store	file:
+buffer	res-separate.c	/^  char buffer[16];$/;"	m	struct:application_separate_store	file:
+request_metadata	res-separate.c	/^  coap_separate_t request_metadata;$/;"	m	struct:application_separate_store	file:
+res_get_handler	res-separate.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_resume_handler	res-separate.c	/^res_resume_handler()$/;"	f	file:
+separate_active	res-separate.c	/^static uint8_t separate_active = 0;$/;"	v	file:
+separate_store	res-separate.c	/^static application_separate_store_t separate_store[COAP_MAX_OPEN_SEPARATE];$/;"	v	file:
+res_get_handler	res-sht11.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_get_handler	res-sub.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+CHANGE	res-temperature.c	57;"	d	file:
+INTERVAL_MAX	res-temperature.c	56;"	d	file:
+INTERVAL_MIN	res-temperature.c	55;"	d	file:
+MAX_AGE	res-temperature.c	54;"	d	file:
+interval_counter	res-temperature.c	/^static int32_t interval_counter = INTERVAL_MIN;$/;"	v	file:
+res_get_handler	res-temperature.c	/^res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:
+res_periodic_handler	res-temperature.c	/^res_periodic_handler()$/;"	f	file:
+temperature_old	res-temperature.c	/^static int temperature_old = INT_MIN;$/;"	v	file:
+res_post_handler	res-toggle.c	/^res_post_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)$/;"	f	file:

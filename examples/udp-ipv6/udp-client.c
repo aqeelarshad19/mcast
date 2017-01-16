@@ -38,6 +38,9 @@
 #define DEBUG DEBUG_PRINT
 #include "net/ip/uip-debug.h"
 
+#define UIP_IP_BUF   ((struct uip_ip_hdr *)&uip_buf[UIP_LLH_LEN])
+#define UIP_UDP_BUF   ((struct uip_udp_hdr *)&uip_buf[UIP_LLH_LEN + UIP_IPH_LEN])
+
 #define SEND_INTERVAL		15 * CLOCK_SECOND
 #define MAX_PAYLOAD_LEN		40
 
@@ -55,6 +58,12 @@ tcpip_handler(void)
     str = uip_appdata;
     str[uip_datalen()] = '\0';
     printf("Response from the server: '%s'\n", str);
+    PRINTF("Receive From ... :\n");
+    PRINTF("   srcip: ");
+    PRINT6ADDR(&UIP_IP_BUF->srcipaddr);
+    PRINTF("\n   srcport: %u\n ", uip_ntohs(UIP_UDP_BUF->srcport));
+    PRINTF("\n   dstport: %u\n\n ", uip_ntohs(UIP_UDP_BUF->destport));
+
   }
 }
 /*---------------------------------------------------------------------------*/
@@ -73,6 +82,9 @@ timeout_handler(void)
 #else /* SEND_TOO_LARGE_PACKET_TO_TEST_FRAGMENTATION */
   uip_udp_packet_send(client_conn, buf, strlen(buf));
 #endif /* SEND_TOO_LARGE_PACKET_TO_TEST_FRAGMENTATION */
+  PRINTF("\n   Local port  %u,", uip_ntohs(client_conn->lport));                                             
+  PRINTF("\n   Remote Port %u,", uip_ntohs(client_conn->rport));
+
 }
 /*---------------------------------------------------------------------------*/
 static void
@@ -173,7 +185,7 @@ PROCESS_THREAD(udp_client_process, ev, data)
 
   /* new connection with remote host */
   client_conn = udp_new(&ipaddr, UIP_HTONS(3000), NULL);
-  udp_bind(client_conn, UIP_HTONS(3001));
+  //udp_bind(client_conn, UIP_HTONS(3001));
 
   PRINTF("Created a connection with the server ");
   PRINT6ADDR(&client_conn->ripaddr);

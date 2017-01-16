@@ -224,7 +224,7 @@
 #define UIP_CONF_LLH_LEN                        0
 #define UIP_CONF_RECEIVE_WINDOW                 48
 #define UIP_CONF_TCP_MSS                        48
-#define UIP_CONF_MAX_CONNECTIONS                4
+#define UIP_CONF_MAX_CONNECTIONS                10
 #define UIP_CONF_MAX_LISTENPORTS                8
 #define UIP_CONF_UDP_CONNS                      12
 #define UIP_CONF_FWCACHE_SIZE                   30
