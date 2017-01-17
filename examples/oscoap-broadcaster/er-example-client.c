@@ -75,6 +75,8 @@
 
 #define TOGGLE_INTERVAL 30
 
+#define GKEYLEN 255
+
 PROCESS(er_example_client, "Erbium Example Client");
 AUTOSTART_PROCESSES(&er_example_client);
 
@@ -89,6 +91,15 @@ char *service_urls[NUMBER_OF_URLS] =
 #if PLATFORM_HAS_BUTTON
 static int uri_switch = 0;
 #endif
+
+void oscoap_printf_hex2(unsigned char *data, unsigned int len){                  
+  int i=0;
+  for(i=0; i<len; i++)
+  {
+    printf(" %02x ",data[i]);
+  }
+  PRINTF("\n");
+}
 
 /* This function is will be passed to COAP_BLOCKING_REQUEST() to handle responses. */
 void
@@ -127,10 +138,10 @@ PROCESS_THREAD(er_example_client, ev, data)
   char receiver_iv[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02 };
 
   // HKDF
-  uint8_t generated_key[255]= {0};
-  hkdf(SHA256,0, 0, master_secret, 16, 0, 0, generated_key, 255+1);
-  
-  PRINTF_HEX(generated_key, 256);
+  uint8_t generated_key[GKEYLEN]= {0};
+  hkdf(SHA256,0, 0, master_secret, 16, 0, 0, generated_key, GKEYLEN);
+  printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"); 
+  oscoap_printf_hex2(generated_key, GKEYLEN);
 
   if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){
     printf("Error creating context!\n");
