@@ -44,12 +44,17 @@
 #include "er-coap-engine.h"
 #include "dev/button-sensor.h"
 #include "er-oscoap.h"
+//hdkf
+#include "sha.h"
 
 #define DEBUG 1
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
+#define PRINTF_HEX(data, len) oscoap_printf_hex(data, len)
+
 #define PRINT6ADDR(addr) PRINTF("[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x]", ((uint8_t *)addr)[0], ((uint8_t *)addr)[1], ((uint8_t *)addr)[2], ((uint8_t *)addr)[3], ((uint8_t *)addr)[4], ((uint8_t *)addr)[5], ((uint8_t *)addr)[6], ((uint8_t *)addr)[7], ((uint8_t *)addr)[8], ((uint8_t *)addr)[9], ((uint8_t *)addr)[10], ((uint8_t *)addr)[11], ((uint8_t *)addr)[12], ((uint8_t *)addr)[13], ((uint8_t *)addr)[14], ((uint8_t *)addr)[15])
+
 #define PRINTLLADDR(lladdr) PRINTF("[%02x:%02x:%02x:%02x:%02x:%02x]", (lladdr)->addr[0], (lladdr)->addr[1], (lladdr)->addr[2], (lladdr)->addr[3], (lladdr)->addr[4], (lladdr)->addr[5])
 #else
 #define PRINTF(...)
@@ -114,13 +119,19 @@ PROCESS_THREAD(er_example_client, ev, data)
 #endif
     
   oscoap_ctx_store_init();
-
   uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};
+  char master_secret[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
   char sender_key[] =   {0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41};
   char receiver_key[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02};
   char sender_iv[] = {0x47, 0x47, 0x47, 0x47, 0x47, 0x47, 0x47 };
   char receiver_iv[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02 };
-   
+
+  // HKDF
+  uint8_t generated_key[255]= {0};
+  hkdf(SHA256,0, 0, master_secret, 16, 0, 0, generated_key, 255+1);
+  
+  PRINTF_HEX(generated_key, 256);
+
   if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){
     printf("Error creating context!\n");
   }
