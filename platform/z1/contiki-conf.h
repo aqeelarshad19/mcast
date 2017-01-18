@@ -112,7 +112,7 @@
 #define XMAC_CONF_COMPOWER                   1
 #define CXMAC_CONF_COMPOWER                  1
 
-#define COLLECT_NBR_TABLE_CONF_MAX_NEIGHBORS 32
+#define COLLECT_NBR_TABLE_CONF_MAX_NEIGHBORS 6
 
 #ifndef QUEUEBUF_CONF_NUM
 #define QUEUEBUF_CONF_NUM                    8
@@ -180,12 +180,12 @@
 
 /* Handle 10 neighbors */
 #ifndef NBR_TABLE_CONF_MAX_NEIGHBORS
-#define NBR_TABLE_CONF_MAX_NEIGHBORS    15
+#define NBR_TABLE_CONF_MAX_NEIGHBORS    6
 #endif
 
 /* Handle 10 routes    */
 #ifndef UIP_CONF_MAX_ROUTES
-#define UIP_CONF_MAX_ROUTES             15
+#define UIP_CONF_MAX_ROUTES             6
 #endif
 
 #define UIP_CONF_ND6_SEND_RA            0
@@ -225,8 +225,8 @@
 #define UIP_CONF_RECEIVE_WINDOW                 48
 #define UIP_CONF_TCP_MSS                        48
 #define UIP_CONF_MAX_CONNECTIONS                10
-#define UIP_CONF_MAX_LISTENPORTS                8
-#define UIP_CONF_UDP_CONNS                      12
+#define UIP_CONF_MAX_LISTENPORTS                4
+#define UIP_CONF_UDP_CONNS                      6
 #define UIP_CONF_FWCACHE_SIZE                   30
 #define UIP_CONF_BROADCAST                      1
 #define UIP_ARCH_IPCHKSUM                       1
@@ -237,6 +237,6 @@
 
 #define UIP_CONF_TCP_SPLIT                      0
 
-#define BOARD_STRING        "Zolertia Z1 platform"
+#define BOARD_STRING        "Z1"
 
 #endif /* CONTIKI_CONF_H */
