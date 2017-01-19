@@ -44,7 +44,6 @@
 #include "er-coap-engine.h"
 #include "dev/button-sensor.h"
 #include "er-oscoap.h"
-//hdkf
 #include "sha.h"
 
 #define DEBUG 1
@@ -52,9 +51,7 @@
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
 #define PRINTF_HEX(data, len) oscoap_printf_hex(data, len)
-
 #define PRINT6ADDR(addr) PRINTF("[%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x]", ((uint8_t *)addr)[0], ((uint8_t *)addr)[1], ((uint8_t *)addr)[2], ((uint8_t *)addr)[3], ((uint8_t *)addr)[4], ((uint8_t *)addr)[5], ((uint8_t *)addr)[6], ((uint8_t *)addr)[7], ((uint8_t *)addr)[8], ((uint8_t *)addr)[9], ((uint8_t *)addr)[10], ((uint8_t *)addr)[11], ((uint8_t *)addr)[12], ((uint8_t *)addr)[13], ((uint8_t *)addr)[14], ((uint8_t *)addr)[15])
-
 #define PRINTLLADDR(lladdr) PRINTF("[%02x:%02x:%02x:%02x:%02x:%02x]", (lladdr)->addr[0], (lladdr)->addr[1], (lladdr)->addr[2], (lladdr)->addr[3], (lladdr)->addr[4], (lladdr)->addr[5])
 #else
 #define PRINTF(...)
@@ -69,13 +66,11 @@
 //#define SERVER_NODE(ipaddr)   uip_ip6addr(ipaddr, 0xfe80, 0, 0, 0, 0xc30c, 0, 0, 0x0001)      /* */
 #define SERVER_NODE(ipaddr)   uip_ip6addr(ipaddr, 0xff1e, 0, 0, 0, 0, 0, 0x89, 0xabcd)      /* */
 
-
 #define LOCAL_PORT      UIP_HTONS(COAP_DEFAULT_PORT + 1)
 #define REMOTE_PORT     UIP_HTONS(COAP_DEFAULT_PORT)
-
 #define TOGGLE_INTERVAL 30
-
-#define GKEYLEN 255
+#define GEN_KEYLEN 16
+#define GEN_IVLEN 8
 
 PROCESS(er_example_client, "Erbium Example Client");
 AUTOSTART_PROCESSES(&er_example_client);
@@ -92,7 +87,9 @@ char *service_urls[NUMBER_OF_URLS] =
 static int uri_switch = 0;
 #endif
 
-void oscoap_printf_hex2(unsigned char *data, unsigned int len){                  
+/* Because er-oscoap.c DEBUG mode is off, added here for printing log. */
+void oscoap_printf_hex2(unsigned char *data, unsigned int len)
+{                  
   int i=0;
   for(i=0; i<len; i++)
   {
@@ -102,8 +99,7 @@ void oscoap_printf_hex2(unsigned char *data, unsigned int len){
 }
 
 /* This function is will be passed to COAP_BLOCKING_REQUEST() to handle responses. */
-void
-client_chunk_handler(void *response)
+void client_chunk_handler(void *response)
 {
   const uint8_t *chunk;
 
@@ -128,7 +124,7 @@ PROCESS_THREAD(er_example_client, ev, data)
   SENSORS_ACTIVATE(button_sensor);
   printf("Press a button to request %s\n", service_urls[uri_switch]);
 #endif
-    
+
   oscoap_ctx_store_init();
   uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};
   char master_secret[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
@@ -138,10 +134,15 @@ PROCESS_THREAD(er_example_client, ev, data)
   char receiver_iv[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02 };
 
   // HKDF
-  uint8_t generated_key[GKEYLEN]= {0};
-  hkdf(SHA256,0, 0, master_secret, 16, 0, 0, generated_key, GKEYLEN);
+  //uint8_t generated_key[GKEYLEN]= {0};
+  hkdf(SHA256, 0, 0, master_secret, 16, "SenderKey", 9, sender_key, GEN_KEYLEN);
+  //memcpy(sender_key, generated_key, GEN_KEYLEN); 
   printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"); 
-  oscoap_printf_hex2(generated_key, GKEYLEN);
+  oscoap_printf_hex2(sender_key, GEN_KEYLEN);
+
+  hkdf(SHA256,0, 0, master_secret, 16, "IV", 2, sender_iv, GEN_IVLEN);
+  //memcpy(sender_iv, generated_key, GEN_IVLEN);
+  oscoap_printf_hex2(sender_iv, GEN_IVLEN);
 
   if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){
     printf("Error creating context!\n");
@@ -158,7 +159,7 @@ PROCESS_THREAD(er_example_client, ev, data)
     printf("Context sucessfully added to DB!\n");
     printf("!!!!!!!!!!!!!!!!!!!Server ID  is %u \n", c->SENDER_CONTEXT->SENDER_ID);
   }
-  
+
   printf("server ip poither %p\n", &server_ipaddr);
 
   etimer_set(&et, TOGGLE_INTERVAL * CLOCK_SECOND);
@@ -170,10 +171,10 @@ PROCESS_THREAD(er_example_client, ev, data)
 
   while(1) {
     PROCESS_YIELD();
-  
+
 
     if(etimer_expired(&et)) {
-     printf("\n --Get test/hello-- \n");
+      printf("\n --Get test/hello-- \n");
 
       coap_init_message(request, COAP_TYPE_CON, COAP_GET, 0);
 
