@@ -376,9 +376,6 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   uint8_t seq_buffer[CONTEXT_SEQ_LEN];
   uint8_t nonce_buffer[CONTEXT_INIT_VECT_LEN];
   
-  // Multicasting 
-  // uint8_t sid_buffer[ID_LEN];
-
   uint8_t seq_bytes_len = to_bytes((uint32_t)(coap_pkt->context->SENDER_CONTEXT->SENDER_SEQ), seq_buffer);
 
   create_iv((uint8_t*)coap_pkt->context->SENDER_CONTEXT->SENDER_IV, nonce_buffer, seq_buffer, seq_bytes_len);

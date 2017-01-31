@@ -134,14 +134,11 @@ PROCESS_THREAD(er_example_client, ev, data)
   char receiver_iv[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02 };
 
   // HKDF
-  //uint8_t generated_key[GKEYLEN]= {0};
   hkdf(SHA256, 0, 0, master_secret, 16, "SenderKey", 9, sender_key, GEN_KEYLEN);
-  //memcpy(sender_key, generated_key, GEN_KEYLEN); 
   printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"); 
   oscoap_printf_hex2(sender_key, GEN_KEYLEN);
 
   hkdf(SHA256,0, 0, master_secret, 16, "IV", 2, sender_iv, GEN_IVLEN);
-  //memcpy(sender_iv, generated_key, GEN_IVLEN);
   oscoap_printf_hex2(sender_iv, GEN_IVLEN);
 
   if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){

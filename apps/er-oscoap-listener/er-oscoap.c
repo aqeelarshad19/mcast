@@ -95,20 +95,20 @@ OSCOAP_COMMON_CONTEXT* oscoap_new_ctx( uint8_t* cid, uint8_t* sw_k, uint8_t* sw_
     memcpy(recipient_ctx->RECIPIENT_IV, rw_iv, CONTEXT_INIT_VECT_LEN);
     recipient_ctx->RECIPIENT_SEQ = 0;
     recipient_ctx->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
-    if(i == 2){ 
-      //TODO This is to easly identify the sender and recipient ID
+   // if(i == 2){ 
+      /*TODO This is to easly identify the sender and recipient ID
       memset(recipient_ctx->RECIPIENT_ID, 0xAA, ID_LEN);
       memset(sender_ctx->SENDER_ID, 0xAA, ID_LEN);
       printf("\n ########################      ");
       oscoap_printf_hex(recipient_ctx->RECIPIENT_ID, 8);   
       printf("\n");
-    } else if(i ==3){
-      memset(recipient_ctx->RECIPIENT_ID, 0xAB, ID_LEN);
+    } else if(i ==3){*/
+      memset(recipient_ctx->RECIPIENT_ID, 0xAA, ID_LEN);
       memset(sender_ctx->SENDER_ID, 0xAA, ID_LEN);
       printf("\n ########################      ");
-      oscoap_printf_hex(recipient_ctx->RECIPIENT_ID, 8);   
+      oscoap_printf_hex(recipient_ctx->RECIPIENT_ID, ID_LEN);   
       printf("\n");
-    }
+   // }
 
     common_ctx->NEXT_CONTEXT = common_context_store;
     common_context_store = common_ctx;
@@ -488,14 +488,24 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
         PRINTF_HEX(cose.kid, cose.kid_len);
         return OSCOAP_CONTEXT_NOT_FOUND;
   	}else{
-        size_t seq_len;
-        uint8_t *seq = OPT_COSE_GetPartialIV(&cose, &seq_len);
+        /* Sender ID check */
+        size_t sid_len;
+        PRINTF_HEX(OPT_COSE_GetSenderID(&cose, &sid_len),sid_len);
 
-    	  create_iv((uint8_t*)ctx->RECIPIENT_CONTEXT->RECIPIENT_IV, nonce,seq, seq_len);
-    		coap_pkt->context = ctx;
-    		OPT_COSE_SetNonce(&cose, nonce, CONTEXT_INIT_VECT_LEN); 
-  	}
+        uint8_t *sid = OPT_COSE_GetSenderID(&cose, &sid_len);
+        PRINTF_HEX(sid, sid_len); 
+        //if(*sid == 0xAA) { 
+          printf("!@#$!@#$!@#$!@#$!@#$\n");
+          size_t seq_len;
+          uint8_t *seq = OPT_COSE_GetPartialIV(&cose, &seq_len);
 
+          create_iv((uint8_t*)ctx->RECIPIENT_CONTEXT->RECIPIENT_IV, nonce,seq, seq_len);
+          coap_pkt->context = ctx;
+          OPT_COSE_SetNonce(&cose, nonce, CONTEXT_INIT_VECT_LEN); 
+       // } else {
+       //   PRINTF("Sender is not identified\n");
+       // }
+    }
     if(!oscoap_validate_receiver_seq(ctx, &cose)){
       return OSCOAP_SEQ_ERROR; 
     }

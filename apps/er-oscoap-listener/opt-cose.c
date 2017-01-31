@@ -34,7 +34,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include "er-oscoap.h"
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -119,6 +119,20 @@ uint8_t* OPT_COSE_GetKeyID(opt_cose_encrypt_t *cose, size_t *kid_len){
 	*kid_len = cose->kid_len;
 	return cose->kid;
 }
+
+// Mutlicasting GetSenderID
+uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t *sid_len){
+  *sid_len =  cose->sid_len;
+  return cose->sid;
+}
+
+// Multicasting SetSenderID
+uint8_t* OPT_COSE_SetSenderID(opt_cose_encrypt_t *cose, uint8_t *sid_buffer, size_t sid_len){
+  cose->sid = sid_buffer;
+  cose->sid_len = sid_len;
+  return 1;
+}
+
 
 
 uint8_t OPT_COSE_SetExternalAAD(opt_cose_encrypt_t *cose, uint8_t *external_aad_buffer, size_t external_aad_len){
@@ -242,6 +256,7 @@ uint8_t _OPT_COSE_cbor_bytes(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t 
 }
 
 //TODO unify buffer len and len in this and the map function
+// buffer = oscoap_security, 
 size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_len){
 	PRINTF("Decoding COSE:\n");
 	PRINTF_HEX(buffer, buffer_len);
@@ -262,7 +277,7 @@ size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_
 				buffer++;
 				break;
 			case 0x40:
-			//	PRINTF("bytes\n");
+				PRINTF("bytes\n");
 				len = (*buffer & 0x0F);
 				buffer++; //step by tag
 				_OPT_COSE_cbor_bytes(cose, buffer, len, bytefield);

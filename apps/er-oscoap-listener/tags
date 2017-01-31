@@ -4,40 +4,46 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADDTO2_temp	rfc6234/sha384-512.c	/^static uint32_t ADDTO2_temp;$/;"	v	file:
+ADDTO2_temp	sha384-512.c	/^static uint32_t ADDTO2_temp;$/;"	v	file:
+ADDTO4_temp	rfc6234/sha384-512.c	/^static uint32_t ADDTO4_temp, ADDTO4_temp2;$/;"	v	file:
+ADDTO4_temp	sha384-512.c	/^static uint32_t ADDTO4_temp, ADDTO4_temp2;$/;"	v	file:
+ADDTO4_temp2	rfc6234/sha384-512.c	/^static uint32_t ADDTO4_temp, ADDTO4_temp2;$/;"	v	file:
+ADDTO4_temp2	sha384-512.c	/^static uint32_t ADDTO4_temp, ADDTO4_temp2;$/;"	v	file:
 ADD_CHAR_IF_POSSIBLE	er-coap-res-well-known-core.c	54;"	d	file:
 ADD_STRING_IF_POSSIBLE	er-coap-res-well-known-core.c	60;"	d	file:
 ALG	er-oscoap-int.h	/^  uint8_t ALG;$/;"	m	struct:OSCOAP_COMMON_CONTEXT
-APPLICATION_ATOM_XML	er-coap-constants.h	/^  APPLICATION_ATOM_XML = 45,$/;"	e	enum:__anon8
-APPLICATION_EXI	er-coap-constants.h	/^  APPLICATION_EXI = 47,$/;"	e	enum:__anon8
-APPLICATION_FASTINFOSET	er-coap-constants.h	/^  APPLICATION_FASTINFOSET = 48,$/;"	e	enum:__anon8
-APPLICATION_JSON	er-coap-constants.h	/^  APPLICATION_JSON = 50,$/;"	e	enum:__anon8
-APPLICATION_LINK_FORMAT	er-coap-constants.h	/^  APPLICATION_LINK_FORMAT = 40,$/;"	e	enum:__anon8
-APPLICATION_OCTET_STREAM	er-coap-constants.h	/^  APPLICATION_OCTET_STREAM = 42,$/;"	e	enum:__anon8
-APPLICATION_RDF_XML	er-coap-constants.h	/^  APPLICATION_RDF_XML = 43,$/;"	e	enum:__anon8
-APPLICATION_SOAP_FASTINFOSET	er-coap-constants.h	/^  APPLICATION_SOAP_FASTINFOSET = 49,$/;"	e	enum:__anon8
-APPLICATION_SOAP_XML	er-coap-constants.h	/^  APPLICATION_SOAP_XML = 44,$/;"	e	enum:__anon8
-APPLICATION_XML	er-coap-constants.h	/^  APPLICATION_XML = 41,$/;"	e	enum:__anon8
-APPLICATION_XMPP_XML	er-coap-constants.h	/^  APPLICATION_XMPP_XML = 46,$/;"	e	enum:__anon8
-APPLICATION_X_OBIX_BINARY	er-coap-constants.h	/^  APPLICATION_X_OBIX_BINARY = 51$/;"	e	enum:__anon8
-AUDIO_RAW	er-coap-constants.h	/^  AUDIO_RAW = 25,$/;"	e	enum:__anon8
-BAD_GATEWAY_5_02	er-coap-constants.h	/^  BAD_GATEWAY_5_02 = 162,       \/* BAD_GATEWAY *\/$/;"	e	enum:__anon6
-BAD_OPTION_4_02	er-coap-constants.h	/^  BAD_OPTION_4_02 = 130,        \/* BAD_OPTION *\/$/;"	e	enum:__anon6
-BAD_REQUEST_4_00	er-coap-constants.h	/^  BAD_REQUEST_4_00 = 128,       \/* BAD_REQUEST *\/$/;"	e	enum:__anon6
+APPLICATION_ATOM_XML	er-coap-constants.h	/^  APPLICATION_ATOM_XML = 45,$/;"	e	enum:__anon12
+APPLICATION_EXI	er-coap-constants.h	/^  APPLICATION_EXI = 47,$/;"	e	enum:__anon12
+APPLICATION_FASTINFOSET	er-coap-constants.h	/^  APPLICATION_FASTINFOSET = 48,$/;"	e	enum:__anon12
+APPLICATION_JSON	er-coap-constants.h	/^  APPLICATION_JSON = 50,$/;"	e	enum:__anon12
+APPLICATION_LINK_FORMAT	er-coap-constants.h	/^  APPLICATION_LINK_FORMAT = 40,$/;"	e	enum:__anon12
+APPLICATION_OCTET_STREAM	er-coap-constants.h	/^  APPLICATION_OCTET_STREAM = 42,$/;"	e	enum:__anon12
+APPLICATION_RDF_XML	er-coap-constants.h	/^  APPLICATION_RDF_XML = 43,$/;"	e	enum:__anon12
+APPLICATION_SOAP_FASTINFOSET	er-coap-constants.h	/^  APPLICATION_SOAP_FASTINFOSET = 49,$/;"	e	enum:__anon12
+APPLICATION_SOAP_XML	er-coap-constants.h	/^  APPLICATION_SOAP_XML = 44,$/;"	e	enum:__anon12
+APPLICATION_XML	er-coap-constants.h	/^  APPLICATION_XML = 41,$/;"	e	enum:__anon12
+APPLICATION_XMPP_XML	er-coap-constants.h	/^  APPLICATION_XMPP_XML = 46,$/;"	e	enum:__anon12
+APPLICATION_X_OBIX_BINARY	er-coap-constants.h	/^  APPLICATION_X_OBIX_BINARY = 51$/;"	e	enum:__anon12
+AUDIO_RAW	er-coap-constants.h	/^  AUDIO_RAW = 25,$/;"	e	enum:__anon12
+BAD_GATEWAY_5_02	er-coap-constants.h	/^  BAD_GATEWAY_5_02 = 162,       \/* BAD_GATEWAY *\/$/;"	e	enum:__anon10
+BAD_OPTION_4_02	er-coap-constants.h	/^  BAD_OPTION_4_02 = 130,        \/* BAD_OPTION *\/$/;"	e	enum:__anon10
+BAD_REQUEST_4_00	er-coap-constants.h	/^  BAD_REQUEST_4_00 = 128,       \/* BAD_REQUEST *\/$/;"	e	enum:__anon10
 BASE_KEY	er-oscoap-int.h	/^  uint8_t BASE_KEY[BASE_KEY_LEN]; $/;"	m	struct:OSCOAP_COMMON_CONTEXT
 BASE_KEY_LEN	er-oscoap-int.h	45;"	d
-BYTETOBINARY	er-oscoap.c	926;"	d	file:
-BYTETOBINARYPATTERN	er-oscoap.c	925;"	d	file:
+BYTETOBINARY	er-oscoap.c	941;"	d	file:
+BYTETOBINARYPATTERN	er-oscoap.c	940;"	d	file:
 CCM_STAR_AUTH_FLAGS	cose-aes-ccm.c	52;"	d	file:
 CCM_STAR_ENCRYPTION_FLAGS	cose-aes-ccm.c	54;"	d	file:
-CHANGED_2_04	er-coap-constants.h	/^  CHANGED_2_04 = 68,            \/* CHANGED *\/$/;"	e	enum:__anon6
+CHANGED_2_04	er-coap-constants.h	/^  CHANGED_2_04 = 68,            \/* CHANGED *\/$/;"	e	enum:__anon10
 CLEAR_OPTION	er-oscoap.h	40;"	d
 COAP_BLOCK1_H_	er-coap-block1.h	40;"	d
 COAP_BLOCKING_REQUEST	er-coap-engine.h	75;"	d
 COAP_DEFAULT_MAX_AGE	er-coap-constants.h	49;"	d
 COAP_DEFAULT_PORT	er-coap-constants.h	47;"	d
-COAP_DELETE	er-coap-constants.h	/^  COAP_DELETE$/;"	e	enum:__anon5
+COAP_DELETE	er-coap-constants.h	/^  COAP_DELETE$/;"	e	enum:__anon9
 COAP_ETAG_LEN	er-coap-constants.h	56;"	d
-COAP_GET	er-coap-constants.h	/^  COAP_GET = 1,$/;"	e	enum:__anon5
+COAP_GET	er-coap-constants.h	/^  COAP_GET = 1,$/;"	e	enum:__anon9
 COAP_HEADER_LEN	er-coap-constants.h	54;"	d
 COAP_HEADER_OPTION_DELTA_MASK	er-coap-constants.h	65;"	d
 COAP_HEADER_OPTION_SHORT_LENGTH_MASK	er-coap-constants.h	66;"	d
@@ -62,29 +68,29 @@ COAP_OBSERVE_CLIENT	er-coap-observe-client.h	47;"	d
 COAP_OBSERVE_H_	er-coap-observe.h	40;"	d
 COAP_OBSERVE_REFRESH_INTERVAL	er-coap-conf.h	72;"	d
 COAP_OBSERVING_CLIENT_H_	er-coap-observe-client.h	41;"	d
-COAP_OPTION_ACCEPT	er-coap-constants.h	/^  COAP_OPTION_ACCEPT = 17,      \/* 0-2 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_BLOCK1	er-coap-constants.h	/^  COAP_OPTION_BLOCK1 = 27,      \/* 1-3 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_BLOCK2	er-coap-constants.h	/^  COAP_OPTION_BLOCK2 = 23,      \/* 1-3 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_CONTENT_FORMAT	er-coap-constants.h	/^  COAP_OPTION_CONTENT_FORMAT = 12,      \/* 0-2 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_ETAG	er-coap-constants.h	/^  COAP_OPTION_ETAG = 4,         \/* 1-8 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_IF_MATCH	er-coap-constants.h	/^  COAP_OPTION_IF_MATCH = 1,     \/* 0-8 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_IF_NONE_MATCH	er-coap-constants.h	/^  COAP_OPTION_IF_NONE_MATCH = 5,        \/* 0 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_LOCATION_PATH	er-coap-constants.h	/^  COAP_OPTION_LOCATION_PATH = 8,        \/* 0-255 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_LOCATION_QUERY	er-coap-constants.h	/^  COAP_OPTION_LOCATION_QUERY = 20,      \/* 0-255 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_MAX_AGE	er-coap-constants.h	/^  COAP_OPTION_MAX_AGE = 14,     \/* 0-4 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_OBJECT_SECURITY	er-coap-constants.h	/^  COAP_OPTION_OBJECT_SECURITY = 21,$/;"	e	enum:__anon7
-COAP_OPTION_OBSERVE	er-coap-constants.h	/^  COAP_OPTION_OBSERVE = 6,      \/* 0-3 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_PROXY_SCHEME	er-coap-constants.h	/^  COAP_OPTION_PROXY_SCHEME = 39,        \/* 1-255 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_PROXY_URI	er-coap-constants.h	/^  COAP_OPTION_PROXY_URI = 35,   \/* 1-1034 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_SIZE1	er-coap-constants.h	/^  COAP_OPTION_SIZE1 = 60,       \/* 0-4 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_SIZE2	er-coap-constants.h	/^  COAP_OPTION_SIZE2 = 28,       \/* 0-4 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_URI_HOST	er-coap-constants.h	/^  COAP_OPTION_URI_HOST = 3,     \/* 1-255 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_URI_PATH	er-coap-constants.h	/^  COAP_OPTION_URI_PATH = 11,    \/* 0-255 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_URI_PORT	er-coap-constants.h	/^  COAP_OPTION_URI_PORT = 7,     \/* 0-2 B *\/$/;"	e	enum:__anon7
-COAP_OPTION_URI_QUERY	er-coap-constants.h	/^  COAP_OPTION_URI_QUERY = 15,   \/* 0-255 B *\/$/;"	e	enum:__anon7
-COAP_POST	er-coap-constants.h	/^  COAP_POST,$/;"	e	enum:__anon5
+COAP_OPTION_ACCEPT	er-coap-constants.h	/^  COAP_OPTION_ACCEPT = 17,      \/* 0-2 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_BLOCK1	er-coap-constants.h	/^  COAP_OPTION_BLOCK1 = 27,      \/* 1-3 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_BLOCK2	er-coap-constants.h	/^  COAP_OPTION_BLOCK2 = 23,      \/* 1-3 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_CONTENT_FORMAT	er-coap-constants.h	/^  COAP_OPTION_CONTENT_FORMAT = 12,      \/* 0-2 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_ETAG	er-coap-constants.h	/^  COAP_OPTION_ETAG = 4,         \/* 1-8 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_IF_MATCH	er-coap-constants.h	/^  COAP_OPTION_IF_MATCH = 1,     \/* 0-8 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_IF_NONE_MATCH	er-coap-constants.h	/^  COAP_OPTION_IF_NONE_MATCH = 5,        \/* 0 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_LOCATION_PATH	er-coap-constants.h	/^  COAP_OPTION_LOCATION_PATH = 8,        \/* 0-255 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_LOCATION_QUERY	er-coap-constants.h	/^  COAP_OPTION_LOCATION_QUERY = 20,      \/* 0-255 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_MAX_AGE	er-coap-constants.h	/^  COAP_OPTION_MAX_AGE = 14,     \/* 0-4 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_OBJECT_SECURITY	er-coap-constants.h	/^  COAP_OPTION_OBJECT_SECURITY = 21,$/;"	e	enum:__anon11
+COAP_OPTION_OBSERVE	er-coap-constants.h	/^  COAP_OPTION_OBSERVE = 6,      \/* 0-3 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_PROXY_SCHEME	er-coap-constants.h	/^  COAP_OPTION_PROXY_SCHEME = 39,        \/* 1-255 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_PROXY_URI	er-coap-constants.h	/^  COAP_OPTION_PROXY_URI = 35,   \/* 1-1034 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_SIZE1	er-coap-constants.h	/^  COAP_OPTION_SIZE1 = 60,       \/* 0-4 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_SIZE2	er-coap-constants.h	/^  COAP_OPTION_SIZE2 = 28,       \/* 0-4 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_URI_HOST	er-coap-constants.h	/^  COAP_OPTION_URI_HOST = 3,     \/* 1-255 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_URI_PATH	er-coap-constants.h	/^  COAP_OPTION_URI_PATH = 11,    \/* 0-255 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_URI_PORT	er-coap-constants.h	/^  COAP_OPTION_URI_PORT = 7,     \/* 0-2 B *\/$/;"	e	enum:__anon11
+COAP_OPTION_URI_QUERY	er-coap-constants.h	/^  COAP_OPTION_URI_QUERY = 15,   \/* 0-255 B *\/$/;"	e	enum:__anon11
+COAP_POST	er-coap-constants.h	/^  COAP_POST,$/;"	e	enum:__anon9
 COAP_PROXY_OPTION_PROCESSING	er-coap-conf.h	44;"	d
-COAP_PUT	er-coap-constants.h	/^  COAP_PUT,$/;"	e	enum:__anon5
+COAP_PUT	er-coap-constants.h	/^  COAP_PUT,$/;"	e	enum:__anon9
 COAP_RESPONSE_RANDOM_FACTOR	er-coap-constants.h	51;"	d
 COAP_RESPONSE_TIMEOUT	er-coap-constants.h	50;"	d
 COAP_RESPONSE_TIMEOUT_BACKOFF_MASK	er-coap-transactions.h	49;"	d
@@ -97,11 +103,11 @@ COAP_SERIALIZE_STRING_OPTION	er-coap.h	171;"	d
 COAP_SERVER_PORT	er-coap-conf.h	48;"	d
 COAP_TOKEN_LEN	er-coap-constants.h	55;"	d
 COAP_TRANSACTIONS_H_	er-coap-transactions.h	40;"	d
-COAP_TYPE_ACK	er-coap-constants.h	/^  COAP_TYPE_ACK,                \/* acknowledgements *\/$/;"	e	enum:__anon4
-COAP_TYPE_CON	er-coap-constants.h	/^  COAP_TYPE_CON,                \/* confirmables *\/$/;"	e	enum:__anon4
-COAP_TYPE_NON	er-coap-constants.h	/^  COAP_TYPE_NON,                \/* non-confirmables *\/$/;"	e	enum:__anon4
-COAP_TYPE_RST	er-coap-constants.h	/^  COAP_TYPE_RST                 \/* reset *\/$/;"	e	enum:__anon4
-CONTENT_2_05	er-coap-constants.h	/^  CONTENT_2_05 = 69,            \/* OK *\/$/;"	e	enum:__anon6
+COAP_TYPE_ACK	er-coap-constants.h	/^  COAP_TYPE_ACK,                \/* acknowledgements *\/$/;"	e	enum:__anon8
+COAP_TYPE_CON	er-coap-constants.h	/^  COAP_TYPE_CON,                \/* confirmables *\/$/;"	e	enum:__anon8
+COAP_TYPE_NON	er-coap-constants.h	/^  COAP_TYPE_NON,                \/* non-confirmables *\/$/;"	e	enum:__anon8
+COAP_TYPE_RST	er-coap-constants.h	/^  COAP_TYPE_RST                 \/* reset *\/$/;"	e	enum:__anon8
+CONTENT_2_05	er-coap-constants.h	/^  CONTENT_2_05 = 69,            \/* OK *\/$/;"	e	enum:__anon10
 CONTEXT_ID	er-oscoap-int.h	/^  uint8_t CONTEXT_ID[CONTEXT_ID_LEN];$/;"	m	struct:OSCOAP_COMMON_CONTEXT
 CONTEXT_ID_LEN	er-oscoap-int.h	39;"	d
 CONTEXT_ID_LEN	er-oscoap-int.h	44;"	d
@@ -109,7 +115,7 @@ CONTEXT_INIT_VECT_LEN	er-oscoap-int.h	41;"	d
 CONTEXT_KEY_LEN	er-oscoap-int.h	40;"	d
 CONTEXT_NUM	er-oscoap.h	49;"	d
 CONTEXT_SEQ_LEN	er-oscoap-int.h	42;"	d
-CONTINUE_2_31	er-coap-constants.h	/^  CONTINUE_2_31 = 95,           \/* CONTINUE *\/$/;"	e	enum:__anon6
+CONTINUE_2_31	er-coap-constants.h	/^  CONTINUE_2_31 = 95,           \/* CONTINUE *\/$/;"	e	enum:__anon10
 COSE_AES_CCM	cose-aes-ccm.h	51;"	d
 COSE_AES_CCM	cose-aes-ccm.h	53;"	d
 COSE_AES_CCM_H_	cose-aes-ccm.h	46;"	d
@@ -118,7 +124,33 @@ COSE_Algorithm_AES_CCM_64_64_128	opt-cose.h	73;"	d
 COSE_Header_KID	opt-cose.h	74;"	d
 COSE_Header_Partial_IV	opt-cose.h	75;"	d
 COSE_Header_Sender_ID	opt-cose.h	76;"	d
-CREATED_2_01	er-coap-constants.h	/^  CREATED_2_01 = 65,            \/* CREATED *\/$/;"	e	enum:__anon6
+CREATED_2_01	er-coap-constants.h	/^  CREATED_2_01 = 65,            \/* CREATED *\/$/;"	e	enum:__anon10
+Ch_temp1	rfc6234/sha384-512.c	/^static uint32_t Ch_temp1[2], Ch_temp2[2], Ch_temp3[2];$/;"	v	file:
+Ch_temp1	sha384-512.c	/^static uint32_t Ch_temp1[2], Ch_temp2[2], Ch_temp3[2];$/;"	v	file:
+Ch_temp2	rfc6234/sha384-512.c	/^static uint32_t Ch_temp1[2], Ch_temp2[2], Ch_temp3[2];$/;"	v	file:
+Ch_temp2	sha384-512.c	/^static uint32_t Ch_temp1[2], Ch_temp2[2], Ch_temp3[2];$/;"	v	file:
+Ch_temp3	rfc6234/sha384-512.c	/^static uint32_t Ch_temp1[2], Ch_temp2[2], Ch_temp3[2];$/;"	v	file:
+Ch_temp3	sha384-512.c	/^static uint32_t Ch_temp1[2], Ch_temp2[2], Ch_temp3[2];$/;"	v	file:
+Computed	rfc6234/sha.h	/^    int Computed;                   \/* Is the hash computed? *\/$/;"	m	struct:SHA1Context
+Computed	rfc6234/sha.h	/^    int Computed;                   \/* Is the hash computed? *\/$/;"	m	struct:SHA256Context
+Computed	rfc6234/sha.h	/^    int Computed;                   \/* Is the hash computed?*\/$/;"	m	struct:SHA512Context
+Computed	rfc6234/sha.h	/^    int Computed;               \/* Is the MAC computed? *\/$/;"	m	struct:HMACContext
+Computed	rfc6234/sha.h	/^    int Computed;               \/* Is the key material computed? *\/$/;"	m	struct:HKDFContext
+Computed	sha.h	/^    int Computed;                   \/* Is the hash computed? *\/$/;"	m	struct:SHA1Context
+Computed	sha.h	/^    int Computed;                   \/* Is the hash computed? *\/$/;"	m	struct:SHA256Context
+Computed	sha.h	/^    int Computed;                   \/* Is the hash computed?*\/$/;"	m	struct:SHA512Context
+Computed	sha.h	/^    int Computed;               \/* Is the MAC computed? *\/$/;"	m	struct:HMACContext
+Computed	sha.h	/^    int Computed;               \/* Is the key material computed? *\/$/;"	m	struct:HKDFContext
+Corrupted	rfc6234/sha.h	/^    int Corrupted;                  \/* Cumulative corruption code *\/$/;"	m	struct:SHA1Context
+Corrupted	rfc6234/sha.h	/^    int Corrupted;                  \/* Cumulative corruption code *\/$/;"	m	struct:SHA256Context
+Corrupted	rfc6234/sha.h	/^    int Corrupted;                  \/* Cumulative corruption code *\/$/;"	m	struct:SHA512Context
+Corrupted	rfc6234/sha.h	/^    int Corrupted;              \/* Cumulative corruption code *\/$/;"	m	struct:HKDFContext
+Corrupted	rfc6234/sha.h	/^    int Corrupted;              \/* Cumulative corruption code *\/$/;"	m	struct:HMACContext
+Corrupted	sha.h	/^    int Corrupted;                  \/* Cumulative corruption code *\/$/;"	m	struct:SHA1Context
+Corrupted	sha.h	/^    int Corrupted;                  \/* Cumulative corruption code *\/$/;"	m	struct:SHA256Context
+Corrupted	sha.h	/^    int Corrupted;                  \/* Cumulative corruption code *\/$/;"	m	struct:SHA512Context
+Corrupted	sha.h	/^    int Corrupted;              \/* Cumulative corruption code *\/$/;"	m	struct:HKDFContext
+Corrupted	sha.h	/^    int Corrupted;              \/* Cumulative corruption code *\/$/;"	m	struct:HMACContext
 DEBUG	er-coap-block1.c	45;"	d	file:
 DEBUG	er-coap-engine.c	50;"	d	file:
 DEBUG	er-coap-observe-client.c	49;"	d	file:
@@ -130,32 +162,85 @@ DEBUG	er-coap.c	57;"	d	file:
 DEBUG	er-oscoap.c	44;"	d	file:
 DEBUG	opt-cbor.c	5;"	d	file:
 DEBUG	opt-cose.c	37;"	d	file:
-DELETED_2_02	er-coap-constants.h	/^  DELETED_2_02 = 66,            \/* DELETED *\/$/;"	e	enum:__anon6
+DELETED_2_02	er-coap-constants.h	/^  DELETED_2_02 = 66,            \/* DELETED *\/$/;"	e	enum:__anon10
+DEPS	rfc6234/Makefile	/^DEPS = Makefile$/;"	m
 ERROR_RESPONSE_CODE	er-coap-observe-client.h	/^  ERROR_RESPONSE_CODE,$/;"	e	enum:__anon1
 ER_COAP_CONF_H_	er-coap-conf.h	40;"	d
 ER_COAP_CONSTANTS_H_	er-coap-constants.h	45;"	d
 ER_COAP_ENGINE_H_	er-coap-engine.h	40;"	d
 ER_COAP_H_	er-coap.h	44;"	d
-FORBIDDEN_4_03	er-coap-constants.h	/^  FORBIDDEN_4_03 = 131,         \/* FORBIDDEN *\/$/;"	e	enum:__anon6
-GATEWAY_TIMEOUT_5_04	er-coap-constants.h	/^  GATEWAY_TIMEOUT_5_04 = 164,   \/* GATEWAY_TIMEOUT *\/$/;"	e	enum:__anon6
+FORBIDDEN_4_03	er-coap-constants.h	/^  FORBIDDEN_4_03 = 131,         \/* FORBIDDEN *\/$/;"	e	enum:__anon10
+GATEWAY_TIMEOUT_5_04	er-coap-constants.h	/^  GATEWAY_TIMEOUT_5_04 = 164,   \/* GATEWAY_TIMEOUT *\/$/;"	e	enum:__anon10
+HASHCOUNT	rfc6234/shatest.c	212;"	d	file:
+HASHCOUNT	shatest.c	212;"	d	file:
+HKDFContext	rfc6234/sha.h	/^typedef struct HKDFContext {$/;"	s
+HKDFContext	rfc6234/sha.h	/^} HKDFContext;$/;"	t	typeref:struct:HKDFContext
+HKDFContext	sha.h	/^typedef struct HKDFContext {$/;"	s
+HKDFContext	sha.h	/^} HKDFContext;$/;"	t	typeref:struct:HKDFContext
+HKDFTESTCOUNT	rfc6234/shatest.c	215;"	d	file:
+HKDFTESTCOUNT	shatest.c	215;"	d	file:
+HMACContext	rfc6234/sha.h	/^typedef struct HMACContext {$/;"	s
+HMACContext	rfc6234/sha.h	/^} HMACContext;$/;"	t	typeref:struct:HMACContext
+HMACContext	sha.h	/^typedef struct HMACContext {$/;"	s
+HMACContext	sha.h	/^} HMACContext;$/;"	t	typeref:struct:HMACContext
+HMACTESTCOUNT	rfc6234/shatest.c	214;"	d	file:
+HMACTESTCOUNT	shatest.c	214;"	d	file:
 ID_LEN	er-oscoap-int.h	43;"	d
-IMAGE_GIF	er-coap-constants.h	/^  IMAGE_GIF = 21,$/;"	e	enum:__anon8
-IMAGE_JPEG	er-coap-constants.h	/^  IMAGE_JPEG = 22,$/;"	e	enum:__anon8
-IMAGE_PNG	er-coap-constants.h	/^  IMAGE_PNG = 23,$/;"	e	enum:__anon8
-IMAGE_TIFF	er-coap-constants.h	/^  IMAGE_TIFF = 24,$/;"	e	enum:__anon8
-INTERNAL_SERVER_ERROR_5_00	er-coap-constants.h	/^  INTERNAL_SERVER_ERROR_5_00 = 160,     \/* INTERNAL_SERVER_ERROR *\/$/;"	e	enum:__anon6
+IMAGE_GIF	er-coap-constants.h	/^  IMAGE_GIF = 21,$/;"	e	enum:__anon12
+IMAGE_JPEG	er-coap-constants.h	/^  IMAGE_JPEG = 22,$/;"	e	enum:__anon12
+IMAGE_PNG	er-coap-constants.h	/^  IMAGE_PNG = 23,$/;"	e	enum:__anon12
+IMAGE_TIFF	er-coap-constants.h	/^  IMAGE_TIFF = 24,$/;"	e	enum:__anon12
+INTERNAL_SERVER_ERROR_5_00	er-coap-constants.h	/^  INTERNAL_SERVER_ERROR_5_00 = 160,     \/* INTERNAL_SERVER_ERROR *\/$/;"	e	enum:__anon10
 IS_OPTION	er-coap.h	87;"	d
 IS_RESPONSE_CODE_2_XX	er-coap-observe-client.h	61;"	d
-MANUAL_RESPONSE	er-coap-constants.h	/^  MANUAL_RESPONSE,$/;"	e	enum:__anon6
-MEMORY_ALLOCATION_ERROR	er-coap-constants.h	/^  MEMORY_ALLOCATION_ERROR = 192,$/;"	e	enum:__anon6
-METHOD_NOT_ALLOWED_4_05	er-coap-constants.h	/^  METHOD_NOT_ALLOWED_4_05 = 133,        \/* METHOD_NOT_ALLOWED *\/$/;"	e	enum:__anon6
+Intermediate_Hash	rfc6234/sha.h	/^    uint32_t Intermediate_Hash[SHA1HashSize\/4]; \/* Message Digest *\/$/;"	m	struct:SHA1Context
+Intermediate_Hash	rfc6234/sha.h	/^    uint32_t Intermediate_Hash[SHA256HashSize\/4]; \/* Message Digest *\/$/;"	m	struct:SHA256Context
+Intermediate_Hash	rfc6234/sha.h	/^    uint32_t Intermediate_Hash[SHA512HashSize\/4]; \/* Message Digest  *\/$/;"	m	struct:SHA512Context
+Intermediate_Hash	sha.h	/^    uint32_t Intermediate_Hash[SHA1HashSize\/4]; \/* Message Digest *\/$/;"	m	struct:SHA1Context
+Intermediate_Hash	sha.h	/^    uint32_t Intermediate_Hash[SHA256HashSize\/4]; \/* Message Digest *\/$/;"	m	struct:SHA256Context
+Intermediate_Hash	sha.h	/^    uint32_t Intermediate_Hash[SHA512HashSize\/4]; \/* Message Digest  *\/$/;"	m	struct:SHA512Context
+LINK	rfc6234/Makefile	/^LINK    = @echo "* Linking $@"; $(CC) $(CFLAGS) $(LDFLAGS)$/;"	m
+Length	rfc6234/sha.h	/^    uint32_t Length[4];                 \/* Message length in bits *\/$/;"	m	struct:SHA512Context
+Length	sha.h	/^    uint32_t Length[4];                 \/* Message length in bits *\/$/;"	m	struct:SHA512Context
+Length_High	rfc6234/sha.h	/^    uint32_t Length_High;               \/* Message length in bits *\/$/;"	m	struct:SHA1Context
+Length_High	rfc6234/sha.h	/^    uint32_t Length_High;               \/* Message length in bits *\/$/;"	m	struct:SHA256Context
+Length_High	sha.h	/^    uint32_t Length_High;               \/* Message length in bits *\/$/;"	m	struct:SHA1Context
+Length_High	sha.h	/^    uint32_t Length_High;               \/* Message length in bits *\/$/;"	m	struct:SHA256Context
+Length_Low	rfc6234/sha.h	/^    uint32_t Length_Low;                \/* Message length in bits *\/$/;"	m	struct:SHA1Context
+Length_Low	rfc6234/sha.h	/^    uint32_t Length_Low;                \/* Message length in bits *\/$/;"	m	struct:SHA256Context
+Length_Low	sha.h	/^    uint32_t Length_Low;                \/* Message length in bits *\/$/;"	m	struct:SHA1Context
+Length_Low	sha.h	/^    uint32_t Length_Low;                \/* Message length in bits *\/$/;"	m	struct:SHA256Context
+MANUAL_RESPONSE	er-coap-constants.h	/^  MANUAL_RESPONSE,$/;"	e	enum:__anon10
+MEMORY_ALLOCATION_ERROR	er-coap-constants.h	/^  MEMORY_ALLOCATION_ERROR = 192,$/;"	e	enum:__anon10
+METHOD_NOT_ALLOWED_4_05	er-coap-constants.h	/^  METHOD_NOT_ALLOWED_4_05 = 133,        \/* METHOD_NOT_ALLOWED *\/$/;"	e	enum:__anon10
+Maj_temp1	rfc6234/sha384-512.c	/^static uint32_t Maj_temp1[2], Maj_temp2[2],$/;"	v	file:
+Maj_temp1	sha384-512.c	/^static uint32_t Maj_temp1[2], Maj_temp2[2],$/;"	v	file:
+Maj_temp2	rfc6234/sha384-512.c	/^static uint32_t Maj_temp1[2], Maj_temp2[2],$/;"	v	file:
+Maj_temp2	sha384-512.c	/^static uint32_t Maj_temp1[2], Maj_temp2[2],$/;"	v	file:
+Maj_temp3	rfc6234/sha384-512.c	/^  Maj_temp3[2], Maj_temp4[2];$/;"	v	file:
+Maj_temp3	sha384-512.c	/^  Maj_temp3[2], Maj_temp4[2];$/;"	v	file:
+Maj_temp4	rfc6234/sha384-512.c	/^  Maj_temp3[2], Maj_temp4[2];$/;"	v	file:
+Maj_temp4	sha384-512.c	/^  Maj_temp3[2], Maj_temp4[2];$/;"	v	file:
+Message_Block	rfc6234/sha.h	/^    uint8_t Message_Block[SHA1_Message_Block_Size];$/;"	m	struct:SHA1Context
+Message_Block	rfc6234/sha.h	/^    uint8_t Message_Block[SHA256_Message_Block_Size];$/;"	m	struct:SHA256Context
+Message_Block	rfc6234/sha.h	/^    uint8_t Message_Block[SHA512_Message_Block_Size];$/;"	m	struct:SHA512Context
+Message_Block	sha.h	/^    uint8_t Message_Block[SHA1_Message_Block_Size];$/;"	m	struct:SHA1Context
+Message_Block	sha.h	/^    uint8_t Message_Block[SHA256_Message_Block_Size];$/;"	m	struct:SHA256Context
+Message_Block	sha.h	/^    uint8_t Message_Block[SHA512_Message_Block_Size];$/;"	m	struct:SHA512Context
+Message_Block_Index	rfc6234/sha.h	/^    int_least16_t Message_Block_Index;  \/* Message_Block array index *\/$/;"	m	struct:SHA1Context
+Message_Block_Index	rfc6234/sha.h	/^    int_least16_t Message_Block_Index;  \/* Message_Block array index *\/$/;"	m	struct:SHA256Context
+Message_Block_Index	rfc6234/sha.h	/^    int_least16_t Message_Block_Index;  \/* Message_Block array index *\/$/;"	m	struct:SHA512Context
+Message_Block_Index	sha.h	/^    int_least16_t Message_Block_Index;  \/* Message_Block array index *\/$/;"	m	struct:SHA1Context
+Message_Block_Index	sha.h	/^    int_least16_t Message_Block_Index;  \/* Message_Block array index *\/$/;"	m	struct:SHA256Context
+Message_Block_Index	sha.h	/^    int_least16_t Message_Block_Index;  \/* Message_Block array index *\/$/;"	m	struct:SHA512Context
 NEXT_CONTEXT	er-oscoap-int.h	/^  OSCOAP_COMMON_CONTEXT* NEXT_CONTEXT;$/;"	m	struct:OSCOAP_COMMON_CONTEXT
 NOTIFICATION_OK	er-coap-observe-client.h	/^  NOTIFICATION_OK,$/;"	e	enum:__anon1
-NOT_ACCEPTABLE_4_06	er-coap-constants.h	/^  NOT_ACCEPTABLE_4_06 = 134,    \/* NOT_ACCEPTABLE *\/$/;"	e	enum:__anon6
-NOT_FOUND_4_04	er-coap-constants.h	/^  NOT_FOUND_4_04 = 132,         \/* NOT_FOUND *\/$/;"	e	enum:__anon6
-NOT_IMPLEMENTED_5_01	er-coap-constants.h	/^  NOT_IMPLEMENTED_5_01 = 161,   \/* NOT_IMPLEMENTED *\/$/;"	e	enum:__anon6
-NO_ERROR	er-coap-constants.h	/^  NO_ERROR = 0,$/;"	e	enum:__anon6
+NOT_ACCEPTABLE_4_06	er-coap-constants.h	/^  NOT_ACCEPTABLE_4_06 = 134,    \/* NOT_ACCEPTABLE *\/$/;"	e	enum:__anon10
+NOT_FOUND_4_04	er-coap-constants.h	/^  NOT_FOUND_4_04 = 132,         \/* NOT_FOUND *\/$/;"	e	enum:__anon10
+NOT_IMPLEMENTED_5_01	er-coap-constants.h	/^  NOT_IMPLEMENTED_5_01 = 161,   \/* NOT_IMPLEMENTED *\/$/;"	e	enum:__anon10
+NO_ERROR	er-coap-constants.h	/^  NO_ERROR = 0,$/;"	e	enum:__anon10
 NO_REPLY_FROM_SERVER	er-coap-observe-client.h	/^  NO_REPLY_FROM_SERVER,$/;"	e	enum:__anon1
+OBJS	rfc6234/Makefile	/^OBJS := $(shell ls *.c | sed 's\/\\.c\/.o\/' | sed 's\/ \/\\n\/g' | sort | uniq | tr '\\n' ' ')$/;"	m
 OBSERVE_NOT_SUPPORTED	er-coap-observe-client.h	/^  OBSERVE_NOT_SUPPORTED,$/;"	e	enum:__anon1
 OBSERVE_OK	er-coap-observe-client.h	/^  OBSERVE_OK,$/;"	e	enum:__anon1
 OPTION_MAP_SIZE	er-coap.h	/^    enum { OPTION_MAP_SIZE = sizeof(uint8_t) * 8 };$/;"	e	enum:__anon2
@@ -175,6 +260,7 @@ OPT_COSE_Encoded_length	opt-cose.c	/^size_t OPT_COSE_Encoded_length(opt_cose_enc
 OPT_COSE_Encrypt	opt-cose.c	/^uint8_t OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){$/;"	f
 OPT_COSE_GetKeyID	opt-cose.c	/^uint8_t* OPT_COSE_GetKeyID(opt_cose_encrypt_t *cose, size_t *kid_len){$/;"	f
 OPT_COSE_GetPartialIV	opt-cose.c	/^uint8_t* OPT_COSE_GetPartialIV(opt_cose_encrypt_t *cose, size_t *partial_iv_len){$/;"	f
+OPT_COSE_GetSenderID	opt-cose.c	/^uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t *sid_len){$/;"	f
 OPT_COSE_Init	opt-cose.c	/^void OPT_COSE_Init(opt_cose_encrypt_t *cose){$/;"	f
 OPT_COSE_SetAAD	opt-cose.c	/^uint8_t OPT_COSE_SetAAD(opt_cose_encrypt_t *cose, uint8_t *aad_buffer, size_t aad_len){$/;"	f
 OPT_COSE_SetAlg	opt-cose.c	/^uint8_t OPT_COSE_SetAlg(opt_cose_encrypt_t *cose, uint8_t alg){$/;"	f
@@ -184,19 +270,20 @@ OPT_COSE_SetExternalAAD	opt-cose.c	/^uint8_t OPT_COSE_SetExternalAAD(opt_cose_en
 OPT_COSE_SetKeyID	opt-cose.c	/^uint8_t OPT_COSE_SetKeyID(opt_cose_encrypt_t *cose, uint8_t *kid_buffer, size_t kid_len){$/;"	f
 OPT_COSE_SetNonce	opt-cose.c	/^uint8_t OPT_COSE_SetNonce(opt_cose_encrypt_t *cose, uint8_t *nonce_buffer, size_t nonce_len){$/;"	f
 OPT_COSE_SetPartialIV	opt-cose.c	/^uint8_t OPT_COSE_SetPartialIV(opt_cose_encrypt_t *cose, uint8_t *partial_iv_buffer, size_t partial_iv_len){$/;"	f
+OPT_COSE_SetSenderID	opt-cose.c	/^uint8_t* OPT_COSE_SetSenderID(opt_cose_encrypt_t *cose, uint8_t *sid_buffer, size_t sid_len){$/;"	f
 OSCOAP_COMMON_CONTEXT	er-oscoap-int.h	/^struct OSCOAP_COMMON_CONTEXT{$/;"	s
 OSCOAP_COMMON_CONTEXT	er-oscoap-int.h	/^typedef struct OSCOAP_COMMON_CONTEXT OSCOAP_COMMON_CONTEXT;$/;"	t	typeref:struct:OSCOAP_COMMON_CONTEXT
-OSCOAP_CONTEXT_NOT_FOUND	er-coap-constants.h	/^  OSCOAP_CONTEXT_NOT_FOUND,$/;"	e	enum:__anon6
-OSCOAP_CRYPTO_ERROR	er-coap-constants.h	/^  OSCOAP_CRYPTO_ERROR,$/;"	e	enum:__anon6
-OSCOAP_MALFORMED_PACKET	er-coap-constants.h	/^  OSCOAP_MALFORMED_PACKET,$/;"	e	enum:__anon6
+OSCOAP_CONTEXT_NOT_FOUND	er-coap-constants.h	/^  OSCOAP_CONTEXT_NOT_FOUND,$/;"	e	enum:__anon10
+OSCOAP_CRYPTO_ERROR	er-coap-constants.h	/^  OSCOAP_CRYPTO_ERROR = 194,$/;"	e	enum:__anon10
+OSCOAP_MALFORMED_PACKET	er-coap-constants.h	/^  OSCOAP_MALFORMED_PACKET,$/;"	e	enum:__anon10
 OSCOAP_RECIPIENT_CONTEXT	er-oscoap-int.h	/^struct OSCOAP_RECIPIENT_CONTEXT$/;"	s
 OSCOAP_RECIPIENT_CONTEXT	er-oscoap-int.h	/^typedef struct OSCOAP_RECIPIENT_CONTEXT OSCOAP_RECIPIENT_CONTEXT;$/;"	t	typeref:struct:OSCOAP_RECIPIENT_CONTEXT
 OSCOAP_SENDER_CONTEXT	er-oscoap-int.h	/^struct OSCOAP_SENDER_CONTEXT$/;"	s
 OSCOAP_SENDER_CONTEXT	er-oscoap-int.h	/^typedef struct OSCOAP_SENDER_CONTEXT OSCOAP_SENDER_CONTEXT;$/;"	t	typeref:struct:OSCOAP_SENDER_CONTEXT
-OSCOAP_SEQ_ERROR	er-coap-constants.h	/^  OSCOAP_SEQ_ERROR,$/;"	e	enum:__anon6
-PACKET_SERIALIZATION_ERROR	er-coap-constants.h	/^  PACKET_SERIALIZATION_ERROR,$/;"	e	enum:__anon6
-PING_RESPONSE	er-coap-constants.h	/^  PING_RESPONSE$/;"	e	enum:__anon6
-PRECONDITION_FAILED_4_12	er-coap-constants.h	/^  PRECONDITION_FAILED_4_12 = 140,       \/* BAD_REQUEST *\/$/;"	e	enum:__anon6
+OSCOAP_SEQ_ERROR	er-coap-constants.h	/^  OSCOAP_SEQ_ERROR,$/;"	e	enum:__anon10
+PACKET_SERIALIZATION_ERROR	er-coap-constants.h	/^  PACKET_SERIALIZATION_ERROR,$/;"	e	enum:__anon10
+PING_RESPONSE	er-coap-constants.h	/^  PING_RESPONSE$/;"	e	enum:__anon10
+PRECONDITION_FAILED_4_12	er-coap-constants.h	/^  PRECONDITION_FAILED_4_12 = 140,       \/* BAD_REQUEST *\/$/;"	e	enum:__anon10
 PRINT6ADDR	er-coap-block1.c	48;"	d	file:
 PRINT6ADDR	er-coap-block1.c	52;"	d	file:
 PRINT6ADDR	er-coap-engine.c	54;"	d	file:
@@ -214,7 +301,9 @@ PRINT6ADDR	er-coap-transactions.c	52;"	d	file:
 PRINT6ADDR	er-coap.c	61;"	d	file:
 PRINT6ADDR	er-coap.c	65;"	d	file:
 PRINT6ADDR	er-coap.c	70;"	d	file:
-PRINT6ADDR	er-oscoap.c	236;"	d	file:
+PRINT6ADDR	er-oscoap.c	243;"	d	file:
+PRINTBASE64	rfc6234/shatest.c	221;"	d	file:
+PRINTBASE64	shatest.c	221;"	d	file:
 PRINTF	er-coap-block1.c	47;"	d	file:
 PRINTF	er-coap-block1.c	51;"	d	file:
 PRINTF	er-coap-engine.c	53;"	d	file:
@@ -237,6 +326,8 @@ PRINTF	opt-cbor.c	11;"	d	file:
 PRINTF	opt-cbor.c	8;"	d	file:
 PRINTF	opt-cose.c	40;"	d	file:
 PRINTF	opt-cose.c	43;"	d	file:
+PRINTFAIL	rfc6234/shatest.c	224;"	d	file:
+PRINTFAIL	shatest.c	224;"	d	file:
 PRINTF_BIN	er-oscoap.c	50;"	d	file:
 PRINTF_BIN	er-oscoap.c	56;"	d	file:
 PRINTF_CHAR	er-oscoap.c	49;"	d	file:
@@ -247,6 +338,8 @@ PRINTF_HEX	opt-cbor.c	12;"	d	file:
 PRINTF_HEX	opt-cbor.c	9;"	d	file:
 PRINTF_HEX	opt-cose.c	41;"	d	file:
 PRINTF_HEX	opt-cose.c	44;"	d	file:
+PRINTHEX	rfc6234/shatest.c	220;"	d	file:
+PRINTHEX	shatest.c	220;"	d	file:
 PRINTLLADDR	er-coap-block1.c	49;"	d	file:
 PRINTLLADDR	er-coap-block1.c	53;"	d	file:
 PRINTLLADDR	er-coap-engine.c	55;"	d	file:
@@ -263,8 +356,18 @@ PRINTLLADDR	er-coap-transactions.c	49;"	d	file:
 PRINTLLADDR	er-coap-transactions.c	53;"	d	file:
 PRINTLLADDR	er-coap.c	62;"	d	file:
 PRINTLLADDR	er-coap.c	66;"	d	file:
+PRINTNONE	rfc6234/shatest.c	217;"	d	file:
+PRINTNONE	shatest.c	217;"	d	file:
+PRINTPASSFAIL	rfc6234/shatest.c	223;"	d	file:
+PRINTPASSFAIL	shatest.c	223;"	d	file:
+PRINTRAW	rfc6234/shatest.c	219;"	d	file:
+PRINTRAW	shatest.c	219;"	d	file:
+PRINTTEXT	rfc6234/shatest.c	218;"	d	file:
+PRINTTEXT	shatest.c	218;"	d	file:
 PROCESS_THREAD	er-coap-engine.c	/^PROCESS_THREAD(coap_engine, ev, data)$/;"	f
-PROXYING_NOT_SUPPORTED_5_05	er-coap-constants.h	/^  PROXYING_NOT_SUPPORTED_5_05 = 165,    \/* PROXYING_NOT_SUPPORTED *\/$/;"	e	enum:__anon6
+PROXYING_NOT_SUPPORTED_5_05	er-coap-constants.h	/^  PROXYING_NOT_SUPPORTED_5_05 = 165,    \/* PROXYING_NOT_SUPPORTED *\/$/;"	e	enum:__anon10
+RANDOMCOUNT	rfc6234/shatest.c	213;"	d	file:
+RANDOMCOUNT	shatest.c	213;"	d	file:
 RECIPIENT_CONTEXT	er-oscoap-int.h	/^  OSCOAP_RECIPIENT_CONTEXT* RECIPIENT_CONTEXT; \/\/This field facilitates easy integration of OSCOAP multicast$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
 RECIPIENT_CONTEXT	er-oscoap-int.h	/^  OSCOAP_RECIPIENT_CONTEXT* RECIPIENT_CONTEXT;$/;"	m	struct:OSCOAP_COMMON_CONTEXT
 RECIPIENT_ID	er-oscoap-int.h	/^  uint8_t   RECIPIENT_ID[ID_LEN];$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
@@ -272,27 +375,363 @@ RECIPIENT_IV	er-oscoap-int.h	/^  uint8_t   RECIPIENT_IV[CONTEXT_INIT_VECT_LEN];$
 RECIPIENT_KEY	er-oscoap-int.h	/^  uint8_t   RECIPIENT_KEY[CONTEXT_KEY_LEN];$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
 RECIPIENT_SEQ	er-oscoap-int.h	/^  uint32_t  RECIPIENT_SEQ;$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
 REPLAY_WINDOW	er-oscoap-int.h	/^  uint8_t   REPLAY_WINDOW;$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
-REQUEST_ENTITY_TOO_LARGE_4_13	er-coap-constants.h	/^  REQUEST_ENTITY_TOO_LARGE_4_13 = 141,  \/* REQUEST_ENTITY_TOO_LARGE *\/$/;"	e	enum:__anon6
+REQUEST_ENTITY_TOO_LARGE_4_13	er-coap-constants.h	/^  REQUEST_ENTITY_TOO_LARGE_4_13 = 141,  \/* REQUEST_ENTITY_TOO_LARGE *\/$/;"	e	enum:__anon10
 REST	er-coap.h	61;"	d
+ROTR_temp1	rfc6234/sha384-512.c	/^static uint32_t ROTR_temp1[2], ROTR_temp2[2];$/;"	v	file:
+ROTR_temp1	sha384-512.c	/^static uint32_t ROTR_temp1[2], ROTR_temp2[2];$/;"	v	file:
+ROTR_temp2	rfc6234/sha384-512.c	/^static uint32_t ROTR_temp1[2], ROTR_temp2[2];$/;"	v	file:
+ROTR_temp2	sha384-512.c	/^static uint32_t ROTR_temp1[2], ROTR_temp2[2];$/;"	v	file:
 SENDER_CONTEXT	er-oscoap-int.h	/^  OSCOAP_SENDER_CONTEXT* SENDER_CONTEXT;$/;"	m	struct:OSCOAP_COMMON_CONTEXT
 SENDER_ID	er-oscoap-int.h	/^  uint8_t   SENDER_ID[ID_LEN]; $/;"	m	struct:OSCOAP_SENDER_CONTEXT
 SENDER_IV	er-oscoap-int.h	/^  uint8_t   SENDER_IV[CONTEXT_INIT_VECT_LEN];$/;"	m	struct:OSCOAP_SENDER_CONTEXT
 SENDER_KEY	er-oscoap-int.h	/^  uint8_t   SENDER_KEY[CONTEXT_KEY_LEN];$/;"	m	struct:OSCOAP_SENDER_CONTEXT
 SENDER_SEQ	er-oscoap-int.h	/^  uint32_t  SENDER_SEQ;$/;"	m	struct:OSCOAP_SENDER_CONTEXT
 SERVER_LISTEN_PORT	er-coap-engine.h	49;"	d
-SERVICE_UNAVAILABLE_5_03	er-coap-constants.h	/^  SERVICE_UNAVAILABLE_5_03 = 163,       \/* SERVICE_UNAVAILABLE *\/$/;"	e	enum:__anon6
+SERVICE_UNAVAILABLE_5_03	er-coap-constants.h	/^  SERVICE_UNAVAILABLE_5_03 = 163,       \/* SERVICE_UNAVAILABLE *\/$/;"	e	enum:__anon10
 SET_OPTION	er-coap.h	86;"	d
-TEXT_CSV	er-coap-constants.h	/^  TEXT_CSV = 2,$/;"	e	enum:__anon8
-TEXT_HTML	er-coap-constants.h	/^  TEXT_HTML = 3,$/;"	e	enum:__anon8
-TEXT_PLAIN	er-coap-constants.h	/^  TEXT_PLAIN = 0,$/;"	e	enum:__anon8
-TEXT_XML	er-coap-constants.h	/^  TEXT_XML = 1,$/;"	e	enum:__anon8
+SHA1	rfc6234/sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA1	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA1AddLength	rfc6234/sha1.c	53;"	d	file:
+SHA1AddLength	sha1.c	53;"	d	file:
+SHA1Context	rfc6234/sha.h	/^typedef struct SHA1Context {$/;"	s
+SHA1Context	rfc6234/sha.h	/^} SHA1Context;$/;"	t	typeref:struct:SHA1Context
+SHA1Context	sha.h	/^typedef struct SHA1Context {$/;"	s
+SHA1Context	sha.h	/^} SHA1Context;$/;"	t	typeref:struct:SHA1Context
+SHA1FinalBits	rfc6234/sha1.c	/^int SHA1FinalBits(SHA1Context *context, uint8_t message_bits,$/;"	f
+SHA1FinalBits	sha1.c	/^int SHA1FinalBits(SHA1Context *context, uint8_t message_bits,$/;"	f
+SHA1Finalize	rfc6234/sha1.c	/^static void SHA1Finalize(SHA1Context *context, uint8_t Pad_Byte)$/;"	f	file:
+SHA1Finalize	sha1.c	/^static void SHA1Finalize(SHA1Context *context, uint8_t Pad_Byte)$/;"	f	file:
+SHA1HashSize	rfc6234/sha.h	/^    SHA1HashSize = 20, SHA224HashSize = 28, SHA256HashSize = 32,$/;"	e	enum:__anon5
+SHA1HashSize	sha.h	/^    SHA1HashSize = 20, SHA224HashSize = 28, SHA256HashSize = 32,$/;"	e	enum:__anon14
+SHA1HashSizeBits	rfc6234/sha.h	/^    SHA1HashSizeBits = 160, SHA224HashSizeBits = 224,$/;"	e	enum:__anon5
+SHA1HashSizeBits	sha.h	/^    SHA1HashSizeBits = 160, SHA224HashSizeBits = 224,$/;"	e	enum:__anon14
+SHA1Input	rfc6234/sha1.c	/^int SHA1Input(SHA1Context *context,$/;"	f
+SHA1Input	sha1.c	/^int SHA1Input(SHA1Context *context,$/;"	f
+SHA1PadMessage	rfc6234/sha1.c	/^static void SHA1PadMessage(SHA1Context *context, uint8_t Pad_Byte)$/;"	f	file:
+SHA1PadMessage	sha1.c	/^static void SHA1PadMessage(SHA1Context *context, uint8_t Pad_Byte)$/;"	f	file:
+SHA1ProcessMessageBlock	rfc6234/sha1.c	/^static void SHA1ProcessMessageBlock(SHA1Context *context)$/;"	f	file:
+SHA1ProcessMessageBlock	sha1.c	/^static void SHA1ProcessMessageBlock(SHA1Context *context)$/;"	f	file:
+SHA1Reset	rfc6234/sha1.c	/^int SHA1Reset(SHA1Context *context)$/;"	f
+SHA1Reset	sha1.c	/^int SHA1Reset(SHA1Context *context)$/;"	f
+SHA1Result	rfc6234/sha1.c	/^int SHA1Result(SHA1Context *context,$/;"	f
+SHA1Result	sha1.c	/^int SHA1Result(SHA1Context *context,$/;"	f
+SHA1_Message_Block_Size	rfc6234/sha.h	/^    SHA1_Message_Block_Size = 64, SHA224_Message_Block_Size = 64,$/;"	e	enum:__anon5
+SHA1_Message_Block_Size	sha.h	/^    SHA1_Message_Block_Size = 64, SHA224_Message_Block_Size = 64,$/;"	e	enum:__anon14
+SHA1_ROTL	rfc6234/sha1.c	45;"	d	file:
+SHA1_ROTL	sha1.c	45;"	d	file:
+SHA1_SEED	rfc6234/shatest.c	193;"	d	file:
+SHA1_SEED	shatest.c	193;"	d	file:
+SHA224	rfc6234/sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA224	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA224Context	rfc6234/sha.h	/^typedef struct SHA256Context SHA224Context;$/;"	t	typeref:struct:SHA256Context
+SHA224Context	sha.h	/^typedef struct SHA256Context SHA224Context;$/;"	t	typeref:struct:SHA256Context
+SHA224FinalBits	rfc6234/sha224-256.c	/^int SHA224FinalBits(SHA224Context *context,$/;"	f
+SHA224FinalBits	sha224-256.c	/^int SHA224FinalBits(SHA224Context *context,$/;"	f
+SHA224HashSize	rfc6234/sha.h	/^    SHA1HashSize = 20, SHA224HashSize = 28, SHA256HashSize = 32,$/;"	e	enum:__anon5
+SHA224HashSize	sha.h	/^    SHA1HashSize = 20, SHA224HashSize = 28, SHA256HashSize = 32,$/;"	e	enum:__anon14
+SHA224HashSizeBits	rfc6234/sha.h	/^    SHA1HashSizeBits = 160, SHA224HashSizeBits = 224,$/;"	e	enum:__anon5
+SHA224HashSizeBits	sha.h	/^    SHA1HashSizeBits = 160, SHA224HashSizeBits = 224,$/;"	e	enum:__anon14
+SHA224Input	rfc6234/sha224-256.c	/^int SHA224Input(SHA224Context *context, const uint8_t *message_array,$/;"	f
+SHA224Input	sha224-256.c	/^int SHA224Input(SHA224Context *context, const uint8_t *message_array,$/;"	f
+SHA224Reset	rfc6234/sha224-256.c	/^int SHA224Reset(SHA224Context *context)$/;"	f
+SHA224Reset	sha224-256.c	/^int SHA224Reset(SHA224Context *context)$/;"	f
+SHA224Result	rfc6234/sha224-256.c	/^int SHA224Result(SHA224Context *context,$/;"	f
+SHA224Result	sha224-256.c	/^int SHA224Result(SHA224Context *context,$/;"	f
+SHA224_256AddLength	rfc6234/sha224-256.c	68;"	d	file:
+SHA224_256AddLength	sha224-256.c	68;"	d	file:
+SHA224_256Finalize	rfc6234/sha224-256.c	/^static void SHA224_256Finalize(SHA256Context *context,$/;"	f	file:
+SHA224_256Finalize	sha224-256.c	/^static void SHA224_256Finalize(SHA256Context *context,$/;"	f	file:
+SHA224_256PadMessage	rfc6234/sha224-256.c	/^static void SHA224_256PadMessage(SHA256Context *context,$/;"	f	file:
+SHA224_256PadMessage	sha224-256.c	/^static void SHA224_256PadMessage(SHA256Context *context,$/;"	f	file:
+SHA224_256ProcessMessageBlock	rfc6234/sha224-256.c	/^static void SHA224_256ProcessMessageBlock(SHA256Context *context)$/;"	f	file:
+SHA224_256ProcessMessageBlock	sha224-256.c	/^static void SHA224_256ProcessMessageBlock(SHA256Context *context)$/;"	f	file:
+SHA224_256Reset	rfc6234/sha224-256.c	/^static int SHA224_256Reset(SHA256Context *context, uint32_t *H0)$/;"	f	file:
+SHA224_256Reset	sha224-256.c	/^static int SHA224_256Reset(SHA256Context *context, uint32_t *H0)$/;"	f	file:
+SHA224_256ResultN	rfc6234/sha224-256.c	/^static int SHA224_256ResultN(SHA256Context *context,$/;"	f	file:
+SHA224_256ResultN	sha224-256.c	/^static int SHA224_256ResultN(SHA256Context *context,$/;"	f	file:
+SHA224_H0	rfc6234/sha224-256.c	/^static uint32_t SHA224_H0[SHA256HashSize\/4] = {$/;"	v	file:
+SHA224_H0	sha224-256.c	/^static uint32_t SHA224_H0[SHA256HashSize\/4] = {$/;"	v	file:
+SHA224_Message_Block_Size	rfc6234/sha.h	/^    SHA1_Message_Block_Size = 64, SHA224_Message_Block_Size = 64,$/;"	e	enum:__anon5
+SHA224_Message_Block_Size	sha.h	/^    SHA1_Message_Block_Size = 64, SHA224_Message_Block_Size = 64,$/;"	e	enum:__anon14
+SHA224_SEED	rfc6234/shatest.c	195;"	d	file:
+SHA224_SEED	shatest.c	195;"	d	file:
+SHA256	rfc6234/sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA256	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA256Context	rfc6234/sha.h	/^typedef struct SHA256Context {$/;"	s
+SHA256Context	rfc6234/sha.h	/^} SHA256Context;$/;"	t	typeref:struct:SHA256Context
+SHA256Context	sha.h	/^typedef struct SHA256Context {$/;"	s
+SHA256Context	sha.h	/^} SHA256Context;$/;"	t	typeref:struct:SHA256Context
+SHA256FinalBits	rfc6234/sha224-256.c	/^int SHA256FinalBits(SHA256Context *context,$/;"	f
+SHA256FinalBits	sha224-256.c	/^int SHA256FinalBits(SHA256Context *context,$/;"	f
+SHA256HashSize	rfc6234/sha.h	/^    SHA1HashSize = 20, SHA224HashSize = 28, SHA256HashSize = 32,$/;"	e	enum:__anon5
+SHA256HashSize	sha.h	/^    SHA1HashSize = 20, SHA224HashSize = 28, SHA256HashSize = 32,$/;"	e	enum:__anon14
+SHA256HashSizeBits	rfc6234/sha.h	/^    SHA256HashSizeBits = 256, SHA384HashSizeBits = 384,$/;"	e	enum:__anon5
+SHA256HashSizeBits	sha.h	/^    SHA256HashSizeBits = 256, SHA384HashSizeBits = 384,$/;"	e	enum:__anon14
+SHA256Input	rfc6234/sha224-256.c	/^int SHA256Input(SHA256Context *context, const uint8_t *message_array,$/;"	f
+SHA256Input	sha224-256.c	/^int SHA256Input(SHA256Context *context, const uint8_t *message_array,$/;"	f
+SHA256Reset	rfc6234/sha224-256.c	/^int SHA256Reset(SHA256Context *context)$/;"	f
+SHA256Reset	sha224-256.c	/^int SHA256Reset(SHA256Context *context)$/;"	f
+SHA256Result	rfc6234/sha224-256.c	/^int SHA256Result(SHA256Context *context,$/;"	f
+SHA256Result	sha224-256.c	/^int SHA256Result(SHA256Context *context,$/;"	f
+SHA256_H0	rfc6234/sha224-256.c	/^static uint32_t SHA256_H0[SHA256HashSize\/4] = {$/;"	v	file:
+SHA256_H0	sha224-256.c	/^static uint32_t SHA256_H0[SHA256HashSize\/4] = {$/;"	v	file:
+SHA256_Message_Block_Size	rfc6234/sha.h	/^    SHA256_Message_Block_Size = 64, SHA384_Message_Block_Size = 128,$/;"	e	enum:__anon5
+SHA256_Message_Block_Size	sha.h	/^    SHA256_Message_Block_Size = 64, SHA384_Message_Block_Size = 128,$/;"	e	enum:__anon14
+SHA256_ROTL	rfc6234/sha224-256.c	48;"	d	file:
+SHA256_ROTL	sha224-256.c	48;"	d	file:
+SHA256_ROTR	rfc6234/sha224-256.c	50;"	d	file:
+SHA256_ROTR	sha224-256.c	50;"	d	file:
+SHA256_SEED	rfc6234/shatest.c	198;"	d	file:
+SHA256_SEED	shatest.c	198;"	d	file:
+SHA256_SHR	rfc6234/sha224-256.c	47;"	d	file:
+SHA256_SHR	sha224-256.c	47;"	d	file:
+SHA256_SIGMA0	rfc6234/sha224-256.c	54;"	d	file:
+SHA256_SIGMA0	sha224-256.c	54;"	d	file:
+SHA256_SIGMA1	rfc6234/sha224-256.c	56;"	d	file:
+SHA256_SIGMA1	sha224-256.c	56;"	d	file:
+SHA256_sigma0	rfc6234/sha224-256.c	58;"	d	file:
+SHA256_sigma0	sha224-256.c	58;"	d	file:
+SHA256_sigma1	rfc6234/sha224-256.c	60;"	d	file:
+SHA256_sigma1	sha224-256.c	60;"	d	file:
+SHA384	rfc6234/sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA384	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA384Context	rfc6234/sha.h	/^typedef struct SHA512Context SHA384Context;$/;"	t	typeref:struct:SHA512Context
+SHA384Context	sha.h	/^typedef struct SHA512Context SHA384Context;$/;"	t	typeref:struct:SHA512Context
+SHA384FinalBits	rfc6234/sha384-512.c	/^int SHA384FinalBits(SHA384Context *context,$/;"	f
+SHA384FinalBits	sha384-512.c	/^int SHA384FinalBits(SHA384Context *context,$/;"	f
+SHA384HashSize	rfc6234/sha.h	/^    SHA384HashSize = 48, SHA512HashSize = 64,$/;"	e	enum:__anon5
+SHA384HashSize	sha.h	/^    SHA384HashSize = 48, SHA512HashSize = 64,$/;"	e	enum:__anon14
+SHA384HashSizeBits	rfc6234/sha.h	/^    SHA256HashSizeBits = 256, SHA384HashSizeBits = 384,$/;"	e	enum:__anon5
+SHA384HashSizeBits	sha.h	/^    SHA256HashSizeBits = 256, SHA384HashSizeBits = 384,$/;"	e	enum:__anon14
+SHA384Input	rfc6234/sha384-512.c	/^int SHA384Input(SHA384Context *context,$/;"	f
+SHA384Input	sha384-512.c	/^int SHA384Input(SHA384Context *context,$/;"	f
+SHA384Reset	rfc6234/sha384-512.c	/^int SHA384Reset(SHA384Context *context)$/;"	f
+SHA384Reset	sha384-512.c	/^int SHA384Reset(SHA384Context *context)$/;"	f
+SHA384Result	rfc6234/sha384-512.c	/^int SHA384Result(SHA384Context *context,$/;"	f
+SHA384Result	sha384-512.c	/^int SHA384Result(SHA384Context *context,$/;"	f
+SHA384_512AddLength	rfc6234/sha384-512.c	242;"	d	file:
+SHA384_512AddLength	rfc6234/sha384-512.c	302;"	d	file:
+SHA384_512AddLength	sha384-512.c	242;"	d	file:
+SHA384_512AddLength	sha384-512.c	302;"	d	file:
+SHA384_512Finalize	rfc6234/sha384-512.c	/^static void SHA384_512Finalize(SHA512Context *context,$/;"	f	file:
+SHA384_512Finalize	sha384-512.c	/^static void SHA384_512Finalize(SHA512Context *context,$/;"	f	file:
+SHA384_512PadMessage	rfc6234/sha384-512.c	/^static void SHA384_512PadMessage(SHA512Context *context,$/;"	f	file:
+SHA384_512PadMessage	sha384-512.c	/^static void SHA384_512PadMessage(SHA512Context *context,$/;"	f	file:
+SHA384_512ProcessMessageBlock	rfc6234/sha384-512.c	/^static void SHA384_512ProcessMessageBlock(SHA512Context *context)$/;"	f	file:
+SHA384_512ProcessMessageBlock	sha384-512.c	/^static void SHA384_512ProcessMessageBlock(SHA512Context *context)$/;"	f	file:
+SHA384_512Reset	rfc6234/sha384-512.c	/^static int SHA384_512Reset(SHA512Context *context,$/;"	f	file:
+SHA384_512Reset	sha384-512.c	/^static int SHA384_512Reset(SHA512Context *context,$/;"	f	file:
+SHA384_512ResultN	rfc6234/sha384-512.c	/^static int SHA384_512ResultN(SHA512Context *context,$/;"	f	file:
+SHA384_512ResultN	sha384-512.c	/^static int SHA384_512ResultN(SHA512Context *context,$/;"	f	file:
+SHA384_H0	rfc6234/sha384-512.c	/^static uint32_t SHA384_H0[SHA512HashSize\/4] = {$/;"	v	file:
+SHA384_H0	rfc6234/sha384-512.c	/^static uint64_t SHA384_H0[ ] = {$/;"	v	file:
+SHA384_H0	sha384-512.c	/^static uint32_t SHA384_H0[SHA512HashSize\/4] = {$/;"	v	file:
+SHA384_H0	sha384-512.c	/^static uint64_t SHA384_H0[ ] = {$/;"	v	file:
+SHA384_Message_Block_Size	rfc6234/sha.h	/^    SHA256_Message_Block_Size = 64, SHA384_Message_Block_Size = 128,$/;"	e	enum:__anon5
+SHA384_Message_Block_Size	sha.h	/^    SHA256_Message_Block_Size = 64, SHA384_Message_Block_Size = 128,$/;"	e	enum:__anon14
+SHA384_SEED	rfc6234/shatest.c	201;"	d	file:
+SHA384_SEED	shatest.c	201;"	d	file:
+SHA512	rfc6234/sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA512	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA512Context	rfc6234/sha.h	/^typedef struct SHA512Context {$/;"	s
+SHA512Context	rfc6234/sha.h	/^} SHA512Context;$/;"	t	typeref:struct:SHA512Context
+SHA512Context	sha.h	/^typedef struct SHA512Context {$/;"	s
+SHA512Context	sha.h	/^} SHA512Context;$/;"	t	typeref:struct:SHA512Context
+SHA512FinalBits	rfc6234/sha384-512.c	/^int SHA512FinalBits(SHA512Context *context,$/;"	f
+SHA512FinalBits	sha384-512.c	/^int SHA512FinalBits(SHA512Context *context,$/;"	f
+SHA512HashSize	rfc6234/sha.h	/^    SHA384HashSize = 48, SHA512HashSize = 64,$/;"	e	enum:__anon5
+SHA512HashSize	sha.h	/^    SHA384HashSize = 48, SHA512HashSize = 64,$/;"	e	enum:__anon14
+SHA512HashSizeBits	rfc6234/sha.h	/^    SHA512HashSizeBits = 512, USHAMaxHashSizeBits = SHA512HashSizeBits$/;"	e	enum:__anon5
+SHA512HashSizeBits	sha.h	/^    SHA512HashSizeBits = 512, USHAMaxHashSizeBits = SHA512HashSizeBits$/;"	e	enum:__anon14
+SHA512Input	rfc6234/sha384-512.c	/^int SHA512Input(SHA512Context *context,$/;"	f
+SHA512Input	sha384-512.c	/^int SHA512Input(SHA512Context *context,$/;"	f
+SHA512Reset	rfc6234/sha384-512.c	/^int SHA512Reset(SHA512Context *context)$/;"	f
+SHA512Reset	sha384-512.c	/^int SHA512Reset(SHA512Context *context)$/;"	f
+SHA512Result	rfc6234/sha384-512.c	/^int SHA512Result(SHA512Context *context,$/;"	f
+SHA512Result	sha384-512.c	/^int SHA512Result(SHA512Context *context,$/;"	f
+SHA512_ADD	rfc6234/sha384-512.c	109;"	d	file:
+SHA512_ADD	sha384-512.c	109;"	d	file:
+SHA512_ADDTO2	rfc6234/sha384-512.c	130;"	d	file:
+SHA512_ADDTO2	sha384-512.c	130;"	d	file:
+SHA512_ADDTO4	rfc6234/sha384-512.c	117;"	d	file:
+SHA512_ADDTO4	sha384-512.c	117;"	d	file:
+SHA512_AND	rfc6234/sha384-512.c	96;"	d	file:
+SHA512_AND	sha384-512.c	96;"	d	file:
+SHA512_H0	rfc6234/sha384-512.c	/^static uint32_t SHA512_H0[SHA512HashSize\/4] = {$/;"	v	file:
+SHA512_H0	rfc6234/sha384-512.c	/^static uint64_t SHA512_H0[ ] = {$/;"	v	file:
+SHA512_H0	sha384-512.c	/^static uint32_t SHA512_H0[SHA512HashSize\/4] = {$/;"	v	file:
+SHA512_H0	sha384-512.c	/^static uint64_t SHA512_H0[ ] = {$/;"	v	file:
+SHA512_Message_Block_Size	rfc6234/sha.h	/^    SHA512_Message_Block_Size = 128,$/;"	e	enum:__anon5
+SHA512_Message_Block_Size	sha.h	/^    SHA512_Message_Block_Size = 128,$/;"	e	enum:__anon14
+SHA512_OR	rfc6234/sha384-512.c	82;"	d	file:
+SHA512_OR	sha384-512.c	82;"	d	file:
+SHA512_ROTR	rfc6234/sha384-512.c	139;"	d	file:
+SHA512_ROTR	rfc6234/sha384-512.c	280;"	d	file:
+SHA512_ROTR	sha384-512.c	139;"	d	file:
+SHA512_ROTR	sha384-512.c	280;"	d	file:
+SHA512_SEED	rfc6234/shatest.c	205;"	d	file:
+SHA512_SEED	shatest.c	205;"	d	file:
+SHA512_SHL	rfc6234/sha384-512.c	68;"	d	file:
+SHA512_SHL	sha384-512.c	68;"	d	file:
+SHA512_SHR	rfc6234/sha384-512.c	279;"	d	file:
+SHA512_SHR	rfc6234/sha384-512.c	58;"	d	file:
+SHA512_SHR	sha384-512.c	279;"	d	file:
+SHA512_SHR	sha384-512.c	58;"	d	file:
+SHA512_SIGMA0	rfc6234/sha384-512.c	151;"	d	file:
+SHA512_SIGMA0	rfc6234/sha384-512.c	288;"	d	file:
+SHA512_SIGMA0	sha384-512.c	151;"	d	file:
+SHA512_SIGMA0	sha384-512.c	288;"	d	file:
+SHA512_SIGMA1	rfc6234/sha384-512.c	163;"	d	file:
+SHA512_SIGMA1	rfc6234/sha384-512.c	290;"	d	file:
+SHA512_SIGMA1	sha384-512.c	163;"	d	file:
+SHA512_SIGMA1	sha384-512.c	290;"	d	file:
+SHA512_TILDA	rfc6234/sha384-512.c	103;"	d	file:
+SHA512_TILDA	sha384-512.c	103;"	d	file:
+SHA512_XOR	rfc6234/sha384-512.c	89;"	d	file:
+SHA512_XOR	sha384-512.c	89;"	d	file:
+SHA512_sigma0	rfc6234/sha384-512.c	175;"	d	file:
+SHA512_sigma0	rfc6234/sha384-512.c	292;"	d	file:
+SHA512_sigma0	sha384-512.c	175;"	d	file:
+SHA512_sigma0	sha384-512.c	292;"	d	file:
+SHA512_sigma1	rfc6234/sha384-512.c	187;"	d	file:
+SHA512_sigma1	rfc6234/sha384-512.c	294;"	d	file:
+SHA512_sigma1	sha384-512.c	187;"	d	file:
+SHA512_sigma1	sha384-512.c	294;"	d	file:
+SHA_Ch	rfc6234/sha-private.h	14;"	d
+SHA_Ch	rfc6234/sha-private.h	21;"	d
+SHA_Ch	rfc6234/sha384-512.c	200;"	d	file:
+SHA_Ch	rfc6234/sha384-512.c	224;"	d	file:
+SHA_Ch	sha-private.h	14;"	d
+SHA_Ch	sha-private.h	21;"	d
+SHA_Ch	sha384-512.c	200;"	d	file:
+SHA_Ch	sha384-512.c	224;"	d	file:
+SHA_Maj	rfc6234/sha-private.h	15;"	d
+SHA_Maj	rfc6234/sha-private.h	22;"	d
+SHA_Maj	rfc6234/sha384-512.c	211;"	d	file:
+SHA_Maj	rfc6234/sha384-512.c	232;"	d	file:
+SHA_Maj	sha-private.h	15;"	d
+SHA_Maj	sha-private.h	22;"	d
+SHA_Maj	sha384-512.c	211;"	d	file:
+SHA_Maj	sha384-512.c	232;"	d	file:
+SHA_Parity	rfc6234/sha-private.h	26;"	d
+SHA_Parity	sha-private.h	26;"	d
+SHAversion	rfc6234/sha.h	/^typedef enum SHAversion {$/;"	g
+SHAversion	rfc6234/sha.h	/^} SHAversion;$/;"	t	typeref:enum:SHAversion
+SHAversion	sha.h	/^typedef enum SHAversion {$/;"	g
+SHAversion	sha.h	/^} SHAversion;$/;"	t	typeref:enum:SHAversion
+SIGMA0_temp1	rfc6234/sha384-512.c	/^static uint32_t SIGMA0_temp1[2], SIGMA0_temp2[2],$/;"	v	file:
+SIGMA0_temp1	sha384-512.c	/^static uint32_t SIGMA0_temp1[2], SIGMA0_temp2[2],$/;"	v	file:
+SIGMA0_temp2	rfc6234/sha384-512.c	/^static uint32_t SIGMA0_temp1[2], SIGMA0_temp2[2],$/;"	v	file:
+SIGMA0_temp2	sha384-512.c	/^static uint32_t SIGMA0_temp1[2], SIGMA0_temp2[2],$/;"	v	file:
+SIGMA0_temp3	rfc6234/sha384-512.c	/^  SIGMA0_temp3[2], SIGMA0_temp4[2];$/;"	v	file:
+SIGMA0_temp3	sha384-512.c	/^  SIGMA0_temp3[2], SIGMA0_temp4[2];$/;"	v	file:
+SIGMA0_temp4	rfc6234/sha384-512.c	/^  SIGMA0_temp3[2], SIGMA0_temp4[2];$/;"	v	file:
+SIGMA0_temp4	sha384-512.c	/^  SIGMA0_temp3[2], SIGMA0_temp4[2];$/;"	v	file:
+SIGMA1_temp1	rfc6234/sha384-512.c	/^static uint32_t SIGMA1_temp1[2], SIGMA1_temp2[2],$/;"	v	file:
+SIGMA1_temp1	sha384-512.c	/^static uint32_t SIGMA1_temp1[2], SIGMA1_temp2[2],$/;"	v	file:
+SIGMA1_temp2	rfc6234/sha384-512.c	/^static uint32_t SIGMA1_temp1[2], SIGMA1_temp2[2],$/;"	v	file:
+SIGMA1_temp2	sha384-512.c	/^static uint32_t SIGMA1_temp1[2], SIGMA1_temp2[2],$/;"	v	file:
+SIGMA1_temp3	rfc6234/sha384-512.c	/^  SIGMA1_temp3[2], SIGMA1_temp4[2];$/;"	v	file:
+SIGMA1_temp3	sha384-512.c	/^  SIGMA1_temp3[2], SIGMA1_temp4[2];$/;"	v	file:
+SIGMA1_temp4	rfc6234/sha384-512.c	/^  SIGMA1_temp3[2], SIGMA1_temp4[2];$/;"	v	file:
+SIGMA1_temp4	sha384-512.c	/^  SIGMA1_temp3[2], SIGMA1_temp4[2];$/;"	v	file:
+TEST1	rfc6234/shatest.c	54;"	d	file:
+TEST1	shatest.c	54;"	d	file:
+TEST10_1	rfc6234/shatest.c	77;"	d	file:
+TEST10_1	shatest.c	77;"	d	file:
+TEST10_224	rfc6234/shatest.c	99;"	d	file:
+TEST10_224	shatest.c	99;"	d	file:
+TEST10_256	rfc6234/shatest.c	121;"	d	file:
+TEST10_256	shatest.c	121;"	d	file:
+TEST10_384	rfc6234/shatest.c	147;"	d	file:
+TEST10_384	shatest.c	147;"	d	file:
+TEST10_512	rfc6234/shatest.c	177;"	d	file:
+TEST10_512	shatest.c	177;"	d	file:
+TEST2_1	rfc6234/shatest.c	55;"	d	file:
+TEST2_1	shatest.c	55;"	d	file:
+TEST2_2	rfc6234/shatest.c	61;"	d	file:
+TEST2_2	shatest.c	61;"	d	file:
+TEST2_2a	rfc6234/shatest.c	57;"	d	file:
+TEST2_2a	shatest.c	57;"	d	file:
+TEST2_2b	rfc6234/shatest.c	59;"	d	file:
+TEST2_2b	shatest.c	59;"	d	file:
+TEST3	rfc6234/shatest.c	62;"	d	file:
+TEST3	shatest.c	62;"	d	file:
+TEST4	rfc6234/shatest.c	66;"	d	file:
+TEST4	shatest.c	66;"	d	file:
+TEST4a	rfc6234/shatest.c	63;"	d	file:
+TEST4a	shatest.c	63;"	d	file:
+TEST4b	rfc6234/shatest.c	64;"	d	file:
+TEST4b	shatest.c	64;"	d	file:
+TEST7_1	rfc6234/shatest.c	67;"	d	file:
+TEST7_1	shatest.c	67;"	d	file:
+TEST7_224	rfc6234/shatest.c	89;"	d	file:
+TEST7_224	shatest.c	89;"	d	file:
+TEST7_256	rfc6234/shatest.c	111;"	d	file:
+TEST7_256	shatest.c	111;"	d	file:
+TEST7_384	rfc6234/shatest.c	133;"	d	file:
+TEST7_384	shatest.c	133;"	d	file:
+TEST7_512	rfc6234/shatest.c	163;"	d	file:
+TEST7_512	shatest.c	163;"	d	file:
+TEST8_1	rfc6234/shatest.c	69;"	d	file:
+TEST8_1	shatest.c	69;"	d	file:
+TEST8_224	rfc6234/shatest.c	91;"	d	file:
+TEST8_224	shatest.c	91;"	d	file:
+TEST8_256	rfc6234/shatest.c	113;"	d	file:
+TEST8_256	shatest.c	113;"	d	file:
+TEST8_384	rfc6234/shatest.c	135;"	d	file:
+TEST8_384	shatest.c	135;"	d	file:
+TEST8_512	rfc6234/shatest.c	165;"	d	file:
+TEST8_512	shatest.c	165;"	d	file:
+TEST9_1	rfc6234/shatest.c	71;"	d	file:
+TEST9_1	shatest.c	71;"	d	file:
+TEST9_224	rfc6234/shatest.c	93;"	d	file:
+TEST9_224	shatest.c	93;"	d	file:
+TEST9_256	rfc6234/shatest.c	115;"	d	file:
+TEST9_256	shatest.c	115;"	d	file:
+TEST9_384	rfc6234/shatest.c	137;"	d	file:
+TEST9_384	shatest.c	137;"	d	file:
+TEST9_512	rfc6234/shatest.c	167;"	d	file:
+TEST9_512	shatest.c	167;"	d	file:
+TESTCOUNT	rfc6234/shatest.c	211;"	d	file:
+TESTCOUNT	shatest.c	211;"	d	file:
+TEXT_CSV	er-coap-constants.h	/^  TEXT_CSV = 2,$/;"	e	enum:__anon12
+TEXT_HTML	er-coap-constants.h	/^  TEXT_HTML = 3,$/;"	e	enum:__anon12
+TEXT_PLAIN	er-coap-constants.h	/^  TEXT_PLAIN = 0,$/;"	e	enum:__anon12
+TEXT_XML	er-coap-constants.h	/^  TEXT_XML = 1,$/;"	e	enum:__anon12
 UIP_IP_BUF	er-coap.h	76;"	d
 UIP_UDP_BUF	er-coap.h	78;"	d
 UIP_UDP_BUF	er-coap.h	80;"	d
-UNAUTHORIZED_4_01	er-coap-constants.h	/^  UNAUTHORIZED_4_01 = 129,      \/* UNAUTHORIZED *\/$/;"	e	enum:__anon6
-UNSUPPORTED_MEDIA_TYPE_4_15	er-coap-constants.h	/^  UNSUPPORTED_MEDIA_TYPE_4_15 = 143,    \/* UNSUPPORTED_MEDIA_TYPE *\/$/;"	e	enum:__anon6
-VALID_2_03	er-coap-constants.h	/^  VALID_2_03 = 67,              \/* NOT_MODIFIED *\/$/;"	e	enum:__anon6
-VIDEO_RAW	er-coap-constants.h	/^  VIDEO_RAW = 26,$/;"	e	enum:__anon8
+UNAUTHORIZED_4_01	er-coap-constants.h	/^  UNAUTHORIZED_4_01 = 129,      \/* UNAUTHORIZED *\/$/;"	e	enum:__anon10
+UNSUPPORTED_MEDIA_TYPE_4_15	er-coap-constants.h	/^  UNSUPPORTED_MEDIA_TYPE_4_15 = 143,    \/* UNSUPPORTED_MEDIA_TYPE *\/$/;"	e	enum:__anon10
+USHABlockSize	rfc6234/usha.c	/^int USHABlockSize(enum SHAversion whichSha)$/;"	f
+USHABlockSize	usha.c	/^int USHABlockSize(enum SHAversion whichSha)$/;"	f
+USHAContext	rfc6234/sha.h	/^typedef struct USHAContext {$/;"	s
+USHAContext	rfc6234/sha.h	/^} USHAContext;$/;"	t	typeref:struct:USHAContext
+USHAContext	sha.h	/^typedef struct USHAContext {$/;"	s
+USHAContext	sha.h	/^} USHAContext;$/;"	t	typeref:struct:USHAContext
+USHAFinalBits	rfc6234/usha.c	/^int USHAFinalBits(USHAContext *context,$/;"	f
+USHAFinalBits	usha.c	/^int USHAFinalBits(USHAContext *context,$/;"	f
+USHAHashName	rfc6234/usha.c	/^const char *USHAHashName(enum SHAversion whichSha)$/;"	f
+USHAHashName	usha.c	/^const char *USHAHashName(enum SHAversion whichSha)$/;"	f
+USHAHashSize	rfc6234/usha.c	/^int USHAHashSize(enum SHAversion whichSha)$/;"	f
+USHAHashSize	usha.c	/^int USHAHashSize(enum SHAversion whichSha)$/;"	f
+USHAHashSizeBits	rfc6234/usha.c	/^int USHAHashSizeBits(enum SHAversion whichSha)$/;"	f
+USHAHashSizeBits	usha.c	/^int USHAHashSizeBits(enum SHAversion whichSha)$/;"	f
+USHAInput	rfc6234/usha.c	/^int USHAInput(USHAContext *context,$/;"	f
+USHAInput	usha.c	/^int USHAInput(USHAContext *context,$/;"	f
+USHAMaxHashSize	rfc6234/sha.h	/^    USHAMaxHashSize = SHA512HashSize,$/;"	e	enum:__anon5
+USHAMaxHashSize	sha.h	/^    USHAMaxHashSize = SHA512HashSize,$/;"	e	enum:__anon14
+USHAMaxHashSizeBits	rfc6234/sha.h	/^    SHA512HashSizeBits = 512, USHAMaxHashSizeBits = SHA512HashSizeBits$/;"	e	enum:__anon5
+USHAMaxHashSizeBits	sha.h	/^    SHA512HashSizeBits = 512, USHAMaxHashSizeBits = SHA512HashSizeBits$/;"	e	enum:__anon14
+USHAReset	rfc6234/usha.c	/^int USHAReset(USHAContext *context, enum SHAversion whichSha)$/;"	f
+USHAReset	usha.c	/^int USHAReset(USHAContext *context, enum SHAversion whichSha)$/;"	f
+USHAResult	rfc6234/usha.c	/^int USHAResult(USHAContext *context,$/;"	f
+USHAResult	usha.c	/^int USHAResult(USHAContext *context,$/;"	f
+USHA_Max_Message_Block_Size	rfc6234/sha.h	/^    USHA_Max_Message_Block_Size = SHA512_Message_Block_Size,$/;"	e	enum:__anon5
+USHA_Max_Message_Block_Size	sha.h	/^    USHA_Max_Message_Block_Size = SHA512_Message_Block_Size,$/;"	e	enum:__anon14
+VALID_2_03	er-coap-constants.h	/^  VALID_2_03 = 67,              \/* NOT_MODIFIED *\/$/;"	e	enum:__anon10
+VIDEO_RAW	er-coap-constants.h	/^  VIDEO_RAW = 26,$/;"	e	enum:__anon12
 _OPT_CBOR_H	opt-cbor.h	2;"	d
 _OPT_COSE_H	opt-cose.h	33;"	d
 _OPT_COSE_cbor_bytes	opt-cose.c	/^uint8_t _OPT_COSE_cbor_bytes(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t len, uint8_t bytefield){$/;"	f
@@ -300,9 +739,23 @@ _OPT_COSE_cbor_content	opt-cose.c	/^uint8_t _OPT_COSE_cbor_content(opt_cose_encr
 _OPT_COSE_cbor_protected_map	opt-cose.c	/^uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t len){$/;"	f
 _OSCOAP_H	er-oscoap.h	34;"	d
 _OSCOAP_INT_H	er-oscoap-int.h	33;"	d
+_SHA_H_	rfc6234/sha.h	40;"	d
+_SHA_H_	sha.h	40;"	d
+_SHA_PRIVATE__H	rfc6234/sha-private.h	4;"	d
+_SHA_PRIVATE__H	sha-private.h	4;"	d
+_SHA_enum_	rfc6234/sha.h	87;"	d
+_SHA_enum_	sha.h	87;"	d
 aad	opt-cose.h	/^	uint8_t *aad;$/;"	m	struct:opt_cose_encrypt_t
 aad_len	opt-cose.h	/^	size_t aad_len;$/;"	m	struct:opt_cose_encrypt_t
 accept	er-coap.h	/^      uint16_t accept;$/;"	m	struct:__anon3
+addTemp	rfc6234/sha1.c	/^static uint32_t addTemp;$/;"	v	file:
+addTemp	rfc6234/sha224-256.c	/^static uint32_t addTemp;$/;"	v	file:
+addTemp	rfc6234/sha384-512.c	/^static uint32_t addTemp[4] = { 0, 0, 0, 0 };$/;"	v	file:
+addTemp	rfc6234/sha384-512.c	/^static uint64_t addTemp;$/;"	v	file:
+addTemp	sha1.c	/^static uint32_t addTemp;$/;"	v	file:
+addTemp	sha224-256.c	/^static uint32_t addTemp;$/;"	v	file:
+addTemp	sha384-512.c	/^static uint32_t addTemp[4] = { 0, 0, 0, 0 };$/;"	v	file:
+addTemp	sha384-512.c	/^static uint64_t addTemp;$/;"	v	file:
 add_observer	er-coap-observe.c	/^add_observer(uip_ipaddr_t *addr, uint16_t port, const uint8_t *token,$/;"	f	file:
 addr	er-coap-observe-client.h	/^  uip_ipaddr_t addr;$/;"	m	struct:coap_observee_s
 addr	er-coap-observe.h	/^  uip_ipaddr_t addr;$/;"	m	struct:coap_observer
@@ -323,12 +776,16 @@ block2_num	er-coap.h	/^      uint32_t block2_num;$/;"	m	struct:__anon3
 block2_offset	er-coap.h	/^      uint32_t block2_offset;$/;"	m	struct:__anon3
 block2_size	er-coap-separate.h	/^  uint16_t block2_size;$/;"	m	struct:coap_separate
 block2_size	er-coap.h	/^      uint16_t block2_size;$/;"	m	struct:__anon3
+blockSize	rfc6234/sha.h	/^    int blockSize;              \/* block size of SHA being used *\/$/;"	m	struct:HMACContext
+blockSize	sha.h	/^    int blockSize;              \/* block size of SHA being used *\/$/;"	m	struct:HMACContext
 block_num	er-coap-engine.h	/^  uint32_t block_num;$/;"	m	struct:request_state_t
 blocking_response_handler	er-coap-engine.h	/^typedef void (*blocking_response_handler)(void *response);$/;"	t
 buffer	er-coap-observe.h	/^  uint8_t buffer[COAP_MAX_PACKET_SIZE + 1];$/;"	m	struct:coap_observable
 buffer	er-coap.h	/^      uint8_t *buffer; \/* pointer to CoAP header \/ incoming packet buffer \/ memory to serialize packet *\/$/;"	m	struct:__anon3
 callback	er-coap-transactions.h	/^  restful_response_handler callback;$/;"	m	struct:coap_transaction
 callback_data	er-coap-transactions.h	/^  void *callback_data;$/;"	m	struct:coap_transaction
+checkmatch	rfc6234/shatest.c	/^int checkmatch(const unsigned char *hashvalue,$/;"	f
+checkmatch	shatest.c	/^int checkmatch(const unsigned char *hashvalue,$/;"	f
 ciphertext	opt-cose.h	/^	uint8_t *ciphertext;$/;"	m	struct:opt_cose_encrypt_t
 ciphertext_len	opt-cose.h	/^	size_t ciphertext_len;$/;"	m	struct:opt_cose_encrypt_t
 classify_notification	er-coap-observe-client.c	/^classify_notification(void *response, int first)$/;"	f	file:
@@ -338,7 +795,7 @@ coap_blocking_request	er-coap-engine.c	/^PT_THREAD(coap_blocking_request$/;"	f
 coap_blocking_request_callback	er-coap-engine.c	/^coap_blocking_request_callback(void *callback_data, void *response)$/;"	f
 coap_check_transactions	er-coap-transactions.c	/^coap_check_transactions()$/;"	f
 coap_clear_transaction	er-coap-transactions.c	/^coap_clear_transaction(coap_transaction_t *t)$/;"	f
-coap_content_format_t	er-coap-constants.h	/^} coap_content_format_t;$/;"	t	typeref:enum:__anon8
+coap_content_format_t	er-coap-constants.h	/^} coap_content_format_t;$/;"	t	typeref:enum:__anon12
 coap_error_message	er-coap.c	/^char *coap_error_message = "";$/;"	v
 coap_generate_token	er-coap-observe-client.c	/^coap_generate_token(uint8_t **token_ptr)$/;"	f
 coap_get_header_accept	er-coap.c	/^coap_get_header_accept(void *packet, unsigned int *accept)$/;"	f
@@ -374,8 +831,8 @@ coap_init_message	er-coap.c	/^coap_init_message(void *packet, coap_message_type_
 coap_is_request	er-oscoap.c	/^uint8_t coap_is_request(coap_packet_t* coap_pkt){$/;"	f
 coap_log_2	er-coap.c	/^coap_log_2(uint16_t value)$/;"	f
 coap_merge_multi_option	er-coap.c	/^coap_merge_multi_option(char **dst, size_t *dst_len, uint8_t *option,$/;"	f
-coap_message_type_t	er-coap-constants.h	/^} coap_message_type_t;$/;"	t	typeref:enum:__anon4
-coap_method_t	er-coap-constants.h	/^} coap_method_t;$/;"	t	typeref:enum:__anon5
+coap_message_type_t	er-coap-constants.h	/^} coap_message_type_t;$/;"	t	typeref:enum:__anon8
+coap_method_t	er-coap-constants.h	/^} coap_method_t;$/;"	t	typeref:enum:__anon9
 coap_new_transaction	er-coap-transactions.c	/^coap_new_transaction(uint16_t mid, uip_ipaddr_t *addr, uint16_t port)$/;"	f
 coap_notification_flag_t	er-coap-observe-client.h	/^} coap_notification_flag_t;$/;"	t	typeref:enum:__anon1
 coap_notify_observers	er-coap-observe.c	/^coap_notify_observers(resource_t *resource)$/;"	f
@@ -393,7 +850,7 @@ coap_observee_t	er-coap-observe-client.h	/^typedef struct coap_observee_s coap_o
 coap_observer	er-coap-observe.h	/^typedef struct coap_observer {$/;"	s
 coap_observer_t	er-coap-observe.h	/^} coap_observer_t;$/;"	t	typeref:struct:coap_observer
 coap_option_nibble	er-coap.c	/^coap_option_nibble(unsigned int value)$/;"	f	file:
-coap_option_t	er-coap-constants.h	/^} coap_option_t;$/;"	t	typeref:enum:__anon7
+coap_option_t	er-coap-constants.h	/^} coap_option_t;$/;"	t	typeref:enum:__anon11
 coap_packet_t	er-coap.h	/^} coap_packet_t;$/;"	t	typeref:struct:__anon3
 coap_parse_int_option	er-coap.c	/^coap_parse_int_option(uint8_t *bytes, size_t length)$/;"	f
 coap_parse_message	er-coap.c	/^coap_status_t coap_parse_message(void *packet, uint8_t *data,$/;"	f
@@ -441,7 +898,7 @@ coap_set_payload	er-coap.c	/^coap_set_payload(void *packet, const void *payload,
 coap_set_service_callback	er-coap-engine.c	/^coap_set_service_callback(service_callback_t callback)$/;"	f
 coap_set_status_code	er-coap.c	/^coap_set_status_code(void *packet, unsigned int code)$/;"	f
 coap_set_token	er-coap.c	/^coap_set_token(void *packet, const uint8_t *token, size_t token_len)$/;"	f
-coap_status_t	er-coap-constants.h	/^} coap_status_t;$/;"	t	typeref:enum:__anon6
+coap_status_t	er-coap-constants.h	/^} coap_status_t;$/;"	t	typeref:enum:__anon10
 coap_transaction	er-coap-transactions.h	/^typedef struct coap_transaction {$/;"	s
 coap_transaction_t	er-coap-transactions.h	/^} coap_transaction_t;$/;"	t	typeref:struct:coap_transaction
 code	er-coap.h	/^      uint8_t code;$/;"	m	struct:__anon3
@@ -453,34 +910,118 @@ cose_aes_ccm_driver	cose-aes-ccm.h	/^struct cose_aes_ccm_driver {$/;"	s
 create_iv	er-oscoap.c	/^void create_iv(uint8_t* iv, uint8_t* out, uint8_t* seq, int seq_len ){$/;"	f
 ctr	cose-aes-ccm.c	/^ctr(const uint8_t *nonce, uint8_t *m, uint8_t m_len)$/;"	f	file:
 ctr_step	cose-aes-ccm.c	/^ctr_step(const uint8_t *nonce,$/;"	f	file:
+ctx	rfc6234/sha.h	/^    } ctx;$/;"	m	struct:USHAContext	typeref:union:USHAContext::__anon6
+ctx	sha.h	/^    } ctx;$/;"	m	struct:USHAContext	typeref:union:USHAContext::__anon15
 current_mid	er-coap.c	/^static uint16_t current_mid = 0;$/;"	v	file:
 data	er-coap-observe-client.h	/^  void *data;                   \/* generic pointer for storing user data *\/$/;"	m	struct:coap_observee_s
+dataarray	rfc6234/shatest.c	/^    const char *dataarray[5];$/;"	m	struct:hmachash	file:
+dataarray	shatest.c	/^    const char *dataarray[5];$/;"	m	struct:hmachash	file:
+datalength	rfc6234/shatest.c	/^    int datalength[5];$/;"	m	struct:hmachash	file:
+datalength	shatest.c	/^    int datalength[5];$/;"	m	struct:hmachash	file:
 erbium_status_code	er-coap.c	/^coap_status_t erbium_status_code = NO_ERROR;$/;"	v
 etag	er-coap.h	/^      uint8_t etag[COAP_ETAG_LEN];$/;"	m	struct:__anon3
 etag_len	er-coap.h	/^      uint8_t etag_len;$/;"	m	struct:__anon3
 external_aad	opt-cose.h	/^	uint8_t *external_aad;$/;"	m	struct:opt_cose_encrypt_t
 external_aad_len	opt-cose.h	/^	size_t external_aad_len;$/;"	m	struct:opt_cose_encrypt_t
+extrabits	rfc6234/shatest.c	/^        int extrabits;$/;"	m	struct:hash::__anon7	file:
+extrabits	shatest.c	/^        int extrabits;$/;"	m	struct:hash::__anon16	file:
+findhash	rfc6234/shatest.c	/^int findhash(const char *argv0, const char *opt)$/;"	f
+findhash	shatest.c	/^int findhash(const char *argv0, const char *opt)$/;"	f
 get_rand_second	er-coap-engine.c	/^get_rand_second(void)$/;"	f
 get_token	er-coap-observe-client.c	/^get_token(void *packet, const uint8_t **token)$/;"	f	file:
 handle_obs_registration_response	er-coap-observe-client.c	/^handle_obs_registration_response(void *data, void *response)$/;"	f	file:
+hash	rfc6234/shatest.c	/^int hash(int testno, int loopno, int hashno,$/;"	f
+hash	rfc6234/shatest.c	/^struct hash {$/;"	s	file:
+hash	shatest.c	/^int hash(int testno, int loopno, int hashno,$/;"	f
+hash	shatest.c	/^struct hash {$/;"	s	file:
+hashHkdf	rfc6234/shatest.c	/^int hashHkdf(int testno, int loopno, int hashno,$/;"	f
+hashHkdf	shatest.c	/^int hashHkdf(int testno, int loopno, int hashno,$/;"	f
+hashSize	rfc6234/sha.h	/^    int hashSize;               \/* hash size of SHA being used *\/$/;"	m	struct:HKDFContext
+hashSize	rfc6234/sha.h	/^    int hashSize;               \/* hash size of SHA being used *\/$/;"	m	struct:HMACContext
+hashSize	sha.h	/^    int hashSize;               \/* hash size of SHA being used *\/$/;"	m	struct:HKDFContext
+hashSize	sha.h	/^    int hashSize;               \/* hash size of SHA being used *\/$/;"	m	struct:HMACContext
+hashes	rfc6234/shatest.c	/^} hashes[HASHCOUNT] = {$/;"	v	typeref:struct:hash
+hashes	shatest.c	/^} hashes[HASHCOUNT] = {$/;"	v	typeref:struct:hash
+hashfile	rfc6234/shatest.c	/^int hashfile(int hashno, const char *hashfilename, int bits,$/;"	f
+hashfile	shatest.c	/^int hashfile(int hashno, const char *hashfilename, int bits,$/;"	f
+hashsize	rfc6234/shatest.c	/^    int hashsize;$/;"	m	struct:hash	file:
+hashsize	shatest.c	/^    int hashsize;$/;"	m	struct:hash	file:
+hexdigits	rfc6234/shatest.c	/^static const char hexdigits[ ] = "0123456789ABCDEF";$/;"	v	file:
+hexdigits	shatest.c	/^static const char hexdigits[ ] = "0123456789ABCDEF";$/;"	v	file:
+hkdf	hkdf.c	/^int hkdf(SHAversion whichSha,$/;"	f
+hkdf	rfc6234/hkdf.c	/^int hkdf(SHAversion whichSha,$/;"	f
+hkdfExpand	hkdf.c	/^int hkdfExpand(SHAversion whichSha, const uint8_t prk[ ], int prk_len,$/;"	f
+hkdfExpand	rfc6234/hkdf.c	/^int hkdfExpand(SHAversion whichSha, const uint8_t prk[ ], int prk_len,$/;"	f
+hkdfExtract	hkdf.c	/^int hkdfExtract(SHAversion whichSha,$/;"	f
+hkdfExtract	rfc6234/hkdf.c	/^int hkdfExtract(SHAversion whichSha,$/;"	f
+hkdfFinalBits	hkdf.c	/^int hkdfFinalBits(HKDFContext *context, uint8_t ikm_bits,$/;"	f
+hkdfFinalBits	rfc6234/hkdf.c	/^int hkdfFinalBits(HKDFContext *context, uint8_t ikm_bits,$/;"	f
+hkdfInput	hkdf.c	/^int hkdfInput(HKDFContext *context, const unsigned char *ikm,$/;"	f
+hkdfInput	rfc6234/hkdf.c	/^int hkdfInput(HKDFContext *context, const unsigned char *ikm,$/;"	f
+hkdfReset	hkdf.c	/^int hkdfReset(HKDFContext *context, enum SHAversion whichSha,$/;"	f
+hkdfReset	rfc6234/hkdf.c	/^int hkdfReset(HKDFContext *context, enum SHAversion whichSha,$/;"	f
+hkdfResult	hkdf.c	/^int hkdfResult(HKDFContext *context,$/;"	f
+hkdfResult	rfc6234/hkdf.c	/^int hkdfResult(HKDFContext *context,$/;"	f
+hkdfhash	rfc6234/shatest.c	/^struct hkdfhash {$/;"	s	file:
+hkdfhash	shatest.c	/^struct hkdfhash {$/;"	s	file:
+hkdfhashes	rfc6234/shatest.c	/^} hkdfhashes[HKDFTESTCOUNT] = {$/;"	v	typeref:struct:hkdfhash
+hkdfhashes	shatest.c	/^} hkdfhashes[HKDFTESTCOUNT] = {$/;"	v	typeref:struct:hkdfhash
+hmac	hmac.c	/^int hmac(SHAversion whichSha,$/;"	f
+hmac	rfc6234/hmac.c	/^int hmac(SHAversion whichSha,$/;"	f
+hmacContext	rfc6234/sha.h	/^    HMACContext hmacContext;$/;"	m	struct:HKDFContext
+hmacContext	sha.h	/^    HMACContext hmacContext;$/;"	m	struct:HKDFContext
+hmacFinalBits	hmac.c	/^int hmacFinalBits(HMACContext *context,$/;"	f
+hmacFinalBits	rfc6234/hmac.c	/^int hmacFinalBits(HMACContext *context,$/;"	f
+hmacInput	hmac.c	/^int hmacInput(HMACContext *context, const unsigned char *text,$/;"	f
+hmacInput	rfc6234/hmac.c	/^int hmacInput(HMACContext *context, const unsigned char *text,$/;"	f
+hmacReset	hmac.c	/^int hmacReset(HMACContext *context, enum SHAversion whichSha,$/;"	f
+hmacReset	rfc6234/hmac.c	/^int hmacReset(HMACContext *context, enum SHAversion whichSha,$/;"	f
+hmacResult	hmac.c	/^int hmacResult(HMACContext *context, uint8_t *digest)$/;"	f
+hmacResult	rfc6234/hmac.c	/^int hmacResult(HMACContext *context, uint8_t *digest)$/;"	f
+hmachash	rfc6234/shatest.c	/^struct hmachash {$/;"	s	file:
+hmachash	shatest.c	/^struct hmachash {$/;"	s	file:
+hmachashes	rfc6234/shatest.c	/^} hmachashes[HMACTESTCOUNT] = {$/;"	v	typeref:struct:hmachash
+hmachashes	shatest.c	/^} hmachashes[HMACTESTCOUNT] = {$/;"	v	typeref:struct:hmachash
 if_match	er-coap.h	/^      uint8_t if_match[COAP_ETAG_LEN];$/;"	m	struct:__anon3
 if_match_len	er-coap.h	/^      uint8_t if_match_len;$/;"	m	struct:__anon3
 if_none_match	er-coap.h	/^  uint8_t if_none_match;$/;"	m	struct:__anon3
+ikmarray	rfc6234/shatest.c	/^    const char *ikmarray;$/;"	m	struct:hkdfhash	file:
+ikmarray	shatest.c	/^    const char *ikmarray;$/;"	m	struct:hkdfhash	file:
+ikmlength	rfc6234/shatest.c	/^    int ikmlength;$/;"	m	struct:hkdfhash	file:
+ikmlength	shatest.c	/^    int ikmlength;$/;"	m	struct:hkdfhash	file:
+infoarray	rfc6234/shatest.c	/^    const char *infoarray;$/;"	m	struct:hkdfhash	file:
+infoarray	shatest.c	/^    const char *infoarray;$/;"	m	struct:hkdfhash	file:
+infolength	rfc6234/shatest.c	/^    int infolength;$/;"	m	struct:hkdfhash	file:
+infolength	shatest.c	/^    int infolength;$/;"	m	struct:hkdfhash	file:
 ipaddr	er-coap.h	/^  uip_ipaddr_t* ipaddr;$/;"	m	struct:__anon3
 join_mcast_group	er-coap.c	/^join_mcast_group(void)$/;"	f	file:
+k_opad	rfc6234/sha.h	/^    unsigned char k_opad[USHA_Max_Message_Block_Size];$/;"	m	struct:HMACContext
+k_opad	sha.h	/^    unsigned char k_opad[USHA_Max_Message_Block_Size];$/;"	m	struct:HMACContext
+keyarray	rfc6234/shatest.c	/^    const char *keyarray[5];$/;"	m	struct:hmachash	file:
+keyarray	shatest.c	/^    const char *keyarray[5];$/;"	m	struct:hmachash	file:
+keylength	rfc6234/shatest.c	/^    int keylength[5];$/;"	m	struct:hmachash	file:
+keylength	shatest.c	/^    int keylength[5];$/;"	m	struct:hmachash	file:
 kid	opt-cose.h	/^	uint8_t* kid; \/\/protected - only if message is request$/;"	m	struct:opt_cose_encrypt_t
 kid_len	opt-cose.h	/^	size_t kid_len;$/;"	m	struct:opt_cose_encrypt_t
 last_mid	er-coap-observe.h	/^  uint16_t last_mid;$/;"	m	struct:coap_observer
 last_observe	er-coap-observe-client.h	/^  uint32_t last_observe;$/;"	m	struct:coap_observee_s
+length	rfc6234/shatest.c	/^        int length;$/;"	m	struct:hash::__anon7	file:
+length	rfc6234/shatest.c	226;"	d	file:
+length	shatest.c	/^        int length;$/;"	m	struct:hash::__anon16	file:
+length	shatest.c	226;"	d	file:
 location_path	er-coap.h	/^      const char *location_path;$/;"	m	struct:__anon3
 location_path_len	er-coap.h	/^      size_t location_path_len;$/;"	m	struct:__anon3
 location_query	er-coap.h	/^      const char *location_query;$/;"	m	struct:__anon3
 location_query_len	er-coap.h	/^      size_t location_query_len;$/;"	m	struct:__anon3
+main	rfc6234/shatest.c	/^int main(int argc, char **argv)$/;"	f
+main	shatest.c	/^int main(int argc, char **argv)$/;"	f
 max_age	er-coap.h	/^      uint32_t max_age;$/;"	m	struct:__anon3
 mic	cose-aes-ccm.c	/^mic(const uint8_t *nonce,$/;"	f	file:
 mid	er-coap-separate.h	/^  uint16_t mid;$/;"	m	struct:coap_separate
 mid	er-coap-transactions.h	/^  uint16_t mid;$/;"	m	struct:coap_transaction
 mid	er-coap.h	/^      uint16_t mid;$/;"	m	struct:__anon3
+name	rfc6234/shatest.c	/^    const char *name;$/;"	m	struct:hash	file:
+name	shatest.c	/^    const char *name;$/;"	m	struct:hash	file:
 next	er-coap-observe-client.h	/^  coap_observee_t *next;        \/* for LIST *\/$/;"	m	struct:coap_observee_s
 next	er-coap-observe.h	/^  struct coap_observer *next;   \/* for LIST *\/$/;"	m	struct:coap_observer	typeref:struct:coap_observer::coap_observer
 next	er-coap-transactions.h	/^  struct coap_transaction *next;        \/* for LIST *\/$/;"	m	struct:coap_transaction	typeref:struct:coap_transaction::coap_transaction
@@ -489,6 +1030,8 @@ nonce_len	opt-cose.h	/^	size_t nonce_len;$/;"	m	struct:opt_cose_encrypt_t
 notification	er-coap-observe.h	/^  coap_packet_t notification;$/;"	m	struct:coap_observable
 notification_callback	er-coap-observe-client.h	/^  notification_callback_t notification_callback;$/;"	m	struct:coap_observee_s
 notification_callback_t	er-coap-observe-client.h	/^typedef void (*notification_callback_t)(coap_observee_t *subject,$/;"	t
+numberExtrabits	rfc6234/shatest.c	/^        int numberExtrabits;$/;"	m	struct:hash::__anon7	file:
+numberExtrabits	shatest.c	/^        int numberExtrabits;$/;"	m	struct:hash::__anon16	file:
 object_security	er-coap.h	/^  uint8_t* object_security;$/;"	m	struct:__anon3
 object_security_len	er-coap.h	/^  size_t object_security_len;$/;"	m	struct:__anon3
 obs_counter	er-coap-observe.h	/^  int32_t obs_counter;$/;"	m	struct:coap_observer
@@ -497,6 +1040,10 @@ observe	er-coap.h	/^      int32_t observe;$/;"	m	struct:__anon3
 observe_clock	er-coap-observe.h	/^  uint32_t observe_clock;$/;"	m	struct:coap_observable
 observers	er-coap-observe.h	/^  list_t observers;$/;"	m	struct:coap_observable
 observers_list	er-coap-observe.c	/^LIST(observers_list);$/;"	v
+okmarray	rfc6234/shatest.c	/^    const char *okmarray;$/;"	m	struct:hkdfhash	file:
+okmarray	shatest.c	/^    const char *okmarray;$/;"	m	struct:hkdfhash	file:
+okmlength	rfc6234/shatest.c	/^    int okmlength;$/;"	m	struct:hkdfhash	file:
+okmlength	shatest.c	/^    int okmlength;$/;"	m	struct:hkdfhash	file:
 opt_cose_encrypt_t	opt-cose.h	/^typedef struct opt_cose_encrypt_t{$/;"	s
 opt_cose_encrypt_t	opt-cose.h	/^} opt_cose_encrypt_t;$/;"	t	typeref:struct:opt_cose_encrypt_t
 options	er-coap.h	/^      uint8_t options[COAP_OPTION_SIZE1 \/ OPTION_MAP_SIZE + 1]; \/* bitmap to check if option is set *\/$/;"	m	struct:__anon3
@@ -507,7 +1054,7 @@ oscoap_external_aad_size	er-oscoap.c	/^size_t oscoap_external_aad_size(coap_pack
 oscoap_find_ctx_by_cid	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT* oscoap_find_ctx_by_cid(uint8_t* cid){$/;"	f
 oscoap_free_ctx	er-oscoap.c	/^int oscoap_free_ctx(OSCOAP_COMMON_CONTEXT *ctx){$/;"	f
 oscoap_increment_sender_seq	er-oscoap.c	/^void oscoap_increment_sender_seq(OSCOAP_COMMON_CONTEXT* ctx){$/;"	f
-oscoap_new_ctx	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT* oscoap_new_ctx( uint8_t* cid, uint8_t* sw_k, uint8_t* sw_iv, uint8_t* rw_k, uint8_t* rw_iv){$/;"	f
+oscoap_new_ctx	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT* oscoap_new_ctx( uint8_t* cid, uint8_t* sw_k, uint8_t* sw_iv, uint8_t* rw_k, uint8_t* rw_iv, int i){$/;"	f
 oscoap_prepare_message	er-oscoap.c	/^size_t oscoap_prepare_message(void* packet, uint8_t *buffer){$/;"	f
 oscoap_prepare_plaintext	er-oscoap.c	/^size_t oscoap_prepare_plaintext(void* packet, uint8_t* plaintext_buffer){$/;"	f
 oscoap_prepare_request_external_aad	er-oscoap.c	/^size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t sender){$/;"	f
@@ -532,31 +1079,107 @@ port	er-coap-observe-client.h	/^  uint16_t port;$/;"	m	struct:coap_observee_s
 port	er-coap-observe.h	/^  uint16_t port;$/;"	m	struct:coap_observer
 port	er-coap-separate.h	/^  uint16_t port;$/;"	m	struct:coap_separate
 port	er-coap-transactions.h	/^  uint16_t port;$/;"	m	struct:coap_transaction
+printResult	rfc6234/shatest.c	/^void printResult(uint8_t *Message_Digest, int hashsize,$/;"	f
+printResult	shatest.c	/^void printResult(uint8_t *Message_Digest, int hashsize,$/;"	f
+printstr	rfc6234/shatest.c	/^void printstr(const char *str, int len)$/;"	f
+printstr	shatest.c	/^void printstr(const char *str, int len)$/;"	f
+printxstr	rfc6234/shatest.c	/^void printxstr(const char *str, int len)$/;"	f
+printxstr	shatest.c	/^void printxstr(const char *str, int len)$/;"	f
+prk	rfc6234/sha.h	/^    unsigned char prk[USHAMaxHashSize];$/;"	m	struct:HKDFContext
+prk	sha.h	/^    unsigned char prk[USHAMaxHashSize];$/;"	m	struct:HKDFContext
+prkarray	rfc6234/shatest.c	/^    const char *prkarray;$/;"	m	struct:hkdfhash	file:
+prkarray	shatest.c	/^    const char *prkarray;$/;"	m	struct:hkdfhash	file:
+prklength	rfc6234/shatest.c	/^    int prklength;$/;"	m	struct:hkdfhash	file:
+prklength	shatest.c	/^    int prklength;$/;"	m	struct:hkdfhash	file:
 process	er-coap-engine.h	/^  struct process *process;$/;"	m	struct:request_state_t	typeref:struct:request_state_t::process
 proxy_scheme	er-coap.h	/^      const char *proxy_scheme;$/;"	m	struct:__anon3
 proxy_scheme_len	er-coap.h	/^      size_t proxy_scheme_len;$/;"	m	struct:__anon3
 proxy_uri	er-coap.h	/^      const char *proxy_uri;$/;"	m	struct:__anon3
 proxy_uri_len	er-coap.h	/^      size_t proxy_uri_len;$/;"	m	struct:__anon3
 pt	er-coap-engine.h	/^  struct pt pt;$/;"	m	struct:request_state_t	typeref:struct:request_state_t::pt
+randomresults	rfc6234/shatest.c	/^    const char *randomresults[RANDOMCOUNT];$/;"	m	struct:hash	file:
+randomresults	shatest.c	/^    const char *randomresults[RANDOMCOUNT];$/;"	m	struct:hash	file:
+randomtest	rfc6234/shatest.c	/^    const char *randomtest;$/;"	m	struct:hash	file:
+randomtest	rfc6234/shatest.c	/^void randomtest(int hashno, const char *seed, int hashsize,$/;"	f
+randomtest	shatest.c	/^    const char *randomtest;$/;"	m	struct:hash	file:
+randomtest	shatest.c	/^void randomtest(int hashno, const char *seed, int hashsize,$/;"	f
+repeatcount	rfc6234/shatest.c	/^        long repeatcount;$/;"	m	struct:hash::__anon7	file:
+repeatcount	shatest.c	/^        long repeatcount;$/;"	m	struct:hash::__anon16	file:
 request_state_t	er-coap-engine.h	/^struct request_state_t {$/;"	s
 response	er-coap-engine.h	/^  coap_packet_t *response;$/;"	m	struct:request_state_t
 rest_request_t	er-coap-engine.h	/^typedef coap_packet_t rest_request_t;$/;"	t
 rest_response_t	er-coap-engine.h	/^typedef coap_packet_t rest_response_t;$/;"	t
+resultarray	rfc6234/shatest.c	/^        const char *resultarray;$/;"	m	struct:hash::__anon7	file:
+resultarray	rfc6234/shatest.c	/^    const char *resultarray[5];$/;"	m	struct:hmachash	file:
+resultarray	shatest.c	/^        const char *resultarray;$/;"	m	struct:hash::__anon16	file:
+resultarray	shatest.c	/^    const char *resultarray[5];$/;"	m	struct:hmachash	file:
+resultlength	rfc6234/shatest.c	/^    int resultlength[5];$/;"	m	struct:hmachash	file:
+resultlength	shatest.c	/^    int resultlength[5];$/;"	m	struct:hmachash	file:
 retrans_counter	er-coap-observe.h	/^  uint8_t retrans_counter;$/;"	m	struct:coap_observer
 retrans_counter	er-coap-transactions.h	/^  uint8_t retrans_counter;$/;"	m	struct:coap_transaction
 retrans_timer	er-coap-observe.h	/^  struct etimer retrans_timer;$/;"	m	struct:coap_observer	typeref:struct:coap_observer::etimer
 retrans_timer	er-coap-transactions.h	/^  struct etimer retrans_timer;$/;"	m	struct:coap_transaction	typeref:struct:coap_transaction::etimer
+saltarray	rfc6234/shatest.c	/^    const char *saltarray;$/;"	m	struct:hkdfhash	file:
+saltarray	shatest.c	/^    const char *saltarray;$/;"	m	struct:hkdfhash	file:
+saltlength	rfc6234/shatest.c	/^    int saltlength;$/;"	m	struct:hkdfhash	file:
+saltlength	shatest.c	/^    int saltlength;$/;"	m	struct:hkdfhash	file:
+scasecmp	rfc6234/shatest.c	/^int scasecmp(const char *s1, const char *s2)$/;"	f
+scasecmp	shatest.c	/^int scasecmp(const char *s1, const char *s2)$/;"	f
 serialized_len	opt-cose.h	/^	size_t serialized_len;$/;"	m	struct:opt_cose_encrypt_t
 service_cbk	er-coap-engine.c	/^static service_callback_t service_cbk = NULL;$/;"	v	file:
 set_iv	cose-aes-ccm.c	/^set_iv(uint8_t *iv,$/;"	f	file:
 set_key	cose-aes-ccm.c	/^set_key(const uint8_t *key)$/;"	f	file:
 set_key	cose-aes-ccm.h	/^  void (* set_key)(const uint8_t* key);$/;"	m	struct:cose_aes_ccm_driver
 set_token	er-coap-observe-client.c	/^set_token(void *packet, const uint8_t *token, size_t token_len)$/;"	f	file:
+sha1Context	rfc6234/sha.h	/^      SHA1Context sha1Context;$/;"	m	union:USHAContext::__anon6
+sha1Context	sha.h	/^      SHA1Context sha1Context;$/;"	m	union:USHAContext::__anon15
+sha224Context	rfc6234/sha.h	/^      SHA224Context sha224Context; SHA256Context sha256Context;$/;"	m	union:USHAContext::__anon6
+sha224Context	sha.h	/^      SHA224Context sha224Context; SHA256Context sha256Context;$/;"	m	union:USHAContext::__anon15
+sha256Context	rfc6234/sha.h	/^      SHA224Context sha224Context; SHA256Context sha256Context;$/;"	m	union:USHAContext::__anon6
+sha256Context	sha.h	/^      SHA224Context sha224Context; SHA256Context sha256Context;$/;"	m	union:USHAContext::__anon15
+sha384Context	rfc6234/sha.h	/^      SHA384Context sha384Context; SHA512Context sha512Context;$/;"	m	union:USHAContext::__anon6
+sha384Context	sha.h	/^      SHA384Context sha384Context; SHA512Context sha512Context;$/;"	m	union:USHAContext::__anon15
+sha512Context	rfc6234/sha.h	/^      SHA384Context sha384Context; SHA512Context sha512Context;$/;"	m	union:USHAContext::__anon6
+sha512Context	sha.h	/^      SHA384Context sha384Context; SHA512Context sha512Context;$/;"	m	union:USHAContext::__anon15
+shaBadParam	rfc6234/sha.h	/^    shaBadParam         \/* passed a bad parameter *\/$/;"	e	enum:__anon4
+shaBadParam	sha.h	/^    shaBadParam         \/* passed a bad parameter *\/$/;"	e	enum:__anon13
+shaContext	rfc6234/sha.h	/^    USHAContext shaContext;     \/* SHA context *\/$/;"	m	struct:HMACContext
+shaContext	sha.h	/^    USHAContext shaContext;     \/* SHA context *\/$/;"	m	struct:HMACContext
+shaInputTooLong	rfc6234/sha.h	/^    shaInputTooLong,    \/* input data too long *\/$/;"	e	enum:__anon4
+shaInputTooLong	sha.h	/^    shaInputTooLong,    \/* input data too long *\/$/;"	e	enum:__anon13
+shaNull	rfc6234/sha.h	/^    shaNull,            \/* Null pointer parameter *\/$/;"	e	enum:__anon4
+shaNull	sha.h	/^    shaNull,            \/* Null pointer parameter *\/$/;"	e	enum:__anon13
+shaStateError	rfc6234/sha.h	/^    shaStateError,      \/* called Input after FinalBits or Result *\/$/;"	e	enum:__anon4
+shaStateError	sha.h	/^    shaStateError,      \/* called Input after FinalBits or Result *\/$/;"	e	enum:__anon13
+shaSuccess	rfc6234/sha.h	/^    shaSuccess = 0,$/;"	e	enum:__anon4
+shaSuccess	sha.h	/^    shaSuccess = 0,$/;"	e	enum:__anon13
 sid	opt-cose.h	/^	uint8_t* sid; \/\/protected optional$/;"	m	struct:opt_cose_encrypt_t
 sid_len	opt-cose.h	/^	size_t 	 sid_len;$/;"	m	struct:opt_cose_encrypt_t
+sigma0_temp1	rfc6234/sha384-512.c	/^static uint32_t sigma0_temp1[2], sigma0_temp2[2],$/;"	v	file:
+sigma0_temp1	sha384-512.c	/^static uint32_t sigma0_temp1[2], sigma0_temp2[2],$/;"	v	file:
+sigma0_temp2	rfc6234/sha384-512.c	/^static uint32_t sigma0_temp1[2], sigma0_temp2[2],$/;"	v	file:
+sigma0_temp2	sha384-512.c	/^static uint32_t sigma0_temp1[2], sigma0_temp2[2],$/;"	v	file:
+sigma0_temp3	rfc6234/sha384-512.c	/^  sigma0_temp3[2], sigma0_temp4[2];$/;"	v	file:
+sigma0_temp3	sha384-512.c	/^  sigma0_temp3[2], sigma0_temp4[2];$/;"	v	file:
+sigma0_temp4	rfc6234/sha384-512.c	/^  sigma0_temp3[2], sigma0_temp4[2];$/;"	v	file:
+sigma0_temp4	sha384-512.c	/^  sigma0_temp3[2], sigma0_temp4[2];$/;"	v	file:
+sigma1_temp1	rfc6234/sha384-512.c	/^static uint32_t sigma1_temp1[2], sigma1_temp2[2],$/;"	v	file:
+sigma1_temp1	sha384-512.c	/^static uint32_t sigma1_temp1[2], sigma1_temp2[2],$/;"	v	file:
+sigma1_temp2	rfc6234/sha384-512.c	/^static uint32_t sigma1_temp1[2], sigma1_temp2[2],$/;"	v	file:
+sigma1_temp2	sha384-512.c	/^static uint32_t sigma1_temp1[2], sigma1_temp2[2],$/;"	v	file:
+sigma1_temp3	rfc6234/sha384-512.c	/^  sigma1_temp3[2], sigma1_temp4[2];$/;"	v	file:
+sigma1_temp3	sha384-512.c	/^  sigma1_temp3[2], sigma1_temp4[2];$/;"	v	file:
+sigma1_temp4	rfc6234/sha384-512.c	/^  sigma1_temp3[2], sigma1_temp4[2];$/;"	v	file:
+sigma1_temp4	sha384-512.c	/^  sigma1_temp3[2], sigma1_temp4[2];$/;"	v	file:
 simple_reply	er-coap-observe-client.c	/^simple_reply(coap_message_type_t type, uip_ip6addr_t *addr, uint16_t port,$/;"	f	file:
 size1	er-coap.h	/^  uint32_t size1;$/;"	m	struct:__anon3
 size2	er-coap.h	/^      uint32_t size2;$/;"	m	struct:__anon3
+testErrors	rfc6234/shatest.c	/^void testErrors(int hashnolow, int hashnohigh, int printResults,$/;"	f
+testErrors	shatest.c	/^void testErrors(int hashnolow, int hashnohigh, int printResults,$/;"	f
+testarray	rfc6234/shatest.c	/^        const char *testarray;$/;"	m	struct:hash::__anon7	file:
+testarray	shatest.c	/^        const char *testarray;$/;"	m	struct:hash::__anon16	file:
+tests	rfc6234/shatest.c	/^    } tests[TESTCOUNT];$/;"	m	struct:hash	typeref:struct:hash::__anon7	file:
+tests	shatest.c	/^    } tests[TESTCOUNT];$/;"	m	struct:hash	typeref:struct:hash::__anon16	file:
 to_bytes	er-oscoap.c	/^uint8_t to_bytes(uint32_t in, uint8_t* buffer){$/;"	f
 token	er-coap-observe-client.h	/^  uint8_t token[COAP_TOKEN_LEN];$/;"	m	struct:coap_observee_s
 token	er-coap-observe.h	/^  uint8_t token[COAP_TOKEN_LEN];$/;"	m	struct:coap_observer
@@ -572,6 +1195,8 @@ transactions_list	er-coap-transactions.c	/^LIST(transactions_list);$/;"	v
 type	er-coap-separate.h	/^  coap_message_type_t type;$/;"	m	struct:coap_separate
 type	er-coap.h	/^      coap_message_type_t type;$/;"	m	struct:__anon3
 udp_conn	er-coap.c	/^static struct uip_udp_conn *udp_conn = NULL;$/;"	v	typeref:struct:uip_udp_conn	file:
+unhexStr	rfc6234/shatest.c	/^int unhexStr(char *hexstr)$/;"	f
+unhexStr	shatest.c	/^int unhexStr(char *hexstr)$/;"	f
 uri_host	er-coap.h	/^      const char *uri_host;$/;"	m	struct:__anon3
 uri_host_len	er-coap.h	/^      size_t uri_host_len;$/;"	m	struct:__anon3
 uri_path	er-coap.h	/^      const char *uri_path;$/;"	m	struct:__anon3
@@ -581,5 +1206,17 @@ uri_query	er-coap.h	/^  const char *uri_query;$/;"	m	struct:__anon3
 uri_query_len	er-coap.h	/^  size_t uri_query_len;$/;"	m	struct:__anon3
 url	er-coap-observe-client.h	/^  const char *url;$/;"	m	struct:coap_observee_s
 url	er-coap-observe.h	/^  char url[COAP_OBSERVER_URL_LEN];$/;"	m	struct:coap_observer
+usage	rfc6234/shatest.c	/^void usage(const char *argv0)$/;"	f
+usage	shatest.c	/^void usage(const char *argv0)$/;"	f
 version	er-coap.h	/^      uint8_t version;$/;"	m	struct:__anon3
 well_known_core_get_handler	er-coap-res-well-known-core.c	/^well_known_core_get_handler(void *request, void *response, uint8_t *buffer,$/;"	f
+whichSha	rfc6234/sha.h	/^    int whichSha;               \/* which SHA is being used *\/$/;"	m	struct:HKDFContext
+whichSha	rfc6234/sha.h	/^    int whichSha;               \/* which SHA is being used *\/$/;"	m	struct:HMACContext
+whichSha	rfc6234/sha.h	/^    int whichSha;               \/* which SHA is being used *\/$/;"	m	struct:USHAContext
+whichSha	rfc6234/shatest.c	/^    SHAversion whichSha;$/;"	m	struct:hash	file:
+whichSha	rfc6234/shatest.c	/^    SHAversion whichSha;$/;"	m	struct:hkdfhash	file:
+whichSha	sha.h	/^    int whichSha;               \/* which SHA is being used *\/$/;"	m	struct:HKDFContext
+whichSha	sha.h	/^    int whichSha;               \/* which SHA is being used *\/$/;"	m	struct:HMACContext
+whichSha	sha.h	/^    int whichSha;               \/* which SHA is being used *\/$/;"	m	struct:USHAContext
+whichSha	shatest.c	/^    SHAversion whichSha;$/;"	m	struct:hash	file:
+whichSha	shatest.c	/^    SHAversion whichSha;$/;"	m	struct:hkdfhash	file:

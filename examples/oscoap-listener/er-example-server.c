@@ -43,7 +43,7 @@
 #include "contiki-net.h"
 #include "rest-engine.h"
 #include "er-oscoap.h"
-
+#include "sha.h"
 
 #if PLATFORM_HAS_BUTTON
 #include "dev/button-sensor.h"
@@ -61,19 +61,22 @@
 #define PRINTLLADDR(addr)
 #endif
 
+#define GEN_KEYLEN 16
+#define GEN_IVLEN 8
+
 /*
  * Resources to be activated need to be imported through the extern keyword.
  * The build system automatically compiles the resources in the corresponding sub-directory.
  */
 extern resource_t
-  res_hello,
+res_hello,
   res_mirror,
   res_chunks,
   res_separate,
   res_push,
   res_event,
-	  res_sub,
-	  res_b1_sep_b2;
+  res_sub,
+  res_b1_sep_b2;
 #if PLATFORM_HAS_LEDS
 extern resource_t res_leds, res_toggle;
 #endif
@@ -93,7 +96,7 @@ extern resource_t res_temperature;
 
 
 /*
-extern resource_t res_battery;
+   extern resource_t res_battery;
 #endif
 #if PLATFORM_HAS_RADIO
 #include "dev/radio-sensor.h"
@@ -103,7 +106,16 @@ extern resource_t res_radio;
 #include "dev/sht11/sht11-sensor.h"
 extern resource_t res_sht11;
 #endif
-*/
+ */
+oscoap_printf_hex2(unsigned char *data, unsigned int len)
+{                  
+  int i=0;             
+  for(i=0; i<len; i++)
+  {
+    printf(" %02x ",data[i]);
+  }
+  PRINTF("\n");
+}
 
 PROCESS(er_example_server, "Erbium Example Server");
 AUTOSTART_PROCESSES(&er_example_server);
@@ -165,6 +177,7 @@ PROCESS_THREAD(er_example_server, ev, data)
   oscoap_ctx_store_init();
 
   uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 2};
+  char master_secret[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,     0x00, 0x00, 0x00, 0x03};  
   //char receiver_key[] =   {0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41};
   char receiver_key[] = {0x28, 0x3a, 0x8e, 0xf5, 0xe9, 0xd9, 0xd1, 0x70, 0xf0, 0x1a, 0xd6, 0x59, 0xde, 0x58, 0xdb, 0x0b};
   char sender_key[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02};
@@ -172,17 +185,25 @@ PROCESS_THREAD(er_example_server, ev, data)
   char receiver_iv[] = {0xd5, 0xdc, 0xa7, 0x48, 0x55, 0x1b, 0x36, 0xbd};
   char sender_iv[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02 };
 
-  
-     OSCOAP_COMMON_CONTEXT* cc = NULL;
-     cc = oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv, 2);
-     PRINTF("\nReceiver's ID :  ");
-     oscoap_printf_hex(cc->RECIPIENT_CONTEXT->RECIPIENT_ID, 8);
-     PRINTF("\n");
-/* 
-  if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){
-    printf("Error: Could not create new Context!\n");
-  }
-*/
+  // HKDF
+  //  hkdf(SHA256, 0, 0, master_secret, 16, "SenderKey", 9, sender_key, GEN_KEYLEN);
+  //  printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+  //  oscoap_printf_hex2(sender_key, GEN_KEYLEN);
+
+  //hkdf(SHA256, 0, 0, master_secret, 16, "IV", 2, sender_iv, GEN_IVLEN);
+  //oscoap_printf_hex2(sender_iv, GEN_IVLEN);
+
+
+  OSCOAP_COMMON_CONTEXT* cc = NULL;
+  cc = oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv, 2);
+  PRINTF("\nReceiver's ID :  ");
+  oscoap_printf_hex(cc->RECIPIENT_CONTEXT->RECIPIENT_ID, 8);
+  PRINTF("\n");
+  /* 
+     if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){
+     printf("Error: Could not create new Context!\n");
+     }
+   */
   //oscoap_ctx_init(cid, sender_key, sender_iv, receiver_key, receiver_iv);
   //cid_map_put(context);
   OSCOAP_COMMON_CONTEXT* c = NULL;
