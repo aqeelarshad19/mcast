@@ -111,7 +111,7 @@ uint8_t OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len)
 uint8_t OPT_COSE_Decrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len);
 
 // Multicasting code adding
-uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t sid_len);
+uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t *sid_len);
 uint8_t* OPT_COSE_SetSenderID(opt_cose_encrypt_t *cose, uint8_t *sid_buffer, size_t sid_len);
 
 

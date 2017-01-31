@@ -205,6 +205,7 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 	buffer++; //step by map tag
 	while(buffer < end_ptr ){
 		if(*buffer == COSE_Header_KID){//COSE_Header_KID = 2,
+      printf("kid #########################\n");
 			buffer++; //step by key
 			byte_len = (*buffer & 0x0F);
 			buffer++; //step by tag
@@ -212,6 +213,7 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 			cose->kid_len = byte_len;
 			buffer += byte_len; //step by bytefield
 		}else if(*buffer == COSE_Header_Partial_IV){ //COSE_Header_Partial_IV = 6,
+      printf("partial iv #########################\n");
 			buffer++; //step by key
 			byte_len = (*buffer & 0x0F);
 			buffer++;// step by tag
@@ -219,6 +221,7 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 			cose->partial_iv_len = byte_len;
 			buffer += byte_len; //step by bytefield
 		}else if(*buffer == COSE_Header_Sender_ID ){ // COSE_Header_Sender_ID  = 8
+      printf("#########################\n");
 			buffer++; //step by key
 			byte_len = (*buffer & 0x0F);
 			buffer++;// step by tag
@@ -269,11 +272,11 @@ size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_
 		
 		switch(*buffer & 0xF0){
 			case 0x80:
-			//	PRINTF("array \n");
+				PRINTF("array \n");
 				buffer++;
 				break;
 			case 0xa0:
-			//	PRINTF("map \n");
+				PRINTF("map \n");
 				buffer++;
 				break;
 			case 0x40:
@@ -285,7 +288,7 @@ size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_
 				buffer += len; //step by bytes
 				break;
 			case 0x50:
-			//	PRINTF("bytes long field\n");
+				PRINTF("bytes long field\n");
 				
 				if(*buffer == 0x58){
 					buffer++;
@@ -302,7 +305,7 @@ size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_
 				buffer += len; //step by bytes
 				break;
 			case 0x00:
-			//	OSCOAP_PRINTF("unsigned\n");
+				PRINTF("unsigned\n");
 				buffer++;
 				break;
 			default:

@@ -34,7 +34,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include "er-oscoap.h"
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -121,10 +121,10 @@ uint8_t* OPT_COSE_GetKeyID(opt_cose_encrypt_t *cose, size_t *kid_len){
 }
 
 // Mutlicasting GetSenderID
-//uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t sid_len){
-//  *sid_len =  cose->sid_len;
-//    return cose->sid;
-//}
+uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t *sid_len){
+  *sid_len =  cose->sid_len;
+  return cose->sid;
+}
 
 // Multicasting SetSenderID
 uint8_t* OPT_COSE_SetSenderID(opt_cose_encrypt_t *cose, uint8_t *sid_buffer, size_t sid_len){
@@ -332,7 +332,9 @@ uint8_t OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len)
 
 
 	PRINTF("Encrypting:\n");
-	PRINTF("Plaintext:\n");
+	PRINTF("SID:\n");
+	PRINTF_HEX(cose->sid, cose->sid_len);
+  PRINTF("Plaintext:\n");
 	PRINTF_HEX(cose->plaintext, cose->plaintext_len);
 	PRINTF("IV: \n");
 	PRINTF_HEX(cose->nonce, cose->nonce_len);

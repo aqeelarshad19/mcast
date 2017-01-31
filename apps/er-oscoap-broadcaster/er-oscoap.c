@@ -14,7 +14,7 @@ following disclaimer in the documentation and/or other materials provided with t
 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote 
 products derived from this software without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+THIS SOFTWARE IS PROVInED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
 INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
 DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
 SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
@@ -41,7 +41,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "lib/memb.h"
 #include <inttypes.h>
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -386,7 +386,6 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   
   // Multicasting 
   OPT_COSE_SetSenderID(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_ID, ID_LEN);
-
 
   size_t external_aad_size = oscoap_external_aad_size(coap_pkt); // this is a upper bound of the size
   uint8_t external_aad_buffer[external_aad_size]; 
