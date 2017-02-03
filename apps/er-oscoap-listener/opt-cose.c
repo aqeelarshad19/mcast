@@ -164,7 +164,48 @@ uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 	OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
 	return 1;
 }
+/*
+uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
+    uint8_t elements = 1; // assume Partial IV is mandatory
+    uint8_t protected_len = 3 + cose->partial_iv_len;
+    
+    if(cose->kid_len != 0){
+        elements++;
+        protected_len += cose->kid_len + 2;
+    }
 
+    if(cose->sid_len != 0){
+        elements++;
+        protected_len += cose->sid_len + 2;
+    }
+
+    if( protected_len > 15){
+        **buffer = 0x58;
+        (*buffer)++;
+        **buffer = protected_len;
+        (*buffer)++;
+    } else {
+        **buffer = (0x40 | protected_len);
+        (*buffer)++;
+    }
+
+    OPT_CBOR_put_map(buffer, elements);
+    
+    if(cose->kid_len != 0){
+        OPT_CBOR_put_unsigned(buffer, COSE_Header_KID);
+        OPT_CBOR_put_bytes(buffer, cose->kid_len, cose->kid);
+    }
+
+    if (cose->sid_len != 0){
+        OPT_CBOR_put_unsigned(buffer, COSE_Header_Sender_ID );
+        OPT_CBOR_put_bytes(buffer, cose->sid_len, cose->sid);
+    }
+
+    OPT_CBOR_put_unsigned(buffer, COSE_Header_Partial_IV);
+    OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
+    return 1;
+}
+*/
 uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	OPT_CBOR_put_array(&buffer, 3);
 	char* encrypted = "Encrypted";
@@ -269,18 +310,21 @@ size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_
 
 	while(buffer < end_ptr){
 		uint8_t len;
-		
+	  PRINTF("INSIDE OF WHILE\n");	
 		switch(*buffer & 0xF0){
 			case 0x80:
 				PRINTF("array \n");
+        PRINTF_HEX(buffer,1);
 				buffer++;
 				break;
 			case 0xa0:
 				PRINTF("map \n");
+        PRINTF_HEX(buffer,1);
 				buffer++;
 				break;
 			case 0x40:
 				PRINTF("bytes\n");
+        PRINTF_HEX(buffer,1);
 				len = (*buffer & 0x0F);
 				buffer++; //step by tag
 				_OPT_COSE_cbor_bytes(cose, buffer, len, bytefield);

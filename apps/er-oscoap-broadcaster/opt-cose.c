@@ -145,6 +145,7 @@ uint8_t OPT_COSE_SetAAD(opt_cose_encrypt_t *cose, uint8_t *aad_buffer, size_t aa
 	return 1;
 }	
 
+/*
 uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 
 	if(cose->kid_len != 0){
@@ -160,6 +161,49 @@ uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 		(*buffer)++;
 		OPT_CBOR_put_map(buffer, 1);
 	}
+	OPT_CBOR_put_unsigned(buffer, COSE_Header_Partial_IV);
+	OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
+	return 1;
+}
+*/
+
+uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
+
+	uint8_t elements = 1; // assume Partial IV is mandatory
+	uint8_t protected_len = 3 + cose->partial_iv_len;
+
+	if(cose->kid_len != 0){
+		elements++;
+		protected_len += cose->kid_len + 2;
+	}
+
+	if(cose->sid_len != 0){
+		elements++;
+		protected_len += cose->sid_len + 2;
+	}
+
+	if( protected_len > 15){
+		**buffer = 0x58;
+		(*buffer)++;
+		**buffer = protected_len;
+		(*buffer)++;
+	} else {
+		**buffer = (0x40 | protected_len);
+		(*buffer)++;
+	}
+
+	OPT_CBOR_put_map(buffer, elements);
+
+	if(cose->kid_len != 0){
+		OPT_CBOR_put_unsigned(buffer, COSE_Header_KID);
+		OPT_CBOR_put_bytes(buffer, cose->kid_len, cose->kid);
+	}
+
+	if (cose->sid_len != 0){
+		OPT_CBOR_put_unsigned(buffer, COSE_Header_Sender_ID );
+		OPT_CBOR_put_bytes(buffer, cose->sid_len, cose->sid);
+	}
+
 	OPT_CBOR_put_unsigned(buffer, COSE_Header_Partial_IV);
 	OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
 	return 1;

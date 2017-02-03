@@ -490,7 +490,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
   	}else{
         /* Sender ID check */
         size_t sid_len;
-        PRINTF_HEX(OPT_COSE_GetSenderID(&cose, &sid_len),sid_len);
+        //PRINTF_HEX(OPT_COSE_GetSenderID(&cose, &sid_len),sid_len);
 
         uint8_t *sid = OPT_COSE_GetSenderID(&cose, &sid_len);
         PRINTF_HEX(sid, sid_len); 
