@@ -34,7 +34,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include "er-oscoap.h"
 
-#define DEBUG 1
+#define DEBUG 0
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -145,7 +145,7 @@ uint8_t OPT_COSE_SetAAD(opt_cose_encrypt_t *cose, uint8_t *aad_buffer, size_t aa
 	return 1;
 }	
 
-/*
+
 uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 
 	if(cose->kid_len != 0){
@@ -165,8 +165,8 @@ uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 	OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
 	return 1;
 }
-*/
 
+/*
 uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 
 	uint8_t elements = 1; // assume Partial IV is mandatory
@@ -208,7 +208,7 @@ uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 	OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
 	return 1;
 }
-
+*/
 uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	OPT_CBOR_put_array(&buffer, 3);
 	char* encrypted = "Encrypted";

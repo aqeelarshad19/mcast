@@ -34,7 +34,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include "er-oscoap.h"
 
-#define DEBUG 1
+#define DEBUG 0
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -310,20 +310,20 @@ size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_
 
 	while(buffer < end_ptr){
 		uint8_t len;
-	  PRINTF("INSIDE OF WHILE\n");	
+	  //PRINTF("INSIDE OF WHILE\n");	
 		switch(*buffer & 0xF0){
 			case 0x80:
-				PRINTF("array \n");
+				//PRINTF("array \n");
         PRINTF_HEX(buffer,1);
 				buffer++;
 				break;
 			case 0xa0:
-				PRINTF("map \n");
+				//PRINTF("map \n");
         PRINTF_HEX(buffer,1);
 				buffer++;
 				break;
 			case 0x40:
-				PRINTF("bytes\n");
+			//	PRINTF("bytes\n");
         PRINTF_HEX(buffer,1);
 				len = (*buffer & 0x0F);
 				buffer++; //step by tag
