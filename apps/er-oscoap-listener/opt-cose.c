@@ -34,7 +34,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include "er-oscoap.h"
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -147,6 +147,7 @@ uint8_t OPT_COSE_SetAAD(opt_cose_encrypt_t *cose, uint8_t *aad_buffer, size_t aa
 	return 1;
 }	
 
+/*
 uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 
 	if(cose->kid_len != 0){
@@ -164,7 +165,8 @@ uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
 	OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
 	return 1;
 }
-/*
+*/
+
 uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
     uint8_t elements = 1; // assume Partial IV is mandatory
     uint8_t protected_len = 3 + cose->partial_iv_len;
@@ -205,7 +207,7 @@ uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){
     OPT_CBOR_put_bytes(buffer, cose->partial_iv_len, cose->partial_iv);
     return 1;
 }
-*/
+
 uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	OPT_CBOR_put_array(&buffer, 3);
 	char* encrypted = "Encrypted";
@@ -215,12 +217,17 @@ uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	return 1;
 }
 
-size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose){
+size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose, int is_request){
 	//TODO this only works for responses
 	PRINTF("cose->partial_iv_len %d\n", cose->partial_iv_len);
 	PRINTF("cose->external_aad_len %d\n", cose->external_aad_len);
 	PRINTF("cose->kid_len %d\n", cose->kid_len);
-	size_t ret = 12 + 3 + cose->partial_iv_len + 1 + cose->external_aad_len;
+  size_t ret;
+  if ( is_request ) {
+    ret = 12 + 12 + 3 + cose->partial_iv_len + 1 + cose->external_aad_len;
+  } else {
+    ret = 12 + 3 + cose->partial_iv_len + 1 + cose->external_aad_len;
+  }
 	//array + text(Encrypted) + bytes + seq_len + bytes + external_aad_len
 	if(cose->kid_len > 0){
 		ret += cose->kid_len;

@@ -102,7 +102,7 @@ size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_
 
 size_t OPT_COSE_Encode(opt_cose_encrypt_t *cose, uint8_t *buffer);
 uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer);
-size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose);
+size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose, int is_request);
 
 uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer);
 

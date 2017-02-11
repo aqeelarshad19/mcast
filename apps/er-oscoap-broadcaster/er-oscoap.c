@@ -411,7 +411,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   //****//
 //  PRINTF_HEX(cose->aad, cose->aad_len);
 
-  size_t aad_length = OPT_COSE_AAD_length(&cose);
+  size_t aad_length = OPT_COSE_AAD_length(&cose, coap_is_request(coap_pkt));
   uint8_t aad_buffer[aad_length];
   memset(aad_buffer, 0, aad_length);
 
@@ -431,6 +431,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
   
   size_t serialized_len = OPT_COSE_Encoded_length(&cose);
+  serialized_len++;
 
   uint8_t opt_buffer[serialized_len];
   OPT_COSE_Encode(&cose, opt_buffer);
@@ -519,7 +520,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
            
     //Verify and decrypt the message.  If the verification fails, the
     //server MUST stop processing the request.
-  	size_t aad_len = OPT_COSE_AAD_length(&cose);
+  	size_t aad_len = OPT_COSE_AAD_length(&cose, coap_is_request(coap_pkt));
     uint8_t aad_buffer[aad_len];
     OPT_COSE_SetAAD(&cose, aad_buffer, aad_len);
     OPT_COSE_Build_AAD(&cose, aad_buffer);
