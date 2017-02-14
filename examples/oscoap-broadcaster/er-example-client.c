@@ -44,7 +44,6 @@
 #include "er-coap-engine.h"
 #include "dev/button-sensor.h"
 #include "er-oscoap.h"
-#include "sha.h"
 
 #define DEBUG 1
 #if DEBUG
@@ -69,8 +68,6 @@
 #define LOCAL_PORT      UIP_HTONS(COAP_DEFAULT_PORT + 1)
 #define REMOTE_PORT     UIP_HTONS(COAP_DEFAULT_PORT)
 #define TOGGLE_INTERVAL 30
-#define GEN_KEYLEN 16
-#define GEN_IVLEN 8
 
 PROCESS(er_example_client, "Erbium Example Client");
 AUTOSTART_PROCESSES(&er_example_client);
@@ -126,36 +123,12 @@ PROCESS_THREAD(er_example_client, ev, data)
 #endif
 
   oscoap_ctx_store_init();
-  uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};
-  char master_secret[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
-  char sender_key[] =   {0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41};
-  char receiver_key[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02};
-  char sender_iv[] = {0x47, 0x47, 0x47, 0x47, 0x47, 0x47, 0x47 };
-  char receiver_iv[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02 };
 
-  // HKDF
-  hkdf(SHA256, 0, 0, master_secret, 16, "SenderKey", 9, sender_key, GEN_KEYLEN);
-  printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"); 
-  oscoap_printf_hex2(sender_key, GEN_KEYLEN);
-
-  hkdf(SHA256,0, 0, master_secret, 16, "IV", 2, sender_iv, GEN_IVLEN);
-  oscoap_printf_hex2(sender_iv, GEN_IVLEN);
-
-  if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){
+  if(oscoap_new_ctx() == 0){ 
     printf("Error creating context!\n");
   }
-
-
-  OSCOAP_COMMON_CONTEXT* c = NULL;
-  uint8_t cid2[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};
-  c = oscoap_find_ctx_by_cid(cid2);
-  PRINTF("COAP max size %d\n", COAP_MAX_PACKET_SIZE);
-  if(c == NULL){
-    printf("could not fetch cid\n");
-  }else{
-    printf("Context sucessfully added to DB!\n");
-    printf("!!!!!!!!!!!!!!!!!!!Server ID  is %u \n", c->SENDER_CONTEXT->SENDER_ID);
-  }
+  oscoap_sender_ctx_create();
+  oscoap_recipient_ctx_create();
 
   printf("server ip poither %p\n", &server_ipaddr);
 

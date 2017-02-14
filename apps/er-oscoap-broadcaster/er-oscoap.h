@@ -50,7 +50,9 @@ void oscoap_printf_bin(unsigned char *data, unsigned int len);
 
 /* Functions for handling the security contexts */
 void oscoap_ctx_store_init();
-OSCOAP_COMMON_CONTEXT* oscoap_new_ctx( uint8_t* cid, uint8_t* sw_k, uint8_t* sw_iv, uint8_t* rw_k, uint8_t* rw_iv);
+void oscoap_sender_ctx_create();
+void oscoap_recipient_ctx_create();
+OSCOAP_COMMON_CONTEXT* oscoap_new_ctx();
 OSCOAP_COMMON_CONTEXT* oscoap_find_ctx_by_cid(uint8_t* cid);
 int oscoap_free_ctx(OSCOAP_COMMON_CONTEXT *ctx);
 

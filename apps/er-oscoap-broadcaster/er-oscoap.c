@@ -40,6 +40,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "opt-cbor.h"
 #include "lib/memb.h"
 #include <inttypes.h>
+#include "sha.h"
 
 #define DEBUG 1
 #if DEBUG
@@ -56,12 +57,20 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define PRINTF_BIN(data, len)
 #endif /* OSCOAP_DEBUG */
 
-
 OSCOAP_COMMON_CONTEXT *common_context_store = NULL;
 
 MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
 MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
 MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
+
+uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};
+char master_secret[CONTEXT_KEY_LEN] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
+char sender_key[CONTEXT_KEY_LEN] = {0};
+char recipient_key[CONTEXT_KEY_LEN] = {0};
+char sender_iv[CONTEXT_INIT_VECT_LEN] = {0};
+char recipient_iv[CONTEXT_INIT_VECT_LEN] = {0};
+
+OSCOAP_COMMON_CONTEXT* common_ctx;  
 
 void oscoap_ctx_store_init(){
 
@@ -71,35 +80,60 @@ void oscoap_ctx_store_init(){
 
 }
 
-//TODO add support for key generation using a base key and HKDF, this will come at a later stage
-OSCOAP_COMMON_CONTEXT* oscoap_new_ctx( uint8_t* cid, uint8_t* sw_k, uint8_t* sw_iv, uint8_t* rw_k, uint8_t* rw_iv){
-    OSCOAP_COMMON_CONTEXT* common_ctx = memb_alloc(&common_contexts);
+void oscoap_sender_ctx_create() {
+
+	/* Generate Sender Context using HKDF */
+	hkdf(SHA256, 0, 0, master_secret, 16, "multicasterKey", 14, sender_key, CONTEXT_KEY_LEN);
+	printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"); 
+	oscoap_printf_hex2(sender_key, CONTEXT_KEY_LEN);
+
+	hkdf(SHA256,0, 0, master_secret, 16, "multicasterIV", 13, sender_iv, CONTEXT_INIT_VECT_LEN);
+	oscoap_printf_hex2(sender_iv, CONTEXT_INIT_VECT_LEN);
+
+	OSCOAP_SENDER_CONTEXT* sender_ctx = memb_alloc(&sender_contexts);
+	if(sender_ctx == NULL) return 0;
+
+	common_ctx->SENDER_CONTEXT = sender_ctx;
+
+	memcpy(sender_ctx->SENDER_KEY, sender_key, CONTEXT_KEY_LEN);
+	memcpy(sender_ctx->SENDER_IV, sender_iv, CONTEXT_INIT_VECT_LEN);
+	sender_ctx->SENDER_SEQ = 0;
+
+	memset(sender_ctx->SENDER_ID, 0xAA, ID_LEN);
+ 
+}
+
+void oscoap_recipient_ctx_create() {
+
+	/* Gernerate Recipient Context using HKDF */
+	hkdf(SHA256, 0, 0, master_secret, 16, "listenerKey", 11, recipient_key, CONTEXT_KEY_LEN);        
+	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+	oscoap_printf_hex2(recipient_key, CONTEXT_KEY_LEN);
+
+	hkdf(SHA256, 0, 0, master_secret, 16, "listenerIV", 10, recipient_iv, CONTEXT_INIT_VECT_LEN);
+	oscoap_printf_hex2(recipient_iv, CONTEXT_INIT_VECT_LEN);
+
+	OSCOAP_RECIPIENT_CONTEXT* recipient_ctx = memb_alloc(&recipient_contexts);
+	if(recipient_ctx == NULL) return 0;
+
+  common_ctx->RECIPIENT_CONTEXT = recipient_ctx;
+	
+  memcpy(recipient_ctx->RECIPIENT_KEY, recipient_key, CONTEXT_KEY_LEN);
+	memcpy(recipient_ctx->RECIPIENT_IV, recipient_iv, CONTEXT_INIT_VECT_LEN);
+	recipient_ctx->RECIPIENT_SEQ = 0;
+	recipient_ctx->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
+
+  memset(recipient_ctx->RECIPIENT_ID, 0xAA, ID_LEN);
+}
+
+OSCOAP_COMMON_CONTEXT* oscoap_new_ctx (){
+    common_ctx = memb_alloc(&common_contexts);
+
     if(common_ctx == NULL) return 0;
-   
-    OSCOAP_RECIPIENT_CONTEXT* recipient_ctx = memb_alloc(&recipient_contexts);
-    if(recipient_ctx == NULL) return 0;
-   
-    OSCOAP_SENDER_CONTEXT* sender_ctx = memb_alloc(&sender_contexts);
-    if(sender_ctx == NULL) return 0;
 
     common_ctx->ALG = COSE_Algorithm_AES_CCM_64_64_128;
     memcpy(common_ctx->CONTEXT_ID, cid, CONTEXT_ID_LEN);
-    common_ctx->RECIPIENT_CONTEXT = recipient_ctx;
-    common_ctx->SENDER_CONTEXT = sender_ctx;
-
-    memcpy(sender_ctx->SENDER_KEY, sw_k, CONTEXT_KEY_LEN);
-    memcpy(sender_ctx->SENDER_IV, sw_iv, CONTEXT_INIT_VECT_LEN);
-    sender_ctx->SENDER_SEQ = 0;
-
-    memcpy(recipient_ctx->RECIPIENT_KEY, rw_k, CONTEXT_KEY_LEN);
-    memcpy(recipient_ctx->RECIPIENT_IV, rw_iv, CONTEXT_INIT_VECT_LEN);
-    recipient_ctx->RECIPIENT_SEQ = 0;
-    recipient_ctx->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
-   
-    //TODO This is to easly identify the sender and recipient ID
-    memset(recipient_ctx->RECIPIENT_ID, 0xAA, ID_LEN);
-    memset(sender_ctx->SENDER_ID, 0xAA, ID_LEN);
-
+    
     common_ctx->NEXT_CONTEXT = common_context_store;
     common_context_store = common_ctx;
    

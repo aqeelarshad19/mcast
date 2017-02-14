@@ -61,9 +61,6 @@
 #define PRINTLLADDR(addr)
 #endif
 
-#define GEN_KEYLEN 16
-#define GEN_IVLEN 8
-
 /*
  * Resources to be activated need to be imported through the extern keyword.
  * The build system automatically compiles the resources in the corresponding sub-directory.
@@ -92,8 +89,6 @@ extern resource_t res_battery;
 #include "dev/temperature-sensor.h"
 extern resource_t res_temperature;
 #endif
-
-
 
 /*
    extern resource_t res_battery;
@@ -173,53 +168,21 @@ PROCESS_THREAD(er_example_server, ev, data)
   // SENSORS_ACTIVATE(temperature_sensor);  
 #endif
 
-
   oscoap_ctx_store_init();
 
-  uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 2};
-  char master_secret[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,     0x00, 0x00, 0x00, 0x03};  
-  //char receiver_key[] =   {0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41};
-  char receiver_key[] = {0x28, 0x3a, 0x8e, 0xf5, 0xe9, 0xd9, 0xd1, 0x70, 0xf0, 0x1a, 0xd6, 0x59, 0xde, 0x58, 0xdb, 0x0b};
-  char sender_key[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02};
-  //char receiver_iv[] = {0x47, 0x47, 0x47, 0x47, 0x47, 0x47, 0x47 };
-  char receiver_iv[] = {0xd5, 0xdc, 0xa7, 0x48, 0x55, 0x1b, 0x36, 0xbd};
-  char sender_iv[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02 };
+  if(oscoap_new_ctx() == 0) 
+    printf("Error creating context!\n");
 
-  // HKDF
-  //  hkdf(SHA256, 0, 0, master_secret, 16, "SenderKey", 9, sender_key, GEN_KEYLEN);
-  //  printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
-  //  oscoap_printf_hex2(sender_key, GEN_KEYLEN);
+  oscoap_sender_ctx_create();
+  oscoap_recipient_ctx_create();
 
-  //hkdf(SHA256, 0, 0, master_secret, 16, "IV", 2, sender_iv, GEN_IVLEN);
-  //oscoap_printf_hex2(sender_iv, GEN_IVLEN);
-
-
-  OSCOAP_COMMON_CONTEXT* cc = NULL;
-  cc = oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv, 2);
-  PRINTF("\nReceiver's ID :  ");
-  oscoap_printf_hex(cc->RECIPIENT_CONTEXT->RECIPIENT_ID, 8);
-  PRINTF("\n");
-  /* 
-     if(oscoap_new_ctx( cid, sender_key, sender_iv, receiver_key, receiver_iv) == 0){
-     printf("Error: Could not create new Context!\n");
-     }
-   */
-  //oscoap_ctx_init(cid, sender_key, sender_iv, receiver_key, receiver_iv);
-  //cid_map_put(context);
-  OSCOAP_COMMON_CONTEXT* c = NULL;
-  uint8_t cid2[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 2};
-  c = oscoap_find_ctx_by_cid(cid2);
-  PRINTF("COAP max size %d\n", COAP_MAX_PACKET_SIZE);
-  if(c == NULL){
-    PRINTF("could not fetch cid\n");
-  }else{
-    PRINTF("Context sucessfully added to DB!\n");
-  }
-  //PRINTF("UIP_CONF_BUFFER_SIZE = %d\n", UIP_CONF_BUFFER_SIZE);
-  //#ifndef WATCHDOG_CONF_ENABLE
-  //PRINTF(" WATCHDOG_CONF_ENABLE 1\n");
-  //#endif
-
+  /*
+  PRINTF("UIP_CONF_BUFFER_SIZE = %d\n", UIP_CONF_BUFFER_SIZE);
+  #ifndef WATCHDOG_CONF_ENABLE
+  PRINTF(" WATCHDOG_CONF_ENABLE 1\n");
+  #endif
+  */
+  
   /* Define application-specific events here. */
   while(1) {
     PROCESS_WAIT_EVENT();
