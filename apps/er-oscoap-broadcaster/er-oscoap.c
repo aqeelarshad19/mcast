@@ -80,6 +80,7 @@ void oscoap_ctx_store_init(){
 
 }
 
+/* Multicaster */
 void oscoap_sender_ctx_create() {
 
 	/* Generate Sender Context using HKDF */
@@ -103,6 +104,7 @@ void oscoap_sender_ctx_create() {
  
 }
 
+/* Listener */
 void oscoap_recipient_ctx_create() {
 
 	/* Gernerate Recipient Context using HKDF */
@@ -123,7 +125,7 @@ void oscoap_recipient_ctx_create() {
 	recipient_ctx->RECIPIENT_SEQ = 0;
 	recipient_ctx->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
 
-  memset(recipient_ctx->RECIPIENT_ID, 0xAA, ID_LEN);
+  memset(recipient_ctx->RECIPIENT_ID, 0xAB, ID_LEN);
 }
 
 OSCOAP_COMMON_CONTEXT* oscoap_new_ctx (){

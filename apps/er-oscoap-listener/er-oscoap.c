@@ -62,12 +62,11 @@ OSCOAP_COMMON_CONTEXT *common_context_store = NULL;
 
 uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};                                 
 char master_secret[CONTEXT_KEY_LEN] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
-char sender_key[CONTEXT_KEY_LEN] = {0};
-char recipient_key[CONTEXT_KEY_LEN] = {0};
+char sender_key[CONTEXT_KEY_LEN];
 char sender_iv[CONTEXT_INIT_VECT_LEN] = {0};
-char recipient_iv[CONTEXT_INIT_VECT_LEN] = {0};
 
-OSCOAP_COMMON_CONTEXT* common_ctx; 
+OSCOAP_COMMON_CONTEXT* common_ctx = NULL; 
+OSCOAP_RECIPIENT_CONTEXT* recipient_ctx = NULL;
 
 MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
 MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
@@ -80,6 +79,8 @@ void oscoap_ctx_store_init(){
   memb_init(&recipient_contexts);
 
 }
+
+/* Listener */
 void oscoap_sender_ctx_create() {
 
   /* Generate Sender Context using HKDF */
@@ -99,133 +100,140 @@ void oscoap_sender_ctx_create() {
   memcpy(sender_ctx->SENDER_IV, sender_iv, CONTEXT_INIT_VECT_LEN);
   sender_ctx->SENDER_SEQ = 0;
 
-  memset(sender_ctx->SENDER_ID, 0xAA, ID_LEN);
- 
+  memset(sender_ctx->SENDER_ID, 0xAB, ID_LEN);
 }
 
+/* Multicaster */
 void oscoap_recipient_ctx_create() {
 
-  /* Gernerate Recipient Context using HKDF */
-  hkdf(SHA256, 0, 0, master_secret, 16, "multicasterKey", 14, recipient_key, CONTEXT_KEY_LEN);        
-  printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
-  oscoap_printf_hex2(recipient_key, CONTEXT_KEY_LEN);
-
-  hkdf(SHA256, 0, 0, master_secret, 16, "multicasterIV", 13, recipient_iv, CONTEXT_INIT_VECT_LEN);
-  oscoap_printf_hex2(recipient_iv, CONTEXT_INIT_VECT_LEN);
-
-  OSCOAP_RECIPIENT_CONTEXT* recipient_ctx = memb_alloc(&recipient_contexts);
+  recipient_ctx = memb_alloc(&recipient_contexts);
   if(recipient_ctx == NULL) return 0;
 
   common_ctx->RECIPIENT_CONTEXT = recipient_ctx;
-  
-  memcpy(recipient_ctx->RECIPIENT_KEY, recipient_key, CONTEXT_KEY_LEN);
-  memcpy(recipient_ctx->RECIPIENT_IV, recipient_iv, CONTEXT_INIT_VECT_LEN);
+
+
+  /* Gernerate Recipient Context using HKDF */
+  /*  hkdf(SHA256, 0, 0, master_secret, 16, "multicasterKey", 14, recipient_key, CONTEXT_KEY_LEN);        
+      printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+      oscoap_printf_hex2(recipient_key, CONTEXT_KEY_LEN);
+
+      hkdf(SHA256, 0, 0, master_secret, 16, "multicasterIV", 13, recipient_iv, CONTEXT_INIT_VECT_LEN);
+      oscoap_printf_hex2(recipient_iv, CONTEXT_INIT_VECT_LEN);
+   */
   recipient_ctx->RECIPIENT_SEQ = 0;
   recipient_ctx->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
-
   memset(recipient_ctx->RECIPIENT_ID, 0xAA, ID_LEN);
 }
 
+void oscoap_recipient_ctx_key_create() {
+
+  uint8_t recipient_key[CONTEXT_KEY_LEN] = {0xed, 0x55, 0x20, 0xaa, 0xbf, 0x21, 0x0f, 0x01, 0x46, 0x98, 0x2a, 0x6c, 0x6a, 0x76, 0x07, 0x7a};
+  uint8_t recipient_iv[CONTEXT_INIT_VECT_LEN] = {0x47, 0xc9, 0x8a, 0x16, 0x93, 0xf4, 0xbe};
+  memcpy(recipient_ctx->RECIPIENT_KEY, recipient_key, CONTEXT_KEY_LEN);
+  memcpy(recipient_ctx->RECIPIENT_IV, recipient_iv, CONTEXT_INIT_VECT_LEN);
+
+}
+
 OSCOAP_COMMON_CONTEXT* oscoap_new_ctx (){
-    common_ctx = memb_alloc(&common_contexts);
+  common_ctx = memb_alloc(&common_contexts);
 
-    if(common_ctx == NULL) return 0;
+  if(common_ctx == NULL) return 0;
+ 
+  common_ctx->ALG = COSE_Algorithm_AES_CCM_64_64_128;
+  memcpy(common_ctx->CONTEXT_ID, cid, CONTEXT_ID_LEN);
 
-    common_ctx->ALG = COSE_Algorithm_AES_CCM_64_64_128;
-    memcpy(common_ctx->CONTEXT_ID, cid, CONTEXT_ID_LEN);
-    
-    common_ctx->NEXT_CONTEXT = common_context_store;
-    common_context_store = common_ctx;
-   
-    return common_ctx;
+  common_ctx->NEXT_CONTEXT = common_context_store;
+  common_context_store = common_ctx;
+
+  return common_ctx;
 }
 
 OSCOAP_COMMON_CONTEXT* oscoap_find_ctx_by_cid(uint8_t* cid){
-    if(common_context_store == NULL){
+  if(common_context_store == NULL){
+    return NULL;
+  }
+
+  OSCOAP_COMMON_CONTEXT *ctx_ptr = common_context_store;
+
+  while(memcmp(ctx_ptr->CONTEXT_ID, cid, CONTEXT_ID_LEN) != 0){
+    ctx_ptr = ctx_ptr->NEXT_CONTEXT;
+
+    if(ctx_ptr == NULL){
       return NULL;
     }
-
-    OSCOAP_COMMON_CONTEXT *ctx_ptr = common_context_store;
-
-    while(memcmp(ctx_ptr->CONTEXT_ID, cid, CONTEXT_ID_LEN) != 0){
-      ctx_ptr = ctx_ptr->NEXT_CONTEXT;
-    
-      if(ctx_ptr == NULL){
-        return NULL;
-      }
-    }
-    return ctx_ptr;
+  }
+  return ctx_ptr;
 }
 
 int oscoap_free_ctx(OSCOAP_COMMON_CONTEXT *ctx){
 
-    if(common_context_store == ctx){
-      common_context_store = ctx->NEXT_CONTEXT;
+  if(common_context_store == ctx){
+    common_context_store = ctx->NEXT_CONTEXT;
 
-    }else{
+  }else{
 
-      OSCOAP_COMMON_CONTEXT *ctx_ptr = common_context_store;
+    OSCOAP_COMMON_CONTEXT *ctx_ptr = common_context_store;
 
-      while(ctx_ptr->NEXT_CONTEXT != ctx){
-        ctx_ptr = ctx_ptr->NEXT_CONTEXT;
-      }
-
-      if(ctx_ptr->NEXT_CONTEXT->NEXT_CONTEXT != NULL){
-        ctx_ptr->NEXT_CONTEXT = ctx_ptr->NEXT_CONTEXT->NEXT_CONTEXT;
-      }else{
-        ctx_ptr->NEXT_CONTEXT = NULL;
-      }
+    while(ctx_ptr->NEXT_CONTEXT != ctx){
+      ctx_ptr = ctx_ptr->NEXT_CONTEXT;
     }
-    memset(ctx->BASE_KEY, 0x00, BASE_KEY_LEN);
-    memset(ctx->SENDER_CONTEXT->SENDER_KEY, 0x00, CONTEXT_KEY_LEN);
-    memset(ctx->SENDER_CONTEXT->SENDER_IV, 0x00, CONTEXT_INIT_VECT_LEN);
-    memset(ctx->RECIPIENT_CONTEXT->RECIPIENT_KEY, 0x00, CONTEXT_KEY_LEN);
-    memset(ctx->RECIPIENT_CONTEXT->RECIPIENT_IV, 0x00, CONTEXT_INIT_VECT_LEN);
 
-    int ret = 0;
-    ret += memb_free(&sender_contexts, ctx->SENDER_CONTEXT);
-    ret += memb_free(&recipient_contexts, ctx->RECIPIENT_CONTEXT);
-    ret += memb_free(&common_contexts, ctx);
-  
-    return ret;
+    if(ctx_ptr->NEXT_CONTEXT->NEXT_CONTEXT != NULL){
+      ctx_ptr->NEXT_CONTEXT = ctx_ptr->NEXT_CONTEXT->NEXT_CONTEXT;
+    }else{
+      ctx_ptr->NEXT_CONTEXT = NULL;
+    }
+  }
+  memset(ctx->BASE_KEY, 0x00, BASE_KEY_LEN);
+  memset(ctx->SENDER_CONTEXT->SENDER_KEY, 0x00, CONTEXT_KEY_LEN);
+  memset(ctx->SENDER_CONTEXT->SENDER_IV, 0x00, CONTEXT_INIT_VECT_LEN);
+  memset(ctx->RECIPIENT_CONTEXT->RECIPIENT_KEY, 0x00, CONTEXT_KEY_LEN);
+  memset(ctx->RECIPIENT_CONTEXT->RECIPIENT_IV, 0x00, CONTEXT_INIT_VECT_LEN);
+
+  int ret = 0;
+  ret += memb_free(&sender_contexts, ctx->SENDER_CONTEXT);
+  ret += memb_free(&recipient_contexts, ctx->RECIPIENT_CONTEXT);
+  ret += memb_free(&common_contexts, ctx);
+
+  return ret;
 }
 
 
 
 void parse_int(uint32_t in, uint8_t* bytes, int out_len){ 
-	int x = out_len - 1;
-	while(x >= 0){
-		bytes[x] = (in >> (x * 8)) & 0xFF;
-		x--;
-	}
+  int x = out_len - 1;
+  while(x >= 0){
+    bytes[x] = (in >> (x * 8)) & 0xFF;
+    x--;
+  }
 }
 
 uint8_t to_bytes(uint32_t in, uint8_t* buffer){
-//	int outlen = log_2(in)/8 + ((in)%8 > 0) ? 1 : 0; //altough neat this does not work for in%8 == 0
-	uint8_t outlen = 1;
+  //	int outlen = log_2(in)/8 + ((in)%8 > 0) ? 1 : 0; //altough neat this does not work for in%8 == 0
+  uint8_t outlen = 1;
   if(in > 255){
     in = 2;
   }
   parse_int(in, buffer, outlen);
-	return outlen;
+  return outlen;
 }
 
 uint8_t coap_is_request(coap_packet_t* coap_pkt){
-	if(coap_pkt->code >= COAP_GET && coap_pkt->code <= COAP_DELETE){ 
-		return 1;
-	} else {
-		return 0;
-	}
+  if(coap_pkt->code >= COAP_GET && coap_pkt->code <= COAP_DELETE){ 
+    return 1;
+  } else {
+    return 0;
+  }
 }
 
 /*
-Note that the Tid is the 3-tuple (Cid, Sender ID,
-Sender Sequence Number) for the endpoint sending the request
-and verifying the response; which means that for the endpoint
-sending the response, the Tid has value (Cid, Recipient ID, seq),
-where seq is the value of the "Partial IV" in the COSE
-object of the request (see Section 5);
-*/
+   Note that the Tid is the 3-tuple (Cid, Sender ID,
+   Sender Sequence Number) for the endpoint sending the request
+   and verifying the response; which means that for the endpoint
+   sending the response, the Tid has value (Cid, Recipient ID, seq),
+   where seq is the value of the "Partial IV" in the COSE
+   object of the request (see Section 5);
+ */
 uint8_t oscoap_prepare_tid(uint8_t* buffer, OSCOAP_COMMON_CONTEXT* ctx, uint8_t sending){
   uint8_t offset = 0;
   uint8_t seq_buffer[CONTEXT_SEQ_LEN];
@@ -237,12 +245,12 @@ uint8_t oscoap_prepare_tid(uint8_t* buffer, OSCOAP_COMMON_CONTEXT* ctx, uint8_t 
     memcpy(&buffer[offset], ctx->SENDER_CONTEXT->SENDER_ID, ID_LEN); //Sender ID
     offset += ID_LEN;
     seq_len = to_bytes(ctx->SENDER_CONTEXT->SENDER_SEQ, seq_buffer);
-   } else {
+  } else {
     memcpy(&buffer[offset], ctx->RECIPIENT_CONTEXT->RECIPIENT_ID, ID_LEN); //Recipient ID
     offset += ID_LEN;
     seq_len = to_bytes(ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ, seq_buffer);
   }
-   memcpy(&buffer[offset], seq_buffer, seq_len);
+  memcpy(&buffer[offset], seq_buffer, seq_len);
   return 8+ID_LEN+seq_len;
 }
 
@@ -309,11 +317,11 @@ size_t oscoap_prepare_unencrypted_uri(coap_packet_t* coap_pkt, uint8_t* buffer, 
 
 size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t sender){
   uint8_t uri[60];
-	int uri_len = oscoap_prepare_unencrypted_uri(coap_pkt, uri, sender);
+  int uri_len = oscoap_prepare_unencrypted_uri(coap_pkt, uri, sender);
 
- // PRINTF("URI: len = %d\n");
- // PRINTF_HEX(uri, uri_len);
- // PRINTF("%.*s\n", uri_len, (char*)uri);
+  // PRINTF("URI: len = %d\n");
+  // PRINTF_HEX(uri, uri_len);
+  // PRINTF("%.*s\n", uri_len, (char*)uri);
 
   uint8_t ret = 0;
   ret += OPT_CBOR_put_array(&buffer, 4); //TODO make check for mac-previous-block
@@ -322,14 +330,14 @@ size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buf
   ret += OPT_CBOR_put_bytes(&buffer, 1, &(coap_pkt->context->ALG));
   printf("+++ %s, %u\n", uri, uri_len);
   ret += OPT_CBOR_put_text(&buffer, uri, uri_len); //unencrypted uri
-	
+
   return ret;
 }
 
 void oscoap_increment_sender_seq(OSCOAP_COMMON_CONTEXT* ctx){
-    ctx->SENDER_CONTEXT->SENDER_SEQ++; 
-    PRINTF("NEW SENDER SEQ %d\n", ctx->SENDER_CONTEXT->SENDER_SEQ);
-   //TODO CHECKS FOR LIMITS
+  ctx->SENDER_CONTEXT->SENDER_SEQ++; 
+  PRINTF("NEW SENDER SEQ %d\n", ctx->SENDER_CONTEXT->SENDER_SEQ);
+  //TODO CHECKS FOR LIMITS
 }
 
 //TODO only works for one byte seq ATM
@@ -340,36 +348,36 @@ uint8_t oscoap_validate_receiver_seq(OSCOAP_COMMON_CONTEXT* ctx, opt_cose_encryp
     return false;
   }
 
-	if(cose->partial_iv[0] >= ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ){ //TODO fix this, we want to handle multibyte seq too
+  if(cose->partial_iv[0] >= ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ){ //TODO fix this, we want to handle multibyte seq too
     PRINTF("ctx->RECEIVER_WRITE_SEQ %d, cose->seq ", ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ); 
     PRINTF_HEX(cose->partial_iv, cose->partial_iv_len);
-		ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ = cose->partial_iv[0];
-		return true;
-	} else {
+    ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ = cose->partial_iv[0];
+    return true;
+  } else {
     PRINTF("ctx->RECEIVER_WRITE_SEQ %d, cose->seq ", ctx->RECIPIENT_CONTEXT->RECIPIENT_SEQ); 
     PRINTF_HEX(cose->partial_iv, cose->partial_iv_len);
-		return false;
-	}
+    return false;
+  }
 }
 
 /* Compose the nonce by XORing the static IV (Client Write IV) with
    the Partial IV parameter, received in the COSE Object.   */
 void create_iv(uint8_t* iv, uint8_t* out, uint8_t* seq, int seq_len ){
-//TODO fix usage of magic numbers and add support for longer seq
-	out[0] = iv[0];
-	out[1] = iv[1];
-	out[2] = iv[2];	
-	out[3] = iv[3];
-	out[4] = iv[4];
-	out[5] = iv[5];
-	out[6] = iv[6];
-	int i = 6;
-	int j = seq_len - 1;
-	while(i > (6-seq_len)){
-		out[i] = out[i] ^ seq[j];
-		j--;
-		i--;
-	}
+  //TODO fix usage of magic numbers and add support for longer seq
+  out[0] = iv[0];
+  out[1] = iv[1];
+  out[2] = iv[2];	
+  out[3] = iv[3];
+  out[4] = iv[4];
+  out[5] = iv[5];
+  out[6] = iv[6];
+  int i = 6;
+  int j = seq_len - 1;
+  while(i > (6-seq_len)){
+    out[i] = out[i] ^ seq[j];
+    j--;
+    i--;
+  }
 
 }
 
@@ -389,9 +397,7 @@ size_t oscoap_external_aad_size(coap_packet_t* coap_pkt){
 
 
 size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
-    
-  PRINTF("PREPARE MESAGE\n");
-
+  PRINTF("\n\nPREPARE MESAGE\n");
   static coap_packet_t * coap_pkt;
   coap_pkt = (coap_packet_t *)packet;
 
@@ -424,6 +430,8 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_SetNonce(&cose, nonce_buffer, CONTEXT_INIT_VECT_LEN);
   OPT_COSE_SetKeyID(&cose, coap_pkt->context->CONTEXT_ID, CONTEXT_ID_LEN);
 
+  /* Multicasting Sid setting */
+  OPT_COSE_SetSenderID(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_ID, ID_LEN);
 
   size_t external_aad_size = oscoap_external_aad_size(coap_pkt); // this is a upper bound of the size
   uint8_t external_aad_buffer[external_aad_size]; 
@@ -435,6 +443,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
       printf("external aad \n");
       oscoap_printf_hex(external_aad_buffer, external_aad_size);
   } else {
+      //oscoap_recipient_ctx_create();
       PRINTF("we have a response!\n");
       
       external_aad_size = oscoap_prepare_response_external_aad(coap_pkt, external_aad_buffer, 1);
@@ -494,14 +503,12 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     OPT_COSE_Decode(&cose, coap_pkt->payload, coap_pkt->payload_len);
 
   }else{
-
     PRINTF("DECODE COSE IN OPTION\n");
-
+    //oscoap_recipient_ctx_create();
     PRINTF("serialized incomming COSE\n");
     PRINTF_HEX(coap_pkt->object_security, coap_pkt->object_security_len);
 
     OPT_COSE_Decode(&cose, coap_pkt->object_security, coap_pkt->object_security_len);
-
   }
 
   	uint8_t nonce[CONTEXT_INIT_VECT_LEN];
@@ -515,12 +522,11 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
   	}else{
         /* Sender ID check */
         size_t sid_len;
-        //PRINTF_HEX(OPT_COSE_GetSenderID(&cose, &sid_len),sid_len);
-
         uint8_t *sid = OPT_COSE_GetSenderID(&cose, &sid_len);
         PRINTF_HEX(sid, sid_len); 
         if(*sid == 0xAA) { 
           printf("          >>>>><<<<<!@#$!@#$!@#$!@#$!@#$\n");
+          //oscoap_recipient_ctx_key_create();
           size_t seq_len;
           uint8_t *seq = OPT_COSE_GetPartialIV(&cose, &seq_len);
 
@@ -540,7 +546,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     size_t external_aad_size = oscoap_external_aad_size(coap_pkt); // this is a upper bound of the size
     uint8_t external_aad_buffer[external_aad_size]; 
   
-        PRINTF("--- we have a incomming response!\n");
+        PRINTF("---------------------------- \n");
     if(coap_is_request(coap_pkt)){//this should match reqests
         PRINTF("we have a incomming request!\n");
         external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer, 0);
@@ -552,7 +558,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
       //  printf("external aad \n");
       //  oscoap_printf_hex(external_aad_buffer, external_aad_size); 
     }
-        PRINTF("--- we have a incomming response!\n");
+        PRINTF("-----------------------------\n");
 
     OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
            

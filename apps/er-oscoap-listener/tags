@@ -31,8 +31,8 @@ BAD_OPTION_4_02	er-coap-constants.h	/^  BAD_OPTION_4_02 = 130,        \/* BAD_OP
 BAD_REQUEST_4_00	er-coap-constants.h	/^  BAD_REQUEST_4_00 = 128,       \/* BAD_REQUEST *\/$/;"	e	enum:__anon10
 BASE_KEY	er-oscoap-int.h	/^  uint8_t BASE_KEY[BASE_KEY_LEN]; $/;"	m	struct:OSCOAP_COMMON_CONTEXT
 BASE_KEY_LEN	er-oscoap-int.h	45;"	d
-BYTETOBINARY	er-oscoap.c	941;"	d	file:
-BYTETOBINARYPATTERN	er-oscoap.c	940;"	d	file:
+BYTETOBINARY	er-oscoap.c	968;"	d	file:
+BYTETOBINARYPATTERN	er-oscoap.c	967;"	d	file:
 CCM_STAR_AUTH_FLAGS	cose-aes-ccm.c	52;"	d	file:
 CCM_STAR_ENCRYPTION_FLAGS	cose-aes-ccm.c	54;"	d	file:
 CHANGED_2_04	er-coap-constants.h	/^  CHANGED_2_04 = 68,            \/* CHANGED *\/$/;"	e	enum:__anon10
@@ -159,7 +159,7 @@ DEBUG	er-coap-res-well-known-core.c	42;"	d	file:
 DEBUG	er-coap-separate.c	45;"	d	file:
 DEBUG	er-coap-transactions.c	44;"	d	file:
 DEBUG	er-coap.c	57;"	d	file:
-DEBUG	er-oscoap.c	44;"	d	file:
+DEBUG	er-oscoap.c	45;"	d	file:
 DEBUG	opt-cbor.c	5;"	d	file:
 DEBUG	opt-cose.c	37;"	d	file:
 DELETED_2_02	er-coap-constants.h	/^  DELETED_2_02 = 66,            \/* DELETED *\/$/;"	e	enum:__anon10
@@ -249,7 +249,7 @@ OPT_CBOR_put_bytes	opt-cbor.c	/^uint8_t OPT_CBOR_put_bytes(uint8_t **buffer, uin
 OPT_CBOR_put_map	opt-cbor.c	/^uint8_t OPT_CBOR_put_map(uint8_t **buffer, uint8_t elements){$/;"	f
 OPT_CBOR_put_text	opt-cbor.c	/^uint8_t OPT_CBOR_put_text(uint8_t **buffer, char *text, size_t text_len){$/;"	f
 OPT_CBOR_put_unsigned	opt-cbor.c	/^uint8_t OPT_CBOR_put_unsigned(uint8_t **buffer, uint8_t value){$/;"	f
-OPT_COSE_AAD_length	opt-cose.c	/^size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose){$/;"	f
+OPT_COSE_AAD_length	opt-cose.c	/^size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose, int is_request){$/;"	f
 OPT_COSE_Build_AAD	opt-cose.c	/^uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){$/;"	f
 OPT_COSE_Decode	opt-cose.c	/^size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_len){$/;"	f
 OPT_COSE_Decrypt	opt-cose.c	/^uint8_t OPT_COSE_Decrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){$/;"	f
@@ -301,7 +301,7 @@ PRINT6ADDR	er-coap-transactions.c	52;"	d	file:
 PRINT6ADDR	er-coap.c	61;"	d	file:
 PRINT6ADDR	er-coap.c	65;"	d	file:
 PRINT6ADDR	er-coap.c	70;"	d	file:
-PRINT6ADDR	er-oscoap.c	243;"	d	file:
+PRINT6ADDR	er-oscoap.c	270;"	d	file:
 PRINTBASE64	rfc6234/shatest.c	221;"	d	file:
 PRINTBASE64	shatest.c	221;"	d	file:
 PRINTF	er-coap-block1.c	47;"	d	file:
@@ -320,20 +320,20 @@ PRINTF	er-coap-transactions.c	47;"	d	file:
 PRINTF	er-coap-transactions.c	51;"	d	file:
 PRINTF	er-coap.c	60;"	d	file:
 PRINTF	er-coap.c	64;"	d	file:
-PRINTF	er-oscoap.c	47;"	d	file:
-PRINTF	er-oscoap.c	53;"	d	file:
+PRINTF	er-oscoap.c	48;"	d	file:
+PRINTF	er-oscoap.c	54;"	d	file:
 PRINTF	opt-cbor.c	11;"	d	file:
 PRINTF	opt-cbor.c	8;"	d	file:
 PRINTF	opt-cose.c	40;"	d	file:
 PRINTF	opt-cose.c	43;"	d	file:
 PRINTFAIL	rfc6234/shatest.c	224;"	d	file:
 PRINTFAIL	shatest.c	224;"	d	file:
-PRINTF_BIN	er-oscoap.c	50;"	d	file:
-PRINTF_BIN	er-oscoap.c	56;"	d	file:
-PRINTF_CHAR	er-oscoap.c	49;"	d	file:
-PRINTF_CHAR	er-oscoap.c	55;"	d	file:
-PRINTF_HEX	er-oscoap.c	48;"	d	file:
-PRINTF_HEX	er-oscoap.c	54;"	d	file:
+PRINTF_BIN	er-oscoap.c	51;"	d	file:
+PRINTF_BIN	er-oscoap.c	57;"	d	file:
+PRINTF_CHAR	er-oscoap.c	50;"	d	file:
+PRINTF_CHAR	er-oscoap.c	56;"	d	file:
+PRINTF_HEX	er-oscoap.c	49;"	d	file:
+PRINTF_HEX	er-oscoap.c	55;"	d	file:
 PRINTF_HEX	opt-cbor.c	12;"	d	file:
 PRINTF_HEX	opt-cbor.c	9;"	d	file:
 PRINTF_HEX	opt-cose.c	41;"	d	file:
@@ -786,6 +786,7 @@ callback	er-coap-transactions.h	/^  restful_response_handler callback;$/;"	m	str
 callback_data	er-coap-transactions.h	/^  void *callback_data;$/;"	m	struct:coap_transaction
 checkmatch	rfc6234/shatest.c	/^int checkmatch(const unsigned char *hashvalue,$/;"	f
 checkmatch	shatest.c	/^int checkmatch(const unsigned char *hashvalue,$/;"	f
+cid	er-oscoap.c	/^uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};                                 $/;"	v
 ciphertext	opt-cose.h	/^	uint8_t *ciphertext;$/;"	m	struct:opt_cose_encrypt_t
 ciphertext_len	opt-cose.h	/^	size_t ciphertext_len;$/;"	m	struct:opt_cose_encrypt_t
 classify_notification	er-coap-observe-client.c	/^classify_notification(void *response, int first)$/;"	f	file:
@@ -903,6 +904,7 @@ coap_transaction	er-coap-transactions.h	/^typedef struct coap_transaction {$/;"	
 coap_transaction_t	er-coap-transactions.h	/^} coap_transaction_t;$/;"	t	typeref:struct:coap_transaction
 code	er-coap.h	/^      uint8_t code;$/;"	m	struct:__anon3
 common_context_store	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT *common_context_store = NULL;$/;"	v
+common_ctx	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT* common_ctx = NULL; $/;"	v
 content_format	er-coap.h	/^      uint16_t content_format; \/* parse options once and store; allows setting options in random order  *\/$/;"	m	struct:__anon3
 context	er-coap.h	/^  OSCOAP_COMMON_CONTEXT* context;$/;"	m	struct:__anon3
 cose_aes_ccm_driver	cose-aes-ccm.c	/^const struct cose_aes_ccm_driver cose_aes_ccm_driver = {$/;"	v	typeref:struct:cose_aes_ccm_driver
@@ -1015,6 +1017,7 @@ location_query	er-coap.h	/^      const char *location_query;$/;"	m	struct:__anon
 location_query_len	er-coap.h	/^      size_t location_query_len;$/;"	m	struct:__anon3
 main	rfc6234/shatest.c	/^int main(int argc, char **argv)$/;"	f
 main	shatest.c	/^int main(int argc, char **argv)$/;"	f
+master_secret	er-oscoap.c	/^char master_secret[CONTEXT_KEY_LEN] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};$/;"	v
 max_age	er-coap.h	/^      uint32_t max_age;$/;"	m	struct:__anon3
 mic	cose-aes-ccm.c	/^mic(const uint8_t *nonce,$/;"	f	file:
 mid	er-coap-separate.h	/^  uint16_t mid;$/;"	m	struct:coap_separate
@@ -1054,7 +1057,7 @@ oscoap_external_aad_size	er-oscoap.c	/^size_t oscoap_external_aad_size(coap_pack
 oscoap_find_ctx_by_cid	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT* oscoap_find_ctx_by_cid(uint8_t* cid){$/;"	f
 oscoap_free_ctx	er-oscoap.c	/^int oscoap_free_ctx(OSCOAP_COMMON_CONTEXT *ctx){$/;"	f
 oscoap_increment_sender_seq	er-oscoap.c	/^void oscoap_increment_sender_seq(OSCOAP_COMMON_CONTEXT* ctx){$/;"	f
-oscoap_new_ctx	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT* oscoap_new_ctx( uint8_t* cid, uint8_t* sw_k, uint8_t* sw_iv, uint8_t* rw_k, uint8_t* rw_iv, int i){$/;"	f
+oscoap_new_ctx	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT* oscoap_new_ctx (){$/;"	f
 oscoap_prepare_message	er-oscoap.c	/^size_t oscoap_prepare_message(void* packet, uint8_t *buffer){$/;"	f
 oscoap_prepare_plaintext	er-oscoap.c	/^size_t oscoap_prepare_plaintext(void* packet, uint8_t* plaintext_buffer){$/;"	f
 oscoap_prepare_request_external_aad	er-oscoap.c	/^size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t sender){$/;"	f
@@ -1064,7 +1067,9 @@ oscoap_prepare_unencrypted_uri	er-oscoap.c	/^size_t oscoap_prepare_unencrypted_u
 oscoap_printf_bin	er-oscoap.c	/^void oscoap_printf_bin(unsigned char *data, unsigned int len){$/;"	f
 oscoap_printf_char	er-oscoap.c	/^void oscoap_printf_char(unsigned char *data, unsigned int len){$/;"	f
 oscoap_printf_hex	er-oscoap.c	/^void oscoap_printf_hex(unsigned char *data, unsigned int len){$/;"	f
+oscoap_recipient_ctx_create	er-oscoap.c	/^void oscoap_recipient_ctx_create() {$/;"	f
 oscoap_restore_packet	er-oscoap.c	/^void oscoap_restore_packet(void* packet){$/;"	f
+oscoap_sender_ctx_create	er-oscoap.c	/^void oscoap_sender_ctx_create() {$/;"	f
 oscoap_validate_receiver_seq	er-oscoap.c	/^uint8_t oscoap_validate_receiver_seq(OSCOAP_COMMON_CONTEXT* ctx, opt_cose_encrypt_t *cose){$/;"	f
 packet	er-coap-transactions.h	/^  uint8_t packet[COAP_MAX_PACKET_SIZE + 1];     \/* +1 for the terminating '\\0' which will not be sent$/;"	m	struct:coap_transaction
 packet_len	er-coap-transactions.h	/^  uint16_t packet_len;$/;"	m	struct:coap_transaction
@@ -1103,6 +1108,9 @@ randomtest	rfc6234/shatest.c	/^    const char *randomtest;$/;"	m	struct:hash	fil
 randomtest	rfc6234/shatest.c	/^void randomtest(int hashno, const char *seed, int hashsize,$/;"	f
 randomtest	shatest.c	/^    const char *randomtest;$/;"	m	struct:hash	file:
 randomtest	shatest.c	/^void randomtest(int hashno, const char *seed, int hashsize,$/;"	f
+recipient_ctx	er-oscoap.c	/^OSCOAP_RECIPIENT_CONTEXT* recipient_ctx = NULL;$/;"	v
+recipient_iv	er-oscoap.c	/^char recipient_iv[CONTEXT_INIT_VECT_LEN] = {0};$/;"	v
+recipient_key	er-oscoap.c	/^char recipient_key[CONTEXT_KEY_LEN] = {0};$/;"	v
 repeatcount	rfc6234/shatest.c	/^        long repeatcount;$/;"	m	struct:hash::__anon7	file:
 repeatcount	shatest.c	/^        long repeatcount;$/;"	m	struct:hash::__anon16	file:
 request_state_t	er-coap-engine.h	/^struct request_state_t {$/;"	s
@@ -1125,6 +1133,8 @@ saltlength	rfc6234/shatest.c	/^    int saltlength;$/;"	m	struct:hkdfhash	file:
 saltlength	shatest.c	/^    int saltlength;$/;"	m	struct:hkdfhash	file:
 scasecmp	rfc6234/shatest.c	/^int scasecmp(const char *s1, const char *s2)$/;"	f
 scasecmp	shatest.c	/^int scasecmp(const char *s1, const char *s2)$/;"	f
+sender_iv	er-oscoap.c	/^char sender_iv[CONTEXT_INIT_VECT_LEN] = {0};$/;"	v
+sender_key	er-oscoap.c	/^char sender_key[CONTEXT_KEY_LEN] = {0};$/;"	v
 serialized_len	opt-cose.h	/^	size_t serialized_len;$/;"	m	struct:opt_cose_encrypt_t
 service_cbk	er-coap-engine.c	/^static service_callback_t service_cbk = NULL;$/;"	v	file:
 set_iv	cose-aes-ccm.c	/^set_iv(uint8_t *iv,$/;"	f	file:

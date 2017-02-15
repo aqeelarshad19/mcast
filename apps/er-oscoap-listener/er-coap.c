@@ -501,7 +501,7 @@ coap_send_message(uip_ipaddr_t *addr, uint16_t port, uint8_t *data,
   printf("\n   +++ rport: %u\n", UIP_HTONS(port));
   printf("   +++ lport: %u\n", UIP_HTONS(udp_conn->rport));
   uip_udp_packet_send(udp_conn, data, length);
-
+  printf("   +++ sent a packet\n");
   /* restore server socket to allow data from any node */
   memset(&udp_conn->ripaddr, 0, sizeof(udp_conn->ripaddr));
   udp_conn->rport = 0;

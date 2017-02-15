@@ -281,18 +281,27 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 			buffer++;
 		}
 	}
+
 	PRINTF("KID: len = %d\n", cose->kid_len);
 	PRINTF_HEX(cose->kid, cose->kid_len);
 	PRINTF("Header Partial IV: len = %d\n", cose->partial_iv_len);
 	PRINTF_HEX(cose->partial_iv, cose->partial_iv_len);
-	PRINTF("Sender ID, len = %d\n", cose->sid_len);
-	PRINTF_HEX(cose->sid, cose->sid_len);
-	return 1;
+  PRINTF("Sender ID, len = %d\n", cose->sid_len);
+  PRINTF_HEX(cose->sid, cose->sid_len);
+
+  /* Sender ID checking and creating Recipient Context */
+  if(*(cose->sid) == 0xAA) {
+    oscoap_recipient_ctx_key_create();
+  }else {
+    printf("Sender ID is not identified\n");
+  }
+  return 1;
 }
+
 uint8_t _OPT_COSE_cbor_content(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t len){
-	cose->ciphertext = buffer;
-	cose->ciphertext_len = len;
-	return 1;
+  cose->ciphertext = buffer;
+  cose->ciphertext_len = len;
+  return 1;
 }
 
 uint8_t _OPT_COSE_cbor_bytes(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t len, uint8_t bytefield){

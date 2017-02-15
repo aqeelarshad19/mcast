@@ -218,7 +218,7 @@ uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	return 1;
 }
 
-size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose, int is_request){
+size_t OPT_COSE_AAD_length(opt_cose_encrypt_t *cose, int is_request){
 	//TODO this only works for responses
 	PRINTF("cose->partial_iv_len %d\n", cose->partial_iv_len);
 	PRINTF("cose->external_aad_len %d\n", cose->external_aad_len);
