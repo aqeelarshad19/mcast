@@ -59,10 +59,6 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 OSCOAP_COMMON_CONTEXT *common_context_store = NULL;
 
-MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
-MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
-MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
-
 uint8_t cid[CONTEXT_ID_LEN] = { 0, 0, 0, 0, 0, 0, 0, 0x02};
 char master_secret[CONTEXT_KEY_LEN] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
 char sender_key[CONTEXT_KEY_LEN] = {0};
@@ -70,7 +66,12 @@ char recipient_key[CONTEXT_KEY_LEN] = {0};
 char sender_iv[CONTEXT_INIT_VECT_LEN] = {0};
 char recipient_iv[CONTEXT_INIT_VECT_LEN] = {0};
 
-OSCOAP_COMMON_CONTEXT* common_ctx;  
+OSCOAP_COMMON_CONTEXT* common_ctx = NULL; 
+OSCOAP_RECIPIENT_CONTEXT* recipient_ctx = NULL;
+
+MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
+MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
+MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
 
 void oscoap_ctx_store_init(){
 
@@ -108,24 +109,36 @@ void oscoap_sender_ctx_create() {
 void oscoap_recipient_ctx_create() {
 
 	/* Gernerate Recipient Context using HKDF */
+	/*
 	hkdf(SHA256, 0, 0, master_secret, 16, "listenerKey", 11, recipient_key, CONTEXT_KEY_LEN);        
 	printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 	oscoap_printf_hex2(recipient_key, CONTEXT_KEY_LEN);
 
 	hkdf(SHA256, 0, 0, master_secret, 16, "listenerIV", 10, recipient_iv, CONTEXT_INIT_VECT_LEN);
 	oscoap_printf_hex2(recipient_iv, CONTEXT_INIT_VECT_LEN);
+	*/
 
-	OSCOAP_RECIPIENT_CONTEXT* recipient_ctx = memb_alloc(&recipient_contexts);
+	// OSCOAP_RECIPIENT_CONTEXT* recipient_ctx = memb_alloc(&recipient_contexts);
+	recipient_ctx = memb_alloc(&recipient_contexts);
 	if(recipient_ctx == NULL) return 0;
 
   common_ctx->RECIPIENT_CONTEXT = recipient_ctx;
 	
-  memcpy(recipient_ctx->RECIPIENT_KEY, recipient_key, CONTEXT_KEY_LEN);
-	memcpy(recipient_ctx->RECIPIENT_IV, recipient_iv, CONTEXT_INIT_VECT_LEN);
+  // memcpy(recipient_ctx->RECIPIENT_KEY, recipient_key, CONTEXT_KEY_LEN);
+	// memcpy(recipient_ctx->RECIPIENT_IV, recipient_iv, CONTEXT_INIT_VECT_LEN);
 	recipient_ctx->RECIPIENT_SEQ = 0;
 	recipient_ctx->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
 
   memset(recipient_ctx->RECIPIENT_ID, 0xAB, ID_LEN);
+}
+/* Need to be modified */
+void oscoap_recipient_ctx_key_create() {
+
+  uint8_t recipient_key[CONTEXT_KEY_LEN] = {0x46, 0xb6, 0x6b, 0xb7, 0xf3, 0x7b, 0x84, 0xd3, 0xb3, 0xf7, 0xfb, 0x52, 0x05, 0x80, 0x19, 0x3e};
+  uint8_t recipient_iv[CONTEXT_INIT_VECT_LEN] = {0xcf, 0x90, 0xeb, 0x5d, 0xb6, 0x37, 0x03};
+  memcpy(recipient_ctx->RECIPIENT_KEY, recipient_key, CONTEXT_KEY_LEN);
+  memcpy(recipient_ctx->RECIPIENT_IV, recipient_iv, CONTEXT_INIT_VECT_LEN);
+
 }
 
 OSCOAP_COMMON_CONTEXT* oscoap_new_ctx (){

@@ -280,6 +280,9 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 			buffer++;
 		}
 	}
+  /* Recipient Context generation */
+  oscoap_recipient_ctx_key_create();
+
 	PRINTF("KID: len = %d\n", cose->kid_len);
 	PRINTF_HEX(cose->kid, cose->kid_len);
 	PRINTF("Header Partial IV: len = %d\n", cose->partial_iv_len);
