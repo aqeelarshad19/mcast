@@ -402,7 +402,7 @@ PROCESS_THREAD(coap_engine, ev, data)
         }
       }
 
-      printf("   <------ HERE coap_receive!!!, delayed %d secs\n", rn);
+      //printf("   <------ HERE coap_receive!!!, delayed %d secs\n", rn);
       coap_receive();
 
     } else if(ev == PROCESS_EVENT_TIMER) {

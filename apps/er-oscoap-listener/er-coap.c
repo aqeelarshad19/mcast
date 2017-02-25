@@ -504,7 +504,10 @@ coap_send_message(uip_ipaddr_t *addr, uint16_t port, uint8_t *data,
   printf("   +++ sent a packet\n");
   /* restore server socket to allow data from any node */
   memset(&udp_conn->ripaddr, 0, sizeof(udp_conn->ripaddr));
+  
   udp_conn->rport = 0;
+
+  printf("   +++ below memset\n");
 }
 /*---------------------------------------------------------------------------*/
 //Modified for OSCOAP

@@ -49,6 +49,7 @@ void oscoap_printf_bin(unsigned char *data, unsigned int len);
 #define CONTEXT_NUM 1
 
 /* Functions for handling the security contexts */
+void oscoap_set_ctx(int sender);
 void oscoap_ctx_store_init();
 void oscoap_sender_ctx_create();                                                            
 void oscoap_recipient_ctx_create();

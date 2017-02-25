@@ -291,7 +291,7 @@ uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, 
 
   /* Sender ID checking and creating Recipient Context */
   if(*(cose->sid) == 0xAA) {
-    oscoap_recipient_ctx_key_create();
+    //oscoap_set_ctx(0);
   }else {
     printf("Sender ID is not identified\n");
   }

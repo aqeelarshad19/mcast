@@ -102,7 +102,7 @@ extern resource_t res_radio;
 extern resource_t res_sht11;
 #endif
  */
-oscoap_printf_hex2(unsigned char *data, unsigned int len)
+void oscoap_printf_hex2(unsigned char *data, unsigned int len)
 {                  
   int i=0;             
   for(i=0; i<len; i++)
@@ -173,8 +173,9 @@ PROCESS_THREAD(er_example_server, ev, data)
   if(oscoap_new_ctx() == 0) 
     printf("Error creating context!\n");
 
-  oscoap_sender_ctx_create();
-  oscoap_recipient_ctx_create();
+  oscoap_set_ctx(1);
+  //oscoap_set_ctx(0);
+  //oscoap_recipient_ctx_create();
 
   /*
   PRINTF("UIP_CONF_BUFFER_SIZE = %d\n", UIP_CONF_BUFFER_SIZE);
@@ -185,6 +186,7 @@ PROCESS_THREAD(er_example_server, ev, data)
   
   /* Define application-specific events here. */
   while(1) {
+
     PROCESS_WAIT_EVENT();
 #if PLATFORM_HAS_BUTTON
     if(ev == sensors_event && data == &button_sensor) {
