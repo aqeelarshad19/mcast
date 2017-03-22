@@ -475,10 +475,11 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
   }else{
     PRINTF("DECODE COSE IN OPTION\n");
     PRINTF("serialized incomming COSE\n");
-    oscoap_set_ctx(0);
     PRINTF_HEX(coap_pkt->object_security, coap_pkt->object_security_len);
 
     OPT_COSE_Decode(&cose, coap_pkt->object_security, coap_pkt->object_security_len);
+    /* Need to Check SID */
+    oscoap_set_ctx(0);
   }
 
   	uint8_t nonce[CONTEXT_INIT_VECT_LEN];

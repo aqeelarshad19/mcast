@@ -127,8 +127,7 @@ PROCESS_THREAD(er_example_client, ev, data)
   if(oscoap_new_ctx() == 0){ 
     printf("Error creating context!\n");
   }
-  oscoap_sender_ctx_create();
-  oscoap_recipient_ctx_create();
+  oscoap_set_ctx(1);
 
   printf("server ip poither %p\n", &server_ipaddr);
 
