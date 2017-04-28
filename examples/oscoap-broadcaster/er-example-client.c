@@ -128,7 +128,6 @@ PROCESS_THREAD(er_example_client, ev, data)
     printf("Error creating context!\n");
   }
   oscoap_set_ctx(1);
-
   printf("server ip poither %p\n", &server_ipaddr);
 
   etimer_set(&et, TOGGLE_INTERVAL * CLOCK_SECOND);

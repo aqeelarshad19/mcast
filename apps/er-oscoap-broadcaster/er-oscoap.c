@@ -42,6 +42,11 @@
 #include <inttypes.h>
 #include "sha.h"
 
+#include <stdint.h>
+#include <string.h>
+#include <assert.h>
+#include "edsign.h">
+
 #define DEBUG 1
 #if DEBUG
 #include <stdio.h>
@@ -57,11 +62,29 @@
 #define PRINTF_BIN(data, len)
 #endif /* OSCOAP_DEBUG */
 
+#define MESSAGE (const unsigned char *) "test"
+#define MESSAGE_LEN 4
+
 OSCOAP_COMMON_CONTEXT *common_context_store = NULL;
 
 MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
 MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
 MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
+
+/* ED25519 signature algorithm */
+uint8_t public_key[32] = {
+  0xea, 0x97, 0xf5, 0xbd, 0x16, 0x70, 0xc2, 0xd5,
+  0xdc, 0xb6, 0xa9, 0x4b, 0x42, 0x02, 0xdd, 0xfb,
+  0xe5, 0x78, 0xba, 0xfa, 0x60, 0x55, 0x28, 0xb6,
+  0xe3, 0x33, 0xdf, 0xdc, 0x7f, 0x39, 0xce, 0xca,
+};
+uint8_t private_key[32] = {
+  0xc6, 0x69, 0x73, 0x51, 0xff, 0x4a, 0xec, 0x29,
+  0xcd, 0xba, 0xab, 0xf2, 0xfb, 0xe3, 0x46, 0x7c,
+  0xc2, 0x54, 0xf8, 0x1b, 0xe8, 0xe7, 0x8d, 0x76,
+  0x5a, 0x2e, 0x63, 0x33, 0x9f, 0xc9, 0x9a, 0x66,
+};
+uint8_t signature[64];
 
 void oscoap_ctx_store_init(){
 
@@ -73,30 +96,35 @@ void oscoap_ctx_store_init(){
 
 /* Multicaster */
 void oscoap_set_ctx(int sender) {
-	unsigned char master_secret[CONTEXT_KEY_LEN] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
+  unsigned char master_secret[CONTEXT_KEY_LEN] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
 
-	if(sender) {
-		hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterKey", 14, common_context_store->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
-		hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterIV", 13, common_context_store->SENDER_CONTEXT->SENDER_IV, CONTEXT_INIT_VECT_LEN);
+  if(sender) {
+    hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterKey", 14, common_context_store->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
+    hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterIV", 13, common_context_store->SENDER_CONTEXT->SENDER_IV, CONTEXT_INIT_VECT_LEN);
     printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
     PRINTF_HEX(common_context_store->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
     PRINTF_HEX(common_context_store->SENDER_CONTEXT->SENDER_IV, CONTEXT_INIT_VECT_LEN);
 
-		common_context_store->SENDER_CONTEXT->SENDER_SEQ = 0;
-		memset(common_context_store->SENDER_CONTEXT->SENDER_ID, 0xAA, ID_LEN);
+    common_context_store->SENDER_CONTEXT->SENDER_SEQ = 0;
+    memset(common_context_store->SENDER_CONTEXT->SENDER_ID, 0xAA, ID_LEN);
 
-	} else {
-		hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerKey", 11, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
-		hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerIV", 10, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
+    /* ED25519 adding */
+    //PRINTF_HEX(public_key, 32);
+    //PRINTF_HEX(private_key, 32);
+
+
+  } else {
+    hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerKey", 11, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
+    hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerIV", 10, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
 
     printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
     PRINTF_HEX(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
     PRINTF_HEX(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
 
-		common_context_store->RECIPIENT_CONTEXT->RECIPIENT_SEQ = 0;
-		common_context_store->RECIPIENT_CONTEXT->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
-		memset(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_ID, 0xAB, ID_LEN);
-	}
+    common_context_store->RECIPIENT_CONTEXT->RECIPIENT_SEQ = 0;
+    common_context_store->RECIPIENT_CONTEXT->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
+    memset(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_ID, 0xAB, ID_LEN);
+  }
 }
 
 OSCOAP_COMMON_CONTEXT* oscoap_new_ctx(void){
@@ -434,18 +462,20 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 	uint8_t *tmp_buffer = aad_buffer;
 	OPT_COSE_Build_AAD(&cose, tmp_buffer);
 
-
-
 	OPT_COSE_SetAAD(&cose, aad_buffer, aad_length);
 
+  printf("!@#!@#!@#!@#!@#\n");
 	PRINTF_HEX(cose.aad, cose.aad_len);
+  //ED25519 
+  edsign_sec_to_pub(public_key, private_key);
+  edsign_sign(signature, public_key, private_key, cose.aad, cose.aad_len);
+  PRINTF_HEX(signature, 64);
 
 	size_t ciphertext_len = cose.plaintext_len + 8; 
 
 	OPT_COSE_SetCiphertextBuffer(&cose, plaintext_buffer, ciphertext_len);
 
 	OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
-
 	size_t serialized_len = OPT_COSE_Encoded_length(&cose);
 	serialized_len++;
 
@@ -926,9 +956,9 @@ void oscoap_printf_hex(unsigned char *data, unsigned int len){
 	int i=0;
 	for(i=0; i<len; i++)
 	{
-		PRINTF(" %02x ",data[i]);
+		printf(" %02x ",data[i]);
 	}
-	PRINTF("\n");
+	printf("\n");
 }
 
 void oscoap_printf_char(unsigned char *data, unsigned int len){

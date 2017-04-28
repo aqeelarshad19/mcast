@@ -1,8 +1,8 @@
 er-oscoap-broadcaster_src = er-coap.c er-coap-engine.c er-coap-transactions.c      \
   er-coap-observe.c er-coap-separate.c er-coap-res-well-known-core.c \
   er-coap-block1.c er-coap-observe-client.c er-oscoap.c opt-cose.c cose-aes-ccm.c \
-  opt-cbor.c hkdf.c  hmac.c  sha1.c  sha224-256.c  sha384-512.c  usha.c
-
+  opt-cbor.c hkdf.c  hmac.c  sha1.c  sha224-256.c  sha384-512.c  usha.c           \
+  ed25519.c edsign.c f25519.c fprime.c morph25519.c sha512.c
 # Erbium will implement the REST Engine
 CFLAGS += -DREST=coap_rest_implementation
  

@@ -88,7 +88,6 @@ void oscoap_set_ctx(int sender) {
   } else {
     hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterKey", 14, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
     hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterIV", 13, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
-
     common_context_store->RECIPIENT_CONTEXT->RECIPIENT_SEQ = 0;
     common_context_store->RECIPIENT_CONTEXT->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
     memset(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_ID, 0xAA, ID_LEN);
@@ -479,7 +478,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 
     OPT_COSE_Decode(&cose, coap_pkt->object_security, coap_pkt->object_security_len);
     /* Need to Check SID */
-    oscoap_set_ctx(0);
+    //oscoap_set_ctx(0);
   }
 
   	uint8_t nonce[CONTEXT_INIT_VECT_LEN];

@@ -174,7 +174,7 @@ PROCESS_THREAD(er_example_server, ev, data)
     printf("Error creating context!\n");
 
   oscoap_set_ctx(1);
-  //oscoap_set_ctx(0);
+  oscoap_set_ctx(0);
   //oscoap_recipient_ctx_create();
 
   /*
