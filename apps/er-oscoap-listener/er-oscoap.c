@@ -42,6 +42,10 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <inttypes.h>
 #include "sha.h"
 
+#include <stdint.h>
+#include <string.h>
+#include "edsign.h"
+
 #define DEBUG 1
 #if DEBUG
 #include <stdio.h>
@@ -66,6 +70,17 @@ OSCOAP_COMMON_CONTEXT *common_context_store = NULL;
 MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
 MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
 MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
+
+/* ED25519 signature algorithm */
+uint8_t signature_fix[64] = {
+  0x08, 0xc4, 0x3b, 0x27, 0xf8, 0x4f, 0xd0, 0xc1, 0x37, 0x04, 
+  0x17, 0xa3, 0x16, 0xbe, 0xfa, 0x16, 0xbd, 0xc5, 0xc1, 0x1a, 
+  0x92, 0x60, 0x99, 0xaf, 0x26, 0xcf, 0x05, 0x72, 0x67, 0x54, 
+  0x2b, 0xa7, 0xf2, 0x63, 0x58, 0xe1, 0x20, 0x95, 0x8c, 0x20, 
+  0x19, 0x8c, 0x60, 0x54, 0x9d, 0x68, 0x6f, 0xc7, 0x60, 0xf7, 
+  0x8b, 0xda, 0xe3, 0x0c, 0xaa, 0x25, 0x17, 0xc0, 0x75, 0x48, 
+  0xf6, 0xd0, 0x3e, 0x0d,
+  };
 
 void oscoap_ctx_store_init(){
 
@@ -433,13 +448,19 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_SetCiphertextBuffer(&cose, plaintext_buffer, ciphertext_len);
 
   OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
+
+	// Signature
+	OPT_COSE_SetSign(&cose, signature_fix, 9);
   
   size_t serialized_len = OPT_COSE_Encoded_length(&cose);
-  serialized_len++;
+  //serialized_len++;
 
   uint8_t opt_buffer[serialized_len];
   OPT_COSE_Encode(&cose, opt_buffer);
  
+  printf("opt_buffer\n");
+  PRINTF_HEX(opt_buffer, serialized_len);
+
   if(coap_pkt->payload_len > 0){
       	coap_set_object_security_payload(coap_pkt, opt_buffer, serialized_len);	
   }else{

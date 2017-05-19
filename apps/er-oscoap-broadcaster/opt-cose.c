@@ -51,7 +51,8 @@ size_t  OPT_COSE_Encode(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	ret += OPT_CBOR_put_map(&buffer, 0);
 	PRINTF("ciphertext len dec: %d hex: %02x\n", cose->ciphertext_len, cose->ciphertext_len);
 	ret += OPT_CBOR_put_bytes(&buffer, cose->ciphertext_len, cose->ciphertext);
-
+  /* Signature */
+  ret += OPT_CBOR_put_bytes(&buffer, cose->signature_len, cose->signature);
 	return ret;
 }
 
@@ -81,6 +82,9 @@ size_t OPT_COSE_Encoded_length(opt_cose_encrypt_t *cose){
 		ret += 1;
 	}
 	ret += cose->ciphertext_len;
+  /* Signature */
+  ret += cose->signature_len + 2;
+
 	return ret;
 }
 
@@ -130,6 +134,12 @@ uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t *sid_len){
 uint8_t* OPT_COSE_SetSenderID(opt_cose_encrypt_t *cose, uint8_t *sid_buffer, size_t sid_len){
   cose->sid = sid_buffer;
   cose->sid_len = sid_len;
+  return 1;
+}
+// Multicating Set the signature 
+uint8_t* OPT_COSE_SetSign(opt_cose_encrypt_t *cose, uint8_t *sign_buffer, size_t sign_len) {
+  cose->signature = sign_buffer;
+  cose->signature_len = sign_len;
   return 1;
 }
 
@@ -367,38 +377,38 @@ size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_
 
 uint8_t OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){
 
-	PRINTF("encrypt OPT_COSE\n");
+  PRINTF("encrypt OPT_COSE\n");
 
-	int ret = 0;
-
-
-    size_t TSize = 8; //Sort this out
-
-    if(cose->alg == COSE_Algorithm_AES_CCM_64_64_128 && key_len == 16){
-		//cipher = MBEDTLS_CIPHER_ID_AES;
-	}else{
-		PRINTF("Error in Encrypt with key and algorithm\n");
-		return 1;
-	}
+  int ret = 0;
 
 
-	PRINTF("Encrypting:\n");
-	PRINTF("SID:\n");
-	PRINTF_HEX(cose->sid, cose->sid_len);
+  size_t TSize = 8; //Sort this out
+
+  if(cose->alg == COSE_Algorithm_AES_CCM_64_64_128 && key_len == 16){
+    //cipher = MBEDTLS_CIPHER_ID_AES;
+  }else{
+    PRINTF("Error in Encrypt with key and algorithm\n");
+    return 1;
+  }
+
+  PRINTF("OPT_COSE_Encrypt function in opt-cose.c\n"); 
+  PRINTF("Encrypting:\n");
+  PRINTF("SID:\n");
+  PRINTF_HEX(cose->sid, cose->sid_len);
   PRINTF("Plaintext:\n");
-	PRINTF_HEX(cose->plaintext, cose->plaintext_len);
-	PRINTF("IV: \n");
-	PRINTF_HEX(cose->nonce, cose->nonce_len);
-	PRINTF("Key:\n");
-	PRINTF_HEX(key, key_len);
-	PRINTF("AAD:\n");
-	PRINTF_HEX(cose->aad, cose->aad_len);
+  PRINTF_HEX(cose->plaintext, cose->plaintext_len);
+  PRINTF("IV: \n");
+  PRINTF_HEX(cose->nonce, cose->nonce_len);
+  PRINTF("Key:\n");
+  PRINTF_HEX(key, key_len);
+  PRINTF("AAD:\n");
+  PRINTF_HEX(cose->aad, cose->aad_len);
 
 
 
 
   //aead work on one buffer for plaintext and ciphertext
- // memcpy(cose->ciphertext, cose->plaintext, cose->plaintext_len);
+  // memcpy(cose->ciphertext, cose->plaintext, cose->plaintext_len);
 
 
   COSE_AES_CCM.set_key(key);
@@ -406,15 +416,15 @@ uint8_t OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len)
   PRINTF("CCM STAR ciphertext:\n");
   PRINTF_HEX(cose->ciphertext, cose->ciphertext_len);
 
-		
-	if(ret == 0){
-		return 0;
-	}
 
-	PRINTF("Error in AES CCM Encrypt \n");
-	int x = ret;
-	PRINTF("%s%x\n", x<0?"-":"", x<0?-(unsigned)x:x);
-	return 1;
+  if(ret == 0){
+    return 0;
+  }
+
+  PRINTF("Error in AES CCM Encrypt \n");
+  int x = ret;
+  PRINTF("%s%x\n", x<0?"-":"", x<0?-(unsigned)x:x);
+  return 1;
 }
 
 uint8_t OPT_COSE_Decrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){

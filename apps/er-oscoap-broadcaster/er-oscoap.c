@@ -45,7 +45,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <assert.h>
-#include "edsign.h">
+#include "edsign.h"
 
 #define DEBUG 1
 #if DEBUG
@@ -77,14 +77,26 @@ uint8_t public_key[32] = {
   0xdc, 0xb6, 0xa9, 0x4b, 0x42, 0x02, 0xdd, 0xfb,
   0xe5, 0x78, 0xba, 0xfa, 0x60, 0x55, 0x28, 0xb6,
   0xe3, 0x33, 0xdf, 0xdc, 0x7f, 0x39, 0xce, 0xca,
-};
+  };
+
 uint8_t private_key[32] = {
   0xc6, 0x69, 0x73, 0x51, 0xff, 0x4a, 0xec, 0x29,
   0xcd, 0xba, 0xab, 0xf2, 0xfb, 0xe3, 0x46, 0x7c,
   0xc2, 0x54, 0xf8, 0x1b, 0xe8, 0xe7, 0x8d, 0x76,
   0x5a, 0x2e, 0x63, 0x33, 0x9f, 0xc9, 0x9a, 0x66,
-};
+  };
+
 uint8_t signature[64];
+
+uint8_t signature_fix[64] = {
+  0x08, 0xc4, 0x3b, 0x27, 0xf8, 0x4f, 0xd0, 0xc1, 0x37, 0x04, 
+  0x17, 0xa3, 0x16, 0xbe, 0xfa, 0x16, 0xbd, 0xc5, 0xc1, 0x1a, 
+  0x92, 0x60, 0x99, 0xaf, 0x26, 0xcf, 0x05, 0x72, 0x67, 0x54, 
+  0x2b, 0xa7, 0xf2, 0x63, 0x58, 0xe1, 0x20, 0x95, 0x8c, 0x20, 
+  0x19, 0x8c, 0x60, 0x54, 0x9d, 0x68, 0x6f, 0xc7, 0x60, 0xf7, 
+  0x8b, 0xda, 0xe3, 0x0c, 0xaa, 0x25, 0x17, 0xc0, 0x75, 0x48, 
+  0xf6, 0xd0, 0x3e, 0x0d,
+  };
 
 void oscoap_ctx_store_init(){
 
@@ -438,9 +450,12 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 	if(coap_is_request(coap_pkt)){
 		PRINTF("we have a request!\n");
 
+    //simple data, url , and so on 84...
 		external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer, 1); 
+  /***************************************************************************/
 		printf("external aad \n");
 		oscoap_printf_hex(external_aad_buffer, external_aad_size);
+  /***************************************************************************/
 	} else {
 		PRINTF("we have a response!\n");
 
@@ -449,11 +464,18 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 		oscoap_printf_hex(external_aad_buffer, external_aad_size);
 	}
 
+  //ED25519 signature
+  //edsign_sec_to_pub(public_key, private_key);
+  //edsign_sign(signature, public_key, private_key, cose.aad, cose.aad_len);
+  //PRINTF_HEX(signature, 64);
 
-	//  PRINTF_HEX(cose->aad, cose->aad_len);
+  //OPT_COSE_SetSign(&cose, signature, 64);
+
+  //ED25519 verifying 
+  //edsign_verify(signature, public_key, cose.aad, cose.aad_len);
+  //printf("!@#!@#!@#\n");
+
 	OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
-	//****//
-	//  PRINTF_HEX(cose->aad, cose->aad_len);
 
 	size_t aad_length = OPT_COSE_AAD_length(&cose, coap_is_request(coap_pkt));
 	uint8_t aad_buffer[aad_length];
@@ -464,23 +486,31 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 
 	OPT_COSE_SetAAD(&cose, aad_buffer, aad_length);
 
+  /***************************************************************************/
   printf("!@#!@#!@#!@#!@#\n");
+  //encrpted 83...
 	PRINTF_HEX(cose.aad, cose.aad_len);
-  //ED25519 
-  edsign_sec_to_pub(public_key, private_key);
-  edsign_sign(signature, public_key, private_key, cose.aad, cose.aad_len);
-  PRINTF_HEX(signature, 64);
+  /***************************************************************************/
 
 	size_t ciphertext_len = cose.plaintext_len + 8; 
 
 	OPT_COSE_SetCiphertextBuffer(&cose, plaintext_buffer, ciphertext_len);
 
+  //only print encrypted date 
 	OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
+
+  //Signature
+  OPT_COSE_SetSign(&cose, signature_fix, 9);
+
 	size_t serialized_len = OPT_COSE_Encoded_length(&cose);
-	serialized_len++;
+	//serialized_len++;
+  printf("this is serialized length: %d\n", serialized_len);
 
 	uint8_t opt_buffer[serialized_len];
 	OPT_COSE_Encode(&cose, opt_buffer);
+
+  printf("opt_buffer\n");
+  PRINTF_HEX(opt_buffer, serialized_len);
 
 	if(coap_pkt->payload_len > 0){
 		coap_set_object_security_payload(coap_pkt, opt_buffer, serialized_len);	
@@ -491,7 +521,6 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 	coap_set_header_max_age(packet, 0);
 	clear_options(coap_pkt);
 	size_t serialized_size =  coap_serialize_message_coap(packet, buffer);
-
 
 	PRINTF("Serialized size = %d\n", serialized_size);
 	PRINTF_HEX(buffer, serialized_size);
