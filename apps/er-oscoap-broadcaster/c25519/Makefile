@@ -13,7 +13,8 @@ TESTS = \
     tests/morph25519.test \
     tests/fprime.test \
     tests/sha512.test \
-    tests/edsign.test
+    tests/edsign.test\
+    tests/jiye.test
 
 all: $(TESTS)
 
@@ -41,6 +42,10 @@ tests/sha512.test: src/sha512.o tests/test_sha512.o
 
 tests/edsign.test: src/f25519.o src/ed25519.o src/fprime.o src/sha512.o \
 		src/edsign.o tests/test_edsign.o
+	$(CC) -o $@ $^
+
+tests/jiye.test: src/f25519.o src/ed25519.o src/fprime.o src/sha512.o \
+		src/edsign.o tests/jiye_test.o
 	$(CC) -o $@ $^
 
 clean:
