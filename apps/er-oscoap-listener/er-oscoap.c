@@ -450,7 +450,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
 
 	// Signature
-	OPT_COSE_SetSign(&cose, signature_fix, 9);
+	OPT_COSE_SetSign(&cose, signature_fix, 65);
   
   size_t serialized_len = OPT_COSE_Encoded_length(&cose);
   //serialized_len++;

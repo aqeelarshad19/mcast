@@ -86,8 +86,6 @@ uint8_t private_key[32] = {
   0x5a, 0x2e, 0x63, 0x33, 0x9f, 0xc9, 0x9a, 0x66,
   };
 
-uint8_t signature[64];
-
 uint8_t signature_fix[64] = {
   0x08, 0xc4, 0x3b, 0x27, 0xf8, 0x4f, 0xd0, 0xc1, 0x37, 0x04, 
   0x17, 0xa3, 0x16, 0xbe, 0xfa, 0x16, 0xbd, 0xc5, 0xc1, 0x1a, 
@@ -129,7 +127,7 @@ void oscoap_set_ctx(int sender) {
     hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerKey", 11, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
     hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerIV", 10, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
 
-    printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+    printf("set context<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
     PRINTF_HEX(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
     PRINTF_HEX(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
 
@@ -586,15 +584,15 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 	uint8_t external_aad_buffer[external_aad_size]; 
 
 	if(coap_is_request(coap_pkt)){//this should match reqests
-		//  PRINTF("we have a incomming request!\n");
+		  PRINTF("we have a incomming request!\n");
 		external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer, 0);
-		//  printf("external aad \n");
-		//  oscoap_printf_hex(external_aad_buffer, external_aad_size);
+		  printf("external aad \n");
+		  oscoap_printf_hex(external_aad_buffer, external_aad_size);
 	} else {
-		//  PRINTF("we have a incomming response!\n");
+		  PRINTF("we have a incomming response!\n");
 		external_aad_size = oscoap_prepare_response_external_aad(coap_pkt, external_aad_buffer, 0);
-		//  printf("external aad \n");
-		//  oscoap_printf_hex(external_aad_buffer, external_aad_size); 
+		  printf("external aad \n");
+		  oscoap_printf_hex(external_aad_buffer, external_aad_size); 
 	}
 
 	OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
@@ -609,6 +607,9 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 	size_t plaintext_len = cose.ciphertext_len - 8;
 	uint8_t plaintext_buffer[plaintext_len];
 	OPT_COSE_SetContent(&cose, plaintext_buffer, plaintext_len);
+  /* signature :  before decryption, need to verify signature  from listener */
+  PRINTF("This is signature from listener: \n");
+  PRINTF_HEX(cose.signature, cose.signature_len);
 
 	if(OPT_COSE_Decrypt(&cose, ctx->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN)){
 		return OSCOAP_CRYPTO_ERROR;

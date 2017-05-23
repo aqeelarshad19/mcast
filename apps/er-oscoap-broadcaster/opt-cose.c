@@ -310,7 +310,11 @@ uint8_t _OPT_COSE_cbor_bytes(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t 
 		return _OPT_COSE_cbor_protected_map(cose, buffer,len);
 	}else if(bytefield == 1){
 		return _OPT_COSE_cbor_content(cose, buffer, len);
-	}else{
+	}/* signature */
+  else if (bytefield ==2) {
+    cose->signature = buffer;
+    cose->signature_len = len;
+  }else{
 		PRINTF("ERROR Unexpected bytefield %d\n", bytefield);
 		return 0;
 	}

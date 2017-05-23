@@ -46,7 +46,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 size_t  OPT_COSE_Encode(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	size_t ret = 0;
-	ret += OPT_CBOR_put_array(&buffer, 3);
+	ret += OPT_CBOR_put_array(&buffer, 4);
 	ret += OPT_COSE_Encode_Protected(cose, &buffer);
 	ret += OPT_CBOR_put_map(&buffer, 0);
 	PRINTF("ciphertext len dec: %d hex: %02x\n", cose->ciphertext_len, cose->ciphertext_len);

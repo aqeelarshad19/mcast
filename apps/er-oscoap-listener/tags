@@ -4,105 +4,1178 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADDTO2_temp	sha384-512.c	/^static uint32_t ADDTO2_temp;$/;"	v	file:
+ADDTO4_temp	sha384-512.c	/^static uint32_t ADDTO4_temp, ADDTO4_temp2;$/;"	v	file:
+ADDTO4_temp2	sha384-512.c	/^static uint32_t ADDTO4_temp, ADDTO4_temp2;$/;"	v	file:
+ADD_CHAR_IF_POSSIBLE	er-coap-res-well-known-core.c	54;"	d	file:
+ADD_STRING_IF_POSSIBLE	er-coap-res-well-known-core.c	60;"	d	file:
+ALG	er-oscoap-int.h	/^  uint8_t ALG;$/;"	m	struct:OSCOAP_COMMON_CONTEXT
+APPLICATION_ATOM_XML	er-coap-constants.h	/^  APPLICATION_ATOM_XML = 45,$/;"	e	enum:__anon8
+APPLICATION_EXI	er-coap-constants.h	/^  APPLICATION_EXI = 47,$/;"	e	enum:__anon8
+APPLICATION_FASTINFOSET	er-coap-constants.h	/^  APPLICATION_FASTINFOSET = 48,$/;"	e	enum:__anon8
+APPLICATION_JSON	er-coap-constants.h	/^  APPLICATION_JSON = 50,$/;"	e	enum:__anon8
+APPLICATION_LINK_FORMAT	er-coap-constants.h	/^  APPLICATION_LINK_FORMAT = 40,$/;"	e	enum:__anon8
+APPLICATION_OCTET_STREAM	er-coap-constants.h	/^  APPLICATION_OCTET_STREAM = 42,$/;"	e	enum:__anon8
+APPLICATION_RDF_XML	er-coap-constants.h	/^  APPLICATION_RDF_XML = 43,$/;"	e	enum:__anon8
+APPLICATION_SOAP_FASTINFOSET	er-coap-constants.h	/^  APPLICATION_SOAP_FASTINFOSET = 49,$/;"	e	enum:__anon8
+APPLICATION_SOAP_XML	er-coap-constants.h	/^  APPLICATION_SOAP_XML = 44,$/;"	e	enum:__anon8
+APPLICATION_XML	er-coap-constants.h	/^  APPLICATION_XML = 41,$/;"	e	enum:__anon8
+APPLICATION_XMPP_XML	er-coap-constants.h	/^  APPLICATION_XMPP_XML = 46,$/;"	e	enum:__anon8
+APPLICATION_X_OBIX_BINARY	er-coap-constants.h	/^  APPLICATION_X_OBIX_BINARY = 51$/;"	e	enum:__anon8
+AUDIO_RAW	er-coap-constants.h	/^  AUDIO_RAW = 25,$/;"	e	enum:__anon8
+BAD_GATEWAY_5_02	er-coap-constants.h	/^  BAD_GATEWAY_5_02 = 162,       \/* BAD_GATEWAY *\/$/;"	e	enum:__anon6
+BAD_OPTION_4_02	er-coap-constants.h	/^  BAD_OPTION_4_02 = 130,        \/* BAD_OPTION *\/$/;"	e	enum:__anon6
+BAD_REQUEST_4_00	er-coap-constants.h	/^  BAD_REQUEST_4_00 = 128,       \/* BAD_REQUEST *\/$/;"	e	enum:__anon6
+BASE_KEY	er-oscoap-int.h	/^  uint8_t BASE_KEY[BASE_KEY_LEN]; $/;"	m	struct:OSCOAP_COMMON_CONTEXT
+BASE_KEY_LEN	er-oscoap-int.h	45;"	d
+BYTETOBINARY	er-oscoap.c	965;"	d	file:
+BYTETOBINARYPATTERN	er-oscoap.c	964;"	d	file:
 C25519_EXPONENT_SIZE	c25519.h	26;"	d
+C25519_EXPONENT_SIZE	c25519/src/c25519.h	26;"	d
 C25519_H_	c25519.h	8;"	d
+C25519_H_	c25519/src/c25519.h	8;"	d
+CC	c25519/Makefile	/^CC = $(CROSS_COMPILE)gcc$/;"	m
+CCM_STAR_AUTH_FLAGS	cose-aes-ccm.c	52;"	d	file:
+CCM_STAR_ENCRYPTION_FLAGS	cose-aes-ccm.c	54;"	d	file:
+CHANGED_2_04	er-coap-constants.h	/^  CHANGED_2_04 = 68,            \/* CHANGED *\/$/;"	e	enum:__anon6
+CLEAR_OPTION	er-oscoap.h	40;"	d
+COAP_BLOCK1_H_	er-coap-block1.h	40;"	d
+COAP_BLOCKING_REQUEST	er-coap-engine.h	75;"	d
+COAP_DEFAULT_MAX_AGE	er-coap-constants.h	49;"	d
+COAP_DEFAULT_PORT	er-coap-constants.h	47;"	d
+COAP_DELETE	er-coap-constants.h	/^  COAP_DELETE$/;"	e	enum:__anon5
+COAP_ETAG_LEN	er-coap-constants.h	56;"	d
+COAP_GET	er-coap-constants.h	/^  COAP_GET = 1,$/;"	e	enum:__anon5
+COAP_HEADER_LEN	er-coap-constants.h	54;"	d
+COAP_HEADER_OPTION_DELTA_MASK	er-coap-constants.h	65;"	d
+COAP_HEADER_OPTION_SHORT_LENGTH_MASK	er-coap-constants.h	66;"	d
+COAP_HEADER_TOKEN_LEN_MASK	er-coap-constants.h	62;"	d
+COAP_HEADER_TOKEN_LEN_POSITION	er-coap-constants.h	63;"	d
+COAP_HEADER_TYPE_MASK	er-coap-constants.h	60;"	d
+COAP_HEADER_TYPE_POSITION	er-coap-constants.h	61;"	d
+COAP_HEADER_VERSION_MASK	er-coap-constants.h	58;"	d
+COAP_HEADER_VERSION_POSITION	er-coap-constants.h	59;"	d
+COAP_LINK_FORMAT_FILTERING	er-coap-conf.h	43;"	d
+COAP_MAX_ATTEMPTS	er-coap-conf.h	58;"	d
+COAP_MAX_BLOCK_SIZE	er-coap.h	66;"	d
+COAP_MAX_HEADER_SIZE	er-coap-conf.h	63;"	d
+COAP_MAX_OBSERVEES	er-coap-observe-client.h	51;"	d
+COAP_MAX_OBSERVEES	er-coap-observe-client.h	53;"	d
+COAP_MAX_OBSERVERS	er-coap-conf.h	68;"	d
+COAP_MAX_OPEN_TRANSACTIONS	er-coap-conf.h	53;"	d
+COAP_MAX_PACKET_SIZE	er-coap.h	55;"	d
+COAP_MAX_RETRANSMIT	er-coap-constants.h	52;"	d
+COAP_OBSERVER_URL_LEN	er-coap-observe.h	46;"	d
+COAP_OBSERVE_CLIENT	er-coap-observe-client.h	47;"	d
+COAP_OBSERVE_H_	er-coap-observe.h	40;"	d
+COAP_OBSERVE_REFRESH_INTERVAL	er-coap-conf.h	72;"	d
+COAP_OBSERVING_CLIENT_H_	er-coap-observe-client.h	41;"	d
+COAP_OPTION_ACCEPT	er-coap-constants.h	/^  COAP_OPTION_ACCEPT = 17,      \/* 0-2 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_BLOCK1	er-coap-constants.h	/^  COAP_OPTION_BLOCK1 = 27,      \/* 1-3 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_BLOCK2	er-coap-constants.h	/^  COAP_OPTION_BLOCK2 = 23,      \/* 1-3 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_CONTENT_FORMAT	er-coap-constants.h	/^  COAP_OPTION_CONTENT_FORMAT = 12,      \/* 0-2 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_ETAG	er-coap-constants.h	/^  COAP_OPTION_ETAG = 4,         \/* 1-8 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_IF_MATCH	er-coap-constants.h	/^  COAP_OPTION_IF_MATCH = 1,     \/* 0-8 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_IF_NONE_MATCH	er-coap-constants.h	/^  COAP_OPTION_IF_NONE_MATCH = 5,        \/* 0 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_LOCATION_PATH	er-coap-constants.h	/^  COAP_OPTION_LOCATION_PATH = 8,        \/* 0-255 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_LOCATION_QUERY	er-coap-constants.h	/^  COAP_OPTION_LOCATION_QUERY = 20,      \/* 0-255 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_MAX_AGE	er-coap-constants.h	/^  COAP_OPTION_MAX_AGE = 14,     \/* 0-4 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_OBJECT_SECURITY	er-coap-constants.h	/^  COAP_OPTION_OBJECT_SECURITY = 21,$/;"	e	enum:__anon7
+COAP_OPTION_OBSERVE	er-coap-constants.h	/^  COAP_OPTION_OBSERVE = 6,      \/* 0-3 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_PROXY_SCHEME	er-coap-constants.h	/^  COAP_OPTION_PROXY_SCHEME = 39,        \/* 1-255 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_PROXY_URI	er-coap-constants.h	/^  COAP_OPTION_PROXY_URI = 35,   \/* 1-1034 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_SIZE1	er-coap-constants.h	/^  COAP_OPTION_SIZE1 = 60,       \/* 0-4 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_SIZE2	er-coap-constants.h	/^  COAP_OPTION_SIZE2 = 28,       \/* 0-4 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_URI_HOST	er-coap-constants.h	/^  COAP_OPTION_URI_HOST = 3,     \/* 1-255 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_URI_PATH	er-coap-constants.h	/^  COAP_OPTION_URI_PATH = 11,    \/* 0-255 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_URI_PORT	er-coap-constants.h	/^  COAP_OPTION_URI_PORT = 7,     \/* 0-2 B *\/$/;"	e	enum:__anon7
+COAP_OPTION_URI_QUERY	er-coap-constants.h	/^  COAP_OPTION_URI_QUERY = 15,   \/* 0-255 B *\/$/;"	e	enum:__anon7
+COAP_POST	er-coap-constants.h	/^  COAP_POST,$/;"	e	enum:__anon5
+COAP_PROXY_OPTION_PROCESSING	er-coap-conf.h	44;"	d
+COAP_PUT	er-coap-constants.h	/^  COAP_PUT,$/;"	e	enum:__anon5
+COAP_RESPONSE_RANDOM_FACTOR	er-coap-constants.h	51;"	d
+COAP_RESPONSE_TIMEOUT	er-coap-constants.h	50;"	d
+COAP_RESPONSE_TIMEOUT_BACKOFF_MASK	er-coap-transactions.h	49;"	d
+COAP_RESPONSE_TIMEOUT_TICKS	er-coap-transactions.h	48;"	d
+COAP_SEPARATE_H_	er-coap-separate.h	40;"	d
+COAP_SERIALIZE_BLOCK_OPTION	er-coap.h	177;"	d
+COAP_SERIALIZE_BYTE_OPTION	er-coap.h	156;"	d
+COAP_SERIALIZE_INT_OPTION	er-coap.h	150;"	d
+COAP_SERIALIZE_STRING_OPTION	er-coap.h	171;"	d
+COAP_SERVER_PORT	er-coap-conf.h	48;"	d
+COAP_TOKEN_LEN	er-coap-constants.h	55;"	d
+COAP_TRANSACTIONS_H_	er-coap-transactions.h	40;"	d
+COAP_TYPE_ACK	er-coap-constants.h	/^  COAP_TYPE_ACK,                \/* acknowledgements *\/$/;"	e	enum:__anon4
+COAP_TYPE_CON	er-coap-constants.h	/^  COAP_TYPE_CON,                \/* confirmables *\/$/;"	e	enum:__anon4
+COAP_TYPE_NON	er-coap-constants.h	/^  COAP_TYPE_NON,                \/* non-confirmables *\/$/;"	e	enum:__anon4
+COAP_TYPE_RST	er-coap-constants.h	/^  COAP_TYPE_RST                 \/* reset *\/$/;"	e	enum:__anon4
+CONTENT_2_05	er-coap-constants.h	/^  CONTENT_2_05 = 69,            \/* OK *\/$/;"	e	enum:__anon6
+CONTEXT_ID	er-oscoap-int.h	/^  uint8_t CONTEXT_ID[CONTEXT_ID_LEN];$/;"	m	struct:OSCOAP_COMMON_CONTEXT
+CONTEXT_ID_LEN	er-oscoap-int.h	39;"	d
+CONTEXT_ID_LEN	er-oscoap-int.h	44;"	d
+CONTEXT_INIT_VECT_LEN	er-oscoap-int.h	41;"	d
+CONTEXT_KEY_LEN	er-oscoap-int.h	40;"	d
+CONTEXT_NUM	er-oscoap.h	49;"	d
+CONTEXT_SEQ_LEN	er-oscoap-int.h	42;"	d
+CONTINUE_2_31	er-coap-constants.h	/^  CONTINUE_2_31 = 95,           \/* CONTINUE *\/$/;"	e	enum:__anon6
+COSE_AES_CCM	cose-aes-ccm.h	51;"	d
+COSE_AES_CCM	cose-aes-ccm.h	53;"	d
+COSE_AES_CCM_H_	cose-aes-ccm.h	46;"	d
+COSE_AES_CCM_NONCE_LENGTH	cose-aes-ccm.h	56;"	d
+COSE_Algorithm_AES_CCM_64_64_128	opt-cose.h	76;"	d
+COSE_Header_KID	opt-cose.h	77;"	d
+COSE_Header_Partial_IV	opt-cose.h	78;"	d
+COSE_Header_Sender_ID	opt-cose.h	79;"	d
+CREATED_2_01	er-coap-constants.h	/^  CREATED_2_01 = 65,            \/* CREATED *\/$/;"	e	enum:__anon6
+CROSS_COMPILE	c25519/Makefile	/^CROSS_COMPILE ?=$/;"	m
+Ch_temp1	sha384-512.c	/^static uint32_t Ch_temp1[2], Ch_temp2[2], Ch_temp3[2];$/;"	v	file:
+Ch_temp2	sha384-512.c	/^static uint32_t Ch_temp1[2], Ch_temp2[2], Ch_temp3[2];$/;"	v	file:
+Ch_temp3	sha384-512.c	/^static uint32_t Ch_temp1[2], Ch_temp2[2], Ch_temp3[2];$/;"	v	file:
+Computed	sha.h	/^    int Computed;                   \/* Is the hash computed? *\/$/;"	m	struct:SHA1Context
+Computed	sha.h	/^    int Computed;                   \/* Is the hash computed? *\/$/;"	m	struct:SHA256Context
+Computed	sha.h	/^    int Computed;                   \/* Is the hash computed?*\/$/;"	m	struct:SHA512Context
+Computed	sha.h	/^    int Computed;               \/* Is the MAC computed? *\/$/;"	m	struct:HMACContext
+Computed	sha.h	/^    int Computed;               \/* Is the key material computed? *\/$/;"	m	struct:HKDFContext
+Corrupted	sha.h	/^    int Corrupted;                  \/* Cumulative corruption code *\/$/;"	m	struct:SHA1Context
+Corrupted	sha.h	/^    int Corrupted;                  \/* Cumulative corruption code *\/$/;"	m	struct:SHA256Context
+Corrupted	sha.h	/^    int Corrupted;                  \/* Cumulative corruption code *\/$/;"	m	struct:SHA512Context
+Corrupted	sha.h	/^    int Corrupted;              \/* Cumulative corruption code *\/$/;"	m	struct:HKDFContext
+Corrupted	sha.h	/^    int Corrupted;              \/* Cumulative corruption code *\/$/;"	m	struct:HMACContext
+DEBUG	er-coap-block1.c	45;"	d	file:
+DEBUG	er-coap-engine.c	50;"	d	file:
+DEBUG	er-coap-observe-client.c	49;"	d	file:
+DEBUG	er-coap-observe.c	43;"	d	file:
+DEBUG	er-coap-res-well-known-core.c	42;"	d	file:
+DEBUG	er-coap-separate.c	45;"	d	file:
+DEBUG	er-coap-transactions.c	44;"	d	file:
+DEBUG	er-coap.c	57;"	d	file:
+DEBUG	er-oscoap.c	49;"	d	file:
+DEBUG	opt-cbor.c	5;"	d	file:
+DEBUG	opt-cose.c	37;"	d	file:
+DELETED_2_02	er-coap-constants.h	/^  DELETED_2_02 = 66,            \/* DELETED *\/$/;"	e	enum:__anon6
+ED25519_EXPONENT_SIZE	c25519/src/ed25519.h	59;"	d
 ED25519_EXPONENT_SIZE	ed25519.h	59;"	d
+ED25519_H_	c25519/src/ed25519.h	8;"	d
 ED25519_H_	ed25519.h	8;"	d
+ED25519_PACK_SIZE	c25519/src/ed25519.h	53;"	d
 ED25519_PACK_SIZE	ed25519.h	53;"	d
+EDSIGN_H_	c25519/src/edsign.h	8;"	d
 EDSIGN_H_	edsign.h	8;"	d
+EDSIGN_PUBLIC_KEY_SIZE	c25519/src/edsign.h	35;"	d
 EDSIGN_PUBLIC_KEY_SIZE	edsign.h	35;"	d
+EDSIGN_SECRET_KEY_SIZE	c25519/src/edsign.h	30;"	d
 EDSIGN_SECRET_KEY_SIZE	edsign.h	30;"	d
+EDSIGN_SIGNATURE_SIZE	c25519/src/edsign.h	40;"	d
 EDSIGN_SIGNATURE_SIZE	edsign.h	40;"	d
+ERROR_RESPONSE_CODE	er-coap-observe-client.h	/^  ERROR_RESPONSE_CODE,$/;"	e	enum:__anon1
+ER_COAP_CONF_H_	er-coap-conf.h	40;"	d
+ER_COAP_CONSTANTS_H_	er-coap-constants.h	45;"	d
+ER_COAP_ENGINE_H_	er-coap-engine.h	40;"	d
+ER_COAP_H_	er-coap.h	44;"	d
+EXPANDED_SIZE	c25519/src/edsign.c	12;"	d	file:
 EXPANDED_SIZE	edsign.c	12;"	d	file:
+F25519_H_	c25519/src/f25519.h	8;"	d
 F25519_H_	f25519.h	8;"	d
+F25519_SIZE	c25519/src/f25519.h	24;"	d
 F25519_SIZE	f25519.h	24;"	d
+FORBIDDEN_4_03	er-coap-constants.h	/^  FORBIDDEN_4_03 = 131,         \/* FORBIDDEN *\/$/;"	e	enum:__anon6
+FPRIME_H_	c25519/src/fprime.h	8;"	d
 FPRIME_H_	fprime.h	8;"	d
+FPRIME_SIZE	c25519/src/fprime.h	23;"	d
 FPRIME_SIZE	fprime.h	23;"	d
+GATEWAY_TIMEOUT_5_04	er-coap-constants.h	/^  GATEWAY_TIMEOUT_5_04 = 164,   \/* GATEWAY_TIMEOUT *\/$/;"	e	enum:__anon6
+HASHCOUNT	shatest.c	212;"	d	file:
+HKDFContext	sha.h	/^typedef struct HKDFContext {$/;"	s
+HKDFContext	sha.h	/^} HKDFContext;$/;"	t	typeref:struct:HKDFContext
+HKDFTESTCOUNT	shatest.c	215;"	d	file:
+HMACContext	sha.h	/^typedef struct HMACContext {$/;"	s
+HMACContext	sha.h	/^} HMACContext;$/;"	t	typeref:struct:HMACContext
+HMACTESTCOUNT	shatest.c	214;"	d	file:
+HOST_CFLAGS	c25519/Makefile	/^HOST_CFLAGS = -O1 -Wall -ggdb -Isrc $(CFLAGS)$/;"	m
+ID_LEN	er-oscoap-int.h	43;"	d
+IMAGE_GIF	er-coap-constants.h	/^  IMAGE_GIF = 21,$/;"	e	enum:__anon8
+IMAGE_JPEG	er-coap-constants.h	/^  IMAGE_JPEG = 22,$/;"	e	enum:__anon8
+IMAGE_PNG	er-coap-constants.h	/^  IMAGE_PNG = 23,$/;"	e	enum:__anon8
+IMAGE_TIFF	er-coap-constants.h	/^  IMAGE_TIFF = 24,$/;"	e	enum:__anon8
+INTERNAL_SERVER_ERROR_5_00	er-coap-constants.h	/^  INTERNAL_SERVER_ERROR_5_00 = 160,     \/* INTERNAL_SERVER_ERROR *\/$/;"	e	enum:__anon6
+IS_OPTION	er-coap.h	87;"	d
+IS_RESPONSE_CODE_2_XX	er-coap-observe-client.h	61;"	d
+Intermediate_Hash	sha.h	/^    uint32_t Intermediate_Hash[SHA1HashSize\/4]; \/* Message Digest *\/$/;"	m	struct:SHA1Context
+Intermediate_Hash	sha.h	/^    uint32_t Intermediate_Hash[SHA256HashSize\/4]; \/* Message Digest *\/$/;"	m	struct:SHA256Context
+Intermediate_Hash	sha.h	/^    uint32_t Intermediate_Hash[SHA512HashSize\/4]; \/* Message Digest  *\/$/;"	m	struct:SHA512Context
+JPRINTF	er-oscoap.c	56;"	d	file:
+JPRINTF	er-oscoap.c	63;"	d	file:
+Length	sha.h	/^    uint32_t Length[4];                 \/* Message length in bits *\/$/;"	m	struct:SHA512Context
+Length_High	sha.h	/^    uint32_t Length_High;               \/* Message length in bits *\/$/;"	m	struct:SHA1Context
+Length_High	sha.h	/^    uint32_t Length_High;               \/* Message length in bits *\/$/;"	m	struct:SHA256Context
+Length_Low	sha.h	/^    uint32_t Length_Low;                \/* Message length in bits *\/$/;"	m	struct:SHA1Context
+Length_Low	sha.h	/^    uint32_t Length_Low;                \/* Message length in bits *\/$/;"	m	struct:SHA256Context
+MANUAL_RESPONSE	er-coap-constants.h	/^  MANUAL_RESPONSE,$/;"	e	enum:__anon6
+MAX_MSG_SIZE	c25519/tests/test_edsign.c	13;"	d	file:
+MEMORY_ALLOCATION_ERROR	er-coap-constants.h	/^  MEMORY_ALLOCATION_ERROR = 192,$/;"	e	enum:__anon6
+METHOD_NOT_ALLOWED_4_05	er-coap-constants.h	/^  METHOD_NOT_ALLOWED_4_05 = 133,        \/* METHOD_NOT_ALLOWED *\/$/;"	e	enum:__anon6
+MORPH25519_H_	c25519/src/morph25519.h	8;"	d
 MORPH25519_H_	morph25519.h	8;"	d
+Maj_temp1	sha384-512.c	/^static uint32_t Maj_temp1[2], Maj_temp2[2],$/;"	v	file:
+Maj_temp2	sha384-512.c	/^static uint32_t Maj_temp1[2], Maj_temp2[2],$/;"	v	file:
+Maj_temp3	sha384-512.c	/^  Maj_temp3[2], Maj_temp4[2];$/;"	v	file:
+Maj_temp4	sha384-512.c	/^  Maj_temp3[2], Maj_temp4[2];$/;"	v	file:
+Message_Block	sha.h	/^    uint8_t Message_Block[SHA1_Message_Block_Size];$/;"	m	struct:SHA1Context
+Message_Block	sha.h	/^    uint8_t Message_Block[SHA256_Message_Block_Size];$/;"	m	struct:SHA256Context
+Message_Block	sha.h	/^    uint8_t Message_Block[SHA512_Message_Block_Size];$/;"	m	struct:SHA512Context
+Message_Block_Index	sha.h	/^    int_least16_t Message_Block_Index;  \/* Message_Block array index *\/$/;"	m	struct:SHA1Context
+Message_Block_Index	sha.h	/^    int_least16_t Message_Block_Index;  \/* Message_Block array index *\/$/;"	m	struct:SHA256Context
+Message_Block_Index	sha.h	/^    int_least16_t Message_Block_Index;  \/* Message_Block array index *\/$/;"	m	struct:SHA512Context
+NEXT_CONTEXT	er-oscoap-int.h	/^  OSCOAP_COMMON_CONTEXT* NEXT_CONTEXT;$/;"	m	struct:OSCOAP_COMMON_CONTEXT
+NOTIFICATION_OK	er-coap-observe-client.h	/^  NOTIFICATION_OK,$/;"	e	enum:__anon1
+NOT_ACCEPTABLE_4_06	er-coap-constants.h	/^  NOT_ACCEPTABLE_4_06 = 134,    \/* NOT_ACCEPTABLE *\/$/;"	e	enum:__anon6
+NOT_FOUND_4_04	er-coap-constants.h	/^  NOT_FOUND_4_04 = 132,         \/* NOT_FOUND *\/$/;"	e	enum:__anon6
+NOT_IMPLEMENTED_5_01	er-coap-constants.h	/^  NOT_IMPLEMENTED_5_01 = 161,   \/* NOT_IMPLEMENTED *\/$/;"	e	enum:__anon6
+NO_ERROR	er-coap-constants.h	/^  NO_ERROR = 0,$/;"	e	enum:__anon6
+NO_REPLY_FROM_SERVER	er-coap-observe-client.h	/^  NO_REPLY_FROM_SERVER,$/;"	e	enum:__anon1
+NUM_VECTORS	c25519/tests/test_c25519.c	661;"	d	file:
+NUM_VECTORS	c25519/tests/test_edsign.c	57;"	d	file:
+NUM_VECTORS	c25519/tests/test_sha512.c	79;"	d	file:
+OBSERVE_NOT_SUPPORTED	er-coap-observe-client.h	/^  OBSERVE_NOT_SUPPORTED,$/;"	e	enum:__anon1
+OBSERVE_OK	er-coap-observe-client.h	/^  OBSERVE_OK,$/;"	e	enum:__anon1
+OPTION_MAP_SIZE	er-coap.h	/^    enum { OPTION_MAP_SIZE = sizeof(uint8_t) * 8 };$/;"	e	enum:__anon2
+OPT_CBOR_put_array	opt-cbor.c	/^uint8_t OPT_CBOR_put_array(uint8_t **buffer,uint8_t elements){$/;"	f
+OPT_CBOR_put_bytes	opt-cbor.c	/^uint8_t OPT_CBOR_put_bytes(uint8_t **buffer, uint8_t bytes_len, uint8_t *bytes){$/;"	f
+OPT_CBOR_put_map	opt-cbor.c	/^uint8_t OPT_CBOR_put_map(uint8_t **buffer, uint8_t elements){$/;"	f
+OPT_CBOR_put_text	opt-cbor.c	/^uint8_t OPT_CBOR_put_text(uint8_t **buffer, char *text, size_t text_len){$/;"	f
+OPT_CBOR_put_unsigned	opt-cbor.c	/^uint8_t OPT_CBOR_put_unsigned(uint8_t **buffer, uint8_t value){$/;"	f
+OPT_COSE_AAD_length	opt-cose.c	/^size_t  OPT_COSE_AAD_length(opt_cose_encrypt_t *cose, int is_request){$/;"	f
+OPT_COSE_Build_AAD	opt-cose.c	/^uint8_t OPT_COSE_Build_AAD(opt_cose_encrypt_t *cose, uint8_t *buffer){$/;"	f
+OPT_COSE_Decode	opt-cose.c	/^size_t OPT_COSE_Decode(opt_cose_encrypt_t *cose, uint8_t *buffer, size_t buffer_len){$/;"	f
+OPT_COSE_Decrypt	opt-cose.c	/^uint8_t OPT_COSE_Decrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){$/;"	f
+OPT_COSE_ENCRYPT	opt-cose.c	/^uint8_t OPT_COSE_ENCRYPT(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){$/;"	f
+OPT_COSE_Encode	opt-cose.c	/^size_t  OPT_COSE_Encode(opt_cose_encrypt_t *cose, uint8_t *buffer){$/;"	f
+OPT_COSE_Encode_Protected	opt-cose.c	/^uint8_t OPT_COSE_Encode_Protected(opt_cose_encrypt_t *cose, uint8_t **buffer){$/;"	f
+OPT_COSE_Encoded_length	opt-cose.c	/^size_t OPT_COSE_Encoded_length(opt_cose_encrypt_t *cose){$/;"	f
+OPT_COSE_Encrypt	opt-cose.c	/^uint8_t OPT_COSE_Encrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len){$/;"	f
+OPT_COSE_GetKeyID	opt-cose.c	/^uint8_t* OPT_COSE_GetKeyID(opt_cose_encrypt_t *cose, size_t *kid_len){$/;"	f
+OPT_COSE_GetPartialIV	opt-cose.c	/^uint8_t* OPT_COSE_GetPartialIV(opt_cose_encrypt_t *cose, size_t *partial_iv_len){$/;"	f
+OPT_COSE_GetSenderID	opt-cose.c	/^uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t *sid_len){$/;"	f
+OPT_COSE_Init	opt-cose.c	/^void OPT_COSE_Init(opt_cose_encrypt_t *cose){$/;"	f
+OPT_COSE_SetAAD	opt-cose.c	/^uint8_t OPT_COSE_SetAAD(opt_cose_encrypt_t *cose, uint8_t *aad_buffer, size_t aad_len){$/;"	f
+OPT_COSE_SetAlg	opt-cose.c	/^uint8_t OPT_COSE_SetAlg(opt_cose_encrypt_t *cose, uint8_t alg){$/;"	f
+OPT_COSE_SetCiphertextBuffer	opt-cose.c	/^uint8_t OPT_COSE_SetCiphertextBuffer(opt_cose_encrypt_t *cose, uint8_t *ciphertext_buffer, size_t ciphertext_len){$/;"	f
+OPT_COSE_SetContent	opt-cose.c	/^uint8_t OPT_COSE_SetContent(opt_cose_encrypt_t *cose, uint8_t *plaintext_buffer, size_t plaintext_len){$/;"	f
+OPT_COSE_SetExternalAAD	opt-cose.c	/^uint8_t OPT_COSE_SetExternalAAD(opt_cose_encrypt_t *cose, uint8_t *external_aad_buffer, size_t external_aad_len){$/;"	f
+OPT_COSE_SetKeyID	opt-cose.c	/^uint8_t OPT_COSE_SetKeyID(opt_cose_encrypt_t *cose, uint8_t *kid_buffer, size_t kid_len){$/;"	f
+OPT_COSE_SetNonce	opt-cose.c	/^uint8_t OPT_COSE_SetNonce(opt_cose_encrypt_t *cose, uint8_t *nonce_buffer, size_t nonce_len){$/;"	f
+OPT_COSE_SetPartialIV	opt-cose.c	/^uint8_t OPT_COSE_SetPartialIV(opt_cose_encrypt_t *cose, uint8_t *partial_iv_buffer, size_t partial_iv_len){$/;"	f
+OPT_COSE_SetSenderID	opt-cose.c	/^uint8_t* OPT_COSE_SetSenderID(opt_cose_encrypt_t *cose, uint8_t *sid_buffer, size_t sid_len){$/;"	f
+OPT_COSE_SetSign	opt-cose.c	/^uint8_t* OPT_COSE_SetSign(opt_cose_encrypt_t *cose, uint8_t *sign_buffer, size_t sign_len) {$/;"	f
+OSCOAP_COMMON_CONTEXT	er-oscoap-int.h	/^struct OSCOAP_COMMON_CONTEXT{$/;"	s
+OSCOAP_COMMON_CONTEXT	er-oscoap-int.h	/^typedef struct OSCOAP_COMMON_CONTEXT OSCOAP_COMMON_CONTEXT;$/;"	t	typeref:struct:OSCOAP_COMMON_CONTEXT
+OSCOAP_CONTEXT_NOT_FOUND	er-coap-constants.h	/^  OSCOAP_CONTEXT_NOT_FOUND,$/;"	e	enum:__anon6
+OSCOAP_CRYPTO_ERROR	er-coap-constants.h	/^  OSCOAP_CRYPTO_ERROR = 194,$/;"	e	enum:__anon6
+OSCOAP_MALFORMED_PACKET	er-coap-constants.h	/^  OSCOAP_MALFORMED_PACKET,$/;"	e	enum:__anon6
+OSCOAP_RECIPIENT_CONTEXT	er-oscoap-int.h	/^struct OSCOAP_RECIPIENT_CONTEXT$/;"	s
+OSCOAP_RECIPIENT_CONTEXT	er-oscoap-int.h	/^typedef struct OSCOAP_RECIPIENT_CONTEXT OSCOAP_RECIPIENT_CONTEXT;$/;"	t	typeref:struct:OSCOAP_RECIPIENT_CONTEXT
+OSCOAP_SENDER_CONTEXT	er-oscoap-int.h	/^struct OSCOAP_SENDER_CONTEXT$/;"	s
+OSCOAP_SENDER_CONTEXT	er-oscoap-int.h	/^typedef struct OSCOAP_SENDER_CONTEXT OSCOAP_SENDER_CONTEXT;$/;"	t	typeref:struct:OSCOAP_SENDER_CONTEXT
+OSCOAP_SEQ_ERROR	er-coap-constants.h	/^  OSCOAP_SEQ_ERROR,$/;"	e	enum:__anon6
+PACKET_SERIALIZATION_ERROR	er-coap-constants.h	/^  PACKET_SERIALIZATION_ERROR,$/;"	e	enum:__anon6
+PING_RESPONSE	er-coap-constants.h	/^  PING_RESPONSE$/;"	e	enum:__anon6
+PRECONDITION_FAILED_4_12	er-coap-constants.h	/^  PRECONDITION_FAILED_4_12 = 140,       \/* BAD_REQUEST *\/$/;"	e	enum:__anon6
+PRINT6ADDR	er-coap-block1.c	48;"	d	file:
+PRINT6ADDR	er-coap-block1.c	52;"	d	file:
+PRINT6ADDR	er-coap-engine.c	54;"	d	file:
+PRINT6ADDR	er-coap-engine.c	58;"	d	file:
+PRINT6ADDR	er-coap-observe-client.c	52;"	d	file:
+PRINT6ADDR	er-coap-observe-client.c	68;"	d	file:
+PRINT6ADDR	er-coap-observe.c	47;"	d	file:
+PRINT6ADDR	er-coap-observe.c	51;"	d	file:
+PRINT6ADDR	er-coap-res-well-known-core.c	46;"	d	file:
+PRINT6ADDR	er-coap-res-well-known-core.c	50;"	d	file:
+PRINT6ADDR	er-coap-separate.c	49;"	d	file:
+PRINT6ADDR	er-coap-separate.c	53;"	d	file:
+PRINT6ADDR	er-coap-transactions.c	48;"	d	file:
+PRINT6ADDR	er-coap-transactions.c	52;"	d	file:
+PRINT6ADDR	er-coap.c	61;"	d	file:
+PRINT6ADDR	er-coap.c	65;"	d	file:
+PRINT6ADDR	er-coap.c	70;"	d	file:
+PRINT6ADDR	er-oscoap.c	259;"	d	file:
+PRINTBASE64	shatest.c	221;"	d	file:
+PRINTF	er-coap-block1.c	47;"	d	file:
+PRINTF	er-coap-block1.c	51;"	d	file:
+PRINTF	er-coap-engine.c	53;"	d	file:
+PRINTF	er-coap-engine.c	57;"	d	file:
+PRINTF	er-coap-observe-client.c	51;"	d	file:
+PRINTF	er-coap-observe-client.c	67;"	d	file:
+PRINTF	er-coap-observe.c	46;"	d	file:
+PRINTF	er-coap-observe.c	50;"	d	file:
+PRINTF	er-coap-res-well-known-core.c	45;"	d	file:
+PRINTF	er-coap-res-well-known-core.c	49;"	d	file:
+PRINTF	er-coap-separate.c	48;"	d	file:
+PRINTF	er-coap-separate.c	52;"	d	file:
+PRINTF	er-coap-transactions.c	47;"	d	file:
+PRINTF	er-coap-transactions.c	51;"	d	file:
+PRINTF	er-coap.c	60;"	d	file:
+PRINTF	er-coap.c	64;"	d	file:
+PRINTF	er-oscoap.c	52;"	d	file:
+PRINTF	er-oscoap.c	59;"	d	file:
+PRINTF	opt-cbor.c	11;"	d	file:
+PRINTF	opt-cbor.c	8;"	d	file:
+PRINTF	opt-cose.c	40;"	d	file:
+PRINTF	opt-cose.c	43;"	d	file:
+PRINTFAIL	shatest.c	224;"	d	file:
+PRINTF_BIN	er-oscoap.c	55;"	d	file:
+PRINTF_BIN	er-oscoap.c	62;"	d	file:
+PRINTF_CHAR	er-oscoap.c	54;"	d	file:
+PRINTF_CHAR	er-oscoap.c	61;"	d	file:
+PRINTF_HEX	er-oscoap.c	53;"	d	file:
+PRINTF_HEX	er-oscoap.c	60;"	d	file:
+PRINTF_HEX	opt-cbor.c	12;"	d	file:
+PRINTF_HEX	opt-cbor.c	9;"	d	file:
+PRINTF_HEX	opt-cose.c	41;"	d	file:
+PRINTF_HEX	opt-cose.c	44;"	d	file:
+PRINTHEX	shatest.c	220;"	d	file:
+PRINTLLADDR	er-coap-block1.c	49;"	d	file:
+PRINTLLADDR	er-coap-block1.c	53;"	d	file:
+PRINTLLADDR	er-coap-engine.c	55;"	d	file:
+PRINTLLADDR	er-coap-engine.c	59;"	d	file:
+PRINTLLADDR	er-coap-observe-client.c	62;"	d	file:
+PRINTLLADDR	er-coap-observe-client.c	69;"	d	file:
+PRINTLLADDR	er-coap-observe.c	48;"	d	file:
+PRINTLLADDR	er-coap-observe.c	52;"	d	file:
+PRINTLLADDR	er-coap-res-well-known-core.c	47;"	d	file:
+PRINTLLADDR	er-coap-res-well-known-core.c	51;"	d	file:
+PRINTLLADDR	er-coap-separate.c	50;"	d	file:
+PRINTLLADDR	er-coap-separate.c	54;"	d	file:
+PRINTLLADDR	er-coap-transactions.c	49;"	d	file:
+PRINTLLADDR	er-coap-transactions.c	53;"	d	file:
+PRINTLLADDR	er-coap.c	62;"	d	file:
+PRINTLLADDR	er-coap.c	66;"	d	file:
+PRINTNONE	shatest.c	217;"	d	file:
+PRINTPASSFAIL	shatest.c	223;"	d	file:
+PRINTRAW	shatest.c	219;"	d	file:
+PRINTTEXT	shatest.c	218;"	d	file:
+PROCESS_THREAD	er-coap-engine.c	/^PROCESS_THREAD(coap_engine, ev, data)$/;"	f
+PROXYING_NOT_SUPPORTED_5_05	er-coap-constants.h	/^  PROXYING_NOT_SUPPORTED_5_05 = 165,    \/* PROXYING_NOT_SUPPORTED *\/$/;"	e	enum:__anon6
+RANDOMCOUNT	shatest.c	213;"	d	file:
+RECIPIENT_CONTEXT	er-oscoap-int.h	/^  OSCOAP_RECIPIENT_CONTEXT* RECIPIENT_CONTEXT; \/\/This field facilitates easy integration of OSCOAP multicast$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
+RECIPIENT_CONTEXT	er-oscoap-int.h	/^  OSCOAP_RECIPIENT_CONTEXT* RECIPIENT_CONTEXT;$/;"	m	struct:OSCOAP_COMMON_CONTEXT
+RECIPIENT_ID	er-oscoap-int.h	/^  uint8_t   RECIPIENT_ID[ID_LEN];$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
+RECIPIENT_IV	er-oscoap-int.h	/^  uint8_t   RECIPIENT_IV[CONTEXT_INIT_VECT_LEN];$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
+RECIPIENT_KEY	er-oscoap-int.h	/^  uint8_t   RECIPIENT_KEY[CONTEXT_KEY_LEN];$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
+RECIPIENT_SEQ	er-oscoap-int.h	/^  uint32_t  RECIPIENT_SEQ;$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
+REPLAY_WINDOW	er-oscoap-int.h	/^  uint8_t   REPLAY_WINDOW;$/;"	m	struct:OSCOAP_RECIPIENT_CONTEXT
+REQUEST_ENTITY_TOO_LARGE_4_13	er-coap-constants.h	/^  REQUEST_ENTITY_TOO_LARGE_4_13 = 141,  \/* REQUEST_ENTITY_TOO_LARGE *\/$/;"	e	enum:__anon6
+REST	er-coap.h	61;"	d
+ROTR_temp1	sha384-512.c	/^static uint32_t ROTR_temp1[2], ROTR_temp2[2];$/;"	v	file:
+ROTR_temp2	sha384-512.c	/^static uint32_t ROTR_temp1[2], ROTR_temp2[2];$/;"	v	file:
+SENDER_CONTEXT	er-oscoap-int.h	/^  OSCOAP_SENDER_CONTEXT* SENDER_CONTEXT;$/;"	m	struct:OSCOAP_COMMON_CONTEXT
+SENDER_ID	er-oscoap-int.h	/^  uint8_t   SENDER_ID[ID_LEN]; $/;"	m	struct:OSCOAP_SENDER_CONTEXT
+SENDER_IV	er-oscoap-int.h	/^  uint8_t   SENDER_IV[CONTEXT_INIT_VECT_LEN];$/;"	m	struct:OSCOAP_SENDER_CONTEXT
+SENDER_KEY	er-oscoap-int.h	/^  uint8_t   SENDER_KEY[CONTEXT_KEY_LEN];$/;"	m	struct:OSCOAP_SENDER_CONTEXT
+SENDER_SEQ	er-oscoap-int.h	/^  uint32_t  SENDER_SEQ;$/;"	m	struct:OSCOAP_SENDER_CONTEXT
+SERVER_LISTEN_PORT	er-coap-engine.h	49;"	d
+SERVICE_UNAVAILABLE_5_03	er-coap-constants.h	/^  SERVICE_UNAVAILABLE_5_03 = 163,       \/* SERVICE_UNAVAILABLE *\/$/;"	e	enum:__anon6
+SET_OPTION	er-coap.h	86;"	d
+SHA1	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA1AddLength	sha1.c	53;"	d	file:
+SHA1Context	sha.h	/^typedef struct SHA1Context {$/;"	s
+SHA1Context	sha.h	/^} SHA1Context;$/;"	t	typeref:struct:SHA1Context
+SHA1FinalBits	sha1.c	/^int SHA1FinalBits(SHA1Context *context, uint8_t message_bits,$/;"	f
+SHA1Finalize	sha1.c	/^static void SHA1Finalize(SHA1Context *context, uint8_t Pad_Byte)$/;"	f	file:
+SHA1HashSize	sha.h	/^    SHA1HashSize = 20, SHA224HashSize = 28, SHA256HashSize = 32,$/;"	e	enum:__anon10
+SHA1HashSizeBits	sha.h	/^    SHA1HashSizeBits = 160, SHA224HashSizeBits = 224,$/;"	e	enum:__anon10
+SHA1Input	sha1.c	/^int SHA1Input(SHA1Context *context,$/;"	f
+SHA1PadMessage	sha1.c	/^static void SHA1PadMessage(SHA1Context *context, uint8_t Pad_Byte)$/;"	f	file:
+SHA1ProcessMessageBlock	sha1.c	/^static void SHA1ProcessMessageBlock(SHA1Context *context)$/;"	f	file:
+SHA1Reset	sha1.c	/^int SHA1Reset(SHA1Context *context)$/;"	f
+SHA1Result	sha1.c	/^int SHA1Result(SHA1Context *context,$/;"	f
+SHA1_Message_Block_Size	sha.h	/^    SHA1_Message_Block_Size = 64, SHA224_Message_Block_Size = 64,$/;"	e	enum:__anon10
+SHA1_ROTL	sha1.c	45;"	d	file:
+SHA1_SEED	shatest.c	193;"	d	file:
+SHA224	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA224Context	sha.h	/^typedef struct SHA256Context SHA224Context;$/;"	t	typeref:struct:SHA256Context
+SHA224FinalBits	sha224-256.c	/^int SHA224FinalBits(SHA224Context *context,$/;"	f
+SHA224HashSize	sha.h	/^    SHA1HashSize = 20, SHA224HashSize = 28, SHA256HashSize = 32,$/;"	e	enum:__anon10
+SHA224HashSizeBits	sha.h	/^    SHA1HashSizeBits = 160, SHA224HashSizeBits = 224,$/;"	e	enum:__anon10
+SHA224Input	sha224-256.c	/^int SHA224Input(SHA224Context *context, const uint8_t *message_array,$/;"	f
+SHA224Reset	sha224-256.c	/^int SHA224Reset(SHA224Context *context)$/;"	f
+SHA224Result	sha224-256.c	/^int SHA224Result(SHA224Context *context,$/;"	f
+SHA224_256AddLength	sha224-256.c	68;"	d	file:
+SHA224_256Finalize	sha224-256.c	/^static void SHA224_256Finalize(SHA256Context *context,$/;"	f	file:
+SHA224_256PadMessage	sha224-256.c	/^static void SHA224_256PadMessage(SHA256Context *context,$/;"	f	file:
+SHA224_256ProcessMessageBlock	sha224-256.c	/^static void SHA224_256ProcessMessageBlock(SHA256Context *context)$/;"	f	file:
+SHA224_256Reset	sha224-256.c	/^static int SHA224_256Reset(SHA256Context *context, uint32_t *H0)$/;"	f	file:
+SHA224_256ResultN	sha224-256.c	/^static int SHA224_256ResultN(SHA256Context *context,$/;"	f	file:
+SHA224_H0	sha224-256.c	/^static uint32_t SHA224_H0[SHA256HashSize\/4] = {$/;"	v	file:
+SHA224_Message_Block_Size	sha.h	/^    SHA1_Message_Block_Size = 64, SHA224_Message_Block_Size = 64,$/;"	e	enum:__anon10
+SHA224_SEED	shatest.c	195;"	d	file:
+SHA256	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA256Context	sha.h	/^typedef struct SHA256Context {$/;"	s
+SHA256Context	sha.h	/^} SHA256Context;$/;"	t	typeref:struct:SHA256Context
+SHA256FinalBits	sha224-256.c	/^int SHA256FinalBits(SHA256Context *context,$/;"	f
+SHA256HashSize	sha.h	/^    SHA1HashSize = 20, SHA224HashSize = 28, SHA256HashSize = 32,$/;"	e	enum:__anon10
+SHA256HashSizeBits	sha.h	/^    SHA256HashSizeBits = 256, SHA384HashSizeBits = 384,$/;"	e	enum:__anon10
+SHA256Input	sha224-256.c	/^int SHA256Input(SHA256Context *context, const uint8_t *message_array,$/;"	f
+SHA256Reset	sha224-256.c	/^int SHA256Reset(SHA256Context *context)$/;"	f
+SHA256Result	sha224-256.c	/^int SHA256Result(SHA256Context *context,$/;"	f
+SHA256_H0	sha224-256.c	/^static uint32_t SHA256_H0[SHA256HashSize\/4] = {$/;"	v	file:
+SHA256_Message_Block_Size	sha.h	/^    SHA256_Message_Block_Size = 64, SHA384_Message_Block_Size = 128,$/;"	e	enum:__anon10
+SHA256_ROTL	sha224-256.c	48;"	d	file:
+SHA256_ROTR	sha224-256.c	50;"	d	file:
+SHA256_SEED	shatest.c	198;"	d	file:
+SHA256_SHR	sha224-256.c	47;"	d	file:
+SHA256_SIGMA0	sha224-256.c	54;"	d	file:
+SHA256_SIGMA1	sha224-256.c	56;"	d	file:
+SHA256_sigma0	sha224-256.c	58;"	d	file:
+SHA256_sigma1	sha224-256.c	60;"	d	file:
+SHA384	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA384Context	sha.h	/^typedef struct SHA512Context SHA384Context;$/;"	t	typeref:struct:SHA512Context
+SHA384FinalBits	sha384-512.c	/^int SHA384FinalBits(SHA384Context *context,$/;"	f
+SHA384HashSize	sha.h	/^    SHA384HashSize = 48, SHA512HashSize = 64,$/;"	e	enum:__anon10
+SHA384HashSizeBits	sha.h	/^    SHA256HashSizeBits = 256, SHA384HashSizeBits = 384,$/;"	e	enum:__anon10
+SHA384Input	sha384-512.c	/^int SHA384Input(SHA384Context *context,$/;"	f
+SHA384Reset	sha384-512.c	/^int SHA384Reset(SHA384Context *context)$/;"	f
+SHA384Result	sha384-512.c	/^int SHA384Result(SHA384Context *context,$/;"	f
+SHA384_512AddLength	sha384-512.c	242;"	d	file:
+SHA384_512AddLength	sha384-512.c	302;"	d	file:
+SHA384_512Finalize	sha384-512.c	/^static void SHA384_512Finalize(SHA512Context *context,$/;"	f	file:
+SHA384_512PadMessage	sha384-512.c	/^static void SHA384_512PadMessage(SHA512Context *context,$/;"	f	file:
+SHA384_512ProcessMessageBlock	sha384-512.c	/^static void SHA384_512ProcessMessageBlock(SHA512Context *context)$/;"	f	file:
+SHA384_512Reset	sha384-512.c	/^static int SHA384_512Reset(SHA512Context *context,$/;"	f	file:
+SHA384_512ResultN	sha384-512.c	/^static int SHA384_512ResultN(SHA512Context *context,$/;"	f	file:
+SHA384_H0	sha384-512.c	/^static uint32_t SHA384_H0[SHA512HashSize\/4] = {$/;"	v	file:
+SHA384_H0	sha384-512.c	/^static uint64_t SHA384_H0[ ] = {$/;"	v	file:
+SHA384_Message_Block_Size	sha.h	/^    SHA256_Message_Block_Size = 64, SHA384_Message_Block_Size = 128,$/;"	e	enum:__anon10
+SHA384_SEED	shatest.c	201;"	d	file:
+SHA512	sha.h	/^    SHA1, SHA224, SHA256, SHA384, SHA512$/;"	e	enum:SHAversion
+SHA512Context	sha.h	/^typedef struct SHA512Context {$/;"	s
+SHA512Context	sha.h	/^} SHA512Context;$/;"	t	typeref:struct:SHA512Context
+SHA512FinalBits	sha384-512.c	/^int SHA512FinalBits(SHA512Context *context,$/;"	f
+SHA512HashSize	sha.h	/^    SHA384HashSize = 48, SHA512HashSize = 64,$/;"	e	enum:__anon10
+SHA512HashSizeBits	sha.h	/^    SHA512HashSizeBits = 512, USHAMaxHashSizeBits = SHA512HashSizeBits$/;"	e	enum:__anon10
+SHA512Input	sha384-512.c	/^int SHA512Input(SHA512Context *context,$/;"	f
+SHA512Reset	sha384-512.c	/^int SHA512Reset(SHA512Context *context)$/;"	f
+SHA512Result	sha384-512.c	/^int SHA512Result(SHA512Context *context,$/;"	f
+SHA512_ADD	sha384-512.c	109;"	d	file:
+SHA512_ADDTO2	sha384-512.c	130;"	d	file:
+SHA512_ADDTO4	sha384-512.c	117;"	d	file:
+SHA512_AND	sha384-512.c	96;"	d	file:
+SHA512_BLOCK_SIZE	c25519/src/sha512.h	34;"	d
 SHA512_BLOCK_SIZE	sha512.h	34;"	d
+SHA512_H0	sha384-512.c	/^static uint32_t SHA512_H0[SHA512HashSize\/4] = {$/;"	v	file:
+SHA512_H0	sha384-512.c	/^static uint64_t SHA512_H0[ ] = {$/;"	v	file:
+SHA512_HASH_SIZE	c25519/src/sha512.h	47;"	d
 SHA512_HASH_SIZE	sha512.h	47;"	d
+SHA512_H_	c25519/src/sha512.h	8;"	d
 SHA512_H_	sha512.h	8;"	d
+SHA512_Message_Block_Size	sha.h	/^    SHA512_Message_Block_Size = 128,$/;"	e	enum:__anon10
+SHA512_OR	sha384-512.c	82;"	d	file:
+SHA512_ROTR	sha384-512.c	139;"	d	file:
+SHA512_ROTR	sha384-512.c	280;"	d	file:
+SHA512_SEED	shatest.c	205;"	d	file:
+SHA512_SHL	sha384-512.c	68;"	d	file:
+SHA512_SHR	sha384-512.c	279;"	d	file:
+SHA512_SHR	sha384-512.c	58;"	d	file:
+SHA512_SIGMA0	sha384-512.c	151;"	d	file:
+SHA512_SIGMA0	sha384-512.c	288;"	d	file:
+SHA512_SIGMA1	sha384-512.c	163;"	d	file:
+SHA512_SIGMA1	sha384-512.c	290;"	d	file:
+SHA512_TILDA	sha384-512.c	103;"	d	file:
+SHA512_XOR	sha384-512.c	89;"	d	file:
+SHA512_sigma0	sha384-512.c	175;"	d	file:
+SHA512_sigma0	sha384-512.c	292;"	d	file:
+SHA512_sigma1	sha384-512.c	187;"	d	file:
+SHA512_sigma1	sha384-512.c	294;"	d	file:
+SHA_Ch	sha-private.h	14;"	d
+SHA_Ch	sha-private.h	21;"	d
+SHA_Ch	sha384-512.c	200;"	d	file:
+SHA_Ch	sha384-512.c	224;"	d	file:
+SHA_Maj	sha-private.h	15;"	d
+SHA_Maj	sha-private.h	22;"	d
+SHA_Maj	sha384-512.c	211;"	d	file:
+SHA_Maj	sha384-512.c	232;"	d	file:
+SHA_Parity	sha-private.h	26;"	d
+SHAversion	sha.h	/^typedef enum SHAversion {$/;"	g
+SHAversion	sha.h	/^} SHAversion;$/;"	t	typeref:enum:SHAversion
+SIGMA0_temp1	sha384-512.c	/^static uint32_t SIGMA0_temp1[2], SIGMA0_temp2[2],$/;"	v	file:
+SIGMA0_temp2	sha384-512.c	/^static uint32_t SIGMA0_temp1[2], SIGMA0_temp2[2],$/;"	v	file:
+SIGMA0_temp3	sha384-512.c	/^  SIGMA0_temp3[2], SIGMA0_temp4[2];$/;"	v	file:
+SIGMA0_temp4	sha384-512.c	/^  SIGMA0_temp3[2], SIGMA0_temp4[2];$/;"	v	file:
+SIGMA1_temp1	sha384-512.c	/^static uint32_t SIGMA1_temp1[2], SIGMA1_temp2[2],$/;"	v	file:
+SIGMA1_temp2	sha384-512.c	/^static uint32_t SIGMA1_temp1[2], SIGMA1_temp2[2],$/;"	v	file:
+SIGMA1_temp3	sha384-512.c	/^  SIGMA1_temp3[2], SIGMA1_temp4[2];$/;"	v	file:
+SIGMA1_temp4	sha384-512.c	/^  SIGMA1_temp3[2], SIGMA1_temp4[2];$/;"	v	file:
+TEST1	shatest.c	54;"	d	file:
+TEST10_1	shatest.c	77;"	d	file:
+TEST10_224	shatest.c	99;"	d	file:
+TEST10_256	shatest.c	121;"	d	file:
+TEST10_384	shatest.c	147;"	d	file:
+TEST10_512	shatest.c	177;"	d	file:
+TEST2_1	shatest.c	55;"	d	file:
+TEST2_2	shatest.c	61;"	d	file:
+TEST2_2a	shatest.c	57;"	d	file:
+TEST2_2b	shatest.c	59;"	d	file:
+TEST3	shatest.c	62;"	d	file:
+TEST4	shatest.c	66;"	d	file:
+TEST4a	shatest.c	63;"	d	file:
+TEST4b	shatest.c	64;"	d	file:
+TEST7_1	shatest.c	67;"	d	file:
+TEST7_224	shatest.c	89;"	d	file:
+TEST7_256	shatest.c	111;"	d	file:
+TEST7_384	shatest.c	133;"	d	file:
+TEST7_512	shatest.c	163;"	d	file:
+TEST8_1	shatest.c	69;"	d	file:
+TEST8_224	shatest.c	91;"	d	file:
+TEST8_256	shatest.c	113;"	d	file:
+TEST8_384	shatest.c	135;"	d	file:
+TEST8_512	shatest.c	165;"	d	file:
+TEST9_1	shatest.c	71;"	d	file:
+TEST9_224	shatest.c	93;"	d	file:
+TEST9_256	shatest.c	115;"	d	file:
+TEST9_384	shatest.c	137;"	d	file:
+TEST9_512	shatest.c	167;"	d	file:
+TESTCOUNT	shatest.c	211;"	d	file:
+TESTS	c25519/Makefile	/^TESTS = \\$/;"	m
+TEXT_CSV	er-coap-constants.h	/^  TEXT_CSV = 2,$/;"	e	enum:__anon8
+TEXT_HTML	er-coap-constants.h	/^  TEXT_HTML = 3,$/;"	e	enum:__anon8
+TEXT_PLAIN	er-coap-constants.h	/^  TEXT_PLAIN = 0,$/;"	e	enum:__anon8
+TEXT_XML	er-coap-constants.h	/^  TEXT_XML = 1,$/;"	e	enum:__anon8
+UIP_IP_BUF	er-coap.h	76;"	d
+UIP_UDP_BUF	er-coap.h	78;"	d
+UIP_UDP_BUF	er-coap.h	80;"	d
+UNAUTHORIZED_4_01	er-coap-constants.h	/^  UNAUTHORIZED_4_01 = 129,      \/* UNAUTHORIZED *\/$/;"	e	enum:__anon6
+UNSUPPORTED_MEDIA_TYPE_4_15	er-coap-constants.h	/^  UNSUPPORTED_MEDIA_TYPE_4_15 = 143,    \/* UNSUPPORTED_MEDIA_TYPE *\/$/;"	e	enum:__anon6
+USHABlockSize	usha.c	/^int USHABlockSize(enum SHAversion whichSha)$/;"	f
+USHAContext	sha.h	/^typedef struct USHAContext {$/;"	s
+USHAContext	sha.h	/^} USHAContext;$/;"	t	typeref:struct:USHAContext
+USHAFinalBits	usha.c	/^int USHAFinalBits(USHAContext *context,$/;"	f
+USHAHashName	usha.c	/^const char *USHAHashName(enum SHAversion whichSha)$/;"	f
+USHAHashSize	usha.c	/^int USHAHashSize(enum SHAversion whichSha)$/;"	f
+USHAHashSizeBits	usha.c	/^int USHAHashSizeBits(enum SHAversion whichSha)$/;"	f
+USHAInput	usha.c	/^int USHAInput(USHAContext *context,$/;"	f
+USHAMaxHashSize	sha.h	/^    USHAMaxHashSize = SHA512HashSize,$/;"	e	enum:__anon10
+USHAMaxHashSizeBits	sha.h	/^    SHA512HashSizeBits = 512, USHAMaxHashSizeBits = SHA512HashSizeBits$/;"	e	enum:__anon10
+USHAReset	usha.c	/^int USHAReset(USHAContext *context, enum SHAversion whichSha)$/;"	f
+USHAResult	usha.c	/^int USHAResult(USHAContext *context,$/;"	f
+USHA_Max_Message_Block_Size	sha.h	/^    USHA_Max_Message_Block_Size = SHA512_Message_Block_Size,$/;"	e	enum:__anon10
+VALID_2_03	er-coap-constants.h	/^  VALID_2_03 = 67,              \/* NOT_MODIFIED *\/$/;"	e	enum:__anon6
+VIDEO_RAW	er-coap-constants.h	/^  VIDEO_RAW = 26,$/;"	e	enum:__anon8
+_OPT_CBOR_H	opt-cbor.h	2;"	d
+_OPT_COSE_H	opt-cose.h	33;"	d
+_OPT_COSE_cbor_bytes	opt-cose.c	/^uint8_t _OPT_COSE_cbor_bytes(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t len, uint8_t bytefield){$/;"	f
+_OPT_COSE_cbor_content	opt-cose.c	/^uint8_t _OPT_COSE_cbor_content(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t len){$/;"	f
+_OPT_COSE_cbor_protected_map	opt-cose.c	/^uint8_t _OPT_COSE_cbor_protected_map(opt_cose_encrypt_t *cose, uint8_t *buffer, uint8_t len){$/;"	f
+_OSCOAP_H	er-oscoap.h	34;"	d
+_OSCOAP_INT_H	er-oscoap-int.h	33;"	d
+_SHA_H_	sha.h	40;"	d
+_SHA_PRIVATE__H	sha-private.h	4;"	d
+_SHA_enum_	sha.h	87;"	d
+aad	opt-cose.h	/^	uint8_t *aad;$/;"	m	struct:opt_cose_encrypt_t
+aad_len	opt-cose.h	/^	size_t aad_len;$/;"	m	struct:opt_cose_encrypt_t
+accept	er-coap.h	/^      uint16_t accept;$/;"	m	struct:__anon3
+addTemp	sha1.c	/^static uint32_t addTemp;$/;"	v	file:
+addTemp	sha224-256.c	/^static uint32_t addTemp;$/;"	v	file:
+addTemp	sha384-512.c	/^static uint32_t addTemp[4] = { 0, 0, 0, 0 };$/;"	v	file:
+addTemp	sha384-512.c	/^static uint64_t addTemp;$/;"	v	file:
+add_observer	er-coap-observe.c	/^add_observer(uip_ipaddr_t *addr, uint16_t port, const uint8_t *token,$/;"	f	file:
+addr	er-coap-observe-client.h	/^  uip_ipaddr_t addr;$/;"	m	struct:coap_observee_s
+addr	er-coap-observe.h	/^  uip_ipaddr_t addr;$/;"	m	struct:coap_observer
+addr	er-coap-separate.h	/^  uip_ipaddr_t addr;$/;"	m	struct:coap_separate
+addr	er-coap-transactions.h	/^  uip_ipaddr_t addr;$/;"	m	struct:coap_transaction
+aead	cose-aes-ccm.c	/^aead(const uint8_t* nonce,$/;"	f	file:
+aead	cose-aes-ccm.h	/^  void (* aead)(const uint8_t* nonce,$/;"	m	struct:cose_aes_ccm_driver
+alg	opt-cose.h	/^	uint8_t alg;$/;"	m	struct:opt_cose_encrypt_t
+block1_more	er-coap.h	/^      uint8_t block1_more;$/;"	m	struct:__anon3
+block1_num	er-coap-separate.h	/^  uint32_t block1_num;$/;"	m	struct:coap_separate
+block1_num	er-coap.h	/^      uint32_t block1_num;$/;"	m	struct:__anon3
+block1_offset	er-coap.h	/^      uint32_t block1_offset;$/;"	m	struct:__anon3
+block1_size	er-coap-separate.h	/^  uint16_t block1_size;$/;"	m	struct:coap_separate
+block1_size	er-coap.h	/^      uint16_t block1_size;$/;"	m	struct:__anon3
+block2_more	er-coap.h	/^      uint8_t block2_more;$/;"	m	struct:__anon3
+block2_num	er-coap-separate.h	/^  uint32_t block2_num;$/;"	m	struct:coap_separate
+block2_num	er-coap.h	/^      uint32_t block2_num;$/;"	m	struct:__anon3
+block2_offset	er-coap.h	/^      uint32_t block2_offset;$/;"	m	struct:__anon3
+block2_size	er-coap-separate.h	/^  uint16_t block2_size;$/;"	m	struct:coap_separate
+block2_size	er-coap.h	/^      uint16_t block2_size;$/;"	m	struct:__anon3
+blockSize	sha.h	/^    int blockSize;              \/* block size of SHA being used *\/$/;"	m	struct:HMACContext
+block_num	er-coap-engine.h	/^  uint32_t block_num;$/;"	m	struct:request_state_t
+blocking_response_handler	er-coap-engine.h	/^typedef void (*blocking_response_handler)(void *response);$/;"	t
+buffer	er-coap-observe.h	/^  uint8_t buffer[COAP_MAX_PACKET_SIZE + 1];$/;"	m	struct:coap_observable
+buffer	er-coap.h	/^      uint8_t *buffer; \/* pointer to CoAP header \/ incoming packet buffer \/ memory to serialize packet *\/$/;"	m	struct:__anon3
 c25519_base_x	c25519.c	/^const uint8_t c25519_base_x[F25519_SIZE] = {9};$/;"	v
+c25519_base_x	c25519/src/c25519.c	/^const uint8_t c25519_base_x[F25519_SIZE] = {9};$/;"	v
 c25519_prepare	c25519.h	/^static inline void c25519_prepare(uint8_t *key)$/;"	f
+c25519_prepare	c25519/src/c25519.h	/^static inline void c25519_prepare(uint8_t *key)$/;"	f
 c25519_smult	c25519.c	/^void c25519_smult(uint8_t *result, const uint8_t *q, const uint8_t *e)$/;"	f
+c25519_smult	c25519/src/c25519.c	/^void c25519_smult(uint8_t *result, const uint8_t *q, const uint8_t *e)$/;"	f
+callback	er-coap-transactions.h	/^  restful_response_handler callback;$/;"	m	struct:coap_transaction
+callback_data	er-coap-transactions.h	/^  void *callback_data;$/;"	m	struct:coap_transaction
+check_valid	c25519/tests/test_ed25519.c	/^static void check_valid(const uint8_t *x, const uint8_t *y)$/;"	f	file:
+checkmatch	shatest.c	/^int checkmatch(const unsigned char *hashvalue,$/;"	f
+ciphertext	opt-cose.h	/^	uint8_t *ciphertext;$/;"	m	struct:opt_cose_encrypt_t
+ciphertext_len	opt-cose.h	/^	size_t ciphertext_len;$/;"	m	struct:opt_cose_encrypt_t
+classify_notification	er-coap-observe-client.c	/^classify_notification(void *response, int first)$/;"	f	file:
+clear_options	er-oscoap.c	/^void clear_options(coap_packet_t* coap_pkt){$/;"	f
+coap_block1_handler	er-coap-block1.c	/^coap_block1_handler(void *request, void *response, uint8_t *target, size_t *len, size_t max_len)$/;"	f
+coap_blocking_request	er-coap-engine.c	/^PT_THREAD(coap_blocking_request$/;"	f
+coap_blocking_request_callback	er-coap-engine.c	/^coap_blocking_request_callback(void *callback_data, void *response)$/;"	f
+coap_check_transactions	er-coap-transactions.c	/^coap_check_transactions()$/;"	f
+coap_clear_transaction	er-coap-transactions.c	/^coap_clear_transaction(coap_transaction_t *t)$/;"	f
+coap_content_format_t	er-coap-constants.h	/^} coap_content_format_t;$/;"	t	typeref:enum:__anon8
+coap_error_message	er-coap.c	/^char *coap_error_message = "";$/;"	v
+coap_generate_token	er-coap-observe-client.c	/^coap_generate_token(uint8_t **token_ptr)$/;"	f
+coap_get_header_accept	er-coap.c	/^coap_get_header_accept(void *packet, unsigned int *accept)$/;"	f
+coap_get_header_block1	er-coap.c	/^coap_get_header_block1(void *packet, uint32_t *num, uint8_t *more,$/;"	f
+coap_get_header_block2	er-coap.c	/^coap_get_header_block2(void *packet, uint32_t *num, uint8_t *more,$/;"	f
+coap_get_header_content_format	er-coap.c	/^coap_get_header_content_format(void *packet, unsigned int *format)$/;"	f
+coap_get_header_etag	er-coap.c	/^coap_get_header_etag(void *packet, const uint8_t **etag)$/;"	f
+coap_get_header_if_match	er-coap.c	/^coap_get_header_if_match(void *packet, const uint8_t **etag)$/;"	f
+coap_get_header_if_none_match	er-coap.c	/^coap_get_header_if_none_match(void *packet)$/;"	f
+coap_get_header_location_path	er-coap.c	/^coap_get_header_location_path(void *packet, const char **path)$/;"	f
+coap_get_header_location_query	er-coap.c	/^coap_get_header_location_query(void *packet, const char **query)$/;"	f
+coap_get_header_max_age	er-coap.c	/^coap_get_header_max_age(void *packet, uint32_t *age)$/;"	f
+coap_get_header_object_security	er-oscoap.c	/^int coap_get_header_object_security(void* packet, const uint8_t** os_opt){$/;"	f
+coap_get_header_observe	er-coap.c	/^coap_get_header_observe(void *packet, uint32_t *observe)$/;"	f
+coap_get_header_proxy_uri	er-coap.c	/^coap_get_header_proxy_uri(void *packet, const char **uri)$/;"	f
+coap_get_header_size1	er-coap.c	/^coap_get_header_size1(void *packet, uint32_t *size)$/;"	f
+coap_get_header_size2	er-coap.c	/^coap_get_header_size2(void *packet, uint32_t *size)$/;"	f
+coap_get_header_uri_host	er-coap.c	/^coap_get_header_uri_host(void *packet, const char **host)$/;"	f
+coap_get_header_uri_path	er-coap.c	/^coap_get_header_uri_path(void *packet, const char **path)$/;"	f
+coap_get_header_uri_query	er-coap.c	/^coap_get_header_uri_query(void *packet, const char **query)$/;"	f
+coap_get_mid	er-coap.c	/^coap_get_mid()$/;"	f
+coap_get_obs_subject_by_token	er-coap-observe-client.c	/^coap_get_obs_subject_by_token(const uint8_t *token, size_t token_len)$/;"	f
+coap_get_payload	er-coap.c	/^coap_get_payload(void *packet, const uint8_t **payload)$/;"	f
+coap_get_post_variable	er-coap.c	/^coap_get_post_variable(void *packet, const char *name, const char **output)$/;"	f
+coap_get_query_variable	er-coap.c	/^coap_get_query_variable(void *packet, const char *name, const char **output)$/;"	f
+coap_get_rest_method	er-coap-engine.c	/^coap_get_rest_method(void *packet)$/;"	f
+coap_get_transaction_by_mid	er-coap-transactions.c	/^coap_get_transaction_by_mid(uint16_t mid)$/;"	f
+coap_get_variable	er-coap.c	/^coap_get_variable(const char *buffer, size_t length, const char *name,$/;"	f	file:
+coap_handle_notification	er-coap-observe-client.c	/^coap_handle_notification(uip_ipaddr_t *addr, uint16_t port,$/;"	f
+coap_init_connection	er-coap.c	/^coap_init_connection(uint16_t port)$/;"	f
+coap_init_engine	er-coap-engine.c	/^coap_init_engine(void)$/;"	f
+coap_init_message	er-coap.c	/^coap_init_message(void *packet, coap_message_type_t type, uint8_t code,$/;"	f
+coap_is_request	er-oscoap.c	/^uint8_t coap_is_request(coap_packet_t* coap_pkt){$/;"	f
+coap_log_2	er-coap.c	/^coap_log_2(uint16_t value)$/;"	f
+coap_merge_multi_option	er-coap.c	/^coap_merge_multi_option(char **dst, size_t *dst_len, uint8_t *option,$/;"	f
+coap_message_type_t	er-coap-constants.h	/^} coap_message_type_t;$/;"	t	typeref:enum:__anon4
+coap_method_t	er-coap-constants.h	/^} coap_method_t;$/;"	t	typeref:enum:__anon5
+coap_new_transaction	er-coap-transactions.c	/^coap_new_transaction(uint16_t mid, uip_ipaddr_t *addr, uint16_t port)$/;"	f
+coap_notification_flag_t	er-coap-observe-client.h	/^} coap_notification_flag_t;$/;"	t	typeref:enum:__anon1
+coap_notify_observers	er-coap-observe.c	/^coap_notify_observers(resource_t *resource)$/;"	f
+coap_notify_observers_sub	er-coap-observe.c	/^coap_notify_observers_sub(resource_t *resource, const char *subpath)$/;"	f
+coap_obs_add_observee	er-coap-observe-client.c	/^coap_obs_add_observee(uip_ipaddr_t *addr, uint16_t port,$/;"	f
+coap_obs_remove_observee	er-coap-observe-client.c	/^coap_obs_remove_observee(coap_observee_t *o)$/;"	f
+coap_obs_remove_observee_by_token	er-coap-observe-client.c	/^coap_obs_remove_observee_by_token(uip_ipaddr_t *addr, uint16_t port,$/;"	f
+coap_obs_remove_observee_by_url	er-coap-observe-client.c	/^coap_obs_remove_observee_by_url(uip_ipaddr_t *addr, uint16_t port,$/;"	f
+coap_obs_request_registration	er-coap-observe-client.c	/^coap_obs_request_registration(uip_ipaddr_t *addr, uint16_t port, char *uri,$/;"	f
+coap_observable	er-coap-observe.h	/^typedef struct coap_observable {$/;"	s
+coap_observable_t	er-coap-observe.h	/^} coap_observable_t;$/;"	t	typeref:struct:coap_observable
+coap_observe_handler	er-coap-observe.c	/^coap_observe_handler(resource_t *resource, void *request, void *response)$/;"	f
+coap_observee_s	er-coap-observe-client.h	/^struct coap_observee_s {$/;"	s
+coap_observee_t	er-coap-observe-client.h	/^typedef struct coap_observee_s coap_observee_t;$/;"	t	typeref:struct:coap_observee_s
+coap_observer	er-coap-observe.h	/^typedef struct coap_observer {$/;"	s
+coap_observer_t	er-coap-observe.h	/^} coap_observer_t;$/;"	t	typeref:struct:coap_observer
+coap_option_nibble	er-coap.c	/^coap_option_nibble(unsigned int value)$/;"	f	file:
+coap_option_t	er-coap-constants.h	/^} coap_option_t;$/;"	t	typeref:enum:__anon7
+coap_packet_t	er-coap.h	/^} coap_packet_t;$/;"	t	typeref:struct:__anon3
+coap_parse_int_option	er-coap.c	/^coap_parse_int_option(uint8_t *bytes, size_t length)$/;"	f
+coap_parse_message	er-coap.c	/^coap_status_t coap_parse_message(void *packet, uint8_t *data,$/;"	f
+coap_receive	er-coap-engine.c	/^coap_receive(void)$/;"	f	file:
+coap_register_as_transaction_handler	er-coap-transactions.c	/^coap_register_as_transaction_handler()$/;"	f
+coap_remove_observer	er-coap-observe.c	/^coap_remove_observer(coap_observer_t *o)$/;"	f
+coap_remove_observer_by_client	er-coap-observe.c	/^coap_remove_observer_by_client(uip_ipaddr_t *addr, uint16_t port)$/;"	f
+coap_remove_observer_by_mid	er-coap-observe.c	/^coap_remove_observer_by_mid(uip_ipaddr_t *addr, uint16_t port, uint16_t mid)$/;"	f
+coap_remove_observer_by_token	er-coap-observe.c	/^coap_remove_observer_by_token(uip_ipaddr_t *addr, uint16_t port,$/;"	f
+coap_remove_observer_by_uri	er-coap-observe.c	/^coap_remove_observer_by_uri(uip_ipaddr_t *addr, uint16_t port,$/;"	f
+coap_rest_implementation	er-coap-engine.c	/^const struct rest_implementation coap_rest_implementation = {$/;"	v	typeref:struct:rest_implementation
+coap_send_message	er-coap.c	/^coap_send_message(uip_ipaddr_t *addr, uint16_t port, uint8_t *data,$/;"	f
+coap_send_transaction	er-coap-transactions.c	/^coap_send_transaction(coap_transaction_t *t)$/;"	f
+coap_separate	er-coap-separate.h	/^typedef struct coap_separate {$/;"	s
+coap_separate_accept	er-coap-separate.c	/^coap_separate_accept(void *request, coap_separate_t *separate_store)$/;"	f
+coap_separate_reject	er-coap-separate.c	/^coap_separate_reject()$/;"	f
+coap_separate_resume	er-coap-separate.c	/^coap_separate_resume(void *response, coap_separate_t *separate_store,$/;"	f
+coap_separate_t	er-coap-separate.h	/^} coap_separate_t;$/;"	t	typeref:struct:coap_separate
+coap_serialize_array_option	er-coap.c	/^coap_serialize_array_option(unsigned int number, unsigned int current_number,$/;"	f
+coap_serialize_int_option	er-coap.c	/^coap_serialize_int_option(unsigned int number, unsigned int current_number,$/;"	f
+coap_serialize_message	er-coap.c	/^coap_serialize_message(void *packet, uint8_t *buffer){$/;"	f
+coap_serialize_message_coap	er-coap.c	/^coap_serialize_message_coap(void *packet, uint8_t *buffer)$/;"	f
+coap_set_header_accept	er-coap.c	/^coap_set_header_accept(void *packet, unsigned int accept)$/;"	f
+coap_set_header_block1	er-coap.c	/^coap_set_header_block1(void *packet, uint32_t num, uint8_t more,$/;"	f
+coap_set_header_block2	er-coap.c	/^coap_set_header_block2(void *packet, uint32_t num, uint8_t more,$/;"	f
+coap_set_header_content_format	er-coap.c	/^coap_set_header_content_format(void *packet, unsigned int format)$/;"	f
+coap_set_header_etag	er-coap.c	/^coap_set_header_etag(void *packet, const uint8_t *etag, size_t etag_len)$/;"	f
+coap_set_header_if_match	er-coap.c	/^coap_set_header_if_match(void *packet, const uint8_t *etag, size_t etag_len)$/;"	f
+coap_set_header_if_none_match	er-coap.c	/^coap_set_header_if_none_match(void *packet)$/;"	f
+coap_set_header_location_path	er-coap.c	/^coap_set_header_location_path(void *packet, const char *path)$/;"	f
+coap_set_header_location_query	er-coap.c	/^coap_set_header_location_query(void *packet, const char *query)$/;"	f
+coap_set_header_max_age	er-coap.c	/^coap_set_header_max_age(void *packet, uint32_t age)$/;"	f
+coap_set_header_object_security	er-coap.c	/^coap_set_header_object_security(void *packet)$/;"	f
+coap_set_header_object_security_content	er-oscoap.c	/^coap_set_header_object_security_content(void *packet, const uint8_t* os, size_t os_len)$/;"	f
+coap_set_header_observe	er-coap.c	/^coap_set_header_observe(void *packet, uint32_t observe)$/;"	f
+coap_set_header_proxy_uri	er-coap.c	/^coap_set_header_proxy_uri(void *packet, const char *uri)$/;"	f
+coap_set_header_size1	er-coap.c	/^coap_set_header_size1(void *packet, uint32_t size)$/;"	f
+coap_set_header_size2	er-coap.c	/^coap_set_header_size2(void *packet, uint32_t size)$/;"	f
+coap_set_header_uri_host	er-coap.c	/^coap_set_header_uri_host(void *packet, const char *host)$/;"	f
+coap_set_header_uri_path	er-coap.c	/^coap_set_header_uri_path(void *packet, const char *path)$/;"	f
+coap_set_header_uri_query	er-coap.c	/^coap_set_header_uri_query(void *packet, const char *query)$/;"	f
+coap_set_object_security_payload	er-coap.c	/^int coap_set_object_security_payload(void* packet, const uint8_t **os, size_t os_len){$/;"	f
+coap_set_option_header	er-coap.c	/^coap_set_option_header(unsigned int delta, size_t length, uint8_t *buffer)$/;"	f	file:
+coap_set_payload	er-coap.c	/^coap_set_payload(void *packet, const void *payload, size_t length)$/;"	f
+coap_set_service_callback	er-coap-engine.c	/^coap_set_service_callback(service_callback_t callback)$/;"	f
+coap_set_status_code	er-coap.c	/^coap_set_status_code(void *packet, unsigned int code)$/;"	f
+coap_set_token	er-coap.c	/^coap_set_token(void *packet, const uint8_t *token, size_t token_len)$/;"	f
+coap_status_t	er-coap-constants.h	/^} coap_status_t;$/;"	t	typeref:enum:__anon6
+coap_transaction	er-coap-transactions.h	/^typedef struct coap_transaction {$/;"	s
+coap_transaction_t	er-coap-transactions.h	/^} coap_transaction_t;$/;"	t	typeref:struct:coap_transaction
+code	er-coap.h	/^      uint8_t code;$/;"	m	struct:__anon3
+common_context_store	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT *common_context_store = NULL;$/;"	v
+content_format	er-coap.h	/^      uint16_t content_format; \/* parse options once and store; allows setting options in random order  *\/$/;"	m	struct:__anon3
+context	er-coap.h	/^  OSCOAP_COMMON_CONTEXT* context;$/;"	m	struct:__anon3
+cose_aes_ccm_driver	cose-aes-ccm.c	/^const struct cose_aes_ccm_driver cose_aes_ccm_driver = {$/;"	v	typeref:struct:cose_aes_ccm_driver
+cose_aes_ccm_driver	cose-aes-ccm.h	/^struct cose_aes_ccm_driver {$/;"	s
+create_iv	er-oscoap.c	/^void create_iv(uint8_t* iv, uint8_t* out, uint8_t* seq, int seq_len ){$/;"	f
+ctr	cose-aes-ccm.c	/^ctr(const uint8_t *nonce, uint8_t *m, uint8_t m_len)$/;"	f	file:
+ctr_step	cose-aes-ccm.c	/^ctr_step(const uint8_t *nonce,$/;"	f	file:
+ctx	sha.h	/^    } ctx;$/;"	m	struct:USHAContext	typeref:union:USHAContext::__anon11
+current_mid	er-coap.c	/^static uint16_t current_mid = 0;$/;"	v	file:
+curve_d	c25519/tests/test_ed25519.c	/^static const uint8_t curve_d[F25519_SIZE] = {$/;"	v	file:
+data	er-coap-observe-client.h	/^  void *data;                   \/* generic pointer for storing user data *\/$/;"	m	struct:coap_observee_s
+dataarray	shatest.c	/^    const char *dataarray[5];$/;"	m	struct:hmachash	file:
+datalength	shatest.c	/^    int datalength[5];$/;"	m	struct:hmachash	file:
+e	c25519/tests/test_c25519.c	/^	const uint8_t e[C25519_EXPONENT_SIZE];$/;"	m	struct:test_vector	file:
+ed25519_add	c25519/src/ed25519.c	/^void ed25519_add(struct ed25519_pt *r,$/;"	f
 ed25519_add	ed25519.c	/^void ed25519_add(struct ed25519_pt *r,$/;"	f
+ed25519_base	c25519/src/ed25519.c	/^const struct ed25519_pt ed25519_base = {$/;"	v	typeref:struct:ed25519_pt
 ed25519_base	ed25519.c	/^const struct ed25519_pt ed25519_base = {$/;"	v	typeref:struct:ed25519_pt
+ed25519_copy	c25519/src/ed25519.h	/^static inline void ed25519_copy(struct ed25519_pt *dst,$/;"	f
 ed25519_copy	ed25519.h	/^static inline void ed25519_copy(struct ed25519_pt *dst,$/;"	f
+ed25519_d	c25519/src/ed25519.c	/^static const uint8_t ed25519_d[F25519_SIZE] = {$/;"	v	file:
 ed25519_d	ed25519.c	/^static const uint8_t ed25519_d[F25519_SIZE] = {$/;"	v	file:
+ed25519_double	c25519/src/ed25519.c	/^void ed25519_double(struct ed25519_pt *r, const struct ed25519_pt *p)$/;"	f
 ed25519_double	ed25519.c	/^void ed25519_double(struct ed25519_pt *r, const struct ed25519_pt *p)$/;"	f
+ed25519_k	c25519/src/ed25519.c	/^static const uint8_t ed25519_k[F25519_SIZE] = {$/;"	v	file:
 ed25519_k	ed25519.c	/^static const uint8_t ed25519_k[F25519_SIZE] = {$/;"	v	file:
+ed25519_neutral	c25519/src/ed25519.c	/^const struct ed25519_pt ed25519_neutral = {$/;"	v	typeref:struct:ed25519_pt
 ed25519_neutral	ed25519.c	/^const struct ed25519_pt ed25519_neutral = {$/;"	v	typeref:struct:ed25519_pt
+ed25519_order	c25519/src/edsign.c	/^static const uint8_t ed25519_order[FPRIME_SIZE] = {$/;"	v	file:
+ed25519_order	c25519/tests/test_ed25519.c	/^static const uint8_t ed25519_order[ED25519_EXPONENT_SIZE] = {$/;"	v	file:
 ed25519_order	edsign.c	/^static const uint8_t ed25519_order[FPRIME_SIZE] = {$/;"	v	file:
+ed25519_pack	c25519/src/ed25519.c	/^void ed25519_pack(uint8_t *c, const uint8_t *x, const uint8_t *y)$/;"	f
 ed25519_pack	ed25519.c	/^void ed25519_pack(uint8_t *c, const uint8_t *x, const uint8_t *y)$/;"	f
+ed25519_prepare	c25519/src/ed25519.h	/^static inline void ed25519_prepare(uint8_t *e)$/;"	f
 ed25519_prepare	ed25519.h	/^static inline void ed25519_prepare(uint8_t *e)$/;"	f
+ed25519_project	c25519/src/ed25519.c	/^void ed25519_project(struct ed25519_pt *p,$/;"	f
 ed25519_project	ed25519.c	/^void ed25519_project(struct ed25519_pt *p,$/;"	f
+ed25519_pt	c25519/src/ed25519.h	/^struct ed25519_pt {$/;"	s
 ed25519_pt	ed25519.h	/^struct ed25519_pt {$/;"	s
+ed25519_smult	c25519/src/ed25519.c	/^void ed25519_smult(struct ed25519_pt *r_out, const struct ed25519_pt *p,$/;"	f
 ed25519_smult	ed25519.c	/^void ed25519_smult(struct ed25519_pt *r_out, const struct ed25519_pt *p,$/;"	f
+ed25519_try_unpack	c25519/src/ed25519.c	/^uint8_t ed25519_try_unpack(uint8_t *x, uint8_t *y, const uint8_t *comp)$/;"	f
 ed25519_try_unpack	ed25519.c	/^uint8_t ed25519_try_unpack(uint8_t *x, uint8_t *y, const uint8_t *comp)$/;"	f
+ed25519_unproject	c25519/src/ed25519.c	/^void ed25519_unproject(uint8_t *x, uint8_t *y,$/;"	f
 ed25519_unproject	ed25519.c	/^void ed25519_unproject(uint8_t *x, uint8_t *y,$/;"	f
+edsign_sec_to_pub	c25519/src/edsign.c	/^void edsign_sec_to_pub(uint8_t *pub, const uint8_t *secret)$/;"	f
 edsign_sec_to_pub	edsign.c	/^void edsign_sec_to_pub(uint8_t *pub, const uint8_t *secret)$/;"	f
+edsign_sign	c25519/src/edsign.c	/^void edsign_sign(uint8_t *signature, const uint8_t *pub,$/;"	f
 edsign_sign	edsign.c	/^void edsign_sign(uint8_t *signature, const uint8_t *pub,$/;"	f
+edsign_verify	c25519/src/edsign.c	/^uint8_t edsign_verify(const uint8_t *signature, const uint8_t *pub,$/;"	f
 edsign_verify	edsign.c	/^uint8_t edsign_verify(const uint8_t *signature, const uint8_t *pub,$/;"	f
+erbium_status_code	er-coap.c	/^coap_status_t erbium_status_code = NO_ERROR;$/;"	v
+etag	er-coap.h	/^      uint8_t etag[COAP_ETAG_LEN];$/;"	m	struct:__anon3
+etag_len	er-coap.h	/^      uint8_t etag_len;$/;"	m	struct:__anon3
+exp2523	c25519/src/f25519.c	/^static void exp2523(uint8_t *r, const uint8_t *x, uint8_t *s)$/;"	f	file:
 exp2523	f25519.c	/^static void exp2523(uint8_t *r, const uint8_t *x, uint8_t *s)$/;"	f	file:
+expand_key	c25519/src/edsign.c	/^static void expand_key(uint8_t *expanded, const uint8_t *secret)$/;"	f	file:
 expand_key	edsign.c	/^static void expand_key(uint8_t *expanded, const uint8_t *secret)$/;"	f	file:
+external_aad	opt-cose.h	/^	uint8_t *external_aad;$/;"	m	struct:opt_cose_encrypt_t
+external_aad_len	opt-cose.h	/^	size_t external_aad_len;$/;"	m	struct:opt_cose_encrypt_t
+extrabits	shatest.c	/^        int extrabits;$/;"	m	struct:hash::__anon12	file:
+ey2ex	c25519/src/morph25519.c	/^static uint8_t ey2ex(uint8_t *x, const uint8_t *y, int parity)$/;"	f	file:
 ey2ex	morph25519.c	/^static uint8_t ey2ex(uint8_t *x, const uint8_t *y, int parity)$/;"	f	file:
+f25519_add	c25519/src/f25519.c	/^void f25519_add(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
 f25519_add	f25519.c	/^void f25519_add(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_copy	c25519/src/f25519.h	/^static inline void f25519_copy(uint8_t *x, const uint8_t *a)$/;"	f
 f25519_copy	f25519.h	/^static inline void f25519_copy(uint8_t *x, const uint8_t *a)$/;"	f
+f25519_eq	c25519/src/f25519.c	/^uint8_t f25519_eq(const uint8_t *x, const uint8_t *y)$/;"	f
 f25519_eq	f25519.c	/^uint8_t f25519_eq(const uint8_t *x, const uint8_t *y)$/;"	f
+f25519_inv	c25519/src/f25519.c	/^void f25519_inv(uint8_t *r, const uint8_t *x)$/;"	f
 f25519_inv	f25519.c	/^void f25519_inv(uint8_t *r, const uint8_t *x)$/;"	f
+f25519_inv__distinct	c25519/src/f25519.c	/^void f25519_inv__distinct(uint8_t *r, const uint8_t *x)$/;"	f
 f25519_inv__distinct	f25519.c	/^void f25519_inv__distinct(uint8_t *r, const uint8_t *x)$/;"	f
+f25519_load	c25519/src/f25519.c	/^void f25519_load(uint8_t *x, uint32_t c)$/;"	f
 f25519_load	f25519.c	/^void f25519_load(uint8_t *x, uint32_t c)$/;"	f
+f25519_mul	c25519/src/f25519.c	/^void f25519_mul(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
 f25519_mul	f25519.c	/^void f25519_mul(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_mul__distinct	c25519/src/f25519.c	/^void f25519_mul__distinct(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
 f25519_mul__distinct	f25519.c	/^void f25519_mul__distinct(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_mul_c	c25519/src/f25519.c	/^void f25519_mul_c(uint8_t *r, const uint8_t *a, uint32_t b)$/;"	f
 f25519_mul_c	f25519.c	/^void f25519_mul_c(uint8_t *r, const uint8_t *a, uint32_t b)$/;"	f
+f25519_neg	c25519/src/f25519.c	/^void f25519_neg(uint8_t *r, const uint8_t *a)$/;"	f
 f25519_neg	f25519.c	/^void f25519_neg(uint8_t *r, const uint8_t *a)$/;"	f
+f25519_normalize	c25519/src/f25519.c	/^void f25519_normalize(uint8_t *x)$/;"	f
 f25519_normalize	f25519.c	/^void f25519_normalize(uint8_t *x)$/;"	f
+f25519_one	c25519/src/f25519.c	/^const uint8_t f25519_one[F25519_SIZE] = {1};$/;"	v
 f25519_one	f25519.c	/^const uint8_t f25519_one[F25519_SIZE] = {1};$/;"	v
+f25519_select	c25519/src/f25519.c	/^void f25519_select(uint8_t *dst,$/;"	f
 f25519_select	f25519.c	/^void f25519_select(uint8_t *dst,$/;"	f
+f25519_sqrt	c25519/src/f25519.c	/^void f25519_sqrt(uint8_t *r, const uint8_t *a)$/;"	f
 f25519_sqrt	f25519.c	/^void f25519_sqrt(uint8_t *r, const uint8_t *a)$/;"	f
+f25519_sub	c25519/src/f25519.c	/^void f25519_sub(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
 f25519_sub	f25519.c	/^void f25519_sub(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_zero	c25519/src/f25519.c	/^const uint8_t f25519_zero[F25519_SIZE] = {0};$/;"	v
 f25519_zero	f25519.c	/^const uint8_t f25519_zero[F25519_SIZE] = {0};$/;"	v
+findhash	shatest.c	/^int findhash(const char *argv0, const char *opt)$/;"	f
+fprime_add	c25519/src/fprime.c	/^void fprime_add(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
 fprime_add	fprime.c	/^void fprime_add(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
+fprime_copy	c25519/src/fprime.h	/^static inline void fprime_copy(uint8_t *x, const uint8_t *a)$/;"	f
 fprime_copy	fprime.h	/^static inline void fprime_copy(uint8_t *x, const uint8_t *a)$/;"	f
+fprime_eq	c25519/src/fprime.c	/^uint8_t fprime_eq(const uint8_t *x, const uint8_t *y)$/;"	f
 fprime_eq	fprime.c	/^uint8_t fprime_eq(const uint8_t *x, const uint8_t *y)$/;"	f
+fprime_from_bytes	c25519/src/fprime.c	/^void fprime_from_bytes(uint8_t *n,$/;"	f
 fprime_from_bytes	fprime.c	/^void fprime_from_bytes(uint8_t *n,$/;"	f
+fprime_inv	c25519/src/fprime.c	/^void fprime_inv(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
 fprime_inv	fprime.c	/^void fprime_inv(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
+fprime_load	c25519/src/fprime.c	/^void fprime_load(uint8_t *x, uint32_t c)$/;"	f
 fprime_load	fprime.c	/^void fprime_load(uint8_t *x, uint32_t c)$/;"	f
+fprime_mul	c25519/src/fprime.c	/^void fprime_mul(uint8_t *r, const uint8_t *a, const uint8_t *b,$/;"	f
 fprime_mul	fprime.c	/^void fprime_mul(uint8_t *r, const uint8_t *a, const uint8_t *b,$/;"	f
+fprime_normalize	c25519/src/fprime.c	/^void fprime_normalize(uint8_t *x, const uint8_t *modulus)$/;"	f
 fprime_normalize	fprime.c	/^void fprime_normalize(uint8_t *x, const uint8_t *modulus)$/;"	f
+fprime_one	c25519/src/fprime.c	/^const uint8_t fprime_one[FPRIME_SIZE] = {1};$/;"	v
 fprime_one	fprime.c	/^const uint8_t fprime_one[FPRIME_SIZE] = {1};$/;"	v
+fprime_select	c25519/src/fprime.c	/^void fprime_select(uint8_t *dst,$/;"	f
 fprime_select	fprime.c	/^void fprime_select(uint8_t *dst,$/;"	f
+fprime_sub	c25519/src/fprime.c	/^void fprime_sub(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
 fprime_sub	fprime.c	/^void fprime_sub(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
+fprime_zero	c25519/src/fprime.c	/^const uint8_t fprime_zero[FPRIME_SIZE] = {0};$/;"	v
 fprime_zero	fprime.c	/^const uint8_t fprime_zero[FPRIME_SIZE] = {0};$/;"	v
+generate_k	c25519/src/edsign.c	/^static void generate_k(uint8_t *k, const uint8_t *kgen_key,$/;"	f	file:
 generate_k	edsign.c	/^static void generate_k(uint8_t *k, const uint8_t *kgen_key,$/;"	f	file:
+get_rand_second	er-coap-engine.c	/^get_rand_second(void)$/;"	f
+get_token	er-coap-observe-client.c	/^get_token(void *packet, const uint8_t **token)$/;"	f	file:
+h	c25519/src/sha512.h	/^	uint64_t	h[8];$/;"	m	struct:sha512_state
 h	sha512.h	/^	uint64_t	h[8];$/;"	m	struct:sha512_state
+handle_obs_registration_response	er-coap-observe-client.c	/^handle_obs_registration_response(void *data, void *response)$/;"	f	file:
+hash	c25519/tests/test_sha512.c	/^	uint8_t		hash[SHA512_HASH_SIZE];$/;"	m	struct:test_vector	file:
+hash	shatest.c	/^int hash(int testno, int loopno, int hashno,$/;"	f
+hash	shatest.c	/^struct hash {$/;"	s	file:
+hashHkdf	shatest.c	/^int hashHkdf(int testno, int loopno, int hashno,$/;"	f
+hashSize	sha.h	/^    int hashSize;               \/* hash size of SHA being used *\/$/;"	m	struct:HKDFContext
+hashSize	sha.h	/^    int hashSize;               \/* hash size of SHA being used *\/$/;"	m	struct:HMACContext
+hash_message	c25519/src/edsign.c	/^static void hash_message(uint8_t *z, const uint8_t *r, const uint8_t *a,$/;"	f	file:
 hash_message	edsign.c	/^static void hash_message(uint8_t *z, const uint8_t *r, const uint8_t *a,$/;"	f	file:
+hash_with_prefix	c25519/src/edsign.c	/^static void hash_with_prefix(uint8_t *out_fp,$/;"	f	file:
 hash_with_prefix	edsign.c	/^static void hash_with_prefix(uint8_t *out_fp,$/;"	f	file:
+hashes	shatest.c	/^} hashes[HASHCOUNT] = {$/;"	v	typeref:struct:hash
+hashfile	shatest.c	/^int hashfile(int hashno, const char *hashfilename, int bits,$/;"	f
+hashsize	shatest.c	/^    int hashsize;$/;"	m	struct:hash	file:
+hexdigits	shatest.c	/^static const char hexdigits[ ] = "0123456789ABCDEF";$/;"	v	file:
+hkdf	hkdf.c	/^int hkdf(SHAversion whichSha,$/;"	f
+hkdfExpand	hkdf.c	/^int hkdfExpand(SHAversion whichSha, const uint8_t prk[ ], int prk_len,$/;"	f
+hkdfExtract	hkdf.c	/^int hkdfExtract(SHAversion whichSha,$/;"	f
+hkdfFinalBits	hkdf.c	/^int hkdfFinalBits(HKDFContext *context, uint8_t ikm_bits,$/;"	f
+hkdfInput	hkdf.c	/^int hkdfInput(HKDFContext *context, const unsigned char *ikm,$/;"	f
+hkdfReset	hkdf.c	/^int hkdfReset(HKDFContext *context, enum SHAversion whichSha,$/;"	f
+hkdfResult	hkdf.c	/^int hkdfResult(HKDFContext *context,$/;"	f
+hkdfhash	shatest.c	/^struct hkdfhash {$/;"	s	file:
+hkdfhashes	shatest.c	/^} hkdfhashes[HKDFTESTCOUNT] = {$/;"	v	typeref:struct:hkdfhash
+hmac	hmac.c	/^int hmac(SHAversion whichSha,$/;"	f
+hmacContext	sha.h	/^    HMACContext hmacContext;$/;"	m	struct:HKDFContext
+hmacFinalBits	hmac.c	/^int hmacFinalBits(HMACContext *context,$/;"	f
+hmacInput	hmac.c	/^int hmacInput(HMACContext *context, const unsigned char *text,$/;"	f
+hmacReset	hmac.c	/^int hmacReset(HMACContext *context, enum SHAversion whichSha,$/;"	f
+hmacResult	hmac.c	/^int hmacResult(HMACContext *context, uint8_t *digest)$/;"	f
+hmachash	shatest.c	/^struct hmachash {$/;"	s	file:
+hmachashes	shatest.c	/^} hmachashes[HMACTESTCOUNT] = {$/;"	v	typeref:struct:hmachash
+if_match	er-coap.h	/^      uint8_t if_match[COAP_ETAG_LEN];$/;"	m	struct:__anon3
+if_match_len	er-coap.h	/^      uint8_t if_match_len;$/;"	m	struct:__anon3
+if_none_match	er-coap.h	/^  uint8_t if_none_match;$/;"	m	struct:__anon3
+ikmarray	shatest.c	/^    const char *ikmarray;$/;"	m	struct:hkdfhash	file:
+ikmlength	shatest.c	/^    int ikmlength;$/;"	m	struct:hkdfhash	file:
+infoarray	shatest.c	/^    const char *infoarray;$/;"	m	struct:hkdfhash	file:
+infolength	shatest.c	/^    int infolength;$/;"	m	struct:hkdfhash	file:
+ipaddr	er-coap.h	/^  uip_ipaddr_t* ipaddr;$/;"	m	struct:__anon3
+join_mcast_group	er-coap.c	/^join_mcast_group(void)$/;"	f	file:
+k_opad	sha.h	/^    unsigned char k_opad[USHA_Max_Message_Block_Size];$/;"	m	struct:HMACContext
+keyarray	shatest.c	/^    const char *keyarray[5];$/;"	m	struct:hmachash	file:
+keylength	shatest.c	/^    int keylength[5];$/;"	m	struct:hmachash	file:
+kid	opt-cose.h	/^	uint8_t* kid; \/\/protected - only if message is request$/;"	m	struct:opt_cose_encrypt_t
+kid_len	opt-cose.h	/^	size_t kid_len;$/;"	m	struct:opt_cose_encrypt_t
+last_mid	er-coap-observe.h	/^  uint16_t last_mid;$/;"	m	struct:coap_observer
+last_observe	er-coap-observe-client.h	/^  uint32_t last_observe;$/;"	m	struct:coap_observee_s
+length	shatest.c	/^        int length;$/;"	m	struct:hash::__anon12	file:
+length	shatest.c	226;"	d	file:
+load64	c25519/src/sha512.c	/^static inline uint64_t load64(const uint8_t *x)$/;"	f	file:
 load64	sha512.c	/^static inline uint64_t load64(const uint8_t *x)$/;"	f	file:
+location_path	er-coap.h	/^      const char *location_path;$/;"	m	struct:__anon3
+location_path_len	er-coap.h	/^      size_t location_path_len;$/;"	m	struct:__anon3
+location_query	er-coap.h	/^      const char *location_query;$/;"	m	struct:__anon3
+location_query_len	er-coap.h	/^      size_t location_query_len;$/;"	m	struct:__anon3
+main	c25519/tests/test_c25519.c	/^int main(void)$/;"	f
+main	c25519/tests/test_ed25519.c	/^int main(void)$/;"	f
+main	c25519/tests/test_edsign.c	/^int main(void)$/;"	f
+main	c25519/tests/test_f25519.c	/^int main(void)$/;"	f
+main	c25519/tests/test_fprime.c	/^int main(void)$/;"	f
+main	c25519/tests/test_morph25519.c	/^int main(void)$/;"	f
+main	c25519/tests/test_sha512.c	/^int main(void)$/;"	f
+main	shatest.c	/^int main(int argc, char **argv)$/;"	f
+max_age	er-coap.h	/^      uint32_t max_age;$/;"	m	struct:__anon3
+message	c25519/tests/test_edsign.c	/^	const uint8_t	message[MAX_MSG_SIZE];$/;"	m	struct:test_vector	file:
+mic	cose-aes-ccm.c	/^mic(const uint8_t *nonce,$/;"	f	file:
+mid	er-coap-separate.h	/^  uint16_t mid;$/;"	m	struct:coap_separate
+mid	er-coap-transactions.h	/^  uint16_t mid;$/;"	m	struct:coap_transaction
+mid	er-coap.h	/^      uint16_t mid;$/;"	m	struct:__anon3
+min_int	c25519/src/fprime.c	/^static inline int min_int(int a, int b)$/;"	f	file:
 min_int	fprime.c	/^static inline int min_int(int a, int b)$/;"	f	file:
+mlen	c25519/tests/test_edsign.c	/^	size_t		mlen;$/;"	m	struct:test_vector	file:
+modulus	c25519/tests/test_fprime.c	/^static const uint8_t modulus[FPRIME_SIZE] = {$/;"	v	file:
+morph25519_e2m	c25519/src/morph25519.c	/^void morph25519_e2m(uint8_t *montgomery, const uint8_t *y)$/;"	f
 morph25519_e2m	morph25519.c	/^void morph25519_e2m(uint8_t *montgomery, const uint8_t *y)$/;"	f
+morph25519_eparity	c25519/src/morph25519.h	/^static inline int morph25519_eparity(const uint8_t *edwards_x)$/;"	f
 morph25519_eparity	morph25519.h	/^static inline int morph25519_eparity(const uint8_t *edwards_x)$/;"	f
+morph25519_m2e	c25519/src/morph25519.c	/^uint8_t morph25519_m2e(uint8_t *ex, uint8_t *ey,$/;"	f
 morph25519_m2e	morph25519.c	/^uint8_t morph25519_m2e(uint8_t *ex, uint8_t *ey,$/;"	f
+mx2ey	c25519/src/morph25519.c	/^static void mx2ey(uint8_t *ey, const uint8_t *mx)$/;"	f	file:
 mx2ey	morph25519.c	/^static void mx2ey(uint8_t *ey, const uint8_t *mx)$/;"	f	file:
+name	shatest.c	/^    const char *name;$/;"	m	struct:hash	file:
+next	er-coap-observe-client.h	/^  coap_observee_t *next;        \/* for LIST *\/$/;"	m	struct:coap_observee_s
+next	er-coap-observe.h	/^  struct coap_observer *next;   \/* for LIST *\/$/;"	m	struct:coap_observer	typeref:struct:coap_observer::coap_observer
+next	er-coap-transactions.h	/^  struct coap_transaction *next;        \/* for LIST *\/$/;"	m	struct:coap_transaction	typeref:struct:coap_transaction::coap_transaction
+nonce	opt-cose.h	/^	uint8_t *nonce;$/;"	m	struct:opt_cose_encrypt_t
+nonce_len	opt-cose.h	/^	size_t nonce_len;$/;"	m	struct:opt_cose_encrypt_t
+notification	er-coap-observe.h	/^  coap_packet_t notification;$/;"	m	struct:coap_observable
+notification_callback	er-coap-observe-client.h	/^  notification_callback_t notification_callback;$/;"	m	struct:coap_observee_s
+notification_callback_t	er-coap-observe-client.h	/^typedef void (*notification_callback_t)(coap_observee_t *subject,$/;"	t
+numberExtrabits	shatest.c	/^        int numberExtrabits;$/;"	m	struct:hash::__anon12	file:
+object_security	er-coap.h	/^  uint8_t* object_security;$/;"	m	struct:__anon3
+object_security_len	er-coap.h	/^  size_t object_security_len;$/;"	m	struct:__anon3
+obs_counter	er-coap-observe.h	/^  int32_t obs_counter;$/;"	m	struct:coap_observer
+obs_subjects_list	er-coap-observe-client.c	/^LIST(obs_subjects_list);$/;"	v
+observe	er-coap.h	/^      int32_t observe;$/;"	m	struct:__anon3
+observe_clock	er-coap-observe.h	/^  uint32_t observe_clock;$/;"	m	struct:coap_observable
+observers	er-coap-observe.h	/^  list_t observers;$/;"	m	struct:coap_observable
+observers_list	er-coap-observe.c	/^LIST(observers_list);$/;"	v
+okmarray	shatest.c	/^    const char *okmarray;$/;"	m	struct:hkdfhash	file:
+okmlength	shatest.c	/^    int okmlength;$/;"	m	struct:hkdfhash	file:
+opt_cose_encrypt_t	opt-cose.h	/^typedef struct opt_cose_encrypt_t{$/;"	s
+opt_cose_encrypt_t	opt-cose.h	/^} opt_cose_encrypt_t;$/;"	t	typeref:struct:opt_cose_encrypt_t
+options	er-coap.h	/^      uint8_t options[COAP_OPTION_SIZE1 \/ OPTION_MAP_SIZE + 1]; \/* bitmap to check if option is set *\/$/;"	m	struct:__anon3
+orphan_timer	er-coap-observe.h	/^  struct stimer orphan_timer;$/;"	m	struct:coap_observable	typeref:struct:coap_observable::stimer
+oscoap_ctx_store_init	er-oscoap.c	/^void oscoap_ctx_store_init(){$/;"	f
+oscoap_decode_packet	er-oscoap.c	/^coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){$/;"	f
+oscoap_external_aad_size	er-oscoap.c	/^size_t oscoap_external_aad_size(coap_packet_t* coap_pkt){$/;"	f
+oscoap_find_ctx_by_cid	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT* oscoap_find_ctx_by_cid(uint8_t* cid){$/;"	f
+oscoap_free_ctx	er-oscoap.c	/^int oscoap_free_ctx(OSCOAP_COMMON_CONTEXT *ctx){$/;"	f
+oscoap_increment_sender_seq	er-oscoap.c	/^void oscoap_increment_sender_seq(OSCOAP_COMMON_CONTEXT* ctx){$/;"	f
+oscoap_new_ctx	er-oscoap.c	/^OSCOAP_COMMON_CONTEXT* oscoap_new_ctx(void){$/;"	f
+oscoap_prepare_message	er-oscoap.c	/^size_t oscoap_prepare_message(void* packet, uint8_t *buffer){$/;"	f
+oscoap_prepare_plaintext	er-oscoap.c	/^size_t oscoap_prepare_plaintext(void* packet, uint8_t* plaintext_buffer){$/;"	f
+oscoap_prepare_request_external_aad	er-oscoap.c	/^size_t oscoap_prepare_request_external_aad(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t sender){$/;"	f
+oscoap_prepare_response_external_aad	er-oscoap.c	/^size_t  oscoap_prepare_response_external_aad(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t sender){$/;"	f
+oscoap_prepare_tid	er-oscoap.c	/^uint8_t oscoap_prepare_tid(uint8_t* buffer, OSCOAP_COMMON_CONTEXT* ctx, uint8_t sending){$/;"	f
+oscoap_prepare_unencrypted_uri	er-oscoap.c	/^size_t oscoap_prepare_unencrypted_uri(coap_packet_t* coap_pkt, uint8_t* buffer, uint8_t sender){$/;"	f
+oscoap_printf_bin	er-oscoap.c	/^void oscoap_printf_bin(unsigned char *data, unsigned int len){$/;"	f
+oscoap_printf_char	er-oscoap.c	/^void oscoap_printf_char(unsigned char *data, unsigned int len){$/;"	f
+oscoap_printf_hex	er-oscoap.c	/^void oscoap_printf_hex(unsigned char *data, unsigned int len){$/;"	f
+oscoap_restore_packet	er-oscoap.c	/^void oscoap_restore_packet(void* packet){$/;"	f
+oscoap_set_ctx	er-oscoap.c	/^void oscoap_set_ctx(int sender) {$/;"	f
+oscoap_validate_receiver_seq	er-oscoap.c	/^uint8_t oscoap_validate_receiver_seq(OSCOAP_COMMON_CONTEXT* ctx, opt_cose_encrypt_t *cose){$/;"	f
+p	c25519/tests/test_c25519.c	/^	const uint8_t p[F25519_SIZE];$/;"	m	struct:test_vector	file:
+packet	er-coap-transactions.h	/^  uint8_t packet[COAP_MAX_PACKET_SIZE + 1];     \/* +1 for the terminating '\\0' which will not be sent$/;"	m	struct:coap_transaction
+packet_len	er-coap-transactions.h	/^  uint16_t packet_len;$/;"	m	struct:coap_transaction
+parse_int	er-oscoap.c	/^void parse_int(uint32_t in, uint8_t* bytes, int out_len){ $/;"	f
+partial_iv	opt-cose.h	/^	uint8_t *partial_iv; \/\/protected$/;"	m	struct:opt_cose_encrypt_t
+partial_iv_len	opt-cose.h	/^	size_t partial_iv_len;$/;"	m	struct:opt_cose_encrypt_t
+payload	er-coap.h	/^  uint8_t *payload;$/;"	m	struct:__anon3
+payload_len	er-coap.h	/^  uint16_t payload_len;$/;"	m	struct:__anon3
+plaintext	opt-cose.h	/^	uint8_t *plaintext;$/;"	m	struct:opt_cose_encrypt_t
+plaintext_len	opt-cose.h	/^	size_t plaintext_len;$/;"	m	struct:opt_cose_encrypt_t
+port	er-coap-observe-client.h	/^  uint16_t port;$/;"	m	struct:coap_observee_s
+port	er-coap-observe.h	/^  uint16_t port;$/;"	m	struct:coap_observer
+port	er-coap-separate.h	/^  uint16_t port;$/;"	m	struct:coap_separate
+port	er-coap-transactions.h	/^  uint16_t port;$/;"	m	struct:coap_transaction
+pp	c25519/src/edsign.c	/^static void pp(uint8_t *packed, const struct ed25519_pt *p)$/;"	f	file:
 pp	edsign.c	/^static void pp(uint8_t *packed, const struct ed25519_pt *p)$/;"	f	file:
+prime_msb	c25519/src/fprime.c	/^static int prime_msb(const uint8_t *p)$/;"	f	file:
 prime_msb	fprime.c	/^static int prime_msb(const uint8_t *p)$/;"	f	file:
+printResult	shatest.c	/^void printResult(uint8_t *Message_Digest, int hashsize,$/;"	f
+print_elem	c25519/tests/test_morph25519.c	/^static void print_elem(const uint8_t *e)$/;"	f	file:
+print_hex	c25519/tests/test_edsign.c	/^static void print_hex(const char *label, const uint8_t *data, int len)$/;"	f	file:
+print_point	c25519/tests/test_ed25519.c	/^static void print_point(const uint8_t *x, const uint8_t *y)$/;"	f	file:
+printstr	shatest.c	/^void printstr(const char *str, int len)$/;"	f
+printxstr	shatest.c	/^void printxstr(const char *str, int len)$/;"	f
+prk	sha.h	/^    unsigned char prk[USHAMaxHashSize];$/;"	m	struct:HKDFContext
+prkarray	shatest.c	/^    const char *prkarray;$/;"	m	struct:hkdfhash	file:
+prklength	shatest.c	/^    int prklength;$/;"	m	struct:hkdfhash	file:
+process	er-coap-engine.h	/^  struct process *process;$/;"	m	struct:request_state_t	typeref:struct:request_state_t::process
+proxy_scheme	er-coap.h	/^      const char *proxy_scheme;$/;"	m	struct:__anon3
+proxy_scheme_len	er-coap.h	/^      size_t proxy_scheme_len;$/;"	m	struct:__anon3
+proxy_uri	er-coap.h	/^      const char *proxy_uri;$/;"	m	struct:__anon3
+proxy_uri_len	er-coap.h	/^      size_t proxy_uri_len;$/;"	m	struct:__anon3
+pt	er-coap-engine.h	/^  struct pt pt;$/;"	m	struct:request_state_t	typeref:struct:request_state_t::pt
+public	c25519/tests/test_edsign.c	/^	const uint8_t	public[EDSIGN_PUBLIC_KEY_SIZE];$/;"	m	struct:test_vector	file:
+r	c25519/tests/test_c25519.c	/^	const uint8_t r[F25519_SIZE];$/;"	m	struct:test_vector	file:
+randomize	c25519/tests/test_f25519.c	/^static void randomize(uint8_t *x)$/;"	f	file:
+randomize	c25519/tests/test_fprime.c	/^static void randomize(uint8_t *x)$/;"	f	file:
+randomresults	shatest.c	/^    const char *randomresults[RANDOMCOUNT];$/;"	m	struct:hash	file:
+randomtest	shatest.c	/^    const char *randomtest;$/;"	m	struct:hash	file:
+randomtest	shatest.c	/^void randomtest(int hashno, const char *seed, int hashsize,$/;"	f
+raw_add	c25519/src/fprime.c	/^static void raw_add(uint8_t *x, const uint8_t *p)$/;"	f	file:
 raw_add	fprime.c	/^static void raw_add(uint8_t *x, const uint8_t *p)$/;"	f	file:
+raw_try_sub	c25519/src/fprime.c	/^static void raw_try_sub(uint8_t *x, const uint8_t *p)$/;"	f	file:
 raw_try_sub	fprime.c	/^static void raw_try_sub(uint8_t *x, const uint8_t *p)$/;"	f	file:
+repeatcount	shatest.c	/^        long repeatcount;$/;"	m	struct:hash::__anon12	file:
+request_state_t	er-coap-engine.h	/^struct request_state_t {$/;"	s
+response	er-coap-engine.h	/^  coap_packet_t *response;$/;"	m	struct:request_state_t
+rest_request_t	er-coap-engine.h	/^typedef coap_packet_t rest_request_t;$/;"	t
+rest_response_t	er-coap-engine.h	/^typedef coap_packet_t rest_response_t;$/;"	t
+resultarray	shatest.c	/^        const char *resultarray;$/;"	m	struct:hash::__anon12	file:
+resultarray	shatest.c	/^    const char *resultarray[5];$/;"	m	struct:hmachash	file:
+resultlength	shatest.c	/^    int resultlength[5];$/;"	m	struct:hmachash	file:
+retrans_counter	er-coap-observe.h	/^  uint8_t retrans_counter;$/;"	m	struct:coap_observer
+retrans_counter	er-coap-transactions.h	/^  uint8_t retrans_counter;$/;"	m	struct:coap_transaction
+retrans_timer	er-coap-observe.h	/^  struct etimer retrans_timer;$/;"	m	struct:coap_observer	typeref:struct:coap_observer::etimer
+retrans_timer	er-coap-transactions.h	/^  struct etimer retrans_timer;$/;"	m	struct:coap_transaction	typeref:struct:coap_transaction::etimer
+rot64	c25519/src/sha512.c	/^static inline uint64_t rot64(uint64_t x, int bits)$/;"	f	file:
 rot64	sha512.c	/^static inline uint64_t rot64(uint64_t x, int bits)$/;"	f	file:
+round_k	c25519/src/sha512.c	/^static const uint64_t round_k[80] = {$/;"	v	file:
 round_k	sha512.c	/^static const uint64_t round_k[80] = {$/;"	v	file:
+saltarray	shatest.c	/^    const char *saltarray;$/;"	m	struct:hkdfhash	file:
+saltlength	shatest.c	/^    int saltlength;$/;"	m	struct:hkdfhash	file:
+scasecmp	shatest.c	/^int scasecmp(const char *s1, const char *s2)$/;"	f
+secret	c25519/tests/test_edsign.c	/^	const uint8_t	secret[EDSIGN_SECRET_KEY_SIZE];$/;"	m	struct:test_vector	file:
+serialized_len	opt-cose.h	/^	size_t serialized_len;$/;"	m	struct:opt_cose_encrypt_t
+service_cbk	er-coap-engine.c	/^static service_callback_t service_cbk = NULL;$/;"	v	file:
+set_iv	cose-aes-ccm.c	/^set_iv(uint8_t *iv,$/;"	f	file:
+set_key	cose-aes-ccm.c	/^set_key(const uint8_t *key)$/;"	f	file:
+set_key	cose-aes-ccm.h	/^  void (* set_key)(const uint8_t* key);$/;"	m	struct:cose_aes_ccm_driver
+set_token	er-coap-observe-client.c	/^set_token(void *packet, const uint8_t *token, size_t token_len)$/;"	f	file:
+sha1Context	sha.h	/^      SHA1Context sha1Context;$/;"	m	union:USHAContext::__anon11
+sha224Context	sha.h	/^      SHA224Context sha224Context; SHA256Context sha256Context;$/;"	m	union:USHAContext::__anon11
+sha256Context	sha.h	/^      SHA224Context sha224Context; SHA256Context sha256Context;$/;"	m	union:USHAContext::__anon11
+sha384Context	sha.h	/^      SHA384Context sha384Context; SHA512Context sha512Context;$/;"	m	union:USHAContext::__anon11
+sha512Context	sha.h	/^      SHA384Context sha384Context; SHA512Context sha512Context;$/;"	m	union:USHAContext::__anon11
+sha512_block	c25519/src/sha512.c	/^void sha512_block(struct sha512_state *s, const uint8_t *blk)$/;"	f
 sha512_block	sha512.c	/^void sha512_block(struct sha512_state *s, const uint8_t *blk)$/;"	f
+sha512_final	c25519/src/sha512.c	/^void sha512_final(struct sha512_state *s, const uint8_t *blk,$/;"	f
 sha512_final	sha512.c	/^void sha512_final(struct sha512_state *s, const uint8_t *blk,$/;"	f
+sha512_get	c25519/src/sha512.c	/^void sha512_get(const struct sha512_state *s, uint8_t *hash,$/;"	f
 sha512_get	sha512.c	/^void sha512_get(const struct sha512_state *s, uint8_t *hash,$/;"	f
+sha512_init	c25519/src/sha512.h	/^static inline void sha512_init(struct sha512_state *s)$/;"	f
 sha512_init	sha512.h	/^static inline void sha512_init(struct sha512_state *s)$/;"	f
+sha512_initial_state	c25519/src/sha512.c	/^const struct sha512_state sha512_initial_state = { {$/;"	v	typeref:struct:sha512_state
 sha512_initial_state	sha512.c	/^const struct sha512_state sha512_initial_state = { {$/;"	v	typeref:struct:sha512_state
+sha512_state	c25519/src/sha512.h	/^struct sha512_state {$/;"	s
 sha512_state	sha512.h	/^struct sha512_state {$/;"	s
+shaBadParam	sha.h	/^    shaBadParam         \/* passed a bad parameter *\/$/;"	e	enum:__anon9
+shaContext	sha.h	/^    USHAContext shaContext;     \/* SHA context *\/$/;"	m	struct:HMACContext
+shaInputTooLong	sha.h	/^    shaInputTooLong,    \/* input data too long *\/$/;"	e	enum:__anon9
+shaNull	sha.h	/^    shaNull,            \/* Null pointer parameter *\/$/;"	e	enum:__anon9
+shaStateError	sha.h	/^    shaStateError,      \/* called Input after FinalBits or Result *\/$/;"	e	enum:__anon9
+shaSuccess	sha.h	/^    shaSuccess = 0,$/;"	e	enum:__anon9
+shift_n_bits	c25519/src/fprime.c	/^static void shift_n_bits(uint8_t *x, int n)$/;"	f	file:
 shift_n_bits	fprime.c	/^static void shift_n_bits(uint8_t *x, int n)$/;"	f	file:
+sid	opt-cose.h	/^	uint8_t* sid; \/\/protected optional$/;"	m	struct:opt_cose_encrypt_t
+sid_len	opt-cose.h	/^	size_t 	 sid_len;$/;"	m	struct:opt_cose_encrypt_t
+sigma0_temp1	sha384-512.c	/^static uint32_t sigma0_temp1[2], sigma0_temp2[2],$/;"	v	file:
+sigma0_temp2	sha384-512.c	/^static uint32_t sigma0_temp1[2], sigma0_temp2[2],$/;"	v	file:
+sigma0_temp3	sha384-512.c	/^  sigma0_temp3[2], sigma0_temp4[2];$/;"	v	file:
+sigma0_temp4	sha384-512.c	/^  sigma0_temp3[2], sigma0_temp4[2];$/;"	v	file:
+sigma1_temp1	sha384-512.c	/^static uint32_t sigma1_temp1[2], sigma1_temp2[2],$/;"	v	file:
+sigma1_temp2	sha384-512.c	/^static uint32_t sigma1_temp1[2], sigma1_temp2[2],$/;"	v	file:
+sigma1_temp3	sha384-512.c	/^  sigma1_temp3[2], sigma1_temp4[2];$/;"	v	file:
+sigma1_temp4	sha384-512.c	/^  sigma1_temp3[2], sigma1_temp4[2];$/;"	v	file:
+signature	c25519/tests/test_edsign.c	/^	const uint8_t	signature[EDSIGN_SIGNATURE_SIZE];$/;"	m	struct:test_vector	file:
+signature	opt-cose.h	/^  uint8_t *signature;$/;"	m	struct:opt_cose_encrypt_t
+signature_fix	er-oscoap.c	/^uint8_t signature_fix[64] = {$/;"	v
+signature_len	opt-cose.h	/^  size_t signature_len;$/;"	m	struct:opt_cose_encrypt_t
+simple_reply	er-coap-observe-client.c	/^simple_reply(coap_message_type_t type, uip_ip6addr_t *addr, uint16_t port,$/;"	f	file:
+size1	er-coap.h	/^  uint32_t size1;$/;"	m	struct:__anon3
+size2	er-coap.h	/^      uint32_t size2;$/;"	m	struct:__anon3
+sm_pack	c25519/src/edsign.c	/^static void sm_pack(uint8_t *r, const uint8_t *k)$/;"	f	file:
 sm_pack	edsign.c	/^static void sm_pack(uint8_t *r, const uint8_t *k)$/;"	f	file:
+store64	c25519/src/sha512.c	/^static inline void store64(uint8_t *x, uint64_t v)$/;"	f	file:
 store64	sha512.c	/^static inline void store64(uint8_t *x, uint64_t v)$/;"	f	file:
+t	c25519/src/ed25519.h	/^	uint8_t		t[F25519_SIZE];$/;"	m	struct:ed25519_pt
 t	ed25519.h	/^	uint8_t		t[F25519_SIZE];$/;"	m	struct:ed25519_pt
+test	c25519/tests/test_edsign.c	/^static void test(const struct test_vector *t)$/;"	f	file:
+test	c25519/tests/test_sha512.c	/^static void test(const struct test_vector *t)$/;"	f	file:
+testErrors	shatest.c	/^void testErrors(int hashnolow, int hashnohigh, int printResults,$/;"	f
+test_add	c25519/tests/test_ed25519.c	/^static void test_add(void)$/;"	f	file:
+test_add_sub	c25519/tests/test_f25519.c	/^static void test_add_sub(void)$/;"	f	file:
+test_add_sub	c25519/tests/test_fprime.c	/^static void test_add_sub(void)$/;"	f	file:
+test_dh	c25519/tests/test_c25519.c	/^static void test_dh(void)$/;"	f	file:
+test_dh	c25519/tests/test_ed25519.c	/^static void test_dh(void)$/;"	f	file:
+test_distributive	c25519/tests/test_f25519.c	/^static void test_distributive(void)$/;"	f	file:
+test_distributive	c25519/tests/test_fprime.c	/^static void test_distributive(void)$/;"	f	file:
+test_from_bytes	c25519/tests/test_fprime.c	/^static void test_from_bytes(void)$/;"	f	file:
+test_inv	c25519/tests/test_f25519.c	/^static void test_inv(void)$/;"	f	file:
+test_inv	c25519/tests/test_fprime.c	/^static void test_inv(void)$/;"	f	file:
+test_morph	c25519/tests/test_morph25519.c	/^static void test_morph(const uint8_t *mx,$/;"	f	file:
+test_mul	c25519/tests/test_f25519.c	/^static void test_mul(void)$/;"	f	file:
+test_mul	c25519/tests/test_fprime.c	/^static void test_mul(void)$/;"	f	file:
+test_mul_c	c25519/tests/test_f25519.c	/^static void test_mul_c(void)$/;"	f	file:
+test_normalize_big	c25519/tests/test_f25519.c	/^static void test_normalize_big(void)$/;"	f	file:
+test_normalize_big	c25519/tests/test_fprime.c	/^static void test_normalize_big(void)$/;"	f	file:
+test_normalize_gap	c25519/tests/test_f25519.c	/^static void test_normalize_gap(int k)$/;"	f	file:
+test_normalize_small	c25519/tests/test_f25519.c	/^static void test_normalize_small(void)$/;"	f	file:
+test_normalize_small	c25519/tests/test_fprime.c	/^static void test_normalize_small(void)$/;"	f	file:
+test_normalize_zero	c25519/tests/test_fprime.c	/^static void test_normalize_zero(void)$/;"	f	file:
+test_order	c25519/tests/test_ed25519.c	/^static void test_order(void)$/;"	f	file:
+test_pack	c25519/tests/test_ed25519.c	/^static void test_pack(void)$/;"	f	file:
+test_sm	c25519/tests/test_morph25519.c	/^static void test_sm(void)$/;"	f	file:
+test_sqrt	c25519/tests/test_f25519.c	/^static void test_sqrt(void)$/;"	f	file:
+test_vector	c25519/tests/test_c25519.c	/^static void test_vector(const struct test_vector *v)$/;"	f	file:
+test_vector	c25519/tests/test_c25519.c	/^struct test_vector {$/;"	s	file:
+test_vector	c25519/tests/test_edsign.c	/^struct test_vector {$/;"	s	file:
+test_vector	c25519/tests/test_sha512.c	/^struct test_vector {$/;"	s	file:
+test_vectors	c25519/tests/test_edsign.c	/^static const struct test_vector test_vectors[] = {$/;"	v	typeref:struct:test_vector	file:
+test_vectors	c25519/tests/test_sha512.c	/^static const struct test_vector test_vectors[] = {$/;"	v	typeref:struct:test_vector	file:
+testarray	shatest.c	/^        const char *testarray;$/;"	m	struct:hash::__anon12	file:
+tests	shatest.c	/^    } tests[TESTCOUNT];$/;"	m	struct:hash	typeref:struct:hash::__anon12	file:
+text	c25519/tests/test_sha512.c	/^	const char	*text;$/;"	m	struct:test_vector	file:
+to_bytes	er-oscoap.c	/^uint8_t to_bytes(uint32_t in, uint8_t* buffer){$/;"	f
+token	er-coap-observe-client.h	/^  uint8_t token[COAP_TOKEN_LEN];$/;"	m	struct:coap_observee_s
+token	er-coap-observe.h	/^  uint8_t token[COAP_TOKEN_LEN];$/;"	m	struct:coap_observer
+token	er-coap-separate.h	/^  uint8_t token[COAP_TOKEN_LEN];$/;"	m	struct:coap_separate
+token	er-coap.h	/^      uint8_t token[COAP_TOKEN_LEN];$/;"	m	struct:__anon3
+token_len	er-coap-observe-client.h	/^  uint8_t token_len;$/;"	m	struct:coap_observee_s
+token_len	er-coap-observe.h	/^  uint8_t token_len;$/;"	m	struct:coap_observer
+token_len	er-coap-separate.h	/^  uint8_t token_len;$/;"	m	struct:coap_separate
+token_len	er-coap.h	/^      uint8_t token_len;$/;"	m	struct:__anon3
+transaction	er-coap-engine.h	/^  coap_transaction_t *transaction;$/;"	m	struct:request_state_t
+transaction_handler_process	er-coap-transactions.c	/^static struct process *transaction_handler_process = NULL;$/;"	v	typeref:struct:process	file:
+transactions_list	er-coap-transactions.c	/^LIST(transactions_list);$/;"	v
+type	er-coap-separate.h	/^  coap_message_type_t type;$/;"	m	struct:coap_separate
+type	er-coap.h	/^      coap_message_type_t type;$/;"	m	struct:__anon3
+udp_conn	er-coap.c	/^static struct uip_udp_conn *udp_conn = NULL;$/;"	v	typeref:struct:uip_udp_conn	file:
+unhexStr	shatest.c	/^int unhexStr(char *hexstr)$/;"	f
+upp	c25519/src/edsign.c	/^static uint8_t upp(struct ed25519_pt *p, const uint8_t *packed)$/;"	f	file:
 upp	edsign.c	/^static uint8_t upp(struct ed25519_pt *p, const uint8_t *packed)$/;"	f	file:
+uri_host	er-coap.h	/^      const char *uri_host;$/;"	m	struct:__anon3
+uri_host_len	er-coap.h	/^      size_t uri_host_len;$/;"	m	struct:__anon3
+uri_path	er-coap.h	/^      const char *uri_path;$/;"	m	struct:__anon3
+uri_path_len	er-coap.h	/^      size_t uri_path_len;$/;"	m	struct:__anon3
+uri_port	er-coap.h	/^      uint16_t uri_port;$/;"	m	struct:__anon3
+uri_query	er-coap.h	/^  const char *uri_query;$/;"	m	struct:__anon3
+uri_query_len	er-coap.h	/^  size_t uri_query_len;$/;"	m	struct:__anon3
+url	er-coap-observe-client.h	/^  const char *url;$/;"	m	struct:coap_observee_s
+url	er-coap-observe.h	/^  char url[COAP_OBSERVER_URL_LEN];$/;"	m	struct:coap_observer
+usage	shatest.c	/^void usage(const char *argv0)$/;"	f
+vectors	c25519/tests/test_c25519.c	/^static const struct test_vector vectors[] = {$/;"	v	typeref:struct:test_vector	file:
+version	er-coap.h	/^      uint8_t version;$/;"	m	struct:__anon3
+well_known_core_get_handler	er-coap-res-well-known-core.c	/^well_known_core_get_handler(void *request, void *response, uint8_t *buffer,$/;"	f
+whichSha	sha.h	/^    int whichSha;               \/* which SHA is being used *\/$/;"	m	struct:HKDFContext
+whichSha	sha.h	/^    int whichSha;               \/* which SHA is being used *\/$/;"	m	struct:HMACContext
+whichSha	sha.h	/^    int whichSha;               \/* which SHA is being used *\/$/;"	m	struct:USHAContext
+whichSha	shatest.c	/^    SHAversion whichSha;$/;"	m	struct:hash	file:
+whichSha	shatest.c	/^    SHAversion whichSha;$/;"	m	struct:hkdfhash	file:
+x	c25519/src/ed25519.h	/^	uint8_t		x[F25519_SIZE];$/;"	m	struct:ed25519_pt
 x	ed25519.h	/^	uint8_t		x[F25519_SIZE];$/;"	m	struct:ed25519_pt
 xc_diffadd	c25519.c	/^static void xc_diffadd(uint8_t *x5, uint8_t *z5,$/;"	f	file:
+xc_diffadd	c25519/src/c25519.c	/^static void xc_diffadd(uint8_t *x5, uint8_t *z5,$/;"	f	file:
 xc_double	c25519.c	/^static void xc_double(uint8_t *x3, uint8_t *z3,$/;"	f	file:
+xc_double	c25519/src/c25519.c	/^static void xc_double(uint8_t *x3, uint8_t *z3,$/;"	f	file:
+y	c25519/src/ed25519.h	/^	uint8_t		y[F25519_SIZE];$/;"	m	struct:ed25519_pt
 y	ed25519.h	/^	uint8_t		y[F25519_SIZE];$/;"	m	struct:ed25519_pt
+z	c25519/src/ed25519.h	/^	uint8_t		z[F25519_SIZE];$/;"	m	struct:ed25519_pt
 z	ed25519.h	/^	uint8_t		z[F25519_SIZE];$/;"	m	struct:ed25519_pt
