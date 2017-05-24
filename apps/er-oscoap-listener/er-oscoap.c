@@ -45,6 +45,7 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdint.h>
 #include <string.h>
 #include "edsign.h"
+#include <assert.h>
 
 #define DEBUG 1
 #if DEBUG
@@ -72,6 +73,7 @@ MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
 MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
 
 /* ED25519 signature algorithm */
+/*
 uint8_t public_key[64] = {
   0xea, 0x97, 0xf5, 0xbd, 0x16, 0x70, 0xc2, 0xd5,
   0xdc, 0xb6, 0xa9, 0x4b, 0x42, 0x02, 0xdd, 0xfb,
@@ -89,6 +91,9 @@ uint8_t private_key[32] = {
   0xc2, 0x54, 0xf8, 0x1b, 0xe8, 0xe7, 0x8d, 0x76,
   0x5a, 0x2e, 0x63, 0x33, 0x9f, 0xc9, 0x9a, 0x66,
   };
+*/
+uint8_t public_key[32];
+uint8_t private_key[32];
 
 uint8_t signature[64];
 
@@ -470,9 +475,14 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
 
 	// Signature
-	//uint8_t msg = {1,2,3,4,5};
-  //edsign_sign(signature, public_key, private_key, msg, 5);
-  //PRINTF_HEX(signature, 64);
+	uint8_t msg[5] = {1,2,3,4,5};
+  edsign_sec_to_pub(public_key, private_key);
+  edsign_sign(signature, public_key, private_key, msg, 5);
+  printf("this is all about signature, public key, private key, signature\n");
+  oscoap_printf_hex(public_key, 32);
+  oscoap_printf_hex(private_key, 32);
+  PRINTF_HEX(signature, 64);
+  assert(edsign_verify(signature, public_key, msg, 5));
 	OPT_COSE_SetSign(&cose, signature_fix, 64);
   
   size_t serialized_len = OPT_COSE_Encoded_length(&cose);

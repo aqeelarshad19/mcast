@@ -68,10 +68,10 @@ static void print_hex(const char *label, const uint8_t *data, int len)
 
 static void test(const struct test_vector *t)
 {
-	uint8_t pub[EDSIGN_PUBLIC_KEY_SIZE];
+	uint8_t pub[EDSIGN_PUBLIC_KEY_SIZE] = {0};
 	uint8_t msg[MAX_MSG_SIZE];
 	uint8_t signature[EDSIGN_SIGNATURE_SIZE];
-  uint8_t secret[EDSIGN_SECRET_KEY_SIZE];
+  uint8_t secret[EDSIGN_SECRET_KEY_SIZE]={0};
 
 	//edsign_sec_to_pub(pub, t->secret);
 	edsign_sec_to_pub(pub, secret);
