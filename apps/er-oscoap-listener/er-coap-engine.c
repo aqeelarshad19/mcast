@@ -39,6 +39,8 @@
  /*
       Modified for OSCOAP test implementation by: Martin Gunnarsson martin.gunnarsson@sics.se and Joakim Brorsson b.joakim@gmail.com
  */
+ /*   Modified for OSCOAP mutlicasting test implementation by: Jiye Park j1y3p4rk@gmail.com
+ */
 
 
 #include "sys/cc.h"

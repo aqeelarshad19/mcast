@@ -364,7 +364,8 @@ PROCESS_THREAD(coap_engine, ev, data)
       coap_receive();
     } else if(ev == PROCESS_EVENT_TIMER) {
       /* retransmissions are handled here */
-      coap_check_transactions();
+      /* for the signing process, retransmissions are ommitted */
+      //coap_check_transactions();
     }
   } /* while (1) */
 
