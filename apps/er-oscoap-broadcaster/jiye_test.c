@@ -4,7 +4,9 @@
 #include <assert.h>
 #include "edsign.h"
 
+#include "contiki.h"
 
+/*
 uint8_t public_key[64] = {
   0xea, 0x97, 0xf5, 0xbd, 0x16, 0x70, 0xc2, 0xd5,
   0xdc, 0xb6, 0xa9, 0x4b, 0x42, 0x02, 0xdd, 0xfb,
@@ -22,7 +24,9 @@ uint8_t private_key[32] = {
   0xc2, 0x54, 0xf8, 0x1b, 0xe8, 0xe7, 0x8d, 0x76,
   0x5a, 0x2e, 0x63, 0x33, 0x9f, 0xc9, 0x9a, 0x66,
 };
-
+*/
+uint8_t public_key[32];
+uint8_t private_key[32];
 
 int msg_len = 5;
 uint8_t signature[64];
@@ -31,7 +35,7 @@ uint8_t signature_cipher[64] = {0x5a, 0xb6, 0xa0, 0x7c, 0xf8, 0xc9, 0x03, 0x68, 
 uint8_t signature_12345[64] = { 
 0xa2, 0x2c, 0x66, 0xcc, 0xe7, 0x8a, 0xdc, 0xa2, 0xfc, 0xba, 0xfa, 0x33, 0x58, 0x08, 0x3a, 0x5c, 0x9b, 0xef, 0x27, 0xb4, 0xe6, 0x25, 0x2b, 0x0a, 0xd1, 0x53, 0xd9, 0x28, 0xd1, 0xfe, 0x89, 0x50, 0xcc, 0xd9, 0xdc, 0xb1, 0x8b, 0x77, 0xf6, 0x17, 0x42, 0x97, 0x36, 0x3c, 0x81, 0x5c, 0x06, 0x32, 0x30, 0xc4, 0x86, 0xf1, 0x28, 0x46, 0x4c, 0x6b, 0x34, 0xf3, 0x15, 0x86, 0xe7, 0xa1, 0xa6, 0x02};
 
- void print_hex(const char *label, const uint8_t *data, int len)
+void print_hex(const char *label, const uint8_t *data, int len)
 {
   int i;
 
@@ -41,15 +45,35 @@ uint8_t signature_12345[64] = {
   printf("\n");
 }
 
-
+/*
 int main(void) {
   uint8_t msg[5] = {1,2,3,4,5};
   printf("running\n");
-	edsign_sign(signature, public_key, private_key, msg, 5);
+  edsign_sign(signature, public_key, private_key, msg, 5);
   print_hex("signature", signature, 64);
 
-	assert(edsign_verify(signature_12345, public_key, msg, 5 ));
+  assert(edsign_verify(signature_12345, public_key, msg, 5 ));
 
-	return 0;
+  return 0;
+}
+*/
+PROCESS(hello_sign_process, "Hello sign process");
+AUTOSTART_PROCESSES(&hello_sign_process);
+
+PROCESS_THREAD(hello_sign_process, ev, data) {
+  PROCESS_BEGIN();
+  uint8_t msg[5] = {1,2,3,4,5};
+  //printf("Running\n");
+  //printf("Key generating....\n");
+  edsign_sec_to_pub(public_key, private_key);
+  //printf("Key pair generated! \n");
+  //printf("Making signature...\n");
+  edsign_sign(signature, public_key, private_key, msg, 5);
+  //print_hex("signature", signature, 64);
+  //printf("verifying ...\n");
+  assert(edsign_verify(signature, public_key, msg, 5 ));
+  //printf("verified!\n");
+
+  PROCESS_END();
 }
 

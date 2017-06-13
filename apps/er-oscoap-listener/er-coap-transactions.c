@@ -41,7 +41,7 @@
 #include "er-coap-transactions.h"
 #include "er-coap-observe.h"
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -94,7 +94,7 @@ coap_send_transaction(coap_transaction_t *t)
   coap_send_message(&t->addr, t->port, t->packet, t->packet_len);
 
   if(COAP_TYPE_CON ==
-     ((COAP_HEADER_TYPE_MASK & t->packet[0]) >> COAP_HEADER_TYPE_POSITION)) {
+      ((COAP_HEADER_TYPE_MASK & t->packet[0]) >> COAP_HEADER_TYPE_POSITION)) {
 
     if(t->retrans_counter < COAP_MAX_RETRANSMIT) {
       /* not timed out yet */
@@ -103,15 +103,15 @@ coap_send_transaction(coap_transaction_t *t)
       if(t->retrans_counter == 0) {
         t->retrans_timer.timer.interval =
           COAP_RESPONSE_TIMEOUT_TICKS + (random_rand()
-                                         %
-                                         (clock_time_t)
-                                         COAP_RESPONSE_TIMEOUT_BACKOFF_MASK);
+              %
+              (clock_time_t)
+              COAP_RESPONSE_TIMEOUT_BACKOFF_MASK);
         PRINTF("Initial interval %f\n",
-               (float)t->retrans_timer.timer.interval / CLOCK_SECOND);
+            (float)t->retrans_timer.timer.interval / CLOCK_SECOND);
       } else {
         t->retrans_timer.timer.interval <<= 1;  /* double */
         PRINTF("Doubled (%u) interval %f\n", t->retrans_counter,
-               (float)t->retrans_timer.timer.interval / CLOCK_SECOND);
+            (float)t->retrans_timer.timer.interval / CLOCK_SECOND);
       }
 
       PROCESS_CONTEXT_BEGIN(transaction_handler_process);
@@ -135,6 +135,7 @@ coap_send_transaction(coap_transaction_t *t)
       }
     }
   } else {
+    PRINTF("coap_send_transaction() in er-coap-transaction.c\n");
     coap_clear_transaction(t);
   }
 }

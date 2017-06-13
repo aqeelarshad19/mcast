@@ -41,7 +41,7 @@
 #include "er-coap-transactions.h"
 #include "er-coap-observe.h"
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -100,15 +100,18 @@ coap_send_transaction(coap_transaction_t *t)
       PRINTF("Keeping transaction %u\n", t->mid);
 
       if(t->retrans_counter == 0) {
-        t->retrans_timer.timer.interval =
+        t->retrans_timer.timer.interval = 160 * CLOCK_SECOND;
+        /*t->retrans_timer.timer.interval =
           COAP_RESPONSE_TIMEOUT_TICKS + (random_rand()
                                          %
                                          (clock_time_t)
-                                         COAP_RESPONSE_TIMEOUT_BACKOFF_MASK);
+                                         COAP_RESPONSE_TIMEOUT_BACKOFF_MASK);*/
         PRINTF("Initial interval %f\n",
                (float)t->retrans_timer.timer.interval / CLOCK_SECOND);
       } else {
-        t->retrans_timer.timer.interval <<= 1;  /* double */
+
+        t->retrans_timer.timer.interval = 160 * CLOCK_SECOND;
+        //t->retrans_timer.timer.interval <<= 1;  /* double */
         PRINTF("Doubled (%u) interval %f\n", t->retrans_counter,
                (float)t->retrans_timer.timer.interval / CLOCK_SECOND);
       }
