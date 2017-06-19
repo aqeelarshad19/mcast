@@ -480,7 +480,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   oscoap_printf_hex(public_key, 32);
   oscoap_printf_hex(private_key, 32);
   //PRINTF_HEX(signature, 64);
-  edsign_sign(signature, public_key, private_key, cose.ciphertext, cose.ciphertext_len);
+  //edsign_sign(signature, public_key, private_key, cose.ciphertext, cose.ciphertext_len);
   oscoap_printf_hex(cose.ciphertext, cose.ciphertext_len);
   //PRINTF("verfying...");
   //assert(edsign_verify(signature, public_key, cose.ciphertext, cose.ciphertext_len));
