@@ -422,18 +422,20 @@ coap_serialize_message_coap(void *packet, uint8_t *buffer)
   PRINTF("-Done serializing at %p----\n", option);
 
   /* Pack payload */
-  if((option - coap_pkt->buffer) <= COAP_MAX_HEADER_SIZE) {
+  /* Modification for group OSCOAP signature sending */
+ // if((option - coap_pkt->buffer) <= COAP_MAX_HEADER_SIZE) {
     /* Payload marker */
     if(coap_pkt->payload_len) {
       *option = 0xFF;
       ++option;
-    }
+ //   }
     memmove(option, coap_pkt->payload, coap_pkt->payload_len);
-  } else {
+ // } else {
     /* an error occurred: caller must check for !=0 */
-    coap_pkt->buffer = NULL;
-    coap_error_message = "Serialized header exceeds COAP_MAX_HEADER_SIZE";
-    return 0;
+ //   coap_pkt->buffer = NULL;
+ //   printf("max header size\n");
+ //   coap_error_message = "Serialized header exceeds COAP_MAX_HEADER_SIZE";
+ //   return 0;
   }
 
   PRINTF("-Done %u B (header len %u, payload len %u)-\n",

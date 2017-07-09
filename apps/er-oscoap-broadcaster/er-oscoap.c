@@ -465,7 +465,6 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 
   //ED25519 verifying 
   //edsign_verify(signature, public_key, cose.aad, cose.aad_len);
-  //printf("!@#!@#!@#\n");
 
   /* signature test */
 	//edsign_sec_to_pub(public_key, private_key);
@@ -475,7 +474,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 	oscoap_printf_hex(public_key, 64);
 	oscoap_printf_hex(private_key, 32);	
   PRINTF("this is signaturefor 1,2,3,4,5\n");
-  PRINTF_HEX(signature, 64);
+  PRINTF_HEX(signature_fix, 64);
   PRINTF("verifing....\n");
   //assert(edsign_verify(signature, public_key, msg, 5));
 
@@ -504,7 +503,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 	OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
 
   //Signature
-  OPT_COSE_SetSign(&cose, signature_fix, 9);
+  OPT_COSE_SetSign(&cose, signature_fix, 64);
 
 	size_t serialized_len = OPT_COSE_Encoded_length(&cose);
 	//serialized_len++;
@@ -521,9 +520,10 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 	}else{
 		coap_set_header_object_security_content(packet, opt_buffer, serialized_len);     
 	}
-
 	coap_set_header_max_age(packet, 0);
+
 	clear_options(coap_pkt);
+
 	size_t serialized_size =  coap_serialize_message_coap(packet, buffer);
 
 	PRINTF("Serialized size = %d\n", serialized_size);
@@ -614,6 +614,8 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 	uint8_t plaintext_buffer[plaintext_len];
 	OPT_COSE_SetContent(&cose, plaintext_buffer, plaintext_len);
   /* signature :  before decryption, need to verify signature  from listener */
+  PRINTF_HEX(public_key,32);
+  PRINTF_HEX(private_key,32);
   PRINTF("This is signature from listener: \n");
   PRINTF_HEX(cose.signature, cose.signature_len);
   assert(edsign_verify(cose.signature, public_key, cose.ciphertext, cose.ciphertext_len));
@@ -667,6 +669,8 @@ coap_set_header_object_security_content(void *packet, const uint8_t* os, size_t 
 	if(IS_OPTION(coap_pkt, COAP_OPTION_OBJECT_SECURITY)){
 		coap_pkt->object_security_len = os_len;
 		coap_pkt->object_security = os;
+    printf("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+    PRINTF_HEX(coap_pkt->object_security, coap_pkt->object_security_len);
 		return coap_pkt->object_security_len;
 	}
 	return 0;

@@ -40,10 +40,6 @@ ifeq ($(PREFIX),)
  PREFIX = fd00::1/64
 endif
 
-ifeq ($(SIODEV),)
-	SIODEV=/dev/ttyACM0
-endif
-
 CONTIKI_WITH_IPV6 = 1
 include $(CONTIKI)/Makefile.include
 
@@ -51,7 +47,7 @@ $(CONTIKI)/tools/tunslip6:	$(CONTIKI)/tools/tunslip6.c
 	(cd $(CONTIKI)/tools && $(MAKE) tunslip6)
 
 connect-router:	$(CONTIKI)/tools/tunslip6
-	sudo $(CONTIKI)/tools/tunslip6 -s $(SIODEV) $(PREFIX)
+	sudo $(CONTIKI)/tools/tunslip6 $(PREFIX)
 
 connect-router-cooja:	$(CONTIKI)/tools/tunslip6
-	sudo $(CONTIKI)/tools/tunslip6 -a 127.0.0.1 $(PREFIX)
+	sudo $(CONTIKI)/tools/tunslip6 -d 300 -a 127.0.0.1 $(PREFIX)
