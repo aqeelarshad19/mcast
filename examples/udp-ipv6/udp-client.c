@@ -185,7 +185,7 @@ PROCESS_THREAD(udp_client_process, ev, data)
 
   /* new connection with remote host */
   client_conn = udp_new(&ipaddr, UIP_HTONS(3000), NULL);
-  //udp_bind(client_conn, UIP_HTONS(3001));
+  udp_bind(client_conn, UIP_HTONS(3001));
 
   PRINTF("Created a connection with the server ");
   PRINT6ADDR(&client_conn->ripaddr);

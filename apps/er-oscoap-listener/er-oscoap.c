@@ -533,6 +533,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 
     OPT_COSE_Decode(&cose, coap_pkt->object_security, coap_pkt->object_security_len);
     /* Need to Check SID */
+    //PRINTF("set_ctx\n");
     //oscoap_set_ctx(0);
   }
 

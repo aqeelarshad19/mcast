@@ -1,0 +1,192 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ADD	border-router.c	116;"	d	file:
+APPS	Makefile	/^APPS = slip-cmd$/;"	m
+BAUDRATE	slip-config.c	61;"	d	file:
+BORDER_ROUTER_CMDS_H_	border-router-cmds.h	39;"	d
+BORDER_ROUTER_H_	border-router.h	38;"	d
+BOTTOM	border-router.c	/^static const char *BOTTOM = "<\/body><\/html>\\n";$/;"	v	file:
+CMD_CONF_OUTPUT	project-conf.h	52;"	d
+CMD_CONTEXT_RADIO	border-router-cmds.h	41;"	d
+CMD_CONTEXT_STDIO	border-router-cmds.h	42;"	d
+CONNS	httpd-simple.c	52;"	d	file:
+CONNS	httpd-simple.c	54;"	d	file:
+CONTIKI	Makefile	/^CONTIKI=..\/..\/..$/;"	m
+CONTIKI_PROJECT	Makefile	/^CONTIKI_PROJECT=border-router$/;"	m
+CONTIKI_WITH_IPV6	Makefile	/^CONTIKI_WITH_IPV6 = 1$/;"	m
+DEBUG	border-router-cmds.c	47;"	d	file:
+DEBUG	border-router-rdc.c	47;"	d	file:
+DEBUG	border-router.c	59;"	d	file:
+DEBUG	tun-bridge.c	54;"	d	file:
+DEBUG_LINE_MARKER	slip-dev.c	214;"	d	file:
+HTTPD_PATHLEN	httpd-simple.h	48;"	d
+HTTPD_PATHLEN	httpd-simple.h	50;"	d
+HTTPD_SIMPLE_H_	httpd-simple.h	41;"	d
+ISO_nl	httpd-simple.c	68;"	d	file:
+ISO_period	httpd-simple.c	70;"	d	file:
+ISO_slash	httpd-simple.c	71;"	d	file:
+ISO_space	httpd-simple.c	69;"	d	file:
+MAX_CALLBACKS	border-router-rdc.c	55;"	d	file:
+MAX_SENSORS	border-router.c	62;"	d	file:
+NETSTACK_CONF_RDC	project-conf.h	54;"	d
+NETSTACK_CONF_RDC	project-conf.h	55;"	d
+NOT_FOUND	httpd-simple.c	/^static const char *NOT_FOUND = "<html><body bgcolor=\\"white\\">"$/;"	v	file:
+PRINTF	border-router-rdc.c	50;"	d	file:
+PRINTF	border-router-rdc.c	52;"	d	file:
+PROCESS_THREAD	border-router-cmds.c	/^PROCESS_THREAD(border_router_cmd_process, ev, data)$/;"	f
+PROCESS_THREAD	border-router.c	/^PROCESS_THREAD(border_router_process, ev, data)$/;"	f
+PROCESS_THREAD	border-router.c	/^PROCESS_THREAD(webserver_nogui_process, ev, data)$/;"	f
+PROGRESS	slip-dev.c	84;"	d	file:
+PROJECT_ROUTER_CONF_H_	project-conf.h	31;"	d
+QUEUEBUF_CONF_NUM	project-conf.h	36;"	d
+QUEUEBUF_CONF_NUM	project-conf.h	37;"	d
+SELECT_CALLBACK	project-conf.h	58;"	d
+SEND_DELAY	slip-dev.c	68;"	d	file:
+SEND_DELAY	slip-dev.c	70;"	d	file:
+SEND_STRING	httpd-simple.h	72;"	d
+SERIALIZE_ATTRIBUTES	project-conf.h	50;"	d
+SLIP_DEV_CONF_SEND_DELAY	project-conf.h	45;"	d
+SLIP_END	slip-dev.c	86;"	d	file:
+SLIP_ESC	slip-dev.c	87;"	d	file:
+SLIP_ESC_END	slip-dev.c	88;"	d	file:
+SLIP_ESC_ESC	slip-dev.c	89;"	d	file:
+SMALL	Makefile	/^SMALL=1$/;"	m
+STATE_OUTPUT	httpd-simple.c	64;"	d	file:
+STATE_WAITING	httpd-simple.c	63;"	d	file:
+TOP	border-router.c	/^static const char *TOP = "<html><head><title>ContikiRPL<\/title><\/head><body>\\n";$/;"	v	file:
+UIP_CONF_BUFFER_SIZE	project-conf.h	39;"	d
+UIP_CONF_BUFFER_SIZE	project-conf.h	40;"	d
+UIP_CONF_RECEIVE_WINDOW	project-conf.h	42;"	d
+UIP_CONF_RECEIVE_WINDOW	project-conf.h	43;"	d
+UIP_FALLBACK_INTERFACE	project-conf.h	33;"	d
+UIP_FALLBACK_INTERFACE	project-conf.h	34;"	d
+URLCONV	httpd-simple.c	58;"	d	file:
+URLCONV	httpd-simple.c	60;"	d	file:
+WEBSERVER_CONF_CFS_CONNS	project-conf.h	47;"	d
+WEBSERVER_CONF_CFS_CONNS	project-conf.h	48;"	d
+WIRESHARK_IMPORT_FORMAT	slip-dev.c	33;"	d	file:
+WITH_WEBSERVER	Makefile	/^WITH_WEBSERVER=1$/;"	m
+addrs	border-router-rdc.c	/^  struct packetbuf_addr addrs[PACKETBUF_NUM_ADDRS];$/;"	m	struct:tx_callback	typeref:struct:tx_callback::packetbuf_addr	file:
+attrs	border-router-rdc.c	/^  struct packetbuf_attr attrs[PACKETBUF_NUM_ATTRS];$/;"	m	struct:tx_callback	typeref:struct:tx_callback::packetbuf_attr	file:
+blen	border-router.c	/^static int blen;$/;"	v	file:
+border_router_cmd_handler	border-router-cmds.c	/^border_router_cmd_handler(const uint8_t *data, int len)$/;"	f
+border_router_cmd_handler	border-router.c	/^CMD_HANDLERS(border_router_cmd_handler);$/;"	v
+border_router_cmd_output	border-router-cmds.c	/^border_router_cmd_output(const uint8_t *data, int data_len)$/;"	f
+border_router_cmd_process	border-router-cmds.h	/^PROCESS_NAME(border_router_cmd_process);$/;"	v
+border_router_print_stat	border-router.c	/^border_router_print_stat()$/;"	f
+border_router_rdc_driver	border-router-rdc.c	/^const struct rdc_driver border_router_rdc_driver = {$/;"	v	typeref:struct:rdc_driver
+border_router_set_mac	border-router.c	/^border_router_set_mac(const uint8_t *data)$/;"	f
+border_router_set_sensors	border-router.c	/^border_router_set_sensors(const char *data, int len)$/;"	f
+buf	border-router.c	/^static char buf[128];$/;"	v	file:
+callback_pos	border-router-rdc.c	/^static int callback_pos;$/;"	v	file:
+callbacks	border-router-rdc.c	/^static struct tx_callback callbacks[MAX_CALLBACKS];$/;"	v	typeref:struct:tx_callback	file:
+cback	border-router-rdc.c	/^  mac_callback_t cback;$/;"	m	struct:tx_callback	file:
+channel_check_interval	border-router-rdc.c	/^channel_check_interval(void)$/;"	f	file:
+cleanup	tun-bridge.c	/^cleanup(void)$/;"	f
+command_context	border-router-cmds.c	/^uint8_t command_context;$/;"	v
+connect_to_server	slip-dev.c	/^connect_to_server(const char *host, const char *port)$/;"	f	file:
+delaymsec	tun-bridge.c	/^static uint16_t delaymsec=0;$/;"	v	file:
+delaystartmsec	tun-bridge.c	/^static uint32_t delaystartsec,delaystartmsec;$/;"	v	file:
+delaystartsec	tun-bridge.c	/^static uint32_t delaystartsec,delaystartmsec;$/;"	v	file:
+devopen	tun-bridge.c	/^devopen(const char *dev, int flags)$/;"	f
+filename	httpd-simple.h	/^  char filename[HTTPD_PATHLEN];$/;"	m	struct:httpd_state
+generate_routes	border-router.c	/^PT_THREAD(generate_routes(struct httpd_state *s))$/;"	f	file:
+get_in_addr	slip-dev.c	/^get_in_addr(struct sockaddr *sa)$/;"	f	file:
+handle_connection	httpd-simple.c	/^handle_connection(struct httpd_state *s)$/;"	f	file:
+handle_fd	slip-dev.c	/^handle_fd(fd_set *rset, fd_set *wset)$/;"	f	file:
+handle_fd	tun-bridge.c	/^handle_fd(fd_set *rset, fd_set *wset)$/;"	f	file:
+handle_input	httpd-simple.c	/^PT_THREAD(handle_input(struct httpd_state *s))$/;"	f	file:
+handle_output	httpd-simple.c	/^PT_THREAD(handle_output(struct httpd_state *s))$/;"	f	file:
+http_content_type_html	httpd-simple.c	/^const char http_content_type_html[] = "Content-type: text\/html\\r\\n\\r\\n";$/;"	v
+http_get	httpd-simple.c	/^const char http_get[] = "GET ";$/;"	v
+http_header_200	httpd-simple.c	/^const char http_header_200[] = "HTTP\/1.0 200 OK\\r\\nServer: Contiki\/2.4 http:\/\/www.sics.se\/contiki\/\\r\\nConnection: close\\r\\n";$/;"	v
+http_header_404	httpd-simple.c	/^const char http_header_404[] = "HTTP\/1.0 404 Not found\\r\\nServer: Contiki\/2.4 http:\/\/www.sics.se\/contiki\/\\r\\nConnection: close\\r\\n";$/;"	v
+http_index_html	httpd-simple.c	/^const char http_index_html[] = "\/index.html";$/;"	v
+httpd_appcall	httpd-simple.c	/^httpd_appcall(void *state)$/;"	f
+httpd_init	httpd-simple.c	/^httpd_init(void)$/;"	f
+httpd_simple_get_script	border-router.c	/^httpd_simple_get_script(const char *name)$/;"	f
+httpd_simple_script_t	httpd-simple.h	/^typedef char (* httpd_simple_script_t)(struct httpd_state *s);$/;"	t
+httpd_state	httpd-simple.h	/^struct httpd_state {$/;"	s
+ifconf	tun-bridge.c	/^ifconf(const char *tundev, const char *ipaddr)$/;"	f
+init	border-router-rdc.c	/^init(void)$/;"	f	file:
+init	tun-bridge.c	/^init(void)$/;"	f	file:
+inputbuf	httpd-simple.h	/^  char inputbuf[HTTPD_PATHLEN + 24];$/;"	m	struct:httpd_state
+inslip	slip-dev.c	/^static FILE *inslip;$/;"	v	file:
+ipaddr_add	border-router.c	/^ipaddr_add(const uip_ipaddr_t *addr)$/;"	f	file:
+is_sensible_string	slip-dev.c	/^is_sensible_string(const unsigned char *s, int len)$/;"	f
+mac_set	border-router.c	/^static uint8_t mac_set;$/;"	v	file:
+off	border-router-rdc.c	/^off(int keep_radio_on)$/;"	f	file:
+on	border-router-rdc.c	/^on(void)$/;"	f	file:
+output	tun-bridge.c	/^output(void)$/;"	f	file:
+outputpt	httpd-simple.h	/^  struct pt outputpt;$/;"	m	struct:httpd_state	typeref:struct:httpd_state::pt
+packet_input	border-router-rdc.c	/^packet_input(void)$/;"	f	file:
+packet_sent	border-router-rdc.c	/^void packet_sent(uint8_t sessionid, uint8_t status, uint8_t tx)$/;"	f
+prefix	border-router.c	/^static uip_ipaddr_t prefix;$/;"	v	file:
+prefix_set	border-router.c	/^static uint8_t prefix_set;$/;"	v	file:
+print_local_addresses	border-router.c	/^print_local_addresses(void)$/;"	f	file:
+ptr	border-router-rdc.c	/^  void *ptr;$/;"	m	struct:tx_callback	file:
+request_mac	border-router.c	/^request_mac(void)$/;"	f	file:
+rpl_interface	tun-bridge.c	/^const struct uip_fallback_interface rpl_interface = {$/;"	v	typeref:struct:uip_fallback_interface
+script	httpd-simple.h	/^  httpd_simple_script_t script;$/;"	m	struct:httpd_state
+send_delay	slip-dev.c	/^static clock_time_t send_delay = SEND_DELAY;$/;"	v	file:
+send_delay_timer	slip-dev.c	/^static struct timer send_delay_timer;$/;"	v	typeref:struct:timer	file:
+send_headers	httpd-simple.c	/^PT_THREAD(send_headers(struct httpd_state *s, const char *statushdr))$/;"	f	file:
+send_list	border-router-rdc.c	/^send_list(mac_callback_t sent, void *ptr, struct rdc_buf_list *buf_list)$/;"	f	file:
+send_packet	border-router-rdc.c	/^send_packet(mac_callback_t sent, void *ptr)$/;"	f	file:
+send_string	httpd-simple.c	/^PT_THREAD(send_string(struct httpd_state *s, const char *str))$/;"	f	file:
+sensor_count	border-router.c	/^static uint8_t sensor_count = 0;$/;"	v	file:
+sensors	border-router.c	/^static char sensors[MAX_SENSORS][32];$/;"	v	file:
+serial_input	slip-dev.c	/^serial_input(FILE *inslip)$/;"	f
+set_fd	slip-dev.c	/^set_fd(fd_set *rset, fd_set *wset)$/;"	f	file:
+set_fd	tun-bridge.c	/^set_fd(fd_set *rset, fd_set *wset)$/;"	f	file:
+set_prefix_64	border-router.c	/^set_prefix_64(const uip_ipaddr_t *prefix_64)$/;"	f	file:
+setup_callback	border-router-rdc.c	/^setup_callback(mac_callback_t sent, void *ptr)$/;"	f	file:
+sigcleanup	tun-bridge.c	/^sigcleanup(int signo)$/;"	f
+sin	httpd-simple.h	/^  struct psock sin, sout;$/;"	m	struct:httpd_state	typeref:struct:httpd_state::psock
+slip_begin	slip-dev.c	/^int slip_end, slip_begin, slip_packet_end, slip_packet_count;$/;"	v
+slip_buf	slip-dev.c	/^unsigned char slip_buf[2048];$/;"	v
+slip_callback	slip-dev.c	/^static const struct select_callback slip_callback = { set_fd, handle_fd };$/;"	v	typeref:struct:select_callback	file:
+slip_config_b_rate	slip-config.c	/^speed_t slip_config_b_rate = BAUDRATE;$/;"	v
+slip_config_basedelay	slip-config.c	/^uint16_t slip_config_basedelay = 0;$/;"	v
+slip_config_flowcontrol	slip-config.c	/^int slip_config_flowcontrol = 0;$/;"	v
+slip_config_handle_arguments	slip-config.c	/^slip_config_handle_arguments(int argc, char **argv)$/;"	f
+slip_config_host	slip-config.c	/^const char *slip_config_host = NULL;$/;"	v
+slip_config_ipaddr	slip-config.c	/^const char *slip_config_ipaddr;$/;"	v
+slip_config_port	slip-config.c	/^const char *slip_config_port = NULL;$/;"	v
+slip_config_siodev	slip-config.c	/^const char *slip_config_siodev = NULL;$/;"	v
+slip_config_timestamp	slip-config.c	/^int slip_config_timestamp = 0;$/;"	v
+slip_config_tundev	slip-config.c	/^char slip_config_tundev[32] = { "" };$/;"	v
+slip_config_verbose	slip-config.c	/^int slip_config_verbose = 0;$/;"	v
+slip_empty	slip-dev.c	/^slip_empty()$/;"	f
+slip_end	slip-dev.c	/^int slip_end, slip_begin, slip_packet_end, slip_packet_count;$/;"	v
+slip_flushbuf	slip-dev.c	/^slip_flushbuf(int fd)$/;"	f
+slip_init	slip-dev.c	/^slip_init(void)$/;"	f
+slip_packet_count	slip-dev.c	/^int slip_end, slip_begin, slip_packet_end, slip_packet_count;$/;"	v
+slip_packet_end	slip-dev.c	/^int slip_end, slip_begin, slip_packet_end, slip_packet_count;$/;"	v
+slip_packet_input	slip-dev.c	/^slip_packet_input(unsigned char *data, int len)$/;"	f
+slip_received	slip-dev.c	/^long slip_received = 0;$/;"	v
+slip_send	slip-dev.c	/^slip_send(int fd, unsigned char c)$/;"	f	file:
+slip_sent	slip-dev.c	/^long slip_sent = 0;$/;"	v
+slipfd	slip-dev.c	/^int slipfd = 0;$/;"	v
+sout	httpd-simple.h	/^  struct psock sin, sout;$/;"	m	struct:httpd_state	typeref:struct:httpd_state::
+ssystem	tun-bridge.c	/^ssystem(const char *fmt, ...)$/;"	f
+state	httpd-simple.h	/^  char state;$/;"	m	struct:httpd_state
+stty_telos	slip-dev.c	/^stty_telos(int fd)$/;"	f	file:
+symbols	symbols.c	/^const struct symbols symbols[] = {{0,0}};$/;"	v	typeref:struct:symbols
+symbols_nelts	symbols.c	/^const int symbols_nelts = 0;$/;"	v
+timer	httpd-simple.h	/^  struct timer timer;$/;"	m	struct:httpd_state	typeref:struct:httpd_state::timer
+tun_alloc	tun-bridge.c	/^tun_alloc(char *dev)$/;"	f
+tun_init	tun-bridge.c	/^tun_init()$/;"	f
+tun_input	tun-bridge.c	/^tun_input(unsigned char *data, int maxlen)$/;"	f
+tun_output	tun-bridge.c	/^tun_output(uint8_t *data, int len)$/;"	f	file:
+tun_select_callback	tun-bridge.c	/^static const struct select_callback tun_select_callback = {$/;"	v	typeref:struct:select_callback	file:
+tunfd	tun-bridge.c	/^static int tunfd;$/;"	v	file:
+tx_callback	border-router-rdc.c	/^struct tx_callback {$/;"	s	file:
+webserver_log	httpd-simple.c	49;"	d	file:
+webserver_log_file	httpd-simple.c	48;"	d	file:
+write_to_serial	slip-dev.c	/^write_to_serial(int outfd, const uint8_t *inbuf, int len)$/;"	f	file:
+write_to_slip	slip-dev.c	/^write_to_slip(const uint8_t *buf, int len)$/;"	f

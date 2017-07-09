@@ -1,4 +1,5 @@
-all: er-example-server-ridab er-example-server er-example-client 
+#all: er-example-server-ridab er-example-server er-example-client 
+all: er-example-server
 # use target "er-plugtest-server" explicitly when requried 
 
 CONTIKI=../..
