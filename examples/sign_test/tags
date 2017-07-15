@@ -1,0 +1,108 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+C25519_EXPONENT_SIZE	c25519.h	26;"	d
+C25519_H_	c25519.h	8;"	d
+ED25519_EXPONENT_SIZE	ed25519.h	59;"	d
+ED25519_H_	ed25519.h	8;"	d
+ED25519_PACK_SIZE	ed25519.h	53;"	d
+EDSIGN_H_	edsign.h	8;"	d
+EDSIGN_PUBLIC_KEY_SIZE	edsign.h	35;"	d
+EDSIGN_SECRET_KEY_SIZE	edsign.h	30;"	d
+EDSIGN_SIGNATURE_SIZE	edsign.h	40;"	d
+EXPANDED_SIZE	edsign.c	12;"	d	file:
+F25519_H_	f25519.h	8;"	d
+F25519_SIZE	f25519.h	24;"	d
+FPRIME_H_	fprime.h	8;"	d
+FPRIME_SIZE	fprime.h	23;"	d
+MORPH25519_H_	morph25519.h	8;"	d
+SHA512_BLOCK_SIZE	sha512.h	34;"	d
+SHA512_HASH_SIZE	sha512.h	47;"	d
+SHA512_H_	sha512.h	8;"	d
+c25519_base_x	c25519.c	/^const uint8_t c25519_base_x[F25519_SIZE] = {9};$/;"	v
+c25519_prepare	c25519.h	/^static inline void c25519_prepare(uint8_t *key)$/;"	f
+c25519_smult	c25519.c	/^void c25519_smult(uint8_t *result, const uint8_t *q, const uint8_t *e)$/;"	f
+ed25519_add	ed25519.c	/^void ed25519_add(struct ed25519_pt *r,$/;"	f
+ed25519_base	ed25519.c	/^const struct ed25519_pt ed25519_base = {$/;"	v	typeref:struct:ed25519_pt
+ed25519_copy	ed25519.h	/^static inline void ed25519_copy(struct ed25519_pt *dst,$/;"	f
+ed25519_d	ed25519.c	/^static const uint8_t ed25519_d[F25519_SIZE] = {$/;"	v	file:
+ed25519_double	ed25519.c	/^void ed25519_double(struct ed25519_pt *r, const struct ed25519_pt *p)$/;"	f
+ed25519_k	ed25519.c	/^static const uint8_t ed25519_k[F25519_SIZE] = {$/;"	v	file:
+ed25519_neutral	ed25519.c	/^const struct ed25519_pt ed25519_neutral = {$/;"	v	typeref:struct:ed25519_pt
+ed25519_order	edsign.c	/^static const uint8_t ed25519_order[FPRIME_SIZE] = {$/;"	v	file:
+ed25519_pack	ed25519.c	/^void ed25519_pack(uint8_t *c, const uint8_t *x, const uint8_t *y)$/;"	f
+ed25519_prepare	ed25519.h	/^static inline void ed25519_prepare(uint8_t *e)$/;"	f
+ed25519_project	ed25519.c	/^void ed25519_project(struct ed25519_pt *p,$/;"	f
+ed25519_pt	ed25519.h	/^struct ed25519_pt {$/;"	s
+ed25519_smult	ed25519.c	/^void ed25519_smult(struct ed25519_pt *r_out, const struct ed25519_pt *p,$/;"	f
+ed25519_try_unpack	ed25519.c	/^uint8_t ed25519_try_unpack(uint8_t *x, uint8_t *y, const uint8_t *comp)$/;"	f
+ed25519_unproject	ed25519.c	/^void ed25519_unproject(uint8_t *x, uint8_t *y,$/;"	f
+edsign_sec_to_pub	edsign.c	/^void edsign_sec_to_pub(uint8_t *pub, const uint8_t *secret)$/;"	f
+edsign_sign	edsign.c	/^void edsign_sign(uint8_t *signature, const uint8_t *pub,$/;"	f
+edsign_verify	edsign.c	/^uint8_t edsign_verify(const uint8_t *signature, const uint8_t *pub,$/;"	f
+exp2523	f25519.c	/^static void exp2523(uint8_t *r, const uint8_t *x, uint8_t *s)$/;"	f	file:
+expand_key	edsign.c	/^static void expand_key(uint8_t *expanded, const uint8_t *secret)$/;"	f	file:
+ey2ex	morph25519.c	/^static uint8_t ey2ex(uint8_t *x, const uint8_t *y, int parity)$/;"	f	file:
+f25519_add	f25519.c	/^void f25519_add(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_copy	f25519.h	/^static inline void f25519_copy(uint8_t *x, const uint8_t *a)$/;"	f
+f25519_eq	f25519.c	/^uint8_t f25519_eq(const uint8_t *x, const uint8_t *y)$/;"	f
+f25519_inv	f25519.c	/^void f25519_inv(uint8_t *r, const uint8_t *x)$/;"	f
+f25519_inv__distinct	f25519.c	/^void f25519_inv__distinct(uint8_t *r, const uint8_t *x)$/;"	f
+f25519_load	f25519.c	/^void f25519_load(uint8_t *x, uint32_t c)$/;"	f
+f25519_mul	f25519.c	/^void f25519_mul(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_mul__distinct	f25519.c	/^void f25519_mul__distinct(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_mul_c	f25519.c	/^void f25519_mul_c(uint8_t *r, const uint8_t *a, uint32_t b)$/;"	f
+f25519_neg	f25519.c	/^void f25519_neg(uint8_t *r, const uint8_t *a)$/;"	f
+f25519_normalize	f25519.c	/^void f25519_normalize(uint8_t *x)$/;"	f
+f25519_one	f25519.c	/^const uint8_t f25519_one[F25519_SIZE] = {1};$/;"	v
+f25519_select	f25519.c	/^void f25519_select(uint8_t *dst,$/;"	f
+f25519_sqrt	f25519.c	/^void f25519_sqrt(uint8_t *r, const uint8_t *a)$/;"	f
+f25519_sub	f25519.c	/^void f25519_sub(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_zero	f25519.c	/^const uint8_t f25519_zero[F25519_SIZE] = {0};$/;"	v
+fprime_add	fprime.c	/^void fprime_add(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
+fprime_copy	fprime.h	/^static inline void fprime_copy(uint8_t *x, const uint8_t *a)$/;"	f
+fprime_eq	fprime.c	/^uint8_t fprime_eq(const uint8_t *x, const uint8_t *y)$/;"	f
+fprime_from_bytes	fprime.c	/^void fprime_from_bytes(uint8_t *n,$/;"	f
+fprime_inv	fprime.c	/^void fprime_inv(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
+fprime_load	fprime.c	/^void fprime_load(uint8_t *x, uint32_t c)$/;"	f
+fprime_mul	fprime.c	/^void fprime_mul(uint8_t *r, const uint8_t *a, const uint8_t *b,$/;"	f
+fprime_normalize	fprime.c	/^void fprime_normalize(uint8_t *x, const uint8_t *modulus)$/;"	f
+fprime_one	fprime.c	/^const uint8_t fprime_one[FPRIME_SIZE] = {1};$/;"	v
+fprime_select	fprime.c	/^void fprime_select(uint8_t *dst,$/;"	f
+fprime_sub	fprime.c	/^void fprime_sub(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
+fprime_zero	fprime.c	/^const uint8_t fprime_zero[FPRIME_SIZE] = {0};$/;"	v
+generate_k	edsign.c	/^static void generate_k(uint8_t *k, const uint8_t *kgen_key,$/;"	f	file:
+h	sha512.h	/^	uint64_t	h[8];$/;"	m	struct:sha512_state
+hash_message	edsign.c	/^static void hash_message(uint8_t *z, const uint8_t *r, const uint8_t *a,$/;"	f	file:
+hash_with_prefix	edsign.c	/^static void hash_with_prefix(uint8_t *out_fp,$/;"	f	file:
+load64	sha512.c	/^static inline uint64_t load64(const uint8_t *x)$/;"	f	file:
+min_int	fprime.c	/^static inline int min_int(int a, int b)$/;"	f	file:
+morph25519_e2m	morph25519.c	/^void morph25519_e2m(uint8_t *montgomery, const uint8_t *y)$/;"	f
+morph25519_eparity	morph25519.h	/^static inline int morph25519_eparity(const uint8_t *edwards_x)$/;"	f
+morph25519_m2e	morph25519.c	/^uint8_t morph25519_m2e(uint8_t *ex, uint8_t *ey,$/;"	f
+mx2ey	morph25519.c	/^static void mx2ey(uint8_t *ey, const uint8_t *mx)$/;"	f	file:
+pp	edsign.c	/^static void pp(uint8_t *packed, const struct ed25519_pt *p)$/;"	f	file:
+prime_msb	fprime.c	/^static int prime_msb(const uint8_t *p)$/;"	f	file:
+raw_add	fprime.c	/^static void raw_add(uint8_t *x, const uint8_t *p)$/;"	f	file:
+raw_try_sub	fprime.c	/^static void raw_try_sub(uint8_t *x, const uint8_t *p)$/;"	f	file:
+rot64	sha512.c	/^static inline uint64_t rot64(uint64_t x, int bits)$/;"	f	file:
+round_k	sha512.c	/^static const uint64_t round_k[80] = {$/;"	v	file:
+sha512_block	sha512.c	/^void sha512_block(struct sha512_state *s, const uint8_t *blk)$/;"	f
+sha512_final	sha512.c	/^void sha512_final(struct sha512_state *s, const uint8_t *blk,$/;"	f
+sha512_get	sha512.c	/^void sha512_get(const struct sha512_state *s, uint8_t *hash,$/;"	f
+sha512_init	sha512.h	/^static inline void sha512_init(struct sha512_state *s)$/;"	f
+sha512_initial_state	sha512.c	/^const struct sha512_state sha512_initial_state = { {$/;"	v	typeref:struct:sha512_state
+sha512_state	sha512.h	/^struct sha512_state {$/;"	s
+shift_n_bits	fprime.c	/^static void shift_n_bits(uint8_t *x, int n)$/;"	f	file:
+sm_pack	edsign.c	/^static void sm_pack(uint8_t *r, const uint8_t *k)$/;"	f	file:
+store64	sha512.c	/^static inline void store64(uint8_t *x, uint64_t v)$/;"	f	file:
+t	ed25519.h	/^	uint8_t		t[F25519_SIZE];$/;"	m	struct:ed25519_pt
+upp	edsign.c	/^static uint8_t upp(struct ed25519_pt *p, const uint8_t *packed)$/;"	f	file:
+x	ed25519.h	/^	uint8_t		x[F25519_SIZE];$/;"	m	struct:ed25519_pt
+xc_diffadd	c25519.c	/^static void xc_diffadd(uint8_t *x5, uint8_t *z5,$/;"	f	file:
+xc_double	c25519.c	/^static void xc_double(uint8_t *x3, uint8_t *z3,$/;"	f	file:
+y	ed25519.h	/^	uint8_t		y[F25519_SIZE];$/;"	m	struct:ed25519_pt
+z	ed25519.h	/^	uint8_t		z[F25519_SIZE];$/;"	m	struct:ed25519_pt
