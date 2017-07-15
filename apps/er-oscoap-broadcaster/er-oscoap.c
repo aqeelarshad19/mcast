@@ -481,12 +481,12 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 	OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
 
   /************************************* signature*********************************/
-  edsign_sec_to_pub(public_key, private_key);
+  //edsign_sec_to_pub(public_key, private_key);
   PRINTF("cose.aad\n");
   PRINTF_HEX(cose.aad, cose.aad_len);
-  edsign_sign(signature, public_key, private_key, cose.aad, cose.aad_len);
+  //edsign_sign(signature, public_key, private_key, cose.aad, cose.aad_len);
   PRINTF("real signature\n");
-  PRINTF_HEX(signature, 64);
+  //PRINTF_HEX(signature, 64);
 
   /* setting signature */
   OPT_COSE_SetSign(&cose, signature, 64);
@@ -495,7 +495,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 
   /* ED25519 verifying */
   PRINTF("Verifying\n");
-  assert(edsign_verify(signature, public_key, cose.aad, cose.aad_len));
+  //assert(edsign_verify(signature, public_key, cose.aad, cose.aad_len));
 
   /* printing key pairs and signature */
 	oscoap_printf_hex(public_key, 32);
@@ -613,12 +613,17 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 	size_t plaintext_len = cose.ciphertext_len - 8;
 	uint8_t plaintext_buffer[plaintext_len];
 	OPT_COSE_SetContent(&cose, plaintext_buffer, plaintext_len);
+
+  /****************** Signature process begins *******************************/
   /* signature :  before decryption, need to verify signature  from listener */
+  
   PRINTF_HEX(public_key,32);
   PRINTF_HEX(private_key,32);
   PRINTF("This is signature from listener: \n");
   PRINTF_HEX(cose.signature, cose.signature_len);
   assert(edsign_verify(cose.signature, public_key, cose.ciphertext, cose.ciphertext_len));
+
+  /****************** signature verifying finished **************************/
 
 	if(OPT_COSE_Decrypt(&cose, ctx->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN)){
 		return OSCOAP_CRYPTO_ERROR;
