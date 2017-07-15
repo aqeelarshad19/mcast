@@ -533,6 +533,9 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     PRINTF("serialized incomming COSE\n");
     PRINTF_HEX(coap_pkt->object_security, coap_pkt->object_security_len);
 
+    PRINTF("Veifying signature from Multicaster\n");
+   
+
     OPT_COSE_Decode(&cose, coap_pkt->object_security, coap_pkt->object_security_len);
     /* Need to Check SID */
     //PRINTF("set_ctx\n");

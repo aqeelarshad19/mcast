@@ -456,29 +456,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 		oscoap_printf_hex(external_aad_buffer, external_aad_size);
 	}
 
-  //ED25519 signature
-  //edsign_sec_to_pub(public_key, private_key);
-  //edsign_sign(signature, public_key, private_key, cose.aad, cose.aad_len);
-  //PRINTF_HEX(signature, 64);
-
-  //OPT_COSE_SetSign(&cose, signature, 64);
-
-  //ED25519 verifying 
-  //edsign_verify(signature, public_key, cose.aad, cose.aad_len);
-
-  /* signature test */
-	//edsign_sec_to_pub(public_key, private_key);
-  uint8_t msg[5] = {1,2,3,4,5};
-	oscoap_printf_hex(msg, 5);
-  //edsign_sign(signature, public_key, private_key, msg, 5);
-	oscoap_printf_hex(public_key, 64);
-	oscoap_printf_hex(private_key, 32);	
-  PRINTF("this is signaturefor 1,2,3,4,5\n");
-  PRINTF_HEX(signature_fix, 64);
-  PRINTF("verifing....\n");
-  //assert(edsign_verify(signature, public_key, msg, 5));
-
-	OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
+ 	OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
 
 	size_t aad_length = OPT_COSE_AAD_length(&cose, coap_is_request(coap_pkt));
 	uint8_t aad_buffer[aad_length];
@@ -491,7 +469,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 
   /***************************************************************************/
   printf("!@#!@#!@#!@#!@#\n");
-  //encrpted 83...
+  //Encrpted 83...
 	PRINTF_HEX(cose.aad, cose.aad_len);
   /***************************************************************************/
 
@@ -499,10 +477,32 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 
 	OPT_COSE_SetCiphertextBuffer(&cose, plaintext_buffer, ciphertext_len);
 
-  //only print encrypted date 
+  /* only print encrypted date */ 
 	OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
 
-  //Signature
+  /************************************* signature*********************************/
+  edsign_sec_to_pub(public_key, private_key);
+  PRINTF("cose.aad\n");
+  PRINTF_HEX(cose.aad, cose.aad_len);
+  edsign_sign(signature, public_key, private_key, cose.aad, cose.aad_len);
+  PRINTF("real signature\n");
+  PRINTF_HEX(signature, 64);
+
+  /* setting signature */
+  OPT_COSE_SetSign(&cose, signature, 64);
+  PRINTF("set signature in cose\n");
+  PRINTF_HEX(cose.signature, cose.signature_len);
+
+  /* ED25519 verifying */
+  PRINTF("Verifying\n");
+  assert(edsign_verify(signature, public_key, cose.aad, cose.aad_len));
+
+  /* printing key pairs and signature */
+	oscoap_printf_hex(public_key, 32);
+	oscoap_printf_hex(private_key, 32);	
+  PRINTF_HEX(signature, 64);
+  
+  /* fixed signature */
   OPT_COSE_SetSign(&cose, signature_fix, 64);
 
 	size_t serialized_len = OPT_COSE_Encoded_length(&cose);
