@@ -46,12 +46,13 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 size_t  OPT_COSE_Encode(opt_cose_encrypt_t *cose, uint8_t *buffer){
 	size_t ret = 0;
-	ret += OPT_CBOR_put_array(&buffer, 3);
+	ret += OPT_CBOR_put_array(&buffer, 4);
 	ret += OPT_COSE_Encode_Protected(cose, &buffer);
 	ret += OPT_CBOR_put_map(&buffer, 0);
 	PRINTF("ciphertext len dec: %d hex: %02x\n", cose->ciphertext_len, cose->ciphertext_len);
 	ret += OPT_CBOR_put_bytes(&buffer, cose->ciphertext_len, cose->ciphertext);
-
+ /* Signature */
+  ret += OPT_CBOR_put_bytes(&buffer, cose->signature_len, cose->signature);
 	return ret;
 }
 
@@ -81,6 +82,8 @@ size_t OPT_COSE_Encoded_length(opt_cose_encrypt_t *cose){
 		ret += 1;
 	}
 	ret += cose->ciphertext_len;
+  /* Signature */
+  ret += cose->signature_len + 2;
 	return ret;
 }
 
@@ -133,7 +136,12 @@ uint8_t* OPT_COSE_SetSenderID(opt_cose_encrypt_t *cose, uint8_t *sid_buffer, siz
   return 1;
 }
 
-
+// Multicating Set the signature 
+uint8_t* OPT_COSE_SetSign(opt_cose_encrypt_t *cose, uint8_t *sign_buffer, size_t sign_len) {
+  cose->signature = sign_buffer;
+  cose->signature_len = sign_len;
+  return 1;
+}
 
 uint8_t OPT_COSE_SetExternalAAD(opt_cose_encrypt_t *cose, uint8_t *external_aad_buffer, size_t external_aad_len){
 	cose->external_aad = external_aad_buffer;

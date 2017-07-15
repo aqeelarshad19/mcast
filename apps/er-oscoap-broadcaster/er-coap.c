@@ -422,18 +422,20 @@ coap_serialize_message_coap(void *packet, uint8_t *buffer)
   PRINTF("-Done serializing at %p----\n", option);
 
   /* Pack payload */
-  if((option - coap_pkt->buffer) <= COAP_MAX_HEADER_SIZE) {
+  /* Modification for group OSCOAP signature sending */
+ // if((option - coap_pkt->buffer) <= COAP_MAX_HEADER_SIZE) {
     /* Payload marker */
     if(coap_pkt->payload_len) {
       *option = 0xFF;
       ++option;
-    }
+ //   }
     memmove(option, coap_pkt->payload, coap_pkt->payload_len);
-  } else {
+ // } else {
     /* an error occurred: caller must check for !=0 */
-    coap_pkt->buffer = NULL;
-    coap_error_message = "Serialized header exceeds COAP_MAX_HEADER_SIZE";
-    return 0;
+ //   coap_pkt->buffer = NULL;
+ //   printf("max header size\n");
+ //   coap_error_message = "Serialized header exceeds COAP_MAX_HEADER_SIZE";
+ //   return 0;
   }
 
   PRINTF("-Done %u B (header len %u, payload len %u)-\n",
@@ -535,10 +537,11 @@ coap_status_t coap_parse_message(void *packet, uint8_t *data,
       coap_pkt->payload_len = data_len - (coap_pkt->payload - data);
 
       /* also for receiving, the Erbium upper bound is REST_MAX_CHUNK_SIZE */
-      if(coap_pkt->payload_len > REST_MAX_CHUNK_SIZE) {
-        coap_pkt->payload_len = REST_MAX_CHUNK_SIZE;
+      /* signature */
+      //if(coap_pkt->payload_len > REST_MAX_CHUNK_SIZE) {
+      //  coap_pkt->payload_len = REST_MAX_CHUNK_SIZE;
         /* null-terminate payload */
-      }
+      //}
       coap_pkt->payload[coap_pkt->payload_len] = '\0';
 
       break;

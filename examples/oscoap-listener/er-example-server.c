@@ -43,7 +43,6 @@
 #include "contiki-net.h"
 #include "rest-engine.h"
 #include "er-oscoap.h"
-#include "sha.h"
 
 #if PLATFORM_HAS_BUTTON
 #include "dev/button-sensor.h"
@@ -102,6 +101,7 @@ extern resource_t res_radio;
 extern resource_t res_sht11;
 #endif
  */
+/*
 void oscoap_printf_hex2(unsigned char *data, unsigned int len)
 {                  
   int i=0;             
@@ -111,7 +111,7 @@ void oscoap_printf_hex2(unsigned char *data, unsigned int len)
   }
   PRINTF("\n");
 }
-
+*/
 PROCESS(er_example_server, "Erbium Example Server");
 AUTOSTART_PROCESSES(&er_example_server);
 
@@ -174,7 +174,7 @@ PROCESS_THREAD(er_example_server, ev, data)
     printf("Error creating context!\n");
 
   oscoap_set_ctx(1);
-  //oscoap_set_ctx(0);
+  oscoap_set_ctx(0);
   //oscoap_recipient_ctx_create();
 
   /*

@@ -29,6 +29,10 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * \author
  *      Martin Gunnarsson martin.gunnarsson@sics.se and Joakim Brorsson b.joakim@gmail.com
  */
+/*  Modified for OSCOAP mutlicasting test implementation by: Jiye Park j1y3p4rk@gmail.com
+ */
+
+
 #include "er-oscoap.h"
 #include "er-oscoap-int.h"
 
@@ -41,6 +45,11 @@ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "lib/memb.h"
 #include <inttypes.h>
 #include "sha.h"
+
+#include <stdint.h>
+#include <string.h>
+#include "edsign.h"
+#include <assert.h>
 
 #define DEBUG 1
 #if DEBUG
@@ -67,6 +76,37 @@ MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
 MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
 MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
 
+/* ED25519 signature algorithm */
+
+uint8_t public_key[32] = {
+  0x75, 0x91, 0x29, 0xee, 0x9b, 0xc9, 0x12, 0x86, 0x9f, 0x13,
+  0xe4, 0xac, 0xc8, 0x4a, 0x88, 0x15, 0x54, 0xdb, 0x2d, 0xa9,   
+  0x99, 0xc8, 0x3a, 0xf4, 0x9d, 0x6e, 0x3a, 0xb5, 0x81, 0xfa, 0xd9, 0xb9};
+uint8_t private_key[32];
+
+uint8_t signature[64];
+
+uint8_t signature_sig[64] = {
+	0xdd,   0xca,   0xf2,   0xf5,   0x27,   0xe0,   0x47,   0xc4, 0x47, 0xc9,   
+  0x8d,   0xb8,   0xd8,   0x70,   0xac,   0x6a,   0x98,   0x10,   
+	0xa4,   0x52,   0xdf,   0x93,   0x0c,   0x4b,   0x02,   0xb3,   
+	0xab,   0xb0,   0xc0,   0x60,   0xbb,   0x17,   0x7d,   0xe4,   
+	0x74,   0x6d,   0x85,   0x92,   0xf9,   0xa6,   0x17,   0x41,   
+	0xc3,   0x11,   0x7d,   0xb4,   0x3c,   0xcd,   0x6b,   0x36,   
+	0x99,   0xad,   0xd0,   0x61,   0x3e,   0x82,   0x9e,   0x45,   
+	0x5f,   0xa5,   0x7e,   0xc9,   0x9e,   0x02
+};
+
+uint8_t signature_fix[64] = {
+	0x08, 0xc4, 0x3b, 0x27, 0xf8, 0x4f, 0xd0, 0xc1, 0x37, 0x04, 
+	0x17, 0xa3, 0x16, 0xbe, 0xfa, 0x16, 0xbd, 0xc5, 0xc1, 0x1a, 
+	0x92, 0x60, 0x99, 0xaf, 0x26, 0xcf, 0x05, 0x72, 0x67, 0x54, 
+	0x2b, 0xa7, 0xf2, 0x63, 0x58, 0xe1, 0x20, 0x95, 0x8c, 0x20, 
+	0x19, 0x8c, 0x60, 0x54, 0x9d, 0x68, 0x6f, 0xc7, 0x60, 0xf7, 
+	0x8b, 0xda, 0xe3, 0x0c, 0xaa, 0x25, 0x17, 0xc0, 0x75, 0x48, 
+	0xf6, 0xd0, 0x3e, 0x0d,
+};
+
 void oscoap_ctx_store_init(){
 
   memb_init(&common_contexts);
@@ -88,7 +128,6 @@ void oscoap_set_ctx(int sender) {
   } else {
     hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterKey", 14, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
     hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterIV", 13, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
-
     common_context_store->RECIPIENT_CONTEXT->RECIPIENT_SEQ = 0;
     common_context_store->RECIPIENT_CONTEXT->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
     memset(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_ID, 0xAA, ID_LEN);
@@ -434,6 +473,20 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   OPT_COSE_SetCiphertextBuffer(&cose, plaintext_buffer, ciphertext_len);
 
   OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
+
+	// Signature
+  //edsign_sec_to_pub(public_key, private_key);
+  //printf("this is all about signature, public key, private key, signature\n");
+  oscoap_printf_hex(public_key, 32);
+  oscoap_printf_hex(private_key, 32);
+  oscoap_printf_hex(signature_sig,64);
+  //PRINTF_HEX(signature, 64);
+  //edsign_sign(signature, public_key, private_key, cose.ciphertext, cose.ciphertext_len);
+  oscoap_printf_hex(signature, 64);
+  oscoap_printf_hex(cose.ciphertext, cose.ciphertext_len);
+  //PRINTF("verfying...");
+  //assert(edsign_verify(signature, public_key, cose.ciphertext, cose.ciphertext_len));
+	OPT_COSE_SetSign(&cose, signature_sig, 64);
   
   size_t serialized_len = OPT_COSE_Encoded_length(&cose);
   serialized_len++;
@@ -441,6 +494,9 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
   uint8_t opt_buffer[serialized_len];
   OPT_COSE_Encode(&cose, opt_buffer);
  
+  printf("opt_buffer\n");
+  PRINTF_HEX(opt_buffer, serialized_len);
+
   if(coap_pkt->payload_len > 0){
       	coap_set_object_security_payload(coap_pkt, opt_buffer, serialized_len);	
   }else{
@@ -477,9 +533,13 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
     PRINTF("serialized incomming COSE\n");
     PRINTF_HEX(coap_pkt->object_security, coap_pkt->object_security_len);
 
+    PRINTF("Veifying signature from Multicaster\n");
+   
+
     OPT_COSE_Decode(&cose, coap_pkt->object_security, coap_pkt->object_security_len);
     /* Need to Check SID */
-    oscoap_set_ctx(0);
+    //PRINTF("set_ctx\n");
+    //oscoap_set_ctx(0);
   }
 
   	uint8_t nonce[CONTEXT_INIT_VECT_LEN];

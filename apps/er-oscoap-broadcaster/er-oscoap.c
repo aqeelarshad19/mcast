@@ -42,6 +42,11 @@
 #include <inttypes.h>
 #include "sha.h"
 
+#include <stdint.h>
+#include <string.h>
+#include <assert.h>
+#include "edsign.h"
+
 #define DEBUG 1
 #if DEBUG
 #include <stdio.h>
@@ -57,11 +62,33 @@
 #define PRINTF_BIN(data, len)
 #endif /* OSCOAP_DEBUG */
 
+#define MESSAGE (const unsigned char *) "test"
+#define MESSAGE_LEN 4
+
 OSCOAP_COMMON_CONTEXT *common_context_store = NULL;
 
 MEMB(common_contexts, OSCOAP_COMMON_CONTEXT, CONTEXT_NUM);
 MEMB(sender_contexts, OSCOAP_SENDER_CONTEXT, CONTEXT_NUM);
 MEMB(recipient_contexts, OSCOAP_RECIPIENT_CONTEXT, CONTEXT_NUM);
+
+/* ED25519 signature algorithm */
+uint8_t private_key[32];  
+uint8_t public_key[32] = {
+	0x75, 0x91, 0x29, 0xee, 0x9b, 0xc9, 0x12, 0x86, 0x9f, 0x13,   
+	0xe4, 0xac, 0xc8, 0x4a, 0x88, 0x15, 0x54, 0xdb, 0x2d, 0xa9,   
+	0x99, 0xc8, 0x3a, 0xf4, 0x9d, 0x6e, 0x3a, 0xb5, 0x81, 0xfa, 0xd9, 0xb9};
+
+uint8_t signature[64];
+
+uint8_t signature_fix[64] = {
+	0x08, 0xc4, 0x3b, 0x27, 0xf8, 0x4f, 0xd0, 0xc1, 0x37, 0x04, 
+	0x17, 0xa3, 0x16, 0xbe, 0xfa, 0x16, 0xbd, 0xc5, 0xc1, 0x1a, 
+	0x92, 0x60, 0x99, 0xaf, 0x26, 0xcf, 0x05, 0x72, 0x67, 0x54, 
+	0x2b, 0xa7, 0xf2, 0x63, 0x58, 0xe1, 0x20, 0x95, 0x8c, 0x20, 
+	0x19, 0x8c, 0x60, 0x54, 0x9d, 0x68, 0x6f, 0xc7, 0x60, 0xf7, 
+	0x8b, 0xda, 0xe3, 0x0c, 0xaa, 0x25, 0x17, 0xc0, 0x75, 0x48, 
+	0xf6, 0xd0, 0x3e, 0x0d,
+};
 
 void oscoap_ctx_store_init(){
 
@@ -73,30 +100,35 @@ void oscoap_ctx_store_init(){
 
 /* Multicaster */
 void oscoap_set_ctx(int sender) {
-	unsigned char master_secret[CONTEXT_KEY_LEN] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
+  unsigned char master_secret[CONTEXT_KEY_LEN] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03};
 
-	if(sender) {
-		hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterKey", 14, common_context_store->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
-		hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterIV", 13, common_context_store->SENDER_CONTEXT->SENDER_IV, CONTEXT_INIT_VECT_LEN);
+  if(sender) {
+    hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterKey", 14, common_context_store->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
+    hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"multicasterIV", 13, common_context_store->SENDER_CONTEXT->SENDER_IV, CONTEXT_INIT_VECT_LEN);
     printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
     PRINTF_HEX(common_context_store->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
     PRINTF_HEX(common_context_store->SENDER_CONTEXT->SENDER_IV, CONTEXT_INIT_VECT_LEN);
 
-		common_context_store->SENDER_CONTEXT->SENDER_SEQ = 0;
-		memset(common_context_store->SENDER_CONTEXT->SENDER_ID, 0xAA, ID_LEN);
+    common_context_store->SENDER_CONTEXT->SENDER_SEQ = 0;
+    memset(common_context_store->SENDER_CONTEXT->SENDER_ID, 0xAA, ID_LEN);
 
-	} else {
-		hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerKey", 11, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
-		hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerIV", 10, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
+    /* ED25519 adding */
+    //PRINTF_HEX(public_key, 32);
+    //PRINTF_HEX(private_key, 32);
 
-    printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+
+  } else {
+    hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerKey", 11, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
+    hkdf(SHA256, 0, 0, master_secret, CONTEXT_KEY_LEN, (unsigned char*)"listenerIV", 10, common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
+
+    printf("set context<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
     PRINTF_HEX(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN);
     PRINTF_HEX(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_IV, CONTEXT_INIT_VECT_LEN);
 
-		common_context_store->RECIPIENT_CONTEXT->RECIPIENT_SEQ = 0;
-		common_context_store->RECIPIENT_CONTEXT->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
-		memset(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_ID, 0xAB, ID_LEN);
-	}
+    common_context_store->RECIPIENT_CONTEXT->RECIPIENT_SEQ = 0;
+    common_context_store->RECIPIENT_CONTEXT->REPLAY_WINDOW = 0; //64 is the default but we do 0 to ease development
+    memset(common_context_store->RECIPIENT_CONTEXT->RECIPIENT_ID, 0xAB, ID_LEN);
+  }
 }
 
 OSCOAP_COMMON_CONTEXT* oscoap_new_ctx(void){
@@ -410,9 +442,12 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 	if(coap_is_request(coap_pkt)){
 		PRINTF("we have a request!\n");
 
+    //simple data, url , and so on 84...
 		external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer, 1); 
+  /***************************************************************************/
 		printf("external aad \n");
 		oscoap_printf_hex(external_aad_buffer, external_aad_size);
+  /***************************************************************************/
 	} else {
 		PRINTF("we have a response!\n");
 
@@ -421,11 +456,7 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 		oscoap_printf_hex(external_aad_buffer, external_aad_size);
 	}
 
-
-	//  PRINTF_HEX(cose->aad, cose->aad_len);
-	OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
-	//****//
-	//  PRINTF_HEX(cose->aad, cose->aad_len);
+ 	OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
 
 	size_t aad_length = OPT_COSE_AAD_length(&cose, coap_is_request(coap_pkt));
 	uint8_t aad_buffer[aad_length];
@@ -434,34 +465,66 @@ size_t oscoap_prepare_message(void* packet, uint8_t *buffer){
 	uint8_t *tmp_buffer = aad_buffer;
 	OPT_COSE_Build_AAD(&cose, tmp_buffer);
 
-
-
 	OPT_COSE_SetAAD(&cose, aad_buffer, aad_length);
 
+  /***************************************************************************/
+  printf("!@#!@#!@#!@#!@#\n");
+  //Encrpted 83...
 	PRINTF_HEX(cose.aad, cose.aad_len);
+  /***************************************************************************/
 
 	size_t ciphertext_len = cose.plaintext_len + 8; 
 
 	OPT_COSE_SetCiphertextBuffer(&cose, plaintext_buffer, ciphertext_len);
 
+  /* only print encrypted date */ 
 	OPT_COSE_Encrypt(&cose, coap_pkt->context->SENDER_CONTEXT->SENDER_KEY, CONTEXT_KEY_LEN);
 
+  /************************************* signature*********************************/
+  edsign_sec_to_pub(public_key, private_key);
+  PRINTF("cose.aad\n");
+  PRINTF_HEX(cose.aad, cose.aad_len);
+  edsign_sign(signature, public_key, private_key, cose.aad, cose.aad_len);
+  PRINTF("real signature\n");
+  PRINTF_HEX(signature, 64);
+
+  /* setting signature */
+  OPT_COSE_SetSign(&cose, signature, 64);
+  PRINTF("set signature in cose\n");
+  PRINTF_HEX(cose.signature, cose.signature_len);
+
+  /* ED25519 verifying */
+  PRINTF("Verifying\n");
+  assert(edsign_verify(signature, public_key, cose.aad, cose.aad_len));
+
+  /* printing key pairs and signature */
+	oscoap_printf_hex(public_key, 32);
+	oscoap_printf_hex(private_key, 32);	
+  PRINTF_HEX(signature, 64);
+  
+  /* fixed signature */
+  OPT_COSE_SetSign(&cose, signature_fix, 64);
+
 	size_t serialized_len = OPT_COSE_Encoded_length(&cose);
-	serialized_len++;
+	//serialized_len++;
+  printf("this is serialized length: %d\n", serialized_len);
 
 	uint8_t opt_buffer[serialized_len];
 	OPT_COSE_Encode(&cose, opt_buffer);
+
+  printf("opt_buffer\n");
+  PRINTF_HEX(opt_buffer, serialized_len);
 
 	if(coap_pkt->payload_len > 0){
 		coap_set_object_security_payload(coap_pkt, opt_buffer, serialized_len);	
 	}else{
 		coap_set_header_object_security_content(packet, opt_buffer, serialized_len);     
 	}
-
 	coap_set_header_max_age(packet, 0);
-	clear_options(coap_pkt);
-	size_t serialized_size =  coap_serialize_message_coap(packet, buffer);
 
+	clear_options(coap_pkt);
+
+	size_t serialized_size =  coap_serialize_message_coap(packet, buffer);
 
 	PRINTF("Serialized size = %d\n", serialized_size);
 	PRINTF_HEX(buffer, serialized_size);
@@ -527,15 +590,15 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 	uint8_t external_aad_buffer[external_aad_size]; 
 
 	if(coap_is_request(coap_pkt)){//this should match reqests
-		//  PRINTF("we have a incomming request!\n");
+		  PRINTF("we have a incomming request!\n");
 		external_aad_size = oscoap_prepare_request_external_aad(coap_pkt, external_aad_buffer, 0);
-		//  printf("external aad \n");
-		//  oscoap_printf_hex(external_aad_buffer, external_aad_size);
+		  printf("external aad \n");
+		  oscoap_printf_hex(external_aad_buffer, external_aad_size);
 	} else {
-		//  PRINTF("we have a incomming response!\n");
+		  PRINTF("we have a incomming response!\n");
 		external_aad_size = oscoap_prepare_response_external_aad(coap_pkt, external_aad_buffer, 0);
-		//  printf("external aad \n");
-		//  oscoap_printf_hex(external_aad_buffer, external_aad_size); 
+		  printf("external aad \n");
+		  oscoap_printf_hex(external_aad_buffer, external_aad_size); 
 	}
 
 	OPT_COSE_SetExternalAAD(&cose, external_aad_buffer, external_aad_size);
@@ -550,6 +613,12 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
 	size_t plaintext_len = cose.ciphertext_len - 8;
 	uint8_t plaintext_buffer[plaintext_len];
 	OPT_COSE_SetContent(&cose, plaintext_buffer, plaintext_len);
+  /* signature :  before decryption, need to verify signature  from listener */
+  PRINTF_HEX(public_key,32);
+  PRINTF_HEX(private_key,32);
+  PRINTF("This is signature from listener: \n");
+  PRINTF_HEX(cose.signature, cose.signature_len);
+  assert(edsign_verify(cose.signature, public_key, cose.ciphertext, cose.ciphertext_len));
 
 	if(OPT_COSE_Decrypt(&cose, ctx->RECIPIENT_CONTEXT->RECIPIENT_KEY, CONTEXT_KEY_LEN)){
 		return OSCOAP_CRYPTO_ERROR;
@@ -600,6 +669,8 @@ coap_set_header_object_security_content(void *packet, const uint8_t* os, size_t 
 	if(IS_OPTION(coap_pkt, COAP_OPTION_OBJECT_SECURITY)){
 		coap_pkt->object_security_len = os_len;
 		coap_pkt->object_security = os;
+    printf("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+    PRINTF_HEX(coap_pkt->object_security, coap_pkt->object_security_len);
 		return coap_pkt->object_security_len;
 	}
 	return 0;
@@ -926,9 +997,9 @@ void oscoap_printf_hex(unsigned char *data, unsigned int len){
 	int i=0;
 	for(i=0; i<len; i++)
 	{
-		PRINTF(" %02x ",data[i]);
+		printf(" %02x ",data[i]);
 	}
-	PRINTF("\n");
+	printf("\n");
 }
 
 void oscoap_printf_char(unsigned char *data, unsigned int len){

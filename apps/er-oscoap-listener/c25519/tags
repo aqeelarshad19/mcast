@@ -1,0 +1,175 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+C25519_EXPONENT_SIZE	src/c25519.h	26;"	d
+C25519_H_	src/c25519.h	8;"	d
+CC	Makefile	/^CC = $(CROSS_COMPILE)gcc$/;"	m
+CROSS_COMPILE	Makefile	/^CROSS_COMPILE ?=$/;"	m
+ED25519_EXPONENT_SIZE	src/ed25519.h	59;"	d
+ED25519_H_	src/ed25519.h	8;"	d
+ED25519_PACK_SIZE	src/ed25519.h	53;"	d
+EDSIGN_H_	src/edsign.h	8;"	d
+EDSIGN_PUBLIC_KEY_SIZE	src/edsign.h	35;"	d
+EDSIGN_SECRET_KEY_SIZE	src/edsign.h	30;"	d
+EDSIGN_SIGNATURE_SIZE	src/edsign.h	40;"	d
+EXPANDED_SIZE	src/edsign.c	12;"	d	file:
+F25519_H_	src/f25519.h	8;"	d
+F25519_SIZE	src/f25519.h	24;"	d
+FPRIME_H_	src/fprime.h	8;"	d
+FPRIME_SIZE	src/fprime.h	23;"	d
+HOST_CFLAGS	Makefile	/^HOST_CFLAGS = -O1 -Wall -ggdb -Isrc $(CFLAGS)$/;"	m
+MAX_MSG_SIZE	tests/test_edsign.c	13;"	d	file:
+MORPH25519_H_	src/morph25519.h	8;"	d
+NUM_VECTORS	tests/test_c25519.c	661;"	d	file:
+NUM_VECTORS	tests/test_edsign.c	1152;"	d	file:
+NUM_VECTORS	tests/test_sha512.c	79;"	d	file:
+SHA512_BLOCK_SIZE	src/sha512.h	34;"	d
+SHA512_HASH_SIZE	src/sha512.h	47;"	d
+SHA512_H_	src/sha512.h	8;"	d
+TESTS	Makefile	/^TESTS = \\$/;"	m
+c25519_base_x	src/c25519.c	/^const uint8_t c25519_base_x[F25519_SIZE] = {9};$/;"	v
+c25519_prepare	src/c25519.h	/^static inline void c25519_prepare(uint8_t *key)$/;"	f
+c25519_smult	src/c25519.c	/^void c25519_smult(uint8_t *result, const uint8_t *q, const uint8_t *e)$/;"	f
+check_valid	tests/test_ed25519.c	/^static void check_valid(const uint8_t *x, const uint8_t *y)$/;"	f	file:
+curve_d	tests/test_ed25519.c	/^static const uint8_t curve_d[F25519_SIZE] = {$/;"	v	file:
+e	tests/test_c25519.c	/^	const uint8_t e[C25519_EXPONENT_SIZE];$/;"	m	struct:test_vector	file:
+ed25519_add	src/ed25519.c	/^void ed25519_add(struct ed25519_pt *r,$/;"	f
+ed25519_base	src/ed25519.c	/^const struct ed25519_pt ed25519_base = {$/;"	v	typeref:struct:ed25519_pt
+ed25519_copy	src/ed25519.h	/^static inline void ed25519_copy(struct ed25519_pt *dst,$/;"	f
+ed25519_d	src/ed25519.c	/^static const uint8_t ed25519_d[F25519_SIZE] = {$/;"	v	file:
+ed25519_double	src/ed25519.c	/^void ed25519_double(struct ed25519_pt *r, const struct ed25519_pt *p)$/;"	f
+ed25519_k	src/ed25519.c	/^static const uint8_t ed25519_k[F25519_SIZE] = {$/;"	v	file:
+ed25519_neutral	src/ed25519.c	/^const struct ed25519_pt ed25519_neutral = {$/;"	v	typeref:struct:ed25519_pt
+ed25519_order	src/edsign.c	/^static const uint8_t ed25519_order[FPRIME_SIZE] = {$/;"	v	file:
+ed25519_order	tests/test_ed25519.c	/^static const uint8_t ed25519_order[ED25519_EXPONENT_SIZE] = {$/;"	v	file:
+ed25519_pack	src/ed25519.c	/^void ed25519_pack(uint8_t *c, const uint8_t *x, const uint8_t *y)$/;"	f
+ed25519_prepare	src/ed25519.h	/^static inline void ed25519_prepare(uint8_t *e)$/;"	f
+ed25519_project	src/ed25519.c	/^void ed25519_project(struct ed25519_pt *p,$/;"	f
+ed25519_pt	src/ed25519.h	/^struct ed25519_pt {$/;"	s
+ed25519_smult	src/ed25519.c	/^void ed25519_smult(struct ed25519_pt *r_out, const struct ed25519_pt *p,$/;"	f
+ed25519_try_unpack	src/ed25519.c	/^uint8_t ed25519_try_unpack(uint8_t *x, uint8_t *y, const uint8_t *comp)$/;"	f
+ed25519_unproject	src/ed25519.c	/^void ed25519_unproject(uint8_t *x, uint8_t *y,$/;"	f
+edsign_sec_to_pub	src/edsign.c	/^void edsign_sec_to_pub(uint8_t *pub, const uint8_t *secret)$/;"	f
+edsign_sign	src/edsign.c	/^void edsign_sign(uint8_t *signature, const uint8_t *pub,$/;"	f
+edsign_verify	src/edsign.c	/^uint8_t edsign_verify(const uint8_t *signature, const uint8_t *pub,$/;"	f
+exp2523	src/f25519.c	/^static void exp2523(uint8_t *r, const uint8_t *x, uint8_t *s)$/;"	f	file:
+expand_key	src/edsign.c	/^static void expand_key(uint8_t *expanded, const uint8_t *secret)$/;"	f	file:
+ey2ex	src/morph25519.c	/^static uint8_t ey2ex(uint8_t *x, const uint8_t *y, int parity)$/;"	f	file:
+f25519_add	src/f25519.c	/^void f25519_add(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_copy	src/f25519.h	/^static inline void f25519_copy(uint8_t *x, const uint8_t *a)$/;"	f
+f25519_eq	src/f25519.c	/^uint8_t f25519_eq(const uint8_t *x, const uint8_t *y)$/;"	f
+f25519_inv	src/f25519.c	/^void f25519_inv(uint8_t *r, const uint8_t *x)$/;"	f
+f25519_inv__distinct	src/f25519.c	/^void f25519_inv__distinct(uint8_t *r, const uint8_t *x)$/;"	f
+f25519_load	src/f25519.c	/^void f25519_load(uint8_t *x, uint32_t c)$/;"	f
+f25519_mul	src/f25519.c	/^void f25519_mul(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_mul__distinct	src/f25519.c	/^void f25519_mul__distinct(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_mul_c	src/f25519.c	/^void f25519_mul_c(uint8_t *r, const uint8_t *a, uint32_t b)$/;"	f
+f25519_neg	src/f25519.c	/^void f25519_neg(uint8_t *r, const uint8_t *a)$/;"	f
+f25519_normalize	src/f25519.c	/^void f25519_normalize(uint8_t *x)$/;"	f
+f25519_one	src/f25519.c	/^const uint8_t f25519_one[F25519_SIZE] = {1};$/;"	v
+f25519_select	src/f25519.c	/^void f25519_select(uint8_t *dst,$/;"	f
+f25519_sqrt	src/f25519.c	/^void f25519_sqrt(uint8_t *r, const uint8_t *a)$/;"	f
+f25519_sub	src/f25519.c	/^void f25519_sub(uint8_t *r, const uint8_t *a, const uint8_t *b)$/;"	f
+f25519_zero	src/f25519.c	/^const uint8_t f25519_zero[F25519_SIZE] = {0};$/;"	v
+fprime_add	src/fprime.c	/^void fprime_add(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
+fprime_copy	src/fprime.h	/^static inline void fprime_copy(uint8_t *x, const uint8_t *a)$/;"	f
+fprime_eq	src/fprime.c	/^uint8_t fprime_eq(const uint8_t *x, const uint8_t *y)$/;"	f
+fprime_from_bytes	src/fprime.c	/^void fprime_from_bytes(uint8_t *n,$/;"	f
+fprime_inv	src/fprime.c	/^void fprime_inv(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
+fprime_load	src/fprime.c	/^void fprime_load(uint8_t *x, uint32_t c)$/;"	f
+fprime_mul	src/fprime.c	/^void fprime_mul(uint8_t *r, const uint8_t *a, const uint8_t *b,$/;"	f
+fprime_normalize	src/fprime.c	/^void fprime_normalize(uint8_t *x, const uint8_t *modulus)$/;"	f
+fprime_one	src/fprime.c	/^const uint8_t fprime_one[FPRIME_SIZE] = {1};$/;"	v
+fprime_select	src/fprime.c	/^void fprime_select(uint8_t *dst,$/;"	f
+fprime_sub	src/fprime.c	/^void fprime_sub(uint8_t *r, const uint8_t *a, const uint8_t *modulus)$/;"	f
+fprime_zero	src/fprime.c	/^const uint8_t fprime_zero[FPRIME_SIZE] = {0};$/;"	v
+generate_k	src/edsign.c	/^static void generate_k(uint8_t *k, const uint8_t *kgen_key,$/;"	f	file:
+h	src/sha512.h	/^	uint64_t	h[8];$/;"	m	struct:sha512_state
+hash	tests/test_sha512.c	/^	uint8_t		hash[SHA512_HASH_SIZE];$/;"	m	struct:test_vector	file:
+hash_message	src/edsign.c	/^static void hash_message(uint8_t *z, const uint8_t *r, const uint8_t *a,$/;"	f	file:
+hash_with_prefix	src/edsign.c	/^static void hash_with_prefix(uint8_t *out_fp,$/;"	f	file:
+load64	src/sha512.c	/^static inline uint64_t load64(const uint8_t *x)$/;"	f	file:
+main	tests/test_c25519.c	/^int main(void)$/;"	f
+main	tests/test_ed25519.c	/^int main(void)$/;"	f
+main	tests/test_edsign.c	/^int main(void)$/;"	f
+main	tests/test_f25519.c	/^int main(void)$/;"	f
+main	tests/test_fprime.c	/^int main(void)$/;"	f
+main	tests/test_morph25519.c	/^int main(void)$/;"	f
+main	tests/test_sha512.c	/^int main(void)$/;"	f
+message	tests/test_edsign.c	/^	const uint8_t	message[MAX_MSG_SIZE];$/;"	m	struct:test_vector	file:
+min_int	src/fprime.c	/^static inline int min_int(int a, int b)$/;"	f	file:
+mlen	tests/test_edsign.c	/^	size_t		mlen;$/;"	m	struct:test_vector	file:
+modulus	tests/test_fprime.c	/^static const uint8_t modulus[FPRIME_SIZE] = {$/;"	v	file:
+morph25519_e2m	src/morph25519.c	/^void morph25519_e2m(uint8_t *montgomery, const uint8_t *y)$/;"	f
+morph25519_eparity	src/morph25519.h	/^static inline int morph25519_eparity(const uint8_t *edwards_x)$/;"	f
+morph25519_m2e	src/morph25519.c	/^uint8_t morph25519_m2e(uint8_t *ex, uint8_t *ey,$/;"	f
+mx2ey	src/morph25519.c	/^static void mx2ey(uint8_t *ey, const uint8_t *mx)$/;"	f	file:
+p	tests/test_c25519.c	/^	const uint8_t p[F25519_SIZE];$/;"	m	struct:test_vector	file:
+pp	src/edsign.c	/^static void pp(uint8_t *packed, const struct ed25519_pt *p)$/;"	f	file:
+prime_msb	src/fprime.c	/^static int prime_msb(const uint8_t *p)$/;"	f	file:
+print_elem	tests/test_morph25519.c	/^static void print_elem(const uint8_t *e)$/;"	f	file:
+print_hex	tests/test_edsign.c	/^static void print_hex(const char *label, const uint8_t *data, int len)$/;"	f	file:
+print_point	tests/test_ed25519.c	/^static void print_point(const uint8_t *x, const uint8_t *y)$/;"	f	file:
+public	tests/test_edsign.c	/^	const uint8_t	public[EDSIGN_PUBLIC_KEY_SIZE];$/;"	m	struct:test_vector	file:
+r	tests/test_c25519.c	/^	const uint8_t r[F25519_SIZE];$/;"	m	struct:test_vector	file:
+randomize	tests/test_f25519.c	/^static void randomize(uint8_t *x)$/;"	f	file:
+randomize	tests/test_fprime.c	/^static void randomize(uint8_t *x)$/;"	f	file:
+raw_add	src/fprime.c	/^static void raw_add(uint8_t *x, const uint8_t *p)$/;"	f	file:
+raw_try_sub	src/fprime.c	/^static void raw_try_sub(uint8_t *x, const uint8_t *p)$/;"	f	file:
+rot64	src/sha512.c	/^static inline uint64_t rot64(uint64_t x, int bits)$/;"	f	file:
+round_k	src/sha512.c	/^static const uint64_t round_k[80] = {$/;"	v	file:
+secret	tests/test_edsign.c	/^	const uint8_t	secret[EDSIGN_SECRET_KEY_SIZE];$/;"	m	struct:test_vector	file:
+sha512_block	src/sha512.c	/^void sha512_block(struct sha512_state *s, const uint8_t *blk)$/;"	f
+sha512_final	src/sha512.c	/^void sha512_final(struct sha512_state *s, const uint8_t *blk,$/;"	f
+sha512_get	src/sha512.c	/^void sha512_get(const struct sha512_state *s, uint8_t *hash,$/;"	f
+sha512_init	src/sha512.h	/^static inline void sha512_init(struct sha512_state *s)$/;"	f
+sha512_initial_state	src/sha512.c	/^const struct sha512_state sha512_initial_state = { {$/;"	v	typeref:struct:sha512_state
+sha512_state	src/sha512.h	/^struct sha512_state {$/;"	s
+shift_n_bits	src/fprime.c	/^static void shift_n_bits(uint8_t *x, int n)$/;"	f	file:
+signature	tests/test_edsign.c	/^	const uint8_t	signature[EDSIGN_SIGNATURE_SIZE];$/;"	m	struct:test_vector	file:
+sm_pack	src/edsign.c	/^static void sm_pack(uint8_t *r, const uint8_t *k)$/;"	f	file:
+store64	src/sha512.c	/^static inline void store64(uint8_t *x, uint64_t v)$/;"	f	file:
+t	src/ed25519.h	/^	uint8_t		t[F25519_SIZE];$/;"	m	struct:ed25519_pt
+test	tests/test_edsign.c	/^static void test(const struct test_vector *t)$/;"	f	file:
+test	tests/test_sha512.c	/^static void test(const struct test_vector *t)$/;"	f	file:
+test_add	tests/test_ed25519.c	/^static void test_add(void)$/;"	f	file:
+test_add_sub	tests/test_f25519.c	/^static void test_add_sub(void)$/;"	f	file:
+test_add_sub	tests/test_fprime.c	/^static void test_add_sub(void)$/;"	f	file:
+test_dh	tests/test_c25519.c	/^static void test_dh(void)$/;"	f	file:
+test_dh	tests/test_ed25519.c	/^static void test_dh(void)$/;"	f	file:
+test_distributive	tests/test_f25519.c	/^static void test_distributive(void)$/;"	f	file:
+test_distributive	tests/test_fprime.c	/^static void test_distributive(void)$/;"	f	file:
+test_from_bytes	tests/test_fprime.c	/^static void test_from_bytes(void)$/;"	f	file:
+test_inv	tests/test_f25519.c	/^static void test_inv(void)$/;"	f	file:
+test_inv	tests/test_fprime.c	/^static void test_inv(void)$/;"	f	file:
+test_morph	tests/test_morph25519.c	/^static void test_morph(const uint8_t *mx,$/;"	f	file:
+test_mul	tests/test_f25519.c	/^static void test_mul(void)$/;"	f	file:
+test_mul	tests/test_fprime.c	/^static void test_mul(void)$/;"	f	file:
+test_mul_c	tests/test_f25519.c	/^static void test_mul_c(void)$/;"	f	file:
+test_normalize_big	tests/test_f25519.c	/^static void test_normalize_big(void)$/;"	f	file:
+test_normalize_big	tests/test_fprime.c	/^static void test_normalize_big(void)$/;"	f	file:
+test_normalize_gap	tests/test_f25519.c	/^static void test_normalize_gap(int k)$/;"	f	file:
+test_normalize_small	tests/test_f25519.c	/^static void test_normalize_small(void)$/;"	f	file:
+test_normalize_small	tests/test_fprime.c	/^static void test_normalize_small(void)$/;"	f	file:
+test_normalize_zero	tests/test_fprime.c	/^static void test_normalize_zero(void)$/;"	f	file:
+test_order	tests/test_ed25519.c	/^static void test_order(void)$/;"	f	file:
+test_pack	tests/test_ed25519.c	/^static void test_pack(void)$/;"	f	file:
+test_sm	tests/test_morph25519.c	/^static void test_sm(void)$/;"	f	file:
+test_sqrt	tests/test_f25519.c	/^static void test_sqrt(void)$/;"	f	file:
+test_vector	tests/test_c25519.c	/^static void test_vector(const struct test_vector *v)$/;"	f	file:
+test_vector	tests/test_c25519.c	/^struct test_vector {$/;"	s	file:
+test_vector	tests/test_edsign.c	/^struct test_vector {$/;"	s	file:
+test_vector	tests/test_sha512.c	/^struct test_vector {$/;"	s	file:
+test_vectors	tests/test_edsign.c	/^static const struct test_vector test_vectors[] = {$/;"	v	typeref:struct:test_vector	file:
+test_vectors	tests/test_sha512.c	/^static const struct test_vector test_vectors[] = {$/;"	v	typeref:struct:test_vector	file:
+text	tests/test_sha512.c	/^	const char	*text;$/;"	m	struct:test_vector	file:
+upp	src/edsign.c	/^static uint8_t upp(struct ed25519_pt *p, const uint8_t *packed)$/;"	f	file:
+vectors	tests/test_c25519.c	/^static const struct test_vector vectors[] = {$/;"	v	typeref:struct:test_vector	file:
+x	src/ed25519.h	/^	uint8_t		x[F25519_SIZE];$/;"	m	struct:ed25519_pt
+xc_diffadd	src/c25519.c	/^static void xc_diffadd(uint8_t *x5, uint8_t *z5,$/;"	f	file:
+xc_double	src/c25519.c	/^static void xc_double(uint8_t *x3, uint8_t *z3,$/;"	f	file:
+y	src/ed25519.h	/^	uint8_t		y[F25519_SIZE];$/;"	m	struct:ed25519_pt
+z	src/ed25519.h	/^	uint8_t		z[F25519_SIZE];$/;"	m	struct:ed25519_pt

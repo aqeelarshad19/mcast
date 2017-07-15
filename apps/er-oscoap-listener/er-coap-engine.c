@@ -39,6 +39,8 @@
  /*
       Modified for OSCOAP test implementation by: Martin Gunnarsson martin.gunnarsson@sics.se and Joakim Brorsson b.joakim@gmail.com
  */
+ /*   Modified for OSCOAP mutlicasting test implementation by: Jiye Park j1y3p4rk@gmail.com
+ */
 
 
 #include "sys/cc.h"
@@ -47,7 +49,7 @@
 #include <string.h>
 #include "er-coap-engine.h"
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
@@ -280,6 +282,7 @@ coap_receive(void)
     /* if(parsed correctly) */
     if(erbium_status_code == NO_ERROR) {
       if(transaction) {
+        PRINTF("in coap_receive(), coap_send_transaction call\n");
         coap_send_transaction(transaction);
       }
     } else if(erbium_status_code == MANUAL_RESPONSE) {
@@ -389,13 +392,15 @@ PROCESS_THREAD(coap_engine, ev, data)
   static int rno2 = 0;
   static struct timer t;
   while(1) {
+    PRINTF("after while, before yield\n");
     PROCESS_YIELD();
-
+    PRINTF("after yield\n");
     if(ev == tcpip_event) {
+      
       static int rn;
       rn = get_rand_second();
-      //PROCESS_WAIT_EVENT_UNTIL(timer_expired(&et));
       timer_set(&t, (clock_time_t)rn * CLOCK_SECOND);
+      //PROCESS_WAIT_EVENT_UNTIL(etimer_expired(&t));
       while ( 1 ) {
         if (timer_expired(&t)) {
           break;
@@ -403,13 +408,19 @@ PROCESS_THREAD(coap_engine, ev, data)
       }
 
       //printf("   <------ HERE coap_receive!!!, delayed %d secs\n", rn);
+      //PRINTF("before coap_receive(), in er-coap_engine.c \n");
       coap_receive();
+      PRINTF("finishing coap_receive() process\n");
 
     } else if(ev == PROCESS_EVENT_TIMER) {
       /* retransmissions are handled here */
+      /* for the signing process, retransmissions are ommitted */
+      printf("retransmission in THREAD\n");
       coap_check_transactions();
     }
+    PRINTF("while finished \n");
   } /* while (1) */
+  PRINTF("just before process_end\n");
 
   PROCESS_END();
 }

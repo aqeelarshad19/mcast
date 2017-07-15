@@ -1,0 +1,69 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MAX_MSG_SIZE	test_edsign.c	13;"	d	file:
+NUM_VECTORS	test_c25519.c	661;"	d	file:
+NUM_VECTORS	test_edsign.c	57;"	d	file:
+NUM_VECTORS	test_sha512.c	79;"	d	file:
+check_valid	test_ed25519.c	/^static void check_valid(const uint8_t *x, const uint8_t *y)$/;"	f	file:
+curve_d	test_ed25519.c	/^static const uint8_t curve_d[F25519_SIZE] = {$/;"	v	file:
+e	test_c25519.c	/^	const uint8_t e[C25519_EXPONENT_SIZE];$/;"	m	struct:test_vector	file:
+ed25519_order	test_ed25519.c	/^static const uint8_t ed25519_order[ED25519_EXPONENT_SIZE] = {$/;"	v	file:
+hash	test_sha512.c	/^	uint8_t		hash[SHA512_HASH_SIZE];$/;"	m	struct:test_vector	file:
+main	test_c25519.c	/^int main(void)$/;"	f
+main	test_ed25519.c	/^int main(void)$/;"	f
+main	test_edsign.c	/^int main(void)$/;"	f
+main	test_f25519.c	/^int main(void)$/;"	f
+main	test_fprime.c	/^int main(void)$/;"	f
+main	test_morph25519.c	/^int main(void)$/;"	f
+main	test_sha512.c	/^int main(void)$/;"	f
+message	test_edsign.c	/^	const uint8_t	message[MAX_MSG_SIZE];$/;"	m	struct:test_vector	file:
+mlen	test_edsign.c	/^	size_t		mlen;$/;"	m	struct:test_vector	file:
+modulus	test_fprime.c	/^static const uint8_t modulus[FPRIME_SIZE] = {$/;"	v	file:
+p	test_c25519.c	/^	const uint8_t p[F25519_SIZE];$/;"	m	struct:test_vector	file:
+print_elem	test_morph25519.c	/^static void print_elem(const uint8_t *e)$/;"	f	file:
+print_hex	test_edsign.c	/^static void print_hex(const char *label, const uint8_t *data, int len)$/;"	f	file:
+print_point	test_ed25519.c	/^static void print_point(const uint8_t *x, const uint8_t *y)$/;"	f	file:
+public	test_edsign.c	/^	const uint8_t	public[EDSIGN_PUBLIC_KEY_SIZE];$/;"	m	struct:test_vector	file:
+r	test_c25519.c	/^	const uint8_t r[F25519_SIZE];$/;"	m	struct:test_vector	file:
+randomize	test_f25519.c	/^static void randomize(uint8_t *x)$/;"	f	file:
+randomize	test_fprime.c	/^static void randomize(uint8_t *x)$/;"	f	file:
+secret	test_edsign.c	/^	const uint8_t	secret[EDSIGN_SECRET_KEY_SIZE];$/;"	m	struct:test_vector	file:
+signature	test_edsign.c	/^	const uint8_t	signature[EDSIGN_SIGNATURE_SIZE];$/;"	m	struct:test_vector	file:
+test	test_edsign.c	/^static void test(const struct test_vector *t)$/;"	f	file:
+test	test_sha512.c	/^static void test(const struct test_vector *t)$/;"	f	file:
+test_add	test_ed25519.c	/^static void test_add(void)$/;"	f	file:
+test_add_sub	test_f25519.c	/^static void test_add_sub(void)$/;"	f	file:
+test_add_sub	test_fprime.c	/^static void test_add_sub(void)$/;"	f	file:
+test_dh	test_c25519.c	/^static void test_dh(void)$/;"	f	file:
+test_dh	test_ed25519.c	/^static void test_dh(void)$/;"	f	file:
+test_distributive	test_f25519.c	/^static void test_distributive(void)$/;"	f	file:
+test_distributive	test_fprime.c	/^static void test_distributive(void)$/;"	f	file:
+test_from_bytes	test_fprime.c	/^static void test_from_bytes(void)$/;"	f	file:
+test_inv	test_f25519.c	/^static void test_inv(void)$/;"	f	file:
+test_inv	test_fprime.c	/^static void test_inv(void)$/;"	f	file:
+test_morph	test_morph25519.c	/^static void test_morph(const uint8_t *mx,$/;"	f	file:
+test_mul	test_f25519.c	/^static void test_mul(void)$/;"	f	file:
+test_mul	test_fprime.c	/^static void test_mul(void)$/;"	f	file:
+test_mul_c	test_f25519.c	/^static void test_mul_c(void)$/;"	f	file:
+test_normalize_big	test_f25519.c	/^static void test_normalize_big(void)$/;"	f	file:
+test_normalize_big	test_fprime.c	/^static void test_normalize_big(void)$/;"	f	file:
+test_normalize_gap	test_f25519.c	/^static void test_normalize_gap(int k)$/;"	f	file:
+test_normalize_small	test_f25519.c	/^static void test_normalize_small(void)$/;"	f	file:
+test_normalize_small	test_fprime.c	/^static void test_normalize_small(void)$/;"	f	file:
+test_normalize_zero	test_fprime.c	/^static void test_normalize_zero(void)$/;"	f	file:
+test_order	test_ed25519.c	/^static void test_order(void)$/;"	f	file:
+test_pack	test_ed25519.c	/^static void test_pack(void)$/;"	f	file:
+test_sm	test_morph25519.c	/^static void test_sm(void)$/;"	f	file:
+test_sqrt	test_f25519.c	/^static void test_sqrt(void)$/;"	f	file:
+test_vector	test_c25519.c	/^static void test_vector(const struct test_vector *v)$/;"	f	file:
+test_vector	test_c25519.c	/^struct test_vector {$/;"	s	file:
+test_vector	test_edsign.c	/^struct test_vector {$/;"	s	file:
+test_vector	test_sha512.c	/^struct test_vector {$/;"	s	file:
+test_vectors	test_edsign.c	/^static const struct test_vector test_vectors[] = {$/;"	v	typeref:struct:test_vector	file:
+test_vectors	test_sha512.c	/^static const struct test_vector test_vectors[] = {$/;"	v	typeref:struct:test_vector	file:
+text	test_sha512.c	/^	const char	*text;$/;"	m	struct:test_vector	file:
+vectors	test_c25519.c	/^static const struct test_vector vectors[] = {$/;"	v	typeref:struct:test_vector	file:

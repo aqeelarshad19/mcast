@@ -85,6 +85,7 @@ static int uri_switch = 0;
 #endif
 
 /* Because er-oscoap.c DEBUG mode is off, added here for printing log. */
+/*
 void oscoap_printf_hex2(unsigned char *data, unsigned int len)
 {                  
   int i=0;
@@ -94,7 +95,7 @@ void oscoap_printf_hex2(unsigned char *data, unsigned int len)
   }
   PRINTF("\n");
 }
-
+*/
 /* This function is will be passed to COAP_BLOCKING_REQUEST() to handle responses. */
 void client_chunk_handler(void *response)
 {
@@ -128,7 +129,6 @@ PROCESS_THREAD(er_example_client, ev, data)
     printf("Error creating context!\n");
   }
   oscoap_set_ctx(1);
-
   printf("server ip poither %p\n", &server_ipaddr);
 
   etimer_set(&et, TOGGLE_INTERVAL * CLOCK_SECOND);

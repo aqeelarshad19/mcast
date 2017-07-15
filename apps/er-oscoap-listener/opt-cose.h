@@ -49,6 +49,9 @@ typedef struct opt_cose_encrypt_t{
 	uint8_t* sid; //protected optional
 	size_t 	 sid_len;
 
+  uint8_t *signature;
+  size_t signature_len;
+
 	/* Unprotected shall be empty */
 	
 	uint8_t *nonce;
@@ -113,5 +116,7 @@ uint8_t OPT_COSE_Decrypt(opt_cose_encrypt_t *cose, uint8_t *key, size_t key_len)
 uint8_t* OPT_COSE_GetSenderID(opt_cose_encrypt_t *cose, size_t *sid_len);        
 uint8_t* OPT_COSE_SetSenderID(opt_cose_encrypt_t *cose, uint8_t *sid_buffer, size_t sid_len);
 
+// Signing code adding
+uint8_t* OPT_COSE_SetSign(opt_cose_encrypt_t *cose, uint8_t *signature, size_t signature_len);
 
 #endif /* _OPT_COSE_H */

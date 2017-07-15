@@ -280,6 +280,7 @@ coap_receive(void)
     /* if(parsed correctly) */
     if(erbium_status_code == NO_ERROR) {
       if(transaction) {
+        PRINTF("coap_send_transaction call, NO_ERROR\n");
         coap_send_transaction(transaction);
       }
     } else if(erbium_status_code == MANUAL_RESPONSE) {
@@ -358,12 +359,17 @@ PROCESS_THREAD(coap_engine, ev, data)
   coap_init_connection(SERVER_LISTEN_PORT);
 
   while(1) {
+    printf("before yield\n");
     PROCESS_YIELD();
-
+    printf("process_yiled()\n");
     if(ev == tcpip_event) {
+
+      printf("TCPIT event\n");
       coap_receive();
     } else if(ev == PROCESS_EVENT_TIMER) {
       /* retransmissions are handled here */
+      /* for the signing process, retransmissions are ommitted */
+      PRINTF("PROCESS_THREAD, check, retrans\n");
       coap_check_transactions();
     }
   } /* while (1) */
@@ -418,11 +424,12 @@ PT_THREAD(coap_blocking_request
                                                               state->
                                                               transaction->
                                                               packet);
-
+      PRINTF("!!!!!!!!!!!!!!!!!!!!!!!!!!!!! PT_BEGIN\n");
       coap_send_transaction(state->transaction);
       PRINTF("Requested #%lu (MID %u)\n", state->block_num, request->mid);
 
       PT_YIELD_UNTIL(&state->pt, ev == PROCESS_EVENT_POLL);
+      PRINTF("after PT_YIELD_UMTIL\n");
 
       if(!state->response) {
         PRINTF("Server not responding\n");
