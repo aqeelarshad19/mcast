@@ -45,7 +45,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <assert.h>
-#include "edsign.h"
+//#include "edsign.h"
 
 #define DEBUG 1
 #if DEBUG
@@ -621,7 +621,7 @@ coap_status_t oscoap_decode_packet(coap_packet_t* coap_pkt){
   PRINTF_HEX(private_key,32);
   PRINTF("This is signature from listener: \n");
   PRINTF_HEX(cose.signature, cose.signature_len);
-  assert(edsign_verify(cose.signature, public_key, cose.ciphertext, cose.ciphertext_len));
+  //assert(edsign_verify(cose.signature, public_key, cose.ciphertext, cose.ciphertext_len));
 
   /****************** signature verifying finished **************************/
 
