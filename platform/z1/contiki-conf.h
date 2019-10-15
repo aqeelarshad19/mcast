@@ -180,13 +180,11 @@
 
 /* Handle 10 neighbors */
 #ifndef NBR_TABLE_CONF_MAX_NEIGHBORS
-// when buffer overflow happens, can reduce number of neighbors
 #define NBR_TABLE_CONF_MAX_NEIGHBORS    6
 #endif
 
 /* Handle 10 routes    */
 #ifndef UIP_CONF_MAX_ROUTES
-// To reduce buffer overflow, have to reduce number of routing times
 #define UIP_CONF_MAX_ROUTES             6
 #endif
 
